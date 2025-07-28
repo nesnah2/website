@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/mikke/mens-mentoring-website/index-inline.html#pricing -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Mentoring - Authentic Guidance for Real Men</title>
+    <link href="./Men&#39;s Mentoring - Authentic Guidance for Real Men_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./Men&#39;s Mentoring - Authentic Guidance for Real Men_files/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo h2 {
+            color: #059669;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #059669;
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+        }
+
+        .dropdown-toggle i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu a {
+            padding: 0.75rem 1.5rem;
+            display: block;
+            color: #64748b;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(5, 150, 105, 0.05);
+            color: #059669;
+        }
+
+        .dropdown-menu li:last-child a {
+            border-bottom: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #475569;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+        }
+
+        .highlight {
+            color: #059669;
+            position: relative;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #059669;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: highlight 2s ease-out forwards;
+        }
+
+        @keyframes highlight {
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: #059669;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #047857;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #475569;
+            border: 2px solid #cbd5e1;
+        }
+
+        .btn-secondary:hover {
+            border-color: #059669;
+            color: #059669;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-placeholder {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-placeholder i {
+            font-size: 8rem;
+            color: #059669;
+            opacity: 0.8;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: #64748b;
+        }
+
+        /* What to Expect Section */
+        .expectations {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .expectations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .expectation-card {
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .expectation-card:hover {
+            border-color: #059669;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
+        }
+
+        .expectation-card.positive {
+            border-left: 4px solid #059669;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(5, 150, 105, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .card-icon i {
+            font-size: 1.5rem;
+            color: #059669;
+        }
+
+        .expectation-card h4 {
+            font-size: 1.1rem;
+            color: #1e293b;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .expectations-footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(5, 150, 105, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+
+        .highlight-text {
+            font-size: 1.2rem;
+            color: #059669;
+            font-weight: 600;
+            font-style: italic;
+            margin: 0;
+        }
+
+        /* Default Mode Section */
+        .default-mode {
+            padding: 6rem 0;
+            background: #ffffff;
+        }
+
+        .story-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .story-chapter {
+            margin-bottom: 3rem;
+        }
+
+        .story-chapter h3 {
+            font-size: 1.6rem;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .story-chapter p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-chapter p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-quote {
+            font-size: 1.2rem;
+            color: #1e293b;
+            font-weight: 600;
+            font-style: italic;
+            margin: 2rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid #059669;
+        }
+
+        .warning-text {
+            font-size: 1.1rem;
+            color: #dc2626;
+            font-weight: 600;
+            margin: 1.5rem 0;
+        }
+
+        .empowerment-quote {
+            font-size: 1.3rem;
+            color: #059669;
+            font-weight: 600;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        .call-to-action {
+            font-size: 1.2rem;
+            color: #1e293b;
+            font-weight: 600;
+            margin: 2rem 0;
+        }
+
+        .freedom-quote {
+            font-size: 1.4rem;
+            color: #059669;
+            font-weight: 600;
+            font-style: italic;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .example-story {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #059669;
+        }
+
+        .default-mode-quote {
+            font-weight: 600;
+            color: #dc2626;
+            font-style: italic;
+        }
+
+        .transformation-quote {
+            font-size: 1.2rem;
+            color: #059669;
+            font-weight: 600;
+            font-style: italic;
+            margin: 1.5rem 0;
+        }
+
+        .insight-quote {
+            font-size: 1.2rem;
+            color: #1e293b;
+            font-weight: 600;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        .compassion-quote {
+            font-size: 1.1rem;
+            color: #059669;
+            font-weight: 600;
+            margin: 1.5rem 0;
+        }
+
+        .wisdom-quote {
+            font-size: 1.1rem;
+            color: #1e293b;
+            font-weight: 600;
+            margin: 1.5rem 0;
+        }
+
+        .courage-quote {
+            font-size: 1.2rem;
+            color: #dc2626;
+            font-weight: 600;
+            margin: 1.5rem 0;
+        }
+
+        .final-wisdom {
+            font-size: 1.3rem;
+            color: #059669;
+            font-weight: 600;
+            text-align: center;
+            margin: 2rem 0 0 0;
+            font-style: italic;
+        }
+
+        /* How I Work Section */
+        .how-i-work {
+            padding: 6rem 0;
+            background: #ffffff;
+        }
+
+        .work-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .work-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: rgba(5, 150, 105, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+
+        .work-intro h3 {
+            font-size: 2rem;
+            color: #059669;
+            margin-bottom: 1.5rem;
+        }
+
+        .work-intro p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .work-steps {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            border-color: #059669;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #059669;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .step h4 {
+            font-size: 1.25rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(5, 150, 105, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+        }
+        .step-icon i {
+            font-size: 1.7rem;
+            color: #059669;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+            
+            .step {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .step-number {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .image-placeholder {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .image-placeholder i {
+                font-size: 6rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Who Are You Section */
+        .who-are-you {
+            background: #f0fdf4;
+            padding: 4rem 0 2rem 0;
+            text-align: center;
+        }
+        .who-are-you-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .who-are-you h2 {
+            font-size: 2.2rem;
+            color: #059669;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        .who-are-you .pondus {
+            font-size: 1.3rem;
+            color: #1e293b;
+            font-weight: 500;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: #ffffff;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: rgba(5, 150, 105, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+
+        .about-intro p {
+            font-size: 1.2rem;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-sections {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .about-section {
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .about-section:hover {
+            border-color: #059669;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
+        }
+
+        .about-section h3 {
+            font-size: 1.5rem;
+            color: #059669;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-section p {
+            color: #64748b;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-item:hover {
+            border-color: #059669;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
+        }
+
+        .faq-item h3 {
+            font-size: 1.3rem;
+            color: #059669;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 0;
+            background: #ffffff;
+        }
+
+        .pricing-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pricing-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(5, 150, 105, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+
+        .pricing-intro h3 {
+            font-size: 1.8rem;
+            color: #059669;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .pricing-intro p {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .pricing-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-option {
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-option:hover {
+            border-color: #059669;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
+        }
+
+        .pricing-option.featured {
+            border-color: #059669;
+            background: rgba(5, 150, 105, 0.02);
+            transform: scale(1.05);
+        }
+
+        .pricing-option.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .option-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .option-header h4 {
+            font-size: 1.4rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #059669;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .save-badge {
+            background: #059669;
+            color: #ffffff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .pricing-option p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .pricing-option ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pricing-option ul li {
+            color: #64748b;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .pricing-option ul li:before {
+            content: "✓";
+            color: #059669;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .pricing-option ul li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-notes {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .note-item {
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .note-item h4 {
+            font-size: 1.2rem;
+            color: #059669;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .note-item p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-card:hover {
+            border-color: #059669;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
+        }
+
+        .testimonial-content p {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            text-align: right;
+        }
+
+        .author-name {
+            color: #059669;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: #ffffff;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-method i {
+            font-size: 1.5rem;
+            color: #059669;
+        }
+
+        .contact-method span {
+            color: #475569;
+            font-weight: 500;
+        }
+
+        .contact-form {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            color: #1e293b;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #059669;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        /* Footer */
+        .footer {
+            background: #f8fafc;
+            padding: 3rem 0 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo h3 {
+            color: #059669;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logo p {
+            color: #64748b;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #475569;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #059669;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-bottom p {
+            color: #94a3b8;
+        }
+
+        /* Responsive Design for new sections */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background-color: #ffffff;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                background: rgba(5, 150, 105, 0.05);
+                margin: 0.5rem 0;
+                display: none;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-toggle i {
+                transform: rotate(0deg);
+            }
+
+            .dropdown.active .dropdown-toggle i {
+                transform: rotate(180deg);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .footer-links {
+                justify-content: center;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .how-i-work .work-steps-journey {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 0 auto 3rem auto;
+            display: block;
+        }
+        @media (max-width: 900px) {
+            .how-i-work .work-steps-journey {
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+            .work-steps-journey .step {
+                position: static !important;
+                margin: 0 auto;
+            }
+            .work-steps-journey .journey-center {
+                display: none;
+            }
+        }
+        /* Refined step content and arrows for the journey circle */
+        .work-steps-journey .step {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 6px 24px rgba(5,150,105,0.08);
+            border: 2px solid #e2e8f0;
+            width: 210px;
+            height: 210px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            padding: 1.5rem 1rem 1rem 1rem;
+            transition: box-shadow 0.3s, border-color 0.3s;
+            overflow: hidden;
+        }
+        .work-steps-journey .step ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 170px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .work-steps-journey .step ul li {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+            line-height: 1.5;
+            position: relative;
+            padding-left: 0;
+            word-break: break-word;
+        }
+        .work-steps-journey .step ul li:last-child {
+            margin-bottom: 0;
+        }
+        .work-steps-journey .step:hover {
+            border-color: #059669;
+            box-shadow: 0 12px 32px rgba(5,150,105,0.13);
+        }
+        .work-steps-journey .step-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(5, 150, 105, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.7rem auto;
+        }
+        .work-steps-journey .step-icon i {
+            font-size: 1.4rem;
+            color: #059669;
+        }
+        .work-steps-journey .step-number {
+            width: 32px;
+            height: 32px;
+            background: #059669;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0 auto 0.5rem auto;
+        }
+        .work-steps-journey .step h4 {
+            font-size: 1.05rem;
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.01em;
+        }
+        .work-steps-journey .journey-center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 160px;
+            height: 160px;
+            background: #f0fdf4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.25rem;
+            color: #059669;
+            font-weight: 700;
+            box-shadow: 0 2px 12px rgba(5,150,105,0.07);
+            border: 2px solid #e2e8f0;
+            z-index: 2;
+            letter-spacing: 0.02em;
+        }
+
+        /* Position each step around the circle (desktop only) */
+        .work-steps-journey .step.step-1 { transform: translate(-50%, -50%) rotate(0deg) translateY(-250px) rotate(0deg); }
+        .work-steps-journey .step.step-2 { transform: translate(-50%, -50%) rotate(60deg) translateY(-250px) rotate(-60deg); }
+        .work-steps-journey .step.step-3 { transform: translate(-50%, -50%) rotate(120deg) translateY(-250px) rotate(-120deg); }
+        .work-steps-journey .step.step-4 { transform: translate(-50%, -50%) rotate(180deg) translateY(-250px) rotate(-180deg); }
+        .work-steps-journey .step.step-5 { transform: translate(-50%, -50%) rotate(240deg) translateY(-250px) rotate(-240deg); }
+        .work-steps-journey .step.step-6 { transform: translate(-50%, -50%) rotate(300deg) translateY(-250px) rotate(-300deg); }
+
+        /* Improved arrows for clockwise journey */
+        @media (min-width: 901px) {
+            .work-steps-journey .step {
+                z-index: 2;
+            }
+            .work-steps-journey .step::after {
+                content: '';
+                position: absolute;
+                width: 48px;
+                height: 48px;
+                background: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M8 24c0-8.837 7.163-16 16-16s16 7.163 16 16-7.163 16-16 16" stroke="%23059669" stroke-width="3" stroke-linecap="round"/><path d="M24 40l-6-6m6 6l6-6" stroke="%23059669" stroke-width="3" stroke-linecap="round"/></svg>') no-repeat center center;
+                background-size: 48px 48px;
+                pointer-events: none;
+                opacity: 0.7;
+            }
+            .work-steps-journey .step.step-1::after { top: 10%; left: 85%; transform: rotate(60deg); }
+            .work-steps-journey .step.step-2::after { top: 35%; left: 97%; transform: rotate(120deg); }
+            .work-steps-journey .step.step-3::after { top: 75%; left: 85%; transform: rotate(180deg); }
+            .work-steps-journey .step.step-4::after { top: 90%; left: 35%; transform: rotate(240deg); }
+            .work-steps-journey .step.step-5::after { top: 75%; left: -5%; transform: rotate(300deg); }
+            .work-steps-journey .step.step-6::after { top: 35%; left: -10%; transform: rotate(0deg); }
+        }
+
+        .main-nav.sticky { position: sticky; top: 0; z-index: 1000; background: #fff; box-shadow: 0 2px 8px rgba(30,41,59,0.04); }
+        .main-nav a.active { color: #059669; font-weight: 700; border-bottom: 2px solid #059669; }
+
+        .section-divider { width:100%;height:2px;background:#e2e8f0;margin:3rem 0 2rem 0;border-radius:1px; }
+        .expectation-card .card-icon, .step-icon, .faq-item h3:before { color:#059669;font-size:2rem; }
+
+        .step-tooltip {
+            display: none;
+            position: absolute;
+            left: 50%;
+            bottom: 110%;
+            transform: translateX(-50%);
+            background: #fff;
+            color: #1e293b;
+            border: 1.5px solid #059669;
+            border-radius: 8px;
+            padding: 1rem 1.3rem;
+            font-size: 1rem;
+            font-weight: 500;
+            box-shadow: 0 6px 24px rgba(5,150,105,0.13);
+            z-index: 100;
+            min-width: 220px;
+            max-width: 320px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            white-space: normal;
+        }
+        .step-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: #fff transparent transparent transparent;
+            filter: drop-shadow(0 2px 2px rgba(5,150,105,0.10));
+        }
+        .step:hover .step-tooltip,
+        .step:focus-within .step-tooltip {
+            display: block;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .step { position: relative; z-index: 10; }
+
+        .work-content, .work-steps-journey {
+            overflow: visible !important; /* Ensure tooltips are not cut off */
+        }
+        .step-tooltip {
+            z-index: 9999 !important; /* Always on top */
+        }
+    </style>
+
+    <script>
+        // Simple smooth scrolling function
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Dropdown functionality
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            const menu = dropdown.querySelector('.dropdown-menu');
+
+            // Desktop hover
+            dropdown.addEventListener('mouseenter', () => {
+                if (window.innerWidth > 768) {
+                    menu.style.opacity = '1';
+                    menu.style.visibility = 'visible';
+                    menu.style.transform = 'translateY(0)';
+                }
+            });
+
+            dropdown.addEventListener('mouseleave', () => {
+                if (window.innerWidth > 768) {
+                    menu.style.opacity = '0';
+                    menu.style.visibility = 'hidden';
+                    menu.style.transform = 'translateY(-10px)';
+                }
+            });
+
+            // Mobile click
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                    
+                    // Close other dropdowns
+                    dropdowns.forEach(other => {
+                        if (other !== dropdown) {
+                            other.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+            });
+        });
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(this);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const message = formData.get('message');
+                
+                // Basic validation
+                if (!name || !email || !message) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+                
+                // Simulate form submission
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    alert('Thank you for your message. I\'ll get back to you soon.');
+                    this.reset();
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                }, 2000);
+            });
+        }
+
+        // Smooth scrolling
+        document.documentElement.style.scrollBehavior = 'smooth';
+        // Scrollspy for nav highlighting
+        const navLinks = document.querySelectorAll('.main-nav a');
+        const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+        window.addEventListener('scroll', () => {
+          let current = sections[0];
+          for (const section of sections) {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 80) current = section;
+          }
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current.id);
+          });
+        });
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav" style="position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 2px 8px rgba(30,41,59,0.04);transition:box-shadow 0.2s;">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>MEN'S MENTORING</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Learn More <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#how-i-work">How I Work</a></li>
+                        <li><a href="#default-mode">The Default Mode</a></li>
+                        <li><a href="#what-to-expect">What to Expect</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Results <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Get Started <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" style="background:linear-gradient(120deg,#e0f2fe 0%,#f0fdfa 100%);padding:6rem 0 4rem 0;">
+      <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="highlight">Most men I work with</span><br>
+                    aren't broken, they're buried.
+                </h1>
+                <p class="hero-subtitle">
+                    Buried under years of responsibility, pressure, silence, and shame. 
+                    They've been stuck in patterns they don't fully understand.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn-primary" onclick="scrollToSection(&#39;how-i-work&#39;)">
+                        Discover How I Work
+                    </button>
+                    <a href="#contact" class="btn-primary" style="margin-top:2rem;display:inline-block;font-size:1.2rem;font-weight:700;padding:1rem 2.5rem;background:#059669;color:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(5,150,105,0.08);transition:background 0.2s;">Start Your Journey</a>
+                    <div class="micro-testimonial" style="margin-top:1.5rem;font-size:1.1rem;color:#475569;font-style:italic;">"This work changed my life. I finally feel like myself again."</div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder" style="background: none; border: none; box-shadow: none; padding: 0;">
+                    <img src="assets/mentor.jpg" alt="Men's Mentoring - Authentic Guidance for Real Men" style="width: 400px; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-mountain\' style=\'font-size: 8rem; color: #059669; opacity: 0.8;\'></i>';">
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who Are You Section -->
+    <section class="who-are-you" id="who-are-you">
+      <div class="container">
+        <div class="who-are-you-content">
+          <h2>Who Are You?</h2>
+          <p class="pondus" style="font-size:1.5rem;font-weight:600;color:#1e293b;line-height:1.4;margin-bottom:1.5rem;">
+            You're not here to hide.<br>
+            You're here to rise.<br>
+            <span style="color:#059669;">Break the chains. Reclaim your life.</span>
+          </p>
+          <h3 class="why-are-you-here" style="font-size:1.15rem;color:#059669;margin-bottom:0.5rem;">Why Are You Here?</h3>
+          <p class="why-are-you-here-text" style="font-size:1.1rem;font-weight:500;color:#475569;">
+            This is your call to courage.<br>Let's begin.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How I Work Section -->
+    <section id="how-i-work" class="how-i-work">
+        <div class="container">
+            <div class="section-header">
+                <h2>How I Work</h2>
+                <p>This isn't about fixing you. It's about seeing you.</p>
+            </div>
+            
+            <div class="work-content">
+                <div class="work-steps-journey">
+                    <div class="journey-center">Your Journey</div>
+                    <div class="step step-1">
+                        <div class="step-icon"><i class="fas fa-user-tie"></i></div>
+                        <div class="step-number">01</div>
+                        <h4>Presence</h4>
+                        <ul>
+                            <li>Show up as you are.</li>
+                            <li>Drop the mask.</li>
+                        </ul>
+                        <div class="step-tooltip">This is where change begins: by being fully present, honest, and open to what's real—right now.</div>
+                    </div>
+                    <div class="step step-2">
+                        <div class="step-icon"><i class="fas fa-eye"></i></div>
+                        <div class="step-number">02</div>
+                        <h4>Observe</h4>
+                        <ul>
+                            <li>See your patterns.</li>
+                            <li>Notice what's true.</li>
+                        </ul>
+                        <div class="step-tooltip">Step back and observe your life without judgment. Awareness is the first step to freedom.</div>
+                    </div>
+                    <div class="step step-3">
+                        <div class="step-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="step-number">03</div>
+                        <h4>Truth</h4>
+                        <ul>
+                            <li>Face reality.</li>
+                            <li>Speak what's real.</li>
+                        </ul>
+                        <div class="step-tooltip">Courage means facing the truth—about yourself, your life, and what you really want. No more hiding.</div>
+                    </div>
+                    <div class="step step-4">
+                        <div class="step-icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="step-number">04</div>
+                        <h4>Awareness</h4>
+                        <ul>
+                            <li>Wake up to your story.</li>
+                            <li>See the bigger picture.</li>
+                        </ul>
+                        <div class="step-tooltip">Awareness brings clarity. You see the patterns, the stories, and the possibilities for change.</div>
+                    </div>
+                    <div class="step step-5">
+                        <div class="step-icon"><i class="fas fa-heart"></i></div>
+                        <div class="step-number">05</div>
+                        <h4>Reconnect</h4>
+                        <ul>
+                            <li>Return to your values.</li>
+                            <li>Find your strength.</li>
+                        </ul>
+                        <div class="step-tooltip">Reconnect with your core values and inner strength. This is where you find your power and direction.</div>
+                    </div>
+                    <div class="step step-6">
+                        <div class="step-icon"><i class="fas fa-hammer"></i></div>
+                        <div class="step-number">06</div>
+                        <h4>Rebuild</h4>
+                        <ul>
+                            <li>Create new habits.</li>
+                            <li>Live your truth.</li>
+                        </ul>
+                        <div class="step-tooltip">Now you build a new life—one choice at a time. This is where real transformation happens.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Default Mode Section -->
+    <section id="default-mode" class="default-mode">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="font-size:2.2rem;color:#059669;font-weight:800;letter-spacing:0.01em;">The Default Mode</h2>
+                <p style="font-size:1.15rem;color:#475569;font-weight:500;">The silent pattern that runs your life—until you see it.</p>
+            </div>
+
+            <div class="story-content" style="max-width:700px;margin:0 auto;">
+                <div class="story-chapter" style="background:#fff;border-radius:16px;padding:2.5rem 2rem 2rem 2rem;box-shadow:0 4px 24px rgba(5,150,105,0.07);">
+                    <h3 style="font-size:1.25rem;color:#059669;font-weight:700;margin-bottom:1.2rem;">What is the Default Mode?</h3>
+                    <p style="font-size:1.08rem;color:#1e293b;margin-bottom:1.1rem;">There's a hidden script inside you. It was written by old pain, fear, and the need to survive. It whispers:</p>
+                    <p style="font-size:1.08rem;color:#dc2626;font-weight:600;margin-bottom:1.1rem;">"You're not enough."<br>"Stay in control."<br>"Don't show weakness."</p>
+                    <p style="font-size:1.08rem;color:#1e293b;margin-bottom:1.1rem;">You didn't choose it. But it shapes every thought, every reaction, every relationship.</p>
+                    <div style="font-size:1.08rem;color:#059669;font-weight:700;background:#f0fdf4;padding:1rem 1.2rem;border-radius:8px;margin-bottom:1.3rem;">It was built to protect you. Now, it keeps you stuck.</div>
+
+                    <h3 style="font-size:1.18rem;color:#059669;font-weight:700;margin-bottom:1.1rem;margin-top:2rem;">The Wake-Up</h3>
+                    <p style="font-size:1.08rem;color:#1e293b;margin-bottom:1.1rem;">You defend its lies like they're gospel. You hurt yourself and others just to stay loyal to the script. But the moment you see the strings—and realize you can cut them—is the moment you take your power back.</p>
+                    <div style="font-size:1.08rem;color:#059669;font-weight:700;background:#f0fdf4;padding:1rem 1.2rem;border-radius:8px;margin-bottom:1.3rem;">The cage wasn't built for you. You were born to break free.</div>
+
+                    <h3 style="font-size:1.18rem;color:#059669;font-weight:700;margin-bottom:1.1rem;margin-top:2rem;">A Real Story</h3>
+                    <p style="font-size:1.08rem;color:#1e293b;margin-bottom:1.1rem;">A man I worked with believed, "If I show vulnerability, I'll lose respect." He built armor to survive. But that armor kept him alone. When he finally opened up, he felt seen—not for holding it together, but for letting go.</p>
+                    <div style="font-size:1.08rem;color:#059669;font-weight:700;font-style:italic;background:#f0fdf4;padding:1rem 1.2rem;border-radius:8px;margin-bottom:1.3rem;">"I thought being humble meant lowering myself. But it's not humiliation. It's humanity."</div>
+
+                    <h3 style="font-size:1.18rem;color:#059669;font-weight:700;margin-bottom:1.1rem;margin-top:2rem;">Why It Matters</h3>
+                    <p style="font-size:1.08rem;color:#1e293b;margin-bottom:1.1rem;">Your default mode shapes everything: how you see yourself, others, and the world. It decides what you fear, what you avoid, and what you believe you can't have or be.</p>
+                    <div style="font-size:1.08rem;color:#059669;font-weight:700;background:#f0fdf4;padding:1rem 1.2rem;border-radius:8px;margin-bottom:1.3rem;">Seeing your default mode is like turning on the lights in a dark room. Suddenly, you see the obstacles you never knew were there.</div>
+                    <p style="font-size:1.08rem;color:#1e293b;margin-bottom:1.1rem;">Spot it, and you gain the power to choose differently. Stop running on old scripts. Start writing new ones.</p>
+                    <div style="font-size:1.08rem;color:#059669;font-weight:700;background:#f0fdf4;padding:1rem 1.2rem;border-radius:8px;">You can't outthink the default mode. You have to meet it, face it, and break it.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Expect Section -->
+    <section id="what-to-expect" class="expectations">
+        <div class="container">
+            <div class="section-header">
+                <h2>What You Can Expect</h2>
+                <p>Real transformation, not quick fixes</p>
+            </div>
+
+            <div class="expectations-grid">
+                <div class="expectation-card positive">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4>A deeper sense of calm, less need to escape</h4>
+                </div>
+                
+                <div class="expectation-card positive">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4>The ability to meet emotions without fear or shame</h4>
+                </div>
+                
+                <div class="expectation-card positive">
+                    <div class="card-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h4>A new connection to their body and inner truth</h4>
+                </div>
+                
+                <div class="expectation-card positive">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h4>Greater clarity in relationships, work, and decisions</h4>
+                </div>
+                
+                <div class="expectation-card positive">
+                    <div class="card-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4>The end of the lie: "I'm fine"</h4>
+                </div>
+                <div class="expectation-card positive">
+                    <div class="card-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h4>A renewed drive to live with purpose and courage</h4>
+                </div>
+            </div>
+
+            <div class="expectations-footer">
+                <p class="highlight-text">
+                    Not because life suddenly becomes easy. But because you stop hiding from yourself.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Testimonials</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"My sessions with Mikkel truly hit SPOT ON! It might sound wild, but when I talk to Mikkel, it feels like coming 'home' — to safety. A safe space where I can share directly from the heart without worrying about how it will be received. There's always room and space to reflect on the development I'm in right now, and at the same time Mikkel asks curious questions that help me go even deeper into myself — and toward where I want to go. Thank you for being you, Mikkel."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">- M</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"In my journey with Mikkel so far, I've worked on giving myself the tools to be kind to myself, to bring structure into my everyday life, and to feel like a new person. A person who is actually living, not just running on autopilot. It has been worth its weight in gold for me."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">- Nicolai</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Stuck in endless thinking about quick solutions. Focused on look and being liked. Restless, not able to enjoy the presence. More inner peace. Able to reflect and be grateful with nothing going on. Found unachievable inner standards was guiding his life. Through several sessions with Mikkel as mentor, I have found support in my personal development. Mikkel is always present and steps in every time it's needed. Exactly what's needed when working on yourself."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">- Jakob</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Often, I was physically restless and fearful prior to our sessions, but the relief was amazing. During our work, I gained greater awareness of myself and why I kept speaking badly about myself. Now, I know the feeling of peace, and how to get there. Thanks for this journey."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">- Kevin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>You're not lazy. You're not broken. You're just stuck.</h2>
+                <p>Maybe you can't put your finger on it, but something feels off.</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-intro">
+                    <p>You've got responsibilities. You try to show up. But there's a restlessness inside you, a sense of being unanchored.</p>
+                    <p>Like you've lost touch with something essential, and you're not even sure when or how it happened.</p>
+                    <p>Most men I work with feel this way before they reach out. Some carry shame without knowing why. Others feel numb, angry, or tired of pretending. And almost all of them say the same thing: "I should be fine. But I'm not."</p>
+                </div>
+
+                <div class="about-sections">
+                    <div class="about-section">
+                        <h3>My Story</h3>
+                        <p>I know that space well. For years, I lived with a tight grip on control. I performed, I pushed, I kept it together. From the outside, I was strong, responsible, reliable. But inside, I was disconnected, from my body, my emotions, my truth.</p>
+                        <p>I didn't know how to stop. I didn't even know what I was running from. Until life finally caught up with me, and I had to face the truth: I wasn't living. I was just surviving.</p>
+                    </div>
+
+                    <div class="about-section">
+                        <h3>Why I Do This Work</h3>
+                        <p>I'm a trained and certified mentor, but what truly sets me apart is that I've lived this journey myself. With over seven years of experience working directly with men, I've seen how deeply these struggles run.</p>
+                        <p>I work with men who feel stuck in patterns of escape, bitterness, and despair, men who have hidden the truth about themselves so deeply that they no longer know who they are or why they act the way they do.</p>
+                        <p>My work is rooted in trust. The goal is self-observation, honesty, and a spiritual connection with oneself.</p>
+                        <p>Men gain the ability to meet themselves raw and unfiltered—without judgment or self-hate. This brings greater peace, less escape, and more presence.</p>
+                        <p>Through our work together, men reclaim their inner truth, break free from self-sabotage, and build a grounded life with more clarity, responsibility, and authentic connection, to themselves and others.</p>
+                        <p>I've learned to love the work of being with myself. It brings a smile when old negative patterns disappear only to reappear unexpectedly. Now, I simply know that it's not something I need to act on.</p>
+                    </div>
+
+                    <div class="about-section">
+                        <h3>Who I Am</h3>
+                        <p>I'm a father of four, and my family is at the core of who I am. Fatherhood has taught me patience, humility, and the profound importance of presence, lessons that constantly challenge me to grow.</p>
+                        <p>My own journey has been far from perfect. I've faced failure, guilt, avoidance, and deep confusion. I've wrestled with shame and self-doubt, and I've had to rebuild myself more than once. But every setback has been a doorway to greater self-awareness and resilience.</p>
+                        <p>I've learned that true strength isn't about having it all figured out or never falling, it's about showing up, even when it's hard, and being honest with yourself.</p>
+                        <p>This work is deeply personal for me because I've lived it. I'm not coming from theory alone; I bring real-life experience, vulnerability, and a commitment to growth.</p>
+                        <p>I'm not here to rescue you or hand you answers. I'm here to walk beside you, with presence, challenge, honesty, and respect for your unique path.</p>
+                        <p>Together, we'll uncover the truth that's been buried beneath years of conditioning, silence, and survival. And from that truth, you can start to build a life rooted in authenticity, responsibility, and peace.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pricing</h2>
+                <p>Simple, transparent, no hidden agendas</p>
+            </div>
+            
+            <div class="pricing-content">
+                <div class="pricing-intro">
+                    <h3>Transparent Pricing - No Secrets</h3>
+                    <p>I believe in being honest about what real transformation costs. Most men need more than one session to break free from their default mode. Here are your options:</p>
+                </div>
+
+                <div class="pricing-options">
+                    <div class="pricing-option featured">
+                        <div class="option-header">
+                            <h4>Free Intro Session</h4>
+                            <div class="price">$0</div>
+                        </div>
+                        <p>30-minute conversation to see if we're a good fit. No charge, no obligation, no pressure.</p>
+                        <ul>
+                            <li>30-minute video or phone call</li>
+                            <li>Get clarity on your situation</li>
+                            <li>Ask any questions</li>
+                            <li>Decide if you want to work together</li>
+                        </ul>
+                    </div>
+
+                    <div class="pricing-option">
+                        <div class="option-header">
+                            <h4>Single Session</h4>
+                            <div class="price">$200</div>
+                        </div>
+                        <p>One focused 50-minute session. Best for quick insights or as a follow-up after a package.</p>
+                        <ul>
+                            <li>50-minute 1:1 session</li>
+                            <li>Personalized guidance</li>
+                            <li>Follow-up email with key takeaways</li>
+                        </ul>
+                    </div>
+
+                    <div class="pricing-option">
+                        <div class="option-header">
+                            <h4>30-Day Package</h4>
+                            <div class="price">$375</div>
+                        </div>
+                        <p>Two 50-minute sessions over 30 days. For men ready to start real change with accountability.</p>
+                        <ul>
+                            <li>2 x 50-minute sessions (bi-weekly)</li>
+                            <li>Weekly check-in email support</li>
+                            <li>Personalized tasks between sessions</li>
+                        </ul>
+                    </div>
+
+                    <div class="pricing-option">
+                        <div class="option-header">
+                            <h4>60-Day Package</h4>
+                            <div class="price">$700</div>
+                        </div>
+                        <p>Four 50-minute sessions over 60 days. For men who want to build momentum and deeper change.</p>
+                        <ul>
+                            <li>4 x 50-minute sessions (bi-weekly)</li>
+                            <li>Weekly check-in email support</li>
+                            <li>Personalized tasks between sessions</li>
+                        </ul>
+                    </div>
+
+                    <div class="pricing-option">
+                        <div class="option-header">
+                            <h4>6-Month Package</h4>
+                            <div class="price">$1,950</div>
+                        </div>
+                        <p>Twelve 50-minute sessions over 6 months. For men committed to deep, lasting transformation.</p>
+                        <ul>
+                            <li>12 x 50-minute sessions (bi-weekly)</li>
+                            <li>Weekly check-in email support</li>
+                            <li>Personalized tasks between sessions</li>
+                            <li>Priority scheduling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pricing-notes">
+                    <div class="note-item">
+                        <h4>Why Packages?</h4>
+                        <p>Real change doesn't happen in one conversation. Packages give you time to practice, fail, and integrate new ways of being—with accountability and support.</p>
+                    </div>
+                    <div class="note-item">
+                        <h4>Is It Worth It?</h4>
+                        <p>That depends on what your peace, clarity, and freedom are worth to you. If you're looking for a quick fix, this isn't for you. But if you're ready to take yourself seriously, this is an investment in your future.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ready to Begin?</h2>
+                <p>Take the first step toward authentic living</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>If this resonates with you, let's have a conversation. No pressure, no sales pitch. Just two men talking about what's real.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email: [Your Email]</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <span>Phone: [Your Phone]</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required="">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required="">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Tell me about yourself and what you&#39;re seeking..." rows="5" required=""></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2>FAQ</h2>
+          <p>Answers to the most common questions men ask before starting</p>
+        </div>
+        <div class="faq-content">
+          <div class="faq-item">
+            <h3>What kind of men do you work with?</h3>
+            <p>Men who are ready to drop the mask, face themselves, and create real change. You don't need to have it all together—just a willingness to be honest and show up.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What results can I expect?</h3>
+            <p>Clarity, confidence, and a renewed sense of purpose. You'll learn to trust yourself, speak your truth, and build a life that feels real—on your terms.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Is this therapy?</h3>
+            <p>No. This is not therapy or counseling. It's direct, practical mentoring focused on presence, action, and transformation—man to man.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Is everything confidential?</h3>
+            <p>Absolutely. What you share stays between us. Trust and respect are the foundation of this work.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How do I get started?</h3>
+            <p>Just reach out. We'll have a real conversation—no pressure, no sales pitch. If it feels right, we'll take the next step together.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem;">
+          <span style="font-size:1.15rem;color:#059669;font-weight:600;">Still have questions?</span><br>
+          <a href="#contact" class="btn-primary" style="margin-top:0.7rem;display:inline-block;font-size:1rem;font-weight:600;padding:0.7rem 2rem;background:#059669;color:#fff;border-radius:6px;">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>MEN'S MENTORING</h3>
+                    <p>Authentic guidance for real men</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#how-i-work">How I Work</a>
+                    <a href="#default-mode">The Default Mode</a>
+                    <a href="#what-to-expect">What to Expect</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Men's Mentoring. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+ </section></body></html>
