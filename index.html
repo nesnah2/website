@@ -49,6 +49,37 @@
             /* Prevent elastic scroll */
             body {
                 overscroll-behavior: none;
+                scroll-behavior: smooth;
+            }
+
+            /* Better scroll snap for sections */
+            section {
+                scroll-margin-top: 80px;
+            }
+
+            /* Optimize animations for mobile */
+            * {
+                will-change: transform;
+            }
+
+            .btn-primary:active, .btn-secondary:active {
+                transform: scale(0.98);
+            }
+
+            /* Mobile-first animations */
+            @keyframes mobileSlideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .animate-in {
+                animation: mobileSlideUp 0.4s ease-out forwards;
             }
         }
 
@@ -689,18 +720,41 @@
             color: #059669;
         }
 
-        /* Responsive Design */
+        /* Enhanced Mobile Experience */
         @media (max-width: 768px) {
             .container {
-                padding: 0 15px;
+                padding: 0 20px;
             }
             
             .nav-container {
-                padding: 0 15px;
+                padding: 0 20px;
             }
             
             .nav-logo h2 {
                 font-size: 1.3rem;
+            }
+
+            /* Better section spacing for mobile */
+            section {
+                padding: 3rem 0;
+            }
+
+            .section-header {
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+                line-height: 1.3;
+            }
+
+            .section-header p {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                max-width: 100%;
+                margin: 0 auto;
             }
 
             .hamburger {
@@ -747,30 +801,52 @@
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 2rem;
-                padding: 0 15px;
+                gap: 2.5rem;
+                padding: 0 20px;
+            }
+
+            .hero {
+                min-height: 90vh;
+                padding-top: 100px;
             }
             
             .hero-title {
-                font-size: 2.5rem;
-                line-height: 1.1;
+                font-size: 2.8rem;
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
             }
             
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
+                margin-bottom: 2.5rem;
+                line-height: 1.7;
             }
             
             .hero-cta {
                 justify-content: center;
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.2rem;
+                margin-bottom: 2rem;
             }
             
             .btn-primary, .btn-secondary {
                 width: 100%;
-                max-width: 300px;
-                padding: 1.2rem 2rem;
+                max-width: 280px;
+                padding: 1.3rem 2rem;
                 font-size: 1.1rem;
+                font-weight: 700;
+                border-radius: 12px;
+            }
+
+            .hero-image {
+                order: -1;
+                margin-bottom: 1rem;
+            }
+
+            .hero-image .image-placeholder {
+                width: 280px !important;
+                height: 280px !important;
+                margin: 0 auto;
             }
             
             .step {
@@ -807,11 +883,115 @@
             .about-intro p {
                 font-size: 1.1rem;
             }
+
+            /* Mobile Contact Optimization */
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .contact-form {
+                order: -1;
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+
+            .contact-form .form-group {
+                margin-bottom: 1.8rem;
+            }
+
+            .contact-method {
+                padding: 1.2rem;
+                border-radius: 12px;
+                margin-bottom: 1rem;
+            }
+
+            .contact-method i {
+                font-size: 1.8rem;
+                margin-right: 1rem;
+            }
+
+            .contact-method span {
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
+
+            /* Floating Action Button for Mobile */
+            .mobile-contact-fab {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                background: #059669;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 20px rgba(5, 150, 105, 0.4);
+                z-index: 1000;
+                text-decoration: none;
+                color: white;
+                font-size: 1.5rem;
+                transition: all 0.3s ease;
+            }
+
+            .mobile-contact-fab:hover {
+                transform: scale(1.1);
+                box-shadow: 0 6px 25px rgba(5, 150, 105, 0.5);
+            }
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 0 10px;
+                padding: 0 15px;
+            }
+
+            /* Ultra-mobile optimizations */
+            .hero-title {
+                font-size: 2.4rem;
+                line-height: 1.2;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 1.2rem 1.5rem;
+                font-size: 1rem;
+                max-width: 100%;
+            }
+
+            section {
+                padding: 2.5rem 0;
+            }
+
+            .section-header h2 {
+                font-size: 1.9rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            /* Simplify cards for small screens */
+            .step, .benefit-card, .testimonial-card {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                border-radius: 12px;
+            }
+
+            /* Hide less important elements on very small screens */
+            .mobile-contact-fab {
+                width: 55px;
+                height: 55px;
+                bottom: 15px;
+                right: 15px;
+                font-size: 1.3rem;
             }
             
             .nav-container {
@@ -2479,5 +2659,10 @@
             }
         });
     </script>
+
+    <!-- Mobile Contact Floating Button -->
+    <a href="#contact" class="mobile-contact-fab" aria-label="Contact Us">
+        <i class="fas fa-comments"></i>
+    </a>
 
  </section></body></html>
