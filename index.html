@@ -11,6 +11,25 @@
     <link href="./Men&#39;s Mentoring - Authentic Guidance for Real Men_files/css2" rel="stylesheet">
     <link rel="stylesheet" href="./Men&#39;s Mentoring - Authentic Guidance for Real Men_files/all.min.css">
     <style>
+        /* CSS Custom Properties for Consistent Colors */
+        :root {
+            --primary-color: #059669;
+            --primary-hover: #047857;
+            --primary-light: rgba(5, 150, 105, 0.1);
+            --secondary-color: #475569;
+            --secondary-light: #64748b;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --background-primary: #ffffff;
+            --background-secondary: #f8fafc;
+            --background-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            --border-color: #e2e8f0;
+            --border-light: #f1f5f9;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+        }
+
         /* Reset and Base Styles */
         * {
             margin: 0;
@@ -21,18 +40,27 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: var(--text-primary);
+            background: var(--background-gradient);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
         }
 
-        /* Mobile performance optimizations */
+        /* Force consistent colors across all devices */
         @media (max-width: 768px) {
+            /* Ensure color variables work on mobile */
+            :root {
+                --primary-color: #059669 !important;
+                --primary-hover: #047857 !important;
+                --text-primary: #1e293b !important;
+                --text-muted: #64748b !important;
+                --background-primary: #ffffff !important;
+            }
+
             * {
-                -webkit-tap-highlight-color: rgba(5, 150, 105, 0.2);
+                -webkit-tap-highlight-color: var(--primary-light);
                 touch-action: manipulation;
             }
 
@@ -271,7 +299,7 @@
         }
 
         .highlight {
-            color: #059669;
+            color: var(--primary-color);
             position: relative;
         }
 
@@ -282,7 +310,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: #059669;
+            background: var(--primary-color);
             transform: scaleX(0);
             transform-origin: left;
             animation: highlight 2s ease-out forwards;
@@ -296,7 +324,7 @@
 
         .hero-subtitle {
             font-size: clamp(1.1rem, 2.5vw, 1.25rem);
-            color: #64748b;
+            color: var(--text-muted);
             margin-bottom: 2rem;
             line-height: 1.6;
         }
@@ -355,25 +383,25 @@
         }
 
         .btn-primary {
-            background: #059669;
-            color: #ffffff;
+            background: var(--primary-color);
+            color: var(--background-primary);
         }
 
         .btn-primary:hover {
-            background: #047857;
+            background: var(--primary-hover);
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
         }
 
         .btn-secondary {
             background: transparent;
-            color: #475569;
-            border: 2px solid #cbd5e1;
+            color: var(--text-secondary);
+            border: 2px solid var(--border-color);
         }
 
         .btn-secondary:hover {
-            border-color: #059669;
-            color: #059669;
+            border-color: var(--primary-color);
+            color: var(--primary-color);
             transform: translateY(-2px);
         }
 
@@ -923,7 +951,7 @@
                 right: 20px;
                 width: 60px;
                 height: 60px;
-                background: #059669;
+                background: var(--primary-color);
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
@@ -931,13 +959,14 @@
                 box-shadow: 0 4px 20px rgba(5, 150, 105, 0.4);
                 z-index: 1000;
                 text-decoration: none;
-                color: white;
+                color: var(--background-primary);
                 font-size: 1.5rem;
                 transition: all 0.3s ease;
             }
 
             .mobile-contact-fab:hover {
                 transform: scale(1.1);
+                background: var(--primary-hover);
                 box-shadow: 0 6px 25px rgba(5, 150, 105, 0.5);
             }
         }
