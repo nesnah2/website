@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mikkelhansen.org/sitemap.xml
+
+# Crawl-delay (optional - helps with server load)
+Crawl-delay: 1 
