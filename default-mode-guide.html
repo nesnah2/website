@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Signs You're Stuck in Default Mode - Free Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #059669;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            color: #059669;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #64748b;
+            font-style: italic;
+        }
+        
+        .intro {
+            background: #f1f5f9;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            border-left: 4px solid #059669;
+        }
+        
+        .intro h2 {
+            color: #059669;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .sign {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            background: white;
+        }
+        
+        .sign h3 {
+            color: #059669;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sign-number {
+            background: #059669;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .sign p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #475569;
+        }
+        
+        .sign .highlight {
+            background: #fef3c7;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            color: #92400e;
+        }
+        
+        .conclusion {
+            background: linear-gradient(135deg, #059669, #047857);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .conclusion h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .conclusion p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #059669;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+        }
+        
+        .footer strong {
+            color: #059669;
+        }
+        
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #059669;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .print-button:hover {
+            background: #047857;
+            transform: translateY(-2px);
+        }
+        
+        @media print {
+            .print-button {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                font-size: 12pt;
+            }
+            
+            .container {
+                max-width: none;
+                margin: 0;
+                padding: 1rem;
+                box-shadow: none;
+            }
+            
+            .header h1 {
+                font-size: 24pt;
+                color: #059669;
+            }
+            
+            .sign {
+                page-break-inside: avoid;
+                margin-bottom: 2rem;
+            }
+            
+            .conclusion {
+                background: #f8fafc;
+                color: #333;
+                border: 2px solid #059669;
+            }
+            
+            .cta-button {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .sign h3 {
+                font-size: 1.5rem;
+            }
+            
+            .print-button {
+                position: static;
+                margin: 1rem 0;
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">📄 Save as PDF</button>
+    <div class="container">
+        <div class="header">
+            <h1>5 Signs You're Stuck in Default Mode</h1>
+            <p>A free guide for men who are tired of their own bullshit</p>
+        </div>
+        
+        <div class="intro">
+            <h2>What is Default Mode?</h2>
+            <p>Default Mode is that version of you that runs on autopilot. The one that numbs out with porn, alcohol, work, or whatever distraction you can find. The one that feels restless and angry but doesn't know why. The one that has everything but still feels empty inside.</p>
+            <p>But it's deeper than that. Default Mode is the force within that pulls us into fixed beliefs. It's the same internal story over and over again. The reason for broken promises and confusing actions, even when we have good values or intentions.</p>
+            <p><strong>I lived there for years.</strong> I thought that's just how life was supposed to feel. Until I realized I was running from myself.</p>
+        </div>
+        
+        <div class="sign">
+            <h3>
+                <span class="sign-number">1</span>
+                You're Always Busy But Never Satisfied
+            </h3>
+            <p>You fill every moment with work, projects, or whatever keeps you moving. You're constantly doing something, but you never feel like you're getting anywhere. <span class="highlight">You're running from something, but you're not sure what.</span></p>
+            <p>You tell yourself you're being productive, but deep down you know you're just avoiding the quiet moments where you might actually have to feel something.</p>
+        </div>
+        
+        <div class="sign">
+            <h3>
+                <span class="sign-number">2</span>
+                You Numb Yourself With Distractions
+            </h3>
+            <p>Porn, alcohol, video games, social media, work, exercise, anything to avoid being alone with your thoughts. <span class="highlight">You've become an expert at escaping yourself.</span></p>
+            <p>You might even be proud of how "busy" you are, but you know it's just a sophisticated way to avoid feeling anything. The moment you stop moving, the uncomfortable feelings rush in.</p>
+        </div>
+        
+        <div class="sign">
+            <h3>
+                <span class="sign-number">3</span>
+                You Feel Disconnected From Your Emotions
+            </h3>
+            <p>You're either completely numb or overwhelmed by emotions you can't control. You've learned to shut down your feelings because they were too painful to face. <span class="highlight">You're living in your head, not your body.</span></p>
+            <p>You might think you're "logical" or "rational," but really you're just disconnected from what you actually feel. You make decisions from fear, not from who you really are.</p>
+        </div>
+        
+        <div class="sign">
+            <h3>
+                <span class="sign-number">4</span>
+                You're Angry But Don't Know Why
+            </h3>
+            <p>You snap at people, feel irritable for no reason, or carry a low-level rage that never quite goes away. <span class="highlight">You're angry at yourself, but you take it out on everyone else.</span></p>
+            <p>This anger is usually covering up deeper feelings of shame, fear, or helplessness. You'd rather be angry than vulnerable, so you stay stuck in the cycle.</p>
+        </div>
+        
+        <div class="sign">
+            <h3>
+                <span class="sign-number">5</span>
+                You Have Success But Still Feel Empty
+            </h3>
+            <p>You've achieved what you thought would make you happy, career success, money, relationships, but you still feel like something's missing. <span class="highlight">You're living someone else's life, not your own.</span></p>
+            <p>You keep chasing the next goal, thinking it will finally fill the void, but it never does. Because the void isn't about achievement, it's about connection to yourself.</p>
+        </div>
+        
+        <div class="conclusion">
+            <h2>If You Checked 3+ Boxes...</h2>
+            <p>You're stuck in Default Mode. And that's okay, most men are. The problem isn't that you're broken. The problem is that you've been running on autopilot instead of making conscious choices.</p>
+            <p><strong>But here's the truth:</strong> You don't have to stay stuck. You can break free from these patterns and build a life that feels real, on your terms.</p>
+            <a href="https://calendly.com/contact-mikkelhansen/30min" class="cta-button" target="_blank">Book Your Free Discovery Call</a>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Ready to break free from Default Mode?</strong></p>
+            <p>Book a free 30-minute call to see if we're a good fit. No pressure, no sales pitch, just a real conversation about what's possible for you.</p>
+        </div>
+    </div>
+</body>
+</html> 
