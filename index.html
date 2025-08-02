@@ -2128,8 +2128,8 @@
             });
         }
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
+        // Close mobile menu when clicking on a navigation link (not dropdown toggles)
+        document.querySelectorAll('.nav-menu a[href^="#"]').forEach(link => {
             link.addEventListener('click', () => {
                 if (hamburger) hamburger.classList.remove('active');
                 if (navMenu) navMenu.classList.remove('active');
@@ -2142,6 +2142,7 @@
             if (toggle) {
                 toggle.addEventListener('click', (e) => {
                     e.preventDefault();
+                    e.stopPropagation(); // Prevent event from bubbling up
                     dropdown.classList.toggle('active');
                 });
             }
