@@ -2,34 +2,77 @@
 <!-- saved from url=(0071)file:///C:/Users/mikke/mens-mentoring-website/index-inline.html#pricing -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="theme-color" content="#059669">
-    <title>Men's Mentoring - Authentic Guidance for Real Men</title>
-    <link href="./Men&#39;s Mentoring - Authentic Guidance for Real Men_files/css2" rel="stylesheet">
-    <link rel="stylesheet" href="./Men&#39;s Mentoring - Authentic Guidance for Real Men_files/all.min.css">
-    <style>
-        /* CSS Custom Properties for Consistent Colors */
-        :root {
-            --primary-color: #059669;
-            --primary-hover: #047857;
-            --primary-light: rgba(5, 150, 105, 0.1);
-            --secondary-color: #475569;
-            --secondary-light: #64748b;
-            --text-primary: #1e293b;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
-            --background-primary: #ffffff;
-            --background-secondary: #f8fafc;
-            --background-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            --border-color: #e2e8f0;
-            --border-light: #f1f5f9;
-            --shadow-light: rgba(0, 0, 0, 0.1);
-            --shadow-medium: rgba(0, 0, 0, 0.15);
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Mentoring for Men Who Are Struggling | Break Free from the Default Mode</title>
+    <meta name="description" content="For men who feel lost, stuck, and tired of their own bullshit. Break free from destructive patterns, anger, and default mode. Real transformation, not therapy. Certified mentor with 7+ years experience helping men find authentic living.">
+    <meta name="keywords" content="men struggling, men feeling lost, men stuck in rut, men feeling empty, men disconnected, men's mentoring, default mode, destructive patterns, anger issues, men's mental health, men going through motions, men feeling numb, men's transformation, real change, help for men who are struggling">
+    <meta name="author" content="Mikkel Hansen">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mikkelhansen.org/">
+    <meta property="og:title" content="Men's Mentoring for Men Who Are Struggling | Break Free from the Default Mode">
+    <meta property="og:description" content="For men who feel lost, stuck, and tired of their own bullshit. Break free from destructive patterns, anger, and default mode. Certified mentor with 7+ years experience.">
+    <meta property="og:image" content="https://mikkelhansen.org/assets/mentor.jpg">
 
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mikkelhansen.org/">
+    <meta property="twitter:title" content="Men's Mentoring for Men Who Are Struggling | Break Free from the Default Mode">
+    <meta property="twitter:description" content="For men who feel lost, stuck, and tired of their own bullshit. Break free from destructive patterns, anger, and default mode. Certified mentor with 7+ years experience.">
+    <meta property="twitter:image" content="https://mikkelhansen.org/assets/mentor.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Mikkel Hansen - Men's Mentoring for Struggling Men",
+      "description": "For men who feel lost, stuck, and tired of their own bullshit. Break free from destructive patterns, anger, and default mode.",
+      "url": "https://mikkelhansen.org",
+      "telephone": "+45-XX-XX-XX-XX",
+      "email": "contact@mikkelhansen.org",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "DK"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Mikkel Hansen",
+        "description": "Certified mentor with 7+ years experience helping men break free from default mode patterns"
+      },
+      "serviceType": "Men's Mentoring",
+      "areaServed": "Worldwide",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Mentoring Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Free Intro Session",
+              "description": "30-minute conversation to see if we're a good fit"
+            }
+          },
+          {
+            "@type": "Offer", 
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Men's Mentoring Package",
+              "description": "Transform your life through authentic mentoring"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    <style>
         /* Reset and Base Styles */
         * {
             margin: 0;
@@ -38,77 +81,13 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--background-gradient);
+            color: #1e293b;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-        }
-
-        /* Force consistent colors across all devices */
-        @media (max-width: 768px) {
-            /* Ensure color variables work on mobile */
-            :root {
-                --primary-color: #059669 !important;
-                --primary-hover: #047857 !important;
-                --text-primary: #1e293b !important;
-                --text-muted: #64748b !important;
-                --background-primary: #ffffff !important;
-            }
-
-            * {
-                -webkit-tap-highlight-color: var(--primary-light);
-                touch-action: manipulation;
-            }
-
-            img {
-                image-rendering: -webkit-optimize-contrast;
-                image-rendering: crisp-edges;
-            }
-
-            /* Smooth scrolling with momentum on iOS */
-            .nav-menu {
-                -webkit-overflow-scrolling: touch;
-            }
-
-            /* Prevent elastic scroll */
-            body {
-                overscroll-behavior: none;
-                scroll-behavior: smooth;
-            }
-
-            /* Better scroll snap for sections */
-            section {
-                scroll-margin-top: 80px;
-            }
-
-            /* Optimize animations for mobile */
-            * {
-                will-change: transform;
-            }
-
-            .btn-primary:active, .btn-secondary:active {
-                transform: scale(0.98);
-            }
-
-            /* Mobile-first animations */
-            @keyframes mobileSlideUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .animate-in {
-                animation: mobileSlideUp 0.4s ease-out forwards;
-            }
         }
 
         .container {
@@ -157,6 +136,11 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
         }
 
         .nav-menu a:hover {
@@ -214,6 +198,9 @@
             color: #64748b;
             font-size: 0.95rem;
             border-bottom: 1px solid #f1f5f9;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
         }
 
         .dropdown-menu a:hover {
@@ -229,21 +216,6 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
-            padding: 10px;
-            border-radius: 8px;
-            min-width: 44px;
-            min-height: 44px;
-            justify-content: center;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .hamburger:hover {
-            background-color: #f1f5f9;
-        }
-
-        .hamburger:active {
-            background-color: #e2e8f0;
         }
 
         .hamburger span {
@@ -251,20 +223,7 @@
             height: 3px;
             background: #475569;
             margin: 3px 0;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            border-radius: 2px;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(9px, 9px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
+            transition: 0.3s;
         }
 
         /* Hero Section */
@@ -299,7 +258,7 @@
         }
 
         .highlight {
-            color: var(--primary-color);
+            color: #059669;
             position: relative;
         }
 
@@ -310,7 +269,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: var(--primary-color);
+            background: #059669;
             transform: scaleX(0);
             transform-origin: left;
             animation: highlight 2s ease-out forwards;
@@ -324,7 +283,7 @@
 
         .hero-subtitle {
             font-size: clamp(1.1rem, 2.5vw, 1.25rem);
-            color: var(--text-muted);
+            color: #64748b;
             margin-bottom: 2rem;
             line-height: 1.6;
         }
@@ -346,62 +305,30 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             min-height: 44px;
-            min-width: 120px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Touch feedback animation */
-        .btn-primary::before, .btn-secondary::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.4s ease, height 0.4s ease;
-            pointer-events: none;
-        }
-
-        .btn-primary:active::before {
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-secondary:active::before {
-            width: 300px;
-            height: 300px;
-            background: rgba(5, 150, 105, 0.1);
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .btn-primary {
-            background: var(--primary-color);
-            color: var(--background-primary);
+            background: #059669;
+            color: #ffffff;
         }
 
         .btn-primary:hover {
-            background: var(--primary-hover);
+            background: #047857;
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--text-secondary);
-            border: 2px solid var(--border-color);
+            color: #475569;
+            border: 2px solid #cbd5e1;
         }
 
         .btn-secondary:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
+            border-color: #059669;
+            color: #059669;
             transform: translateY(-2px);
         }
 
@@ -748,133 +675,48 @@
             color: #059669;
         }
 
-        /* Enhanced Mobile Experience */
+        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
-                padding: 0 20px;
+                padding: 0 15px;
             }
             
             .nav-container {
-                padding: 0 20px;
+                padding: 0 15px;
             }
             
             .nav-logo h2 {
                 font-size: 1.3rem;
             }
-
-            /* Better section spacing for mobile */
-            section {
-                padding: 3rem 0;
-            }
-
-            .section-header {
-                margin-bottom: 2rem;
-                text-align: center;
-            }
-
-            .section-header h2 {
-                font-size: 2.2rem;
-                margin-bottom: 1rem;
-                line-height: 1.3;
-            }
-
-            .section-header p {
-                font-size: 1.1rem;
-                line-height: 1.6;
-                max-width: 100%;
-                margin: 0 auto;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background-color: rgba(255, 255, 255, 0.98);
-                width: 100%;
-                text-align: center;
-                transition: left 0.3s ease;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                backdrop-filter: blur(10px);
-                padding: 2rem 0;
-                gap: 0;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-menu li {
-                margin: 0.5rem 0;
-            }
-
-            .nav-menu a {
-                font-size: 1.1rem;
-                padding: 1rem 2rem;
-                display: block;
-                border-radius: 8px;
-                margin: 0 1rem;
-                transition: all 0.3s ease;
-            }
-
-            .nav-menu a:hover {
-                background-color: #f8fafc;
-                transform: translateY(-1px);
-            }
             
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 2.5rem;
-                padding: 0 20px;
-            }
-
-            .hero {
-                min-height: 90vh;
-                padding-top: 100px;
+                gap: 2rem;
+                padding: 0 15px;
             }
             
             .hero-title {
-                font-size: 2.8rem;
-                line-height: 1.2;
-                margin-bottom: 1.5rem;
+                font-size: clamp(2rem, 6vw, 2.5rem);
+                line-height: 1.1;
             }
             
             .hero-subtitle {
-                font-size: 1.2rem;
-                margin-bottom: 2.5rem;
-                line-height: 1.7;
+                font-size: clamp(1rem, 3vw, 1.1rem);
             }
             
             .hero-cta {
                 justify-content: center;
                 flex-direction: column;
-                gap: 1.2rem;
-                margin-bottom: 2rem;
+                gap: 1rem;
             }
             
             .btn-primary, .btn-secondary {
                 width: 100%;
-                max-width: 280px;
-                padding: 1.3rem 2rem;
+                max-width: 300px;
+                padding: 1.2rem 2rem;
                 font-size: 1.1rem;
-                font-weight: 700;
-                border-radius: 12px;
-            }
-
-            .hero-image {
-                order: -1;
-                margin-bottom: 1rem;
-            }
-
-            .hero-image .image-placeholder {
-                width: 280px !important;
-                height: 280px !important;
-                margin: 0 auto;
+                min-height: 48px;
             }
             
             .step {
@@ -888,7 +730,7 @@
             }
             
             .section-header h2 {
-                font-size: 2rem;
+                font-size: clamp(1.8rem, 4vw, 2rem);
             }
             
             .section-header p {
@@ -911,116 +753,24 @@
             .about-intro p {
                 font-size: 1.1rem;
             }
-
-            /* Mobile Contact Optimization */
-            .contact-content {
+            
+            .pricing-options {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 1.5rem;
             }
-
-            .contact-form {
-                order: -1;
-                padding: 1.5rem;
-                border-radius: 12px;
+            
+            .pricing-option.featured {
+                transform: none;
             }
-
-            .contact-form .form-group {
-                margin-bottom: 1.8rem;
-            }
-
-            .contact-method {
-                padding: 1.2rem;
-                border-radius: 12px;
-                margin-bottom: 1rem;
-            }
-
-            .contact-method i {
-                font-size: 1.8rem;
-                margin-right: 1rem;
-            }
-
-            .contact-method span {
-                font-size: 1.1rem;
-                font-weight: 600;
-            }
-
-            /* Floating Action Button for Mobile */
-            .mobile-contact-fab {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                width: 60px;
-                height: 60px;
-                background: var(--primary-color);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 0 4px 20px rgba(5, 150, 105, 0.4);
-                z-index: 1000;
-                text-decoration: none;
-                color: var(--background-primary);
-                font-size: 1.5rem;
-                transition: all 0.3s ease;
-            }
-
-            .mobile-contact-fab:hover {
-                transform: scale(1.1);
-                background: var(--primary-hover);
-                box-shadow: 0 6px 25px rgba(5, 150, 105, 0.5);
+            
+            .pricing-option.featured:hover {
+                transform: translateY(-5px);
             }
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 0 15px;
-            }
-
-            /* Ultra-mobile optimizations */
-            .hero-title {
-                font-size: 2.4rem;
-                line-height: 1.2;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-                margin-bottom: 2rem;
-            }
-
-            .btn-primary, .btn-secondary {
-                padding: 1.2rem 1.5rem;
-                font-size: 1rem;
-                max-width: 100%;
-            }
-
-            section {
-                padding: 2.5rem 0;
-            }
-
-            .section-header h2 {
-                font-size: 1.9rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .section-header p {
-                font-size: 1rem;
-                line-height: 1.5;
-            }
-
-            /* Simplify cards for small screens */
-            .step, .benefit-card, .testimonial-card {
-                padding: 1.5rem;
-                margin-bottom: 1.5rem;
-                border-radius: 12px;
-            }
-
-            /* Hide less important elements on very small screens */
-            .mobile-contact-fab {
-                width: 55px;
-                height: 55px;
-                bottom: 15px;
-                right: 15px;
-                font-size: 1.3rem;
+                padding: 0 10px;
             }
             
             .nav-container {
@@ -1085,9 +835,23 @@
             }
         }
 
-        /* Smooth Scrolling */
+        /* Smooth Scrolling and Performance */
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        
+        /* Optimize animations */
+        * {
+            will-change: auto;
+        }
+        
+        .btn-primary:hover,
+        .btn-secondary:hover,
+        .pricing-option:hover,
+        .testimonial-card:hover,
+        .faq-item:hover {
+            will-change: transform;
         }
 
         /* Who Are You Section */
@@ -1493,40 +1257,18 @@
             border-radius: 8px;
             color: #1e293b;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: border-color 0.3s ease;
             min-height: 44px;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
         }
 
-        /* Enhanced focus states for mobile */
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: #059669;
-            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
-            transform: scale(1.02);
         }
-
-        /* Mobile-specific input improvements */
-        @media (max-width: 768px) {
-            .form-group input,
-            .form-group textarea {
-                font-size: 16px; /* Prevents zoom on iOS */
-                padding: 1.2rem;
-            }
-
-            .form-group input[type="email"] {
-                text-transform: lowercase;
-            }
-
-            .form-group input[type="tel"] {
-                direction: ltr;
-            }
-        }
-
-
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
@@ -1916,124 +1658,7 @@
     </style>
 
     <script>
-        // Simple smooth scrolling function
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
 
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Dropdown functionality
-        const dropdowns = document.querySelectorAll('.dropdown');
-
-        dropdowns.forEach(dropdown => {
-            const toggle = dropdown.querySelector('.dropdown-toggle');
-            const menu = dropdown.querySelector('.dropdown-menu');
-
-            // Desktop hover
-            dropdown.addEventListener('mouseenter', () => {
-                if (window.innerWidth > 768) {
-                    menu.style.opacity = '1';
-                    menu.style.visibility = 'visible';
-                    menu.style.transform = 'translateY(0)';
-                }
-            });
-
-            dropdown.addEventListener('mouseleave', () => {
-                if (window.innerWidth > 768) {
-                    menu.style.opacity = '0';
-                    menu.style.visibility = 'hidden';
-                    menu.style.transform = 'translateY(-10px)';
-                }
-            });
-
-            // Mobile click
-            toggle.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                    
-                    // Close other dropdowns
-                    dropdowns.forEach(other => {
-                        if (other !== dropdown) {
-                            other.classList.remove('active');
-                        }
-                    });
-                }
-            });
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
-            });
-        });
-
-        // Contact form handling
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form data
-                const formData = new FormData(this);
-                const name = formData.get('name');
-                const email = formData.get('email');
-                const message = formData.get('message');
-                
-                // Basic validation
-                if (!name || !email || !message) {
-                    alert('Please fill in all fields.');
-                    return;
-                }
-                
-                // Simulate form submission
-                const submitButton = this.querySelector('button[type="submit"]');
-                const originalText = submitButton.textContent;
-                submitButton.textContent = 'Sending...';
-                submitButton.disabled = true;
-                
-                // Simulate API call
-                setTimeout(() => {
-                    alert('Thank you for your message. I\'ll get back to you soon.');
-                    this.reset();
-                    submitButton.textContent = originalText;
-                    submitButton.disabled = false;
-                }, 2000);
-            });
-        }
-
-        // Smooth scrolling
-        document.documentElement.style.scrollBehavior = 'smooth';
-        // Scrollspy for nav highlighting
-        const navLinks = document.querySelectorAll('.main-nav a');
-        const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-        window.addEventListener('scroll', () => {
-          let current = sections[0];
-          for (const section of sections) {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= 80) current = section;
-          }
-          navLinks.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === '#' + current.id);
-          });
-        });
     </script>
 </head>
 <body>
@@ -2048,10 +1673,9 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle">Learn More <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
                         <li><a href="#how-i-work">How I Work</a></li>
-                        <li><a href="#default-mode">The Default Mode</a></li>
-                        <li><a href="#what-to-expect">What to Expect</a></li>
+                        <li><a href="#about">About Me</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -2063,10 +1687,10 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle">Get Started <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                                          <ul class="dropdown-menu">
+                          <li><a href="#pricing">Pricing</a></li>
+                          <li><a href="#contact">Contact</a></li>
+                      </ul>
                 </li>
             </ul>
             <div class="hamburger">
@@ -2083,213 +1707,140 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">
-                    <span class="highlight">Most men I work with</span><br>
-                    aren't broken, they're buried.
+                    <span class="highlight">For Men Who Are Struggling</span><br>
+                    Break Free from the Default Mode
                 </h1>
                 <p class="hero-subtitle">
-                    Buried under years of responsibility, pressure, silence, and shame. 
-                    They've been stuck in patterns they don't fully understand.
+                    You feel lost, stuck, and tired of your own bullshit. 
+                    Destructive patterns, anger, isolation, loneliness, confusion, fear, shame, feeling not good enough, endless regret, stuck in survival mode.
                 </p>
                 <div class="hero-cta">
                     <button class="btn-primary" onclick="scrollToSection(&#39;how-i-work&#39;)">
                         Discover How I Work
                     </button>
                     <a href="#contact" class="btn-primary" style="margin-top:2rem;display:inline-block;font-size:1.2rem;font-weight:700;padding:1rem 2.5rem;background:#059669;color:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(5,150,105,0.08);transition:background 0.2s;">Start Your Journey</a>
-                    <div class="micro-testimonial" style="margin-top:1.5rem;font-size:1.1rem;color:#475569;font-style:italic;">"This work changed my life. I finally feel like myself again."</div>
+                    <div class="micro-testimonial" style="margin-top:1.5rem;font-size:1.1rem;color:#475569;font-style:italic;">"The goal is to know yourself so well, that you can choose how to react."</div>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="image-placeholder" style="display: flex; align-items: center; justify-content: center; width: 400px; height: 400px; background: linear-gradient(135deg, #059669, #047857); border-radius: 20px; box-shadow: 0 20px 40px rgba(5, 150, 105, 0.3);">
-                    <i class="fas fa-user-tie" style="font-size: 6rem; color: white; opacity: 0.9;"></i>
+                <div class="image-placeholder" style="background: none; border: none; box-shadow: none; padding: 0;">
+                    <img src="assets/mentor.jpg" alt="Mikkel Hansen - Men's Mentoring for struggling men who need to break free from destructive patterns, anger, and default mode" style="width: 500px; height: 500px; object-fit: cover; object-position: center 30%; border-radius: 15px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2); border: 3px solid #059669;" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-mountain\' style=\'font-size: 8rem; color: #059669; opacity: 0.8;\'></i>';">
                 </div>
             </div>
         </div>
       </div>
     </section>
 
-    <!-- Who Are You Section -->
-    <section class="who-are-you" id="who-are-you">
-      <div class="container">
-        <div class="who-are-you-content">
-          <h2>Who Are You?</h2>
-          <p class="pondus" style="font-size:1.5rem;font-weight:600;color:#1e293b;line-height:1.4;margin-bottom:1.5rem;">
-            You're not here to hide.<br>
-            You're here to rise.<br>
-            <span style="color:#059669;">Break the chains. Reclaim your life.</span>
-          </p>
-          <h3 class="why-are-you-here" style="font-size:1.15rem;color:#059669;margin-bottom:0.5rem;">Why Are You Here?</h3>
-          <p class="why-are-you-here-text" style="font-size:1.1rem;font-weight:500;color:#475569;">
-            This is your call to courage.<br>Let's begin.
-          </p>
-        </div>
-      </div>
-    </section>
+
 
     <!-- How I Work Section -->
     <section id="how-i-work" class="how-i-work">
         <div class="container">
             <div class="section-header">
-                <h2>How I Work</h2>
-                <p>This isn't about fixing you. It's about seeing you.</p>
+                <h1>How I Work</h1>
+                <p>Real change through confronting truth</p>
             </div>
             
-            <div class="work-content">
-                <div class="work-steps-journey">
-                    <div class="journey-center">Your Journey</div>
-                    <div class="step step-1">
-                        <div class="step-icon"><i class="fas fa-user-tie"></i></div>
-                        <div class="step-number">01</div>
-                        <h4>Presence</h4>
-                        <ul>
-                            <li>Show up as you are.</li>
-                            <li>Drop the mask.</li>
+            <div class="work-content" style="max-width:750px;margin:0 auto;text-align:left;background:#f8f9fa;padding:3rem;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+                
+                <p style="font-size:1.4rem;margin-bottom:2.5rem;line-height:1.7;color:#333;">Most men come to me stuck in patterns they don't understand. They've tried willpower, positive thinking, and "just trying harder." None of it worked. Because they're fighting the symptoms, not the source.</p>
+                
+                <p style="font-size:1.5rem;font-weight:700;margin-bottom:3rem;color:#1a1a1a;">I help you find the source.</p>
+
+                <h3 style="font-size:1.7rem;font-weight:700;margin-bottom:2rem;color:#1a1a1a;">Here's how we do it:</h3>
+
+                <div style="margin-bottom:2.5rem;">
+                    <p style="font-size:1.3rem;margin-bottom:2rem;line-height:1.7;color:#333;"><strong style="color:#059669;">We start with the truth.</strong> Not the story you tell yourself, not the version you show the world. The raw, uncomfortable truth about why you react the way you do, why you escape the way you do, and why you keep hitting the same walls.</p>
+
+                                            <p style="font-size:1.3rem;margin-bottom:2rem;line-height:1.7;color:#333;"><strong style="color:#059669;">We stop running.</strong> When your default mode gets triggered, your first instinct is to escape - into anger, work, entertainment, whatever numbs the discomfort. We learn to sit with it instead. To watch it. To see what it's really protecting.</p>
+
+                    <p style="font-size:1.3rem;margin-bottom:2rem;line-height:1.7;color:#333;"><strong style="color:#059669;">We let it break down.</strong> Real change requires the old version of you to fall apart. It's not comfortable. It's not fast. But it's the only way to build something real.</p>
+
+                    <p style="font-size:1.3rem;margin-bottom:2rem;line-height:1.7;color:#333;"><strong style="color:#059669;">We go into the silence.</strong> In a world that profits from your distraction, learning to be alone with your thoughts is revolutionary. That's where you meet your default mode face to face. That's where the real work happens.</p>
+
+                    <p style="font-size:1.3rem;margin-bottom:3rem;line-height:1.7;color:#333;"><strong style="color:#059669;">We build from truth, not survival.</strong> Once you see the patterns, once you face the breakdown, we rebuild your life on a foundation of presence, not performance. Authenticity, not approval.</p>
+                </div>
+
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:3rem;">
+                    <div style="background:white;padding:2rem;border-radius:10px;border-left:4px solid #059669;">
+                        <h4 style="font-size:1.4rem;font-weight:700;margin-bottom:1rem;color:#1a1a1a;">What this isn't:</h4>
+                        <ul style="font-size:1.2rem;line-height:1.6;color:#555;">
+                            <li>Quick fixes or life hacks</li>
+                            <li>Positive affirmations or feel-good sessions</li>
+                            <li>Magic formulas or step-by-step programs</li>
                         </ul>
-                        <div class="step-tooltip">This is where change begins: by being fully present, honest, and open to what's real—right now.</div>
                     </div>
-                    <div class="step step-2">
-                        <div class="step-icon"><i class="fas fa-eye"></i></div>
-                        <div class="step-number">02</div>
-                        <h4>Observe</h4>
-                        <ul>
-                            <li>See your patterns.</li>
-                            <li>Notice what's true.</li>
+
+                    <div style="background:white;padding:2rem;border-radius:10px;border-left:4px solid #059669;">
+                        <h4 style="font-size:1.4rem;font-weight:700;margin-bottom:1rem;color:#1a1a1a;">What this is:</h4>
+                        <ul style="font-size:1.2rem;line-height:1.6;color:#555;">
+                            <li>Confronting the lies you've been living</li>
+                            <li>Facing the parts of yourself you've been avoiding</li>
+                            <li>Building a life you don't need to escape from</li>
                         </ul>
-                        <div class="step-tooltip">Step back and observe your life without judgment. Awareness is the first step to freedom.</div>
-                    </div>
-                    <div class="step step-3">
-                        <div class="step-icon"><i class="fas fa-bolt"></i></div>
-                        <div class="step-number">03</div>
-                        <h4>Truth</h4>
-                        <ul>
-                            <li>Face reality.</li>
-                            <li>Speak what's real.</li>
-                        </ul>
-                        <div class="step-tooltip">Courage means facing the truth—about yourself, your life, and what you really want. No more hiding.</div>
-                    </div>
-                    <div class="step step-4">
-                        <div class="step-icon"><i class="fas fa-lightbulb"></i></div>
-                        <div class="step-number">04</div>
-                        <h4>Awareness</h4>
-                        <ul>
-                            <li>Wake up to your story.</li>
-                            <li>See the bigger picture.</li>
-                        </ul>
-                        <div class="step-tooltip">Awareness brings clarity. You see the patterns, the stories, and the possibilities for change.</div>
-                    </div>
-                    <div class="step step-5">
-                        <div class="step-icon"><i class="fas fa-heart"></i></div>
-                        <div class="step-number">05</div>
-                        <h4>Reconnect</h4>
-                        <ul>
-                            <li>Return to your values.</li>
-                            <li>Find your strength.</li>
-                        </ul>
-                        <div class="step-tooltip">Reconnect with your core values and inner strength. This is where you find your power and direction.</div>
-                    </div>
-                    <div class="step step-6">
-                        <div class="step-icon"><i class="fas fa-hammer"></i></div>
-                        <div class="step-number">06</div>
-                        <h4>Rebuild</h4>
-                        <ul>
-                            <li>Create new habits.</li>
-                            <li>Live your truth.</li>
-                        </ul>
-                        <div class="step-tooltip">Now you build a new life—one choice at a time. This is where real transformation happens.</div>
                     </div>
                 </div>
+
+                <div style="background:#e8f5e8;padding:2.5rem;border-radius:10px;border:2px solid #059669;">
+                    <p style="font-size:1.4rem;font-weight:700;text-align:center;margin:0;color:#1a1a1a;">This work isn't for everyone. It's for men who are tired of their own bullshit and ready to do something about it.</p>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- The Default Mode Section -->
-    <section id="default-mode" class="default-mode">
+
+
+    <!-- About Me Section -->
+    <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2 style="font-size:2.2rem;color:#059669;font-weight:800;letter-spacing:0.01em;">The Default Mode</h2>
-                <p style="font-size:1.15rem;color:#475569;font-weight:500;">The silent pattern that runs your life—until you see it.</p>
+                <h1>About Me</h1>
             </div>
 
-            <div class="story-content" style="max-width:700px;margin:0 auto;">
-                <div class="story-chapter" style="background:#fff;border-radius:16px;padding:2.5rem 2rem 2rem 2rem;box-shadow:0 4px 24px rgba(5,150,105,0.07);">
-                    <h3 style="font-size:1.25rem;color:#059669;font-weight:700;margin-bottom:1.2rem;">What is the Default Mode?</h3>
-                    <p style="font-size:1.08rem;color:#1e293b;margin-bottom:1.1rem;">There's a hidden script inside you. It was written by old pain, fear, and the need to survive. It whispers:</p>
-                    <p style="font-size:1.08rem;color:#dc2626;font-weight:600;margin-bottom:1.1rem;">"You're not enough."<br>"Stay in control."<br>"Don't show weakness."</p>
-                    <p style="font-size:1.08rem;color:#1e293b;margin-bottom:1.1rem;">You didn't choose it. But it shapes every thought, every reaction, every relationship.</p>
-                    <div style="font-size:1.08rem;color:#059669;font-weight:700;background:#f0fdf4;padding:1rem 1.2rem;border-radius:8px;margin-bottom:1.3rem;">It was built to protect you. Now, it keeps you stuck.</div>
-
-                    <h3 style="font-size:1.18rem;color:#059669;font-weight:700;margin-bottom:1.1rem;margin-top:2rem;">The Wake-Up</h3>
-                    <p style="font-size:1.08rem;color:#1e293b;margin-bottom:1.1rem;">You defend its lies like they're gospel. You hurt yourself and others just to stay loyal to the script. But the moment you see the strings—and realize you can cut them—is the moment you take your power back.</p>
-                    <div style="font-size:1.08rem;color:#059669;font-weight:700;background:#f0fdf4;padding:1rem 1.2rem;border-radius:8px;margin-bottom:1.3rem;">The cage wasn't built for you. You were born to break free.</div>
-
-                    <h3 style="font-size:1.18rem;color:#059669;font-weight:700;margin-bottom:1.1rem;margin-top:2rem;">A Real Story</h3>
-                    <p style="font-size:1.08rem;color:#1e293b;margin-bottom:1.1rem;">A man I worked with believed, "If I show vulnerability, I'll lose respect." He built armor to survive. But that armor kept him alone. When he finally opened up, he felt seen—not for holding it together, but for letting go.</p>
-                    <div style="font-size:1.08rem;color:#059669;font-weight:700;font-style:italic;background:#f0fdf4;padding:1rem 1.2rem;border-radius:8px;margin-bottom:1.3rem;">"I thought being humble meant lowering myself. But it's not humiliation. It's humanity."</div>
-
-                    <h3 style="font-size:1.18rem;color:#059669;font-weight:700;margin-bottom:1.1rem;margin-top:2rem;">Why It Matters</h3>
-                    <p style="font-size:1.08rem;color:#1e293b;margin-bottom:1.1rem;">Your default mode shapes everything: how you see yourself, others, and the world. It decides what you fear, what you avoid, and what you believe you can't have or be.</p>
-                    <div style="font-size:1.08rem;color:#059669;font-weight:700;background:#f0fdf4;padding:1rem 1.2rem;border-radius:8px;margin-bottom:1.3rem;">Seeing your default mode is like turning on the lights in a dark room. Suddenly, you see the obstacles you never knew were there.</div>
-                    <p style="font-size:1.08rem;color:#1e293b;margin-bottom:1.1rem;">Spot it, and you gain the power to choose differently. Stop running on old scripts. Start writing new ones.</p>
-                    <div style="font-size:1.08rem;color:#059669;font-weight:700;background:#f0fdf4;padding:1rem 1.2rem;border-radius:8px;">You can't outthink the default mode. You have to meet it, face it, and break it.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What to Expect Section -->
-    <section id="what-to-expect" class="expectations">
-        <div class="container">
-            <div class="section-header">
-                <h2>What You Can Expect</h2>
-                <p>Real transformation, not quick fixes</p>
-            </div>
-
-            <div class="expectations-grid">
-                <div class="expectation-card positive">
-                    <div class="card-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h4>A deeper sense of calm, less need to escape</h4>
-                </div>
+            <div class="about-content" style="max-width: 800px; margin: 0 auto; text-align: left; background: #f8f9fa; padding: 3rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                 
-                <div class="expectation-card positive">
-                    <div class="card-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h4>The ability to meet emotions without fear or shame</h4>
+                <div style="margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; color: #1a1a1a;">I've Been Where You Are</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #333; margin-bottom: 1.5rem;">My childhood looked perfect from the outside, but behind closed doors, it was chaos. My father drank himself to death. I learned early that the only way to survive was to perform, to be what people wanted me to be.</p>
+                    
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #333; margin-bottom: 1.5rem;">I used every escape route available, drugs, alcohol, work, relationships, anything to numb the pain and avoid facing myself. I was a shredded body with a destroyed mind. Fearful, shameful, and completely disconnected from who I really was.</p>
+                    
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #333; margin-bottom: 1.5rem;">I felt lonely even when surrounded by people. Restless and confused about why I couldn't just be happy. Afraid that if anyone saw the real me, they'd run away. So I kept acting, the funny guy, the strong guy, the guy who had it all together. But inside, I was dying.</p>
+                    
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #333; margin-bottom: 1.5rem;">I was stuck in endless cycles of "figure it out", reading books, trying new approaches, promising myself this time would be different. But nothing worked. Just endless regret and the constant feeling that I wasn't good enough, that I was somehow broken beyond repair.</p>
                 </div>
-                
-                <div class="expectation-card positive">
-                    <div class="card-icon">
-                        <i class="fas fa-compass"></i>
-                    </div>
-                    <h4>A new connection to their body and inner truth</h4>
-                </div>
-                
-                <div class="expectation-card positive">
-                    <div class="card-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h4>Greater clarity in relationships, work, and decisions</h4>
-                </div>
-                
-                <div class="expectation-card positive">
-                    <div class="card-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h4>The end of the lie: "I'm fine"</h4>
-                </div>
-                <div class="expectation-card positive">
-                    <div class="card-icon">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <h4>A renewed drive to live with purpose and courage</h4>
-                </div>
-            </div>
 
-            <div class="expectations-footer">
-                <p class="highlight-text">
-                    Not because life suddenly becomes easy. But because you stop hiding from yourself.
-                </p>
+                <div style="margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; color: #1a1a1a;">The Breaking Point</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #333; margin-bottom: 1.5rem;">Cancer hit me twice. Lying in a hospital bed, completely alone, I finally had to face the truth about my life. I was running from everything, my pain, my past, myself. I had built a fortress of muscle and performance, but inside I was still that scared little boy.</p>
+                    
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #333; margin-bottom: 1.5rem;">That's when I discovered my default mode. The automatic patterns, beliefs, and survival strategies that had been running my life without my permission. I realized I wasn't living, I was just surviving.</p>
+                </div>
+
+                <div style="margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; color: #1a1a1a;">The Transformation</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #333; margin-bottom: 1.5rem;">I learned to sit with my discomfort instead of running from it. I faced my default mode patterns head-on. I stopped performing and started being real. It was brutal, uncomfortable, and the most liberating thing I've ever done.</p>
+                    
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #333; margin-bottom: 1.5rem;">Now I have 4 beautiful kids and know peace on a level I never thought possible. I'm not perfect, I still visit my old patterns sometimes. But now I can see them, choose differently, and live from a place of authenticity instead of survival.</p>
+                </div>
+
+                <div style="margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; color: #1a1a1a;">Why I Do This Work</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #333; margin-bottom: 1.5rem;">I mentor men because I know what it feels like to be stuck in your own bullshit. I know the shame, the confusion, the feeling that something's wrong but you can't put your finger on it. I know what it's like to have everything look good on the outside while you're dying inside.</p>
+                    
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #333; margin-bottom: 1.5rem;">Most importantly, I know what it takes to break free. It's not about positive thinking or quick fixes. It's about facing your default mode patterns, the automatic ways you've learned to survive that are now keeping you stuck.</p>
+                </div>
+
+
+
+                <div style="background: white; padding: 2rem; border-radius: 10px; border-left: 4px solid #059669;">
+                    <h4 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #1a1a1a;">My Credentials & Experience</h4>
+                    <p style="font-size: 1.2rem; line-height: 1.6; color: #333; margin-bottom: 1rem;">• Certified mentor with 7+ years of professional experience</p>
+                    <p style="font-size: 1.2rem; line-height: 1.6; color: #333; margin-bottom: 1rem;">• I lived it, but more importantly, I overcame it</p>
+                    <p style="font-size: 1.2rem; line-height: 1.6; color: #333; margin: 0;">• I know how to keep it at bay and help you do the same</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -2298,13 +1849,13 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2>Testimonials</h2>
+                <h1>Success Stories</h1>
             </div>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"My sessions with Mikkel truly hit SPOT ON! It might sound wild, but when I talk to Mikkel, it feels like coming 'home' — to safety. A safe space where I can share directly from the heart without worrying about how it will be received. There's always room and space to reflect on the development I'm in right now, and at the same time Mikkel asks curious questions that help me go even deeper into myself — and toward where I want to go. Thank you for being you, Mikkel."</p>
+                        <p>"My sessions with Mikkel truly hit SPOT ON! It might sound wild, but when I talk to Mikkel, it feels like coming 'home' to safety. A safe space where I can share directly from the heart without worrying about how it will be received. There's always room and space to reflect on the development I'm in right now, and at the same time Mikkel asks curious questions that help me go even deeper into myself and toward where I want to go. Thank you for being you, Mikkel."</p>
                     </div>
                     <div class="testimonial-author">
                         <span class="author-name">- M</span>
@@ -2322,7 +1873,7 @@
 
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"Stuck in endless thinking about quick solutions. Focused on look and being liked. Restless, not able to enjoy the presence. More inner peace. Able to reflect and be grateful with nothing going on. Found unachievable inner standards was guiding his life. Through several sessions with Mikkel as mentor, I have found support in my personal development. Mikkel is always present and steps in every time it's needed. Exactly what's needed when working on yourself."</p>
+                        <p>"I was stuck in endless thinking about quick solutions, focused on looks and being liked. Restless, not able to enjoy the present. Through several sessions with Mikkel, I found more inner peace. I'm now able to reflect and be grateful even when nothing special is happening. I discovered that unachievable inner standards were guiding my life. Mikkel is always present and steps in exactly when needed. This is exactly what's needed when working on yourself."</p>
                     </div>
                     <div class="testimonial-author">
                         <span class="author-name">- Jakob</span>
@@ -2337,74 +1888,48 @@
                         <span class="author-name">- Kevin</span>
                     </div>
                 </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"We worked on my addiction, anger issues, and shadow work around my default mode. Mikkel didn't sugarcoat anything. He helped me see the patterns I was running from and the ways I was sabotaging myself. It was brutal at times, but that's what I needed. Now I can spot when my default mode is taking over and choose differently. I'm not perfect, but I'm not running anymore."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">- A</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I had a career, a family, everything that should make me happy. But I felt stuck. Nothing gave me joy anymore. I was isolated and bitter, even though I had no reason to be. Mikkel helped me see that I was living on autopilot, disconnected from myself. Through our work, I went from fear to trusting my gut again. I found hope. Now I actually enjoy things I used to love. I'd recommend Mikkel to any man who's lost their excitement for life."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">- Søren</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Me Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>You're not lazy. You're not broken. You're just stuck.</h2>
-                <p>Maybe you can't put your finger on it, but something feels off.</p>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-intro">
-                    <p>You've got responsibilities. You try to show up. But there's a restlessness inside you, a sense of being unanchored.</p>
-                    <p>Like you've lost touch with something essential, and you're not even sure when or how it happened.</p>
-                    <p>Most men I work with feel this way before they reach out. Some carry shame without knowing why. Others feel numb, angry, or tired of pretending. And almost all of them say the same thing: "I should be fine. But I'm not."</p>
-                </div>
 
-                <div class="about-sections">
-                    <div class="about-section">
-                        <h3>My Story</h3>
-                        <p>I know that space well. For years, I lived with a tight grip on control. I performed, I pushed, I kept it together. From the outside, I was strong, responsible, reliable. But inside, I was disconnected, from my body, my emotions, my truth.</p>
-                        <p>I didn't know how to stop. I didn't even know what I was running from. Until life finally caught up with me, and I had to face the truth: I wasn't living. I was just surviving.</p>
-                    </div>
-
-                    <div class="about-section">
-                        <h3>Why I Do This Work</h3>
-                        <p>I'm a trained and certified mentor, but what truly sets me apart is that I've lived this journey myself. With over seven years of experience working directly with men, I've seen how deeply these struggles run.</p>
-                        <p>I work with men who feel stuck in patterns of escape, bitterness, and despair, men who have hidden the truth about themselves so deeply that they no longer know who they are or why they act the way they do.</p>
-                        <p>My work is rooted in trust. The goal is self-observation, honesty, and a spiritual connection with oneself.</p>
-                        <p>Men gain the ability to meet themselves raw and unfiltered—without judgment or self-hate. This brings greater peace, less escape, and more presence.</p>
-                        <p>Through our work together, men reclaim their inner truth, break free from self-sabotage, and build a grounded life with more clarity, responsibility, and authentic connection, to themselves and others.</p>
-                        <p>I've learned to love the work of being with myself. It brings a smile when old negative patterns disappear only to reappear unexpectedly. Now, I simply know that it's not something I need to act on.</p>
-                    </div>
-
-                    <div class="about-section">
-                        <h3>Who I Am</h3>
-                        <p>I'm a father of four, and my family is at the core of who I am. Fatherhood has taught me patience, humility, and the profound importance of presence, lessons that constantly challenge me to grow.</p>
-                        <p>My own journey has been far from perfect. I've faced failure, guilt, avoidance, and deep confusion. I've wrestled with shame and self-doubt, and I've had to rebuild myself more than once. But every setback has been a doorway to greater self-awareness and resilience.</p>
-                        <p>I've learned that true strength isn't about having it all figured out or never falling, it's about showing up, even when it's hard, and being honest with yourself.</p>
-                        <p>This work is deeply personal for me because I've lived it. I'm not coming from theory alone; I bring real-life experience, vulnerability, and a commitment to growth.</p>
-                        <p>I'm not here to rescue you or hand you answers. I'm here to walk beside you, with presence, challenge, honesty, and respect for your unique path.</p>
-                        <p>Together, we'll uncover the truth that's been buried beneath years of conditioning, silence, and survival. And from that truth, you can start to build a life rooted in authenticity, responsibility, and peace.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
     <!-- Pricing Section -->
     <section id="pricing" class="pricing">
         <div class="container">
             <div class="section-header">
-                <h2>Pricing</h2>
-                <p>Simple, transparent, no hidden agendas</p>
+                <h1>Transformation Programs</h1>
             </div>
             
             <div class="pricing-content">
                 <div class="pricing-intro">
-                    <h3>Transparent Pricing - No Secrets</h3>
-                    <p>I believe in being honest about what real transformation costs. Most men need more than one session to break free from their default mode. Here are your options:</p>
+                    <h3>Transformation Programs - Not Just Sessions</h3>
+                    <p>Real change requires time, commitment, and the right support. These programs are designed for men who are serious about breaking free from their default mode and building a life they don't need to escape from.</p>
                 </div>
 
                 <div class="pricing-options">
                     <div class="pricing-option featured">
                         <div class="option-header">
-                            <h4>Free Intro Session</h4>
+                            <h4>Free Discovery Call</h4>
                             <div class="price">$0</div>
                         </div>
                         <p>30-minute conversation to see if we're a good fit. No charge, no obligation, no pressure.</p>
@@ -2414,70 +1939,69 @@
                             <li>Ask any questions</li>
                             <li>Decide if you want to work together</li>
                         </ul>
+                        <a href="https://calendly.com/contact-mikkelhansen/30min" target="_blank" class="btn-primary" style="margin-top: 1rem; display: block; text-align: center;">Book Now</a>
                     </div>
 
                     <div class="pricing-option">
                         <div class="option-header">
-                            <h4>Single Session</h4>
-                            <div class="price">$200</div>
+                            <h4>Discovery Package</h4>
+                            <div class="price">$600</div>
                         </div>
-                        <p>One focused 50-minute session. Best for quick insights or as a follow-up after a package.</p>
+                        <p>30-day program to identify your default mode patterns and create a clear roadmap for transformation.</p>
                         <ul>
-                            <li>50-minute 1:1 session</li>
-                            <li>Personalized guidance</li>
-                            <li>Follow-up email with key takeaways</li>
+                            <li>2 x 60-minute sessions</li>
+                            <li>Weekly check-in emails</li>
+                            <li>Default mode assessment</li>
+                            <li>Personalized transformation plan</li>
+                            <li>Between-session exercises</li>
                         </ul>
+                        <a href="mailto:contact@mikkelhansen.org?subject=Discovery Package Inquiry" class="btn-primary" style="margin-top: 1rem; display: block; text-align: center;">Contact Me</a>
                     </div>
 
                     <div class="pricing-option">
                         <div class="option-header">
-                            <h4>30-Day Package</h4>
-                            <div class="price">$375</div>
+                            <h4>Transformation Package</h4>
+                            <div class="price">$1,500</div>
                         </div>
-                        <p>Two 50-minute sessions over 30 days. For men ready to start real change with accountability.</p>
+                        <p>90-day program to break down old patterns and build new ways of being. For men ready for real change.</p>
                         <ul>
-                            <li>2 x 50-minute sessions (bi-weekly)</li>
-                            <li>Weekly check-in email support</li>
-                            <li>Personalized tasks between sessions</li>
+                            <li>6 x 60-minute sessions</li>
+                            <li>Bi-weekly check-in support</li>
+                            <li>Personalized accountability system</li>
+                            <li>Resource library access</li>
+                            <li>Progress tracking & milestones</li>
+                            <li>Priority email support</li>
                         </ul>
+                        <a href="mailto:contact@mikkelhansen.org?subject=Transformation Package Inquiry" class="btn-primary" style="margin-top: 1rem; display: block; text-align: center;">Contact Me</a>
                     </div>
 
                     <div class="pricing-option">
                         <div class="option-header">
-                            <h4>60-Day Package</h4>
-                            <div class="price">$700</div>
+                            <h4>Mastery Package</h4>
+                            <div class="price">$3,200</div>
                         </div>
-                        <p>Four 50-minute sessions over 60 days. For men who want to build momentum and deeper change.</p>
+                        <p>6-month program for deep, lasting transformation. For men committed to mastering their default mode.</p>
                         <ul>
-                            <li>4 x 50-minute sessions (bi-weekly)</li>
-                            <li>Weekly check-in email support</li>
-                            <li>Personalized tasks between sessions</li>
+                            <li>12 x 60-minute sessions</li>
+                            <li>Weekly support & accountability</li>
+                            <li>Complete resource library</li>
+                            <li>Personalized transformation roadmap</li>
+                            <li>Priority scheduling & support</li>
+                            <li>30-day follow-up after completion</li>
+                            <li>Lifetime access to resources</li>
                         </ul>
-                    </div>
-
-                    <div class="pricing-option">
-                        <div class="option-header">
-                            <h4>6-Month Package</h4>
-                            <div class="price">$1,950</div>
-                        </div>
-                        <p>Twelve 50-minute sessions over 6 months. For men committed to deep, lasting transformation.</p>
-                        <ul>
-                            <li>12 x 50-minute sessions (bi-weekly)</li>
-                            <li>Weekly check-in email support</li>
-                            <li>Personalized tasks between sessions</li>
-                            <li>Priority scheduling</li>
-                        </ul>
+                        <a href="mailto:contact@mikkelhansen.org?subject=Mastery Package Inquiry" class="btn-primary" style="margin-top: 1rem; display: block; text-align: center;">Contact Me</a>
                     </div>
                 </div>
 
                 <div class="pricing-notes">
                     <div class="note-item">
-                        <h4>Why Packages?</h4>
-                        <p>Real change doesn't happen in one conversation. Packages give you time to practice, fail, and integrate new ways of being—with accountability and support.</p>
+                        <h4>Why Programs Instead of Sessions?</h4>
+                        <p>Real transformation requires time, practice, and consistent support. These programs are designed to give you the structure, accountability, and resources needed to break free from your default mode and build lasting change.</p>
                     </div>
                     <div class="note-item">
-                        <h4>Is It Worth It?</h4>
-                        <p>That depends on what your peace, clarity, and freedom are worth to you. If you're looking for a quick fix, this isn't for you. But if you're ready to take yourself seriously, this is an investment in your future.</p>
+                        <h4>Investment vs. Cost</h4>
+                        <p>This isn't about spending money—it's about investing in yourself. What's the cost of staying stuck? What's the value of finally feeling free, clear, and in control of your life? If you're ready to take yourself seriously, this is an investment that pays dividends for life.</p>
                     </div>
                 </div>
             </div>
@@ -2488,7 +2012,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2>Ready to Begin?</h2>
+                <h1>Ready to Begin?</h1>
                 <p>Take the first step toward authentic living</p>
             </div>
             
@@ -2500,11 +2024,11 @@
                     <div class="contact-methods">
                         <div class="contact-method">
                             <i class="fas fa-envelope"></i>
-                            <span>Email: [Your Email]</span>
+                            <span>Email: contact@mikkelhansen.org</span>
                         </div>
                         <div class="contact-method">
-                            <i class="fas fa-phone"></i>
-                            <span>Phone: [Your Phone]</span>
+                            <i class="fas fa-calendar"></i>
+                            <span><a href="https://calendly.com/contact-mikkelhansen/30min" target="_blank" style="color: #059669; text-decoration: underline;">Book Free Intro Session</a></span>
                         </div>
                     </div>
                 </div>
@@ -2512,13 +2036,13 @@
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" autocomplete="given-name" autocapitalize="words" required="">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required="">
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" autocomplete="email" autocapitalize="none" required="">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required="">
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Tell me about yourself and what you're seeking..." rows="5" autocapitalize="sentences" spellcheck="true" required=""></textarea>
+                            <textarea id="message" name="message" placeholder="Tell me about yourself and what you&#39;re seeking..." rows="5" required=""></textarea>
                         </div>
                         <button type="submit" class="btn-primary">Send Message</button>
                     </form>
@@ -2531,7 +2055,7 @@
     <section id="faq" class="faq">
       <div class="container">
         <div class="section-header">
-          <h2>FAQ</h2>
+          <h1>FAQ</h1>
           <p>Answers to the most common questions men ask before starting</p>
         </div>
         <div class="faq-content">
@@ -2575,8 +2099,6 @@
                     <a href="#home">Home</a>
                     <a href="#about">About</a>
                     <a href="#how-i-work">How I Work</a>
-                    <a href="#default-mode">The Default Mode</a>
-                    <a href="#what-to-expect">What to Expect</a>
                     <a href="#testimonials">Testimonials</a>
                     <a href="#faq">FAQ</a>
                     <a href="#pricing">Pricing</a>
@@ -2642,7 +2164,7 @@
             }
         });
 
-        // Add touch-friendly interactions
+        // Add touch-friendly interactions and performance optimizations
         document.addEventListener('DOMContentLoaded', () => {
             // Improve touch targets
             const buttons = document.querySelectorAll('button, .btn-primary, .btn-secondary');
@@ -2659,8 +2181,27 @@
                     if (submitBtn) {
                         submitBtn.textContent = 'Sending...';
                         submitBtn.disabled = true;
+                        
+                        // Reset button after 3 seconds (simulate form submission)
+                        setTimeout(() => {
+                            submitBtn.textContent = 'Send Message';
+                            submitBtn.disabled = false;
+                        }, 3000);
                     }
                 });
+            });
+
+            // Add smooth scroll behavior
+            document.documentElement.style.scrollBehavior = 'smooth';
+            
+            // Optimize images
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('load', () => {
+                    img.style.opacity = '1';
+                });
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.3s ease';
             });
         });
 
@@ -2678,7 +2219,7 @@
 
         // Add scroll-based navbar styling
         window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
+            const navbar = document.querySelector('.main-nav');
             if (window.scrollY > 50) {
                 navbar.style.background = 'rgba(255, 255, 255, 0.98)';
                 navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
@@ -2688,10 +2229,5 @@
             }
         });
     </script>
-
-    <!-- Mobile Contact Floating Button -->
-    <a href="#contact" class="mobile-contact-fab" aria-label="Contact Us">
-        <i class="fas fa-comments"></i>
-    </a>
 
  </section></body></html>
