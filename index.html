@@ -2054,18 +2054,22 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form action="https://formspree.io/f/YOUR_CONTACT_FORM_ID" method="POST" id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required="">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required="">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Tell me about yourself and what you&#39;re seeking..." rows="5" required=""></textarea>
+                            <textarea id="message" name="message" placeholder="Tell me about yourself and what you're seeking..." rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn-primary">Send Message</button>
                     </form>
+                    <div id="contactSuccess" style="display: none; background: #d1fae5; color: #065f46; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;">
+                        <h4>✅ Message Sent!</h4>
+                        <p>Thank you for reaching out. I'll get back to you within 24 hours.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2197,6 +2201,29 @@
                 if (navMenu) navMenu.classList.remove('active');
             });
         });
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        const contactSuccess = document.getElementById('contactSuccess');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                // Show loading state
+                const submitBtn = this.querySelector('.btn-primary');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                
+                // Formspree will handle the submission automatically
+                // After successful submission, it will redirect to the success page
+            });
+        }
+        
+        // Check if we're on the success page (Formspree redirects here)
+        if (window.location.search.includes('submission-successful')) {
+            if (contactForm) contactForm.style.display = 'none';
+            if (contactSuccess) contactSuccess.style.display = 'block';
+        }
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
