@@ -26,6 +26,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -2054,7 +2055,7 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form action="https://formspree.io/f/YOUR_CONTACT_FORM_ID" method="POST" id="contactForm">
+                    <form id="contactForm">
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
@@ -2069,6 +2070,10 @@
                     <div id="contactSuccess" style="display: none; background: #d1fae5; color: #065f46; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;">
                         <h4>✅ Message Sent!</h4>
                         <p>Thank you for reaching out. I'll get back to you within 24 hours.</p>
+                    </div>
+                    <div id="contactError" style="display: none; background: #fee2e2; color: #991b1b; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;">
+                        <h4>❌ Error Sending Message</h4>
+                        <p>Please try again or email me directly at contact@mikkelhansen.org</p>
                     </div>
                 </div>
             </div>
@@ -2202,27 +2207,52 @@
             });
         });
 
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+        })();
+
         // Contact form handling
         const contactForm = document.getElementById('contactForm');
         const contactSuccess = document.getElementById('contactSuccess');
+        const contactError = document.getElementById('contactError');
         
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
                 // Show loading state
                 const submitBtn = this.querySelector('.btn-primary');
                 const originalText = submitBtn.textContent;
                 submitBtn.textContent = 'Sending...';
                 submitBtn.disabled = true;
                 
-                // Formspree will handle the submission automatically
-                // After successful submission, it will redirect to the success page
+                // Get form data
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // Send email using EmailJS
+                emailjs.send("YOUR_EMAILJS_SERVICE_ID", "YOUR_EMAILJS_TEMPLATE_ID", {
+                    from_name: name,
+                    from_email: email,
+                    message: message,
+                    to_name: "Mikkel",
+                    reply_to: email
+                })
+                .then(function(response) {
+                    // Success
+                    contactForm.style.display = 'none';
+                    contactSuccess.style.display = 'block';
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, function(error) {
+                    // Error
+                    contactError.style.display = 'block';
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                });
             });
-        }
-        
-        // Check if we're on the success page (Formspree redirects here)
-        if (window.location.search.includes('submission-successful')) {
-            if (contactForm) contactForm.style.display = 'none';
-            if (contactSuccess) contactSuccess.style.display = 'block';
         }
 
         // Smooth scrolling for anchor links
