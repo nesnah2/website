@@ -192,7 +192,7 @@
             </ul>
         </div>
         
-        <form id="emailForm" onsubmit="submitForm(event)">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="emailForm">
             <div class="form-group">
                 <label for="name">First Name</label>
                 <input type="text" id="name" name="name" required placeholder="Your first name">
@@ -223,29 +223,22 @@
     </div>
 
     <script>
-        function submitForm(event) {
-            event.preventDefault();
+        // Handle form submission with Formspree
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
             
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            
-            // For now, we'll simulate sending the email
-            // In a real implementation, you'd send this to your server
-            
-            // Show success message
+            // Formspree will handle the submission automatically
+            // After successful submission, it will redirect to the success page
+        });
+        
+        // Check if we're on the success page (Formspree redirects here)
+        if (window.location.search.includes('submission-successful')) {
             document.getElementById('emailForm').style.display = 'none';
             document.getElementById('successMessage').style.display = 'block';
-            
-            // In a real implementation, you would:
-            // 1. Send the form data to your server
-            // 2. Add the email to your mailing list
-            // 3. Send the PDF via email automation
-            // 4. Track the conversion
-            
-            console.log('Form submitted:', { name, email });
-            
-            // For now, we'll just show the success message
-            // You can integrate this with your email service later
         }
     </script>
 </body>
