@@ -192,54 +192,22 @@
             </ul>
         </div>
         
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="emailForm">
-            <div class="form-group">
-                <label for="name">First Name</label>
-                <input type="text" id="name" name="name" required placeholder="Your first name">
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required placeholder="your@email.com">
-            </div>
-            
-            <button type="submit" class="submit-btn">Send Me The Free Guide</button>
-        </form>
+        <div class="download-section">
+            <p style="margin-bottom: 1.5rem; color: #64748b;">Ready to discover if you're stuck in Default Mode?</p>
+            <a href="default-mode-guide.html" class="submit-btn" style="display: inline-block; text-decoration: none;">📖 Download Free Guide</a>
+        </div>
         
         <div class="privacy">
-            <p>🔒 Your privacy is protected. I'll only send you the guide and occasional valuable content. You can unsubscribe anytime.</p>
+            <p>🔒 No email required. Download instantly and read at your own pace.</p>
         </div>
         
-        <div class="success-message" id="successMessage">
-            <h3>✅ Check Your Email!</h3>
-            <p>Your free guide has been sent to your email address. If you don't see it, check your spam folder.</p>
-            <p>While you wait, why not book a free 30-minute call to see if we're a good fit?</p>
-            <a href="https://calendly.com/contact-mikkelhansen/30min" target="_blank" class="submit-btn" style="display: inline-block; margin-top: 1rem; text-decoration: none;">Book Free Discovery Call</a>
-        </div>
+
         
         <div class="back-link">
             <a href="index.html">← Back to Website</a>
         </div>
     </div>
 
-    <script>
-        // Handle form submission with Formspree
-        document.getElementById('emailForm').addEventListener('submit', function(e) {
-            // Show loading state
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Formspree will handle the submission automatically
-            // After successful submission, it will redirect to the success page
-        });
-        
-        // Check if we're on the success page (Formspree redirects here)
-        if (window.location.search.includes('submission-successful')) {
-            document.getElementById('emailForm').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'block';
-        }
-    </script>
+
 </body>
 </html> 
