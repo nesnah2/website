@@ -222,7 +222,7 @@
         .hamburger span {
             width: 25px;
             height: 3px;
-            background: #475569;
+            background: #059669;
             margin: 3px 0;
             transition: 0.3s;
         }
@@ -1342,6 +1342,7 @@
                 height: calc(100vh - 80px);
                 overflow-y: auto;
                 z-index: 1000;
+                display: flex;
             }
 
             .nav-menu.active {
@@ -1385,10 +1386,11 @@
             }
 
             .hamburger {
-                display: flex;
+                display: flex !important;
                 padding: 0.5rem;
                 border-radius: 4px;
                 transition: background-color 0.3s ease;
+                background: rgba(5, 150, 105, 0.05);
             }
             
             .hamburger:hover {
