@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -2055,25 +2055,18 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Tell me about yourself and what you're seeking..." rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary">Send Message</button>
-                    </form>
-                    <div id="contactSuccess" style="display: none; background: #d1fae5; color: #065f46; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;">
-                        <h4>✅ Message Sent!</h4>
-                        <p>Thank you for reaching out. I'll get back to you within 24 hours.</p>
-                    </div>
-                    <div id="contactError" style="display: none; background: #fee2e2; color: #991b1b; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;">
-                        <h4>❌ Error Sending Message</h4>
-                        <p>Please try again or email me directly at contact@mikkelhansen.org</p>
+                    <div style="text-align: center; padding: 2rem; background: #f8fafc; border-radius: 10px; border: 2px dashed #059669;">
+                        <h3 style="color: #059669; margin-bottom: 1rem;">Ready to Connect?</h3>
+                        <p style="margin-bottom: 2rem; color: #475569;">Send me an email and let's start a real conversation about what you're going through.</p>
+                        
+                        <a href="mailto:contact@mikkelhansen.org?subject=Men's Mentoring Inquiry&body=Hi Mikkel,%0D%0A%0D%0AI found your website and I'm interested in working with you.%0D%0A%0D%0AHere's a bit about me and what I'm seeking:%0D%0A%0D%0A[Tell me about yourself and what you're struggling with]%0D%0A%0D%0A[What made you reach out?]%0D%0A%0D%0A[What would you like to change?]%0D%0A%0D%0AThanks,%0D%0A[Your name]" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem; display: inline-block; text-decoration: none;">
+                            📧 Send Me an Email
+                        </a>
+                        
+                        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #6b7280;">
+                            Or book a free 30-minute call: 
+                            <a href="https://calendly.com/contact-mikkelhansen/30min" target="_blank" style="color: #059669; text-decoration: underline;">Book Free Call</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -2207,53 +2200,7 @@
             });
         });
 
-        // Initialize EmailJS
-        (function() {
-            emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
-        })();
 
-        // Contact form handling
-        const contactForm = document.getElementById('contactForm');
-        const contactSuccess = document.getElementById('contactSuccess');
-        const contactError = document.getElementById('contactError');
-        
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Show loading state
-                const submitBtn = this.querySelector('.btn-primary');
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = 'Sending...';
-                submitBtn.disabled = true;
-                
-                // Get form data
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-                
-                // Send email using EmailJS
-                emailjs.send("YOUR_EMAILJS_SERVICE_ID", "YOUR_EMAILJS_TEMPLATE_ID", {
-                    from_name: name,
-                    from_email: email,
-                    message: message,
-                    to_name: "Mikkel",
-                    reply_to: email
-                })
-                .then(function(response) {
-                    // Success
-                    contactForm.style.display = 'none';
-                    contactSuccess.style.display = 'block';
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                }, function(error) {
-                    // Error
-                    contactError.style.display = 'block';
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                });
-            });
-        }
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
