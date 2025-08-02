@@ -216,6 +216,7 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
+            z-index: 1001;
         }
 
         .hamburger span {
@@ -1340,6 +1341,7 @@
                 padding: 2rem 0;
                 height: calc(100vh - 80px);
                 overflow-y: auto;
+                z-index: 1000;
             }
 
             .nav-menu.active {
@@ -2119,26 +2121,30 @@
         const dropdowns = document.querySelectorAll('.dropdown');
 
         // Toggle mobile menu
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+                if (hamburger) hamburger.classList.remove('active');
+                if (navMenu) navMenu.classList.remove('active');
             });
         });
 
         // Mobile dropdown functionality
         dropdowns.forEach(dropdown => {
             const toggle = dropdown.querySelector('.dropdown-toggle');
-            toggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-            });
+            if (toggle) {
+                toggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                });
+            }
         });
 
         // Smooth scrolling for anchor links
@@ -2152,6 +2158,10 @@
                         top: offsetTop,
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile menu if open
+                    if (hamburger) hamburger.classList.remove('active');
+                    if (navMenu) navMenu.classList.remove('active');
                 }
             });
         });
@@ -2214,6 +2224,10 @@
                     top: offsetTop,
                     behavior: 'smooth'
                 });
+                
+                // Close mobile menu if open
+                if (hamburger) hamburger.classList.remove('active');
+                if (navMenu) navMenu.classList.remove('active');
             }
         }
 
