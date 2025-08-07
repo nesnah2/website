@@ -8,6 +8,7 @@ import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 import winston from 'winston';
 import { createClient } from 'redis';
+import { sendContactEmail, sendBookingConfirmation, sendNewsletterConfirmation } from './email.js';
 
 // Load environment variables
 dotenv.config();
@@ -165,6 +166,14 @@ app.post('/api/contact', async (req, res) => {
       }));
     }
     
+    // Send email
+    try {
+      await sendContactEmail({ name, email, phone, message });
+    } catch (emailError) {
+      logger.error('Email sending failed:', emailError);
+      // Continue processing even if email fails
+    }
+    
     // Log the contact request
     logger.info('Contact form submitted', {
       name,
@@ -199,6 +208,15 @@ app.post('/api/newsletter', async (req, res) => {
       });
     }
     
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please provide a valid email address'
+      });
+    }
+    
     // Store subscription
     if (redisClient) {
       await redisClient.hSet('newsletter_subscribers', email, JSON.stringify({
@@ -207,6 +225,14 @@ app.post('/api/newsletter', async (req, res) => {
         subscribedAt: new Date().toISOString(),
         active: true
       }));
+    }
+    
+    // Send newsletter confirmation email
+    try {
+      await sendNewsletterConfirmation({ email, name });
+    } catch (emailError) {
+      logger.error('Newsletter confirmation email failed:', emailError);
+      // Continue processing even if email fails
     }
     
     logger.info('Newsletter subscription', { email, name });
@@ -249,6 +275,21 @@ app.post('/api/book-session', async (req, res) => {
         timestamp: new Date().toISOString(),
         ip: req.ip
       }));
+    }
+    
+    // Send booking confirmation email
+    try {
+      await sendBookingConfirmation({ 
+        name, 
+        email, 
+        phone, 
+        package: packageType, 
+        preferredDate, 
+        message 
+      });
+    } catch (emailError) {
+      logger.error('Booking email sending failed:', emailError);
+      // Continue processing even if email fails
     }
     
     logger.info('Session booking requested', {
