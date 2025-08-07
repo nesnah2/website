@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Men's Mentoring</title>
-    <meta name="description" content="Learn about my journey from chaos to peace, and how I help men break free from destructive patterns and default mode thinking.">
+    <title>Success Stories | Men's Mentoring</title>
+    <meta name="description" content="Real stories from men who have broken free from destructive patterns and default mode thinking. See the transformation that's possible.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -129,65 +129,62 @@
             line-height: 1.7;
         }
 
-        /* Main Content */
-        .main-content {
+        /* Testimonials Grid */
+        .testimonials-section {
             padding: 80px 0;
         }
 
-        .content-section {
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
             background: #ffffff;
             border-radius: 20px;
-            padding: 3rem;
-            margin-bottom: 3rem;
+            padding: 2.5rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e2e8f0;
         }
 
-        .content-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 2rem;
-            text-align: center;
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .content-section h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #1a1a1a;
-        }
-
-        .content-section p {
-            font-size: 1.3rem;
-            line-height: 1.7;
-            color: #333;
+        .testimonial-content {
             margin-bottom: 1.5rem;
         }
 
-        .credentials-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #059669;
-            margin-top: 2rem;
-        }
-
-        .credentials-box h4 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .credentials-box p {
+        .testimonial-content p {
             font-size: 1.2rem;
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #374151;
+            font-style: italic;
+            position: relative;
         }
 
-        .credentials-box p:last-child {
-            margin-bottom: 0;
+        .testimonial-content p::before {
+            content: '"';
+            font-size: 3rem;
+            color: #059669;
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+            font-family: serif;
+        }
+
+        .testimonial-author {
+            text-align: right;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: #059669;
+            font-size: 1.1rem;
         }
 
         /* CTA Section */
@@ -264,19 +261,16 @@
                 font-size: 1.1rem;
             }
 
-            .content-section {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonial-card {
                 padding: 2rem;
             }
 
-            .content-section h2 {
-                font-size: 2rem;
-            }
-
-            .content-section h3 {
-                font-size: 1.5rem;
-            }
-
-            .content-section p {
+            .testimonial-content p {
                 font-size: 1.1rem;
             }
         }
@@ -308,34 +302,67 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>About Me</h1>
-            <p>My journey from chaos to peace, and why I'm committed to helping men break free from destructive patterns.</p>
+            <h1>Success Stories</h1>
+            <p>Real transformations from men who have broken free from destructive patterns and default mode thinking.</p>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <section class="main-content">
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
         <div class="container">
-            <div class="content-section">
-                <h3>I've Been Where You Are</h3>
-                <p>Behind a perfect-looking childhood were chaos and a father who drank himself to death. I learned to perform, to be what others wanted. I used every escape available—work, relationships, substances—to avoid facing myself.</p>
-                
-                <p>Cancer hit me twice. Alone in a hospital bed, I finally faced the truth: I was running from everything. That's when I discovered my default mode—the automatic patterns that had been running my life without permission.</p>
-            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>My sessions with Mikkel truly hit SPOT ON! It might sound wild, but when I talk to Mikkel, it feels like coming 'home' to safety. A safe space where I can share directly from the heart without worrying about how it will be received. There's always room and space to reflect on the development I'm in right now, and at the same time Mikkel asks curious questions that help me go even deeper into myself and toward where I want to go. Thank you for being you, Mikkel.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">- M</span>
+                    </div>
+                </div>
 
-            <div class="content-section">
-                <h3>Why I Do This Work</h3>
-                <p>I mentor men because I know what it feels like to be stuck. I know the shame and confusion when something feels wrong but you can't identify it. I know what it's like to look good on the outside while dying inside.</p>
-                
-                <p>Most importantly, I know what it takes to break free. It's not about positive thinking or quick fixes. It's about facing your default mode patterns and choosing a different path.</p>
-            </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>In my journey with Mikkel so far, I've worked on giving myself the tools to be kind to myself, to bring structure into my everyday life, and to feel like a new person. A person who is actually living, not just running on autopilot. It has been worth its weight in gold for me.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">- Nicolai</span>
+                    </div>
+                </div>
 
-            <div class="content-section">
-                <div class="credentials-box">
-                    <h4>My Credentials & Experience</h4>
-                    <p>• Certified mentor with 7+ years of professional experience</p>
-                    <p>• I lived it, but more importantly, I overcame it</p>
-                    <p>• I know how to keep it at bay and help you do the same</p>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>I was stuck in endless thinking about quick solutions, focused on looks and being liked. Restless, not able to enjoy the present. Through several sessions with Mikkel, I found more inner peace. I'm now able to reflect and be grateful even when nothing special is happening. I discovered that unachievable inner standards were guiding my life. Mikkel is always present and steps in exactly when needed. This is exactly what's needed when working on yourself.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">- Jakob</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>Often, I was physically restless and fearful prior to our sessions, but the relief was amazing. During our work, I gained greater awareness of myself and why I kept speaking badly about myself. Now, I know the feeling of peace, and how to get there. Thanks for this journey.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">- Kevin</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>We worked on my addiction, anger issues, and shadow work around my default mode. Mikkel didn't sugarcoat anything. He helped me see the patterns I was running from and the ways I was sabotaging myself. It was brutal at times, but that's what I needed. Now I can spot when my default mode is taking over and choose differently. I'm not perfect, but I'm not running anymore.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">- A</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>I had a career, a family, everything that should make me happy. But I felt stuck. Nothing gave me joy anymore. I was isolated and bitter, even though I had no reason to be. Mikkel helped me see that I was living on autopilot, disconnected from myself. Through our work, I went from fear to trusting my gut again. I found hope. Now I actually enjoy things I used to love. I'd recommend Mikkel to any man who's lost their excitement for life.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">- Søren</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -344,8 +371,8 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Ready to Break Free?</h2>
-            <p>Let's have a conversation about where you are and where you want to be.</p>
+            <h2>Ready to Write Your Success Story?</h2>
+            <p>Join these men who have broken free from their default mode patterns.</p>
             <a href="index.html#contact" class="cta-button">Book Your Free Discovery Call</a>
         </div>
     </section>
