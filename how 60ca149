@@ -1,0 +1,20 @@
+[33mcommit 9522188cbc0a8fc2a0baa1acf18a80a1fa96723a[m
+Author: nesnah2 <contact@mikkelhansen.org>
+Date:   Sat Aug 2 05:05:28 2025 +0200
+
+    Simplify contact section header - remove marketing copy
+
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 2e161e6..d3ca244 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -2033,8 +2033,7 @@[m
+     <section id="contact" class="contact">[m
+         <div class="container">[m
+             <div class="section-header">[m
+[31m-                <h1>Ready to Begin?</h1>[m
+[31m-                <p>Take the first step toward authentic living</p>[m
+[32m+[m[32m                <h1>Contact</h1>[m
+             </div>[m
+             [m
+             <div class="contact-content">[m

@@ -1,0 +1,10 @@
+[33m21e7566[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Update pricing: Transformation to , Mastery to
+[33mdf32bba[m Update website pages
+[33m19f1f61[m Add new pages and update configuration
+[33m92d45af[m Fix YouTube links and update website content - Fixed YouTube profile links from @just__mikkell to @just__mikkel - Updated about.html, links.html, success-stories.html, and index.html - Added Perplexity MCP server configuration - Updated package dependencies
+[33m821dd03[m Add actual Google Analytics tracking ID G-WFRHEYY31D
+[33m990f82f[m Add Google Analytics tracking code placeholder
+[33m0618d0e[m Fix image path in links page to use full URL
+[33m81992d7[m Create Linktree-style page for social media bio links
+[33m60ca149[m Update pricing to more realistic levels: Discovery , Transformation ,800, Mastery ,500
+[33m9522188[m Simplify contact section header - remove marketing copy
