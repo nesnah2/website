@@ -135,7 +135,7 @@ app.get('/api/health', (req, res) => {
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
   try {
-    const { name, email, message, phone } = req.body;
+    const { name, email, message } = req.body;
     
     // Basic validation
     if (!name || !email || !message) {
@@ -154,33 +154,31 @@ app.post('/api/contact', async (req, res) => {
       });
     }
     
-    // Store in Redis for processing
-    if (redisClient) {
-      await redisClient.lPush('contact_requests', JSON.stringify({
-        name,
-        email,
-        message,
-        phone,
-        timestamp: new Date().toISOString(),
-        ip: req.ip
-      }));
-    }
+          // Store in Redis for processing
+      if (redisClient) {
+        await redisClient.lPush('contact_requests', JSON.stringify({
+          name,
+          email,
+          message,
+          timestamp: new Date().toISOString(),
+          ip: req.ip
+        }));
+      }
     
-    // Send email
-    try {
-      await sendContactEmail({ name, email, phone, message });
-    } catch (emailError) {
+          // Send email
+      try {
+        await sendContactEmail({ name, email, message });
+      } catch (emailError) {
       logger.error('Email sending failed:', emailError);
       // Continue processing even if email fails
     }
     
-    // Log the contact request
-    logger.info('Contact form submitted', {
-      name,
-      email,
-      hasPhone: !!phone,
-      ip: req.ip
-    });
+          // Log the contact request
+      logger.info('Contact form submitted', {
+        name,
+        email,
+        ip: req.ip
+      });
     
     res.json({
       success: true,

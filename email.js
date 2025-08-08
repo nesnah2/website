@@ -28,7 +28,7 @@ const createTransporter = () => {
 
 // Send contact form email
 export const sendContactEmail = async (contactData) => {
-  const { name, email, phone, message } = contactData;
+  const { name, email, message } = contactData;
   
   const transporter = createTransporter();
   if (!transporter) {
@@ -43,7 +43,7 @@ export const sendContactEmail = async (contactData) => {
     text: `
       Name: ${name}
       Email: ${email}
-      Phone: ${phone || 'Not provided'}
+
       
       Message:
       ${message}
@@ -52,7 +52,7 @@ export const sendContactEmail = async (contactData) => {
       <h3>New Contact Form Submission</h3>
       <p><strong>Name:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+
       <p><strong>Message:</strong></p>
       <p>${message.replace(/\n/g, '<br>')}</p>
     `,

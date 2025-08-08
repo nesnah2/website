@@ -37,7 +37,7 @@
       "name": "Men's Mentoring by Mikkel Hansen",
       "description": "Authentic mentoring for men feeling lost and stuck. Break free from destructive patterns and default mode thinking.",
       "url": "https://mikkelhansen.org",
-      "telephone": "+4512345678",
+
       "email": "contact@mikkelhansen.org",
       "address": {
         "@type": "PostalAddress",
@@ -2080,10 +2080,7 @@
                             <i class="fas fa-envelope"></i>
                             <span>Email: <a href="mailto:contact@mikkelhansen.org" style="color: #059669; text-decoration: underline;">contact@mikkelhansen.org</a></span>
                         </div>
-                        <div class="contact-method">
-                            <i class="fas fa-phone"></i>
-                            <span>Phone: <a href="tel:+4512345678" style="color: #059669; text-decoration: underline;">+45 12 34 56 78</a></span>
-                        </div>
+
                         <div class="contact-method">
                             <i class="fas fa-calendar"></i>
                             <span><a href="https://calendly.com/contact-mikkelhansen/30min" target="_blank" style="color: #059669; text-decoration: underline;">Book Free Intro Session</a></span>
@@ -2100,9 +2097,6 @@
                             <input type="email" id="email" name="email" placeholder="Your Email" required="">
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Your Phone (optional)">
-                        </div>
-                        <div class="form-group">
                             <textarea id="message" name="message" placeholder="Tell me about yourself and what you're seeking..." rows="5" required=""></textarea>
                         </div>
                         <div id="formResponse" style="margin-bottom: 1rem; color: #059669; font-weight: 500; display: none;"></div>
@@ -2115,7 +2109,6 @@
                             const formData = {
                                 name: document.getElementById('name').value,
                                 email: document.getElementById('email').value,
-                                phone: document.getElementById('phone').value,
                                 message: document.getElementById('message').value
                             };
                             
