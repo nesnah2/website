@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Programs | Men's Mentoring</title>
+    <meta name="description" content="Transformation programs for men ready to break free from default mode patterns. Choose from Discovery, Transformation, or Mastery packages.">
+    <meta name="keywords" content="men's mentoring pricing, transformation programs, default mode coaching, male life coach cost, men's mentoring packages">
+    <meta name="author" content="Mikkel Hansen">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mikkelhansen.org/pricing">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mikkelhansen.org/pricing">
+    <meta property="og:title" content="Pricing & Programs | Men's Mentoring">
+    <meta property="og:description" content="Transformation programs for men ready to break free from default mode patterns. Choose from Discovery, Transformation, or Mastery packages.">
+    <meta property="og:image" content="https://mikkelhansen.org/assets/mentor.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mikkelhansen.org/pricing">
+    <meta property="twitter:title" content="Pricing & Programs | Men's Mentoring">
+    <meta property="twitter:description" content="Transformation programs for men ready to break free from default mode patterns.">
+    <meta property="twitter:image" content="https://mikkelhansen.org/assets/mentor.jpg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .nav-toggle {
+            background: none;
+            border: none;
+            color: #475569;
+            font-size: 1.2rem;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-toggle:hover {
+            color: #059669;
+            background: rgba(5, 150, 105, 0.1);
+        }
+
+        .nav-toggle.active {
+            color: #059669;
+        }
+
+        .nav-logo {
+            display: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .nav-menu.open {
+            max-height: 500px;
+            padding: 1rem;
+        }
+
+        .nav-menu a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+
+        .nav-menu a:hover {
+            color: #059669;
+            background: rgba(5, 150, 105, 0.1);
+            transform: translateX(-5px);
+        }
+        
+        .nav-cta {
+            background: #059669;
+            color: #ffffff !important;
+            border-radius: 8px;
+            padding: 0.75rem 1rem !important;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .nav-cta:hover {
+            background: #047857;
+            color: #ffffff !important;
+            transform: translateX(-5px);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #475569;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+        }
+
+        .highlight {
+            color: #059669;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: #64748b;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 0;
+            background: #ffffff;
+        }
+
+        .pricing-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: rgba(5, 150, 105, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+
+        .pricing-intro h3 {
+            font-size: 1.8rem;
+            color: #059669;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .pricing-intro p {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .pricing-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .pricing-option {
+            padding: 2.5rem;
+            background: #ffffff;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .pricing-option:hover {
+            border-color: #059669;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
+        }
+
+        .pricing-option.featured {
+            border-color: #059669;
+            background: rgba(5, 150, 105, 0.02);
+            transform: scale(1.05);
+        }
+
+        .pricing-option.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .option-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .option-header h4 {
+            font-size: 1.5rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 3rem;
+            color: #059669;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .save-badge {
+            background: #059669;
+            color: #ffffff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .pricing-option p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .pricing-option ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-option ul li {
+            color: #64748b;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1rem;
+        }
+
+        .pricing-option ul li:before {
+            content: "✓";
+            color: #059669;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+        }
+
+        .pricing-option ul li:last-child {
+            border-bottom: none;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-height: 44px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            background: #059669;
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: #047857;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
+        }
+
+        /* Value Proposition Section */
+        .value-proposition {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .value-card:hover {
+            border-color: #059669;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(5, 150, 105, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .value-icon i {
+            font-size: 1.5rem;
+            color: #059669;
+        }
+
+        .value-card h4 {
+            font-size: 1.2rem;
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 0;
+            background: #ffffff;
+        }
+
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-item:hover {
+            border-color: #059669;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
+        }
+
+        .faq-item h3 {
+            font-size: 1.3rem;
+            color: #059669;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-content h3 {
+            font-size: 2.5rem;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-height: 44px;
+            background: transparent;
+            color: #475569;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: #059669;
+            color: #059669;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #f8fafc;
+            padding: 3rem 0 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo h3 {
+            color: #059669;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logo p {
+            color: #64748b;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #475569;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #059669;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-bottom p {
+            color: #94a3b8;
+        }
+
+        /* Mobile Menu */
+        .nav-menu.active {
+            position: fixed;
+            left: 0;
+            top: 80px;
+            flex-direction: column;
+            background-color: #ffffff;
+            width: 100%;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+            padding: 2rem 0;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            z-index: 999;
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .nav-container {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                border-radius: 12px;
+            }
+            
+            .nav-toggle {
+                padding: 0.75rem;
+                font-size: 1rem;
+            }
+            
+            .nav-menu {
+                gap: 0.25rem;
+            }
+            
+            .nav-menu a {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8rem;
+                min-height: 36px;
+            }
+            
+            .hero-content {
+                padding: 0 15px;
+            }
+            
+            .hero-title {
+                font-size: clamp(2rem, 6vw, 2.5rem);
+                line-height: 1.1;
+            }
+            
+            .hero-subtitle {
+                font-size: clamp(1rem, 3vw, 1.1rem);
+            }
+            
+            .pricing-options {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .pricing-option.featured {
+                transform: none;
+            }
+            
+            .pricing-option.featured:hover {
+                transform: translateY(-5px);
+            }
+            
+            .section-header h2 {
+                font-size: clamp(1.8rem, 4vw, 2rem);
+            }
+            
+            .section-header p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .nav-container {
+                padding: 0 10px;
+            }
+            
+            .nav-logo h2 {
+                font-size: 1.2rem;
+            }
+            
+            .hero-content {
+                padding: 0 10px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+                line-height: 1.1;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 1.1rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-header p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="how-i-work.html">How I Work</a></li>
+                <li><a href="default-mode-framework.html">Framework</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="success-stories.html">Success Stories</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Transformation <span class="highlight">Programs</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Choose the program that fits your commitment level and transformation goals. Each package is designed to help you break free from default mode patterns and build authentic ways of being.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <div class="pricing-content">
+                <div class="pricing-intro">
+                    <h3>Investment in Your Transformation</h3>
+                    <p>These programs are designed for men who are ready to do the work. The investment reflects the depth of transformation and the level of support you'll receive. Choose the program that aligns with your commitment to change.</p>
+                </div>
+
+                <div class="pricing-options">
+                    <div class="pricing-option featured">
+                        <div class="option-header">
+                            <h4>Free Discovery Call</h4>
+                            <div class="price">$0</div>
+                        </div>
+                        <p>Start with a no-pressure conversation to see if we're a good fit for working together.</p>
+                        <ul>
+                            <li>30-minute video or phone call</li>
+                            <li>Get clarity on your situation</li>
+                            <li>Ask any questions about the process</li>
+                            <li>Decide if you want to work together</li>
+                            <li>No charge, no obligation, no pressure</li>
+                        </ul>
+                        <a href="https://calendly.com/contact-mikkelhansen/30min" target="_blank" class="btn-primary">Book Free Call</a>
+                    </div>
+
+                    <div class="pricing-option">
+                        <div class="option-header">
+                            <h4>Discovery Package</h4>
+                            <div class="price">$500</div>
+                        </div>
+                        <p>30-day program to identify your default mode patterns and create a clear roadmap for transformation.</p>
+                        <ul>
+                            <li>2 x 60-minute sessions</li>
+                            <li>Weekly check-in emails</li>
+                            <li>Default mode assessment</li>
+                            <li>Personalized transformation plan</li>
+                            <li>Between-session exercises</li>
+                            <li>Resource library access</li>
+                        </ul>
+                        <a href="mailto:contact@mikkelhansen.org?subject=Discovery Package Inquiry" class="btn-primary">Contact Me</a>
+                    </div>
+
+                    <div class="pricing-option">
+                        <div class="option-header">
+                            <h4>Transformation Package</h4>
+                            <div class="price">$1,400</div>
+                        </div>
+                        <p>90-day program to break down old patterns and build new ways of being. For men ready for real change.</p>
+                        <ul>
+                            <li>6 x 60-minute sessions</li>
+                            <li>Bi-weekly check-in support</li>
+                            <li>Personalized accountability system</li>
+                            <li>Progress tracking & milestones</li>
+                            <li>Priority email support</li>
+                            <li>Complete resource library</li>
+                            <li>Between-session exercises</li>
+                        </ul>
+                        <a href="mailto:contact@mikkelhansen.org?subject=Transformation Package Inquiry" class="btn-primary">Contact Me</a>
+                    </div>
+
+                    <div class="pricing-option">
+                        <div class="option-header">
+                            <h4>Mastery Package</h4>
+                            <div class="price">$3,100</div>
+                        </div>
+                        <p>6-month program for deep, lasting transformation. For men committed to mastering their default mode.</p>
+                        <ul>
+                            <li>12 x 60-minute sessions</li>
+                            <li>Weekly support & accountability</li>
+                            <li>Complete resource library</li>
+                            <li>Personalized transformation roadmap</li>
+                            <li>Priority scheduling & support</li>
+                            <li>30-day follow-up after completion</li>
+                            <li>Exclusive group access</li>
+                            <li>Lifetime resource updates</li>
+                        </ul>
+                        <a href="mailto:contact@mikkelhansen.org?subject=Mastery Package Inquiry" class="btn-primary">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section class="value-proposition">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why This Investment Matters</h2>
+                <p>This isn't just coaching—it's a complete transformation of how you show up in the world</p>
+            </div>
+            
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4>Break Default Mode Patterns</h4>
+                    <p>Learn to recognize and interrupt the automatic patterns that keep you stuck in cycles of self-sabotage and unfulfillment.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h4>Build Authentic Confidence</h4>
+                    <p>Develop genuine self-trust and confidence that comes from knowing yourself deeply and living in alignment with your values.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4>Create Meaningful Relationships</h4>
+                    <p>Learn to show up authentically in relationships, communicate your needs, and build deeper connections with others.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h4>Find Your True Purpose</h4>
+                    <p>Discover what truly matters to you and learn to make decisions from a place of clarity rather than fear or obligation.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Develop Emotional Resilience</h4>
+                    <p>Build the capacity to handle difficult emotions and situations without falling back into old destructive patterns.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4>Create Lasting Change</h4>
+                    <p>This isn't a quick fix—it's a fundamental shift in how you relate to yourself and the world around you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about the programs and investment</p>
+            </div>
+            
+            <div class="faq-content">
+                <div class="faq-item">
+                    <h3>What's the difference between the packages?</h3>
+                    <p>The Discovery Package is for men who want to understand their patterns and get a roadmap. The Transformation Package is for men ready to actively break down old patterns and build new ones. The Mastery Package is for men committed to deep, lasting change and ongoing support.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I know which package is right for me?</h3>
+                    <p>Start with the free discovery call. We'll discuss your situation, goals, and commitment level. I'll recommend the package that best fits where you are and what you're ready for. You can always upgrade later.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What if I can't afford the full package upfront?</h3>
+                    <p>I offer payment plans for the Transformation and Mastery packages. We can discuss options during the discovery call. The investment is significant, but so is the transformation.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How long does it take to see results?</h3>
+                    <p>Most men start feeling shifts within the first few weeks of the Discovery Package. Real transformation happens over months, not days. The longer packages provide the time and support needed for lasting change.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What if I'm not satisfied with the program?</h3>
+                    <p>I offer a satisfaction guarantee. If you're not getting value from our work together after the first session, I'll refund your investment. Your transformation is my priority.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I upgrade from a smaller package?</h3>
+                    <p>Absolutely. Many men start with the Discovery Package and then upgrade to Transformation or Mastery. We can discuss this at any time during our work together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h3>Ready to Start Your Transformation?</h3>
+                <p>Take the first step toward breaking free from your default mode patterns. Book a free discovery call to see if we're a good fit for working together.</p>
+                <div class="cta-buttons">
+                    <a href="https://calendly.com/contact-mikkelhansen/30min" target="_blank" class="btn-primary">Book Free Discovery Call</a>
+                    <a href="mailto:contact@mikkelhansen.org?subject=Pricing Questions" class="btn-secondary">Ask Questions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>MEN'S MENTORING</h3>
+                    <p>Authentic guidance for real men</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="how-i-work.html">How I Work</a>
+                    <a href="about.html">About</a>
+                    <a href="success-stories.html">Success Stories</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Men's Mentoring. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        // Toggle navigation menu
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('open');
+        });
+
+        // Close navigation menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('open');
+            });
+        });
+
+        // Close navigation menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('open');
+            }
+        });
+
+        // Add touch-friendly interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            // Improve touch targets
+            const buttons = document.querySelectorAll('button, .btn-primary, .btn-secondary');
+            buttons.forEach(button => {
+                button.style.minHeight = '44px';
+                button.style.touchAction = 'manipulation';
+            });
+
+            // Add smooth scroll behavior
+            document.documentElement.style.scrollBehavior = 'smooth';
+        });
+
+        // Add scroll-based navbar styling
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>

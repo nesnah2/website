@@ -3,8 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How I Work | Men's Mentoring</title>
-    <meta name="description" content="Discover how I help men break free from destructive patterns and default mode thinking. Real change through confronting truth.">
+    <title>The Default Mode Framework | Men's Mentoring</title>
+    <meta name="description" content="Master The Default Mode Framework to break free from destructive patterns. Learn to identify, understand, and transform your survival strategies into authentic living.">
+    <meta name="keywords" content="default mode framework, men's mentoring, survival patterns, authentic masculinity, personal transformation, emotional intelligence">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="The Default Mode Framework | Men's Mentoring">
+    <meta property="og:description" content="Master The Default Mode Framework to break free from destructive patterns. Learn to identify, understand, and transform your survival strategies into authentic living.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/default-mode-framework.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Default Mode Framework | Men's Mentoring">
+    <meta name="twitter:description" content="Master The Default Mode Framework to break free from destructive patterns.">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Default Mode Framework",
+        "description": "Master The Default Mode Framework to break free from destructive patterns and build authentic masculinity.",
+        "author": {
+            "@type": "Person",
+            "name": "Men's Mentoring"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Men's Mentoring"
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-01-01"
+    }
+    </script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -148,7 +181,7 @@
 
         /* Hero Section */
         .hero {
-            min-height: 60vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
@@ -157,13 +190,13 @@
 
         .hero-content {
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1.5rem;
@@ -175,7 +208,7 @@
         }
 
         .hero-subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
             color: #64748b;
             margin-bottom: 2rem;
             line-height: 1.6;
@@ -198,16 +231,23 @@
         }
 
         .content-section h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #059669;
             margin-bottom: 2rem;
             font-weight: 700;
         }
 
         .content-section h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #1e293b;
             margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .content-section h4 {
+            font-size: 1.3rem;
+            color: #059669;
+            margin-bottom: 1rem;
             font-weight: 600;
         }
 
@@ -227,33 +267,102 @@
             font-size: 1.1rem;
             line-height: 1.6;
             color: #475569;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
 
-        .highlight-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #059669;
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin: 2rem 0;
         }
 
-        .highlight-box h4 {
-            font-size: 1.3rem;
-            color: #1e293b;
-            margin-bottom: 1rem;
-            font-weight: 600;
+        .framework-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #059669;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
-        .highlight-box ul {
+        .framework-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .framework-card h4 {
+            color: #059669;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .framework-card ul {
             margin-left: 1rem;
         }
 
-        .highlight-box li {
+        .framework-card li {
             font-size: 1rem;
-            line-height: 1.6;
-            color: #475569;
             margin-bottom: 0.5rem;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #059669;
+            margin: 2rem 0;
+        }
+
+        .example-box h4 {
+            color: #059669;
+            margin-bottom: 1rem;
+        }
+
+        .example-box p {
+            font-style: italic;
+            color: #374151;
+        }
+
+        .steps-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #059669;
+        }
+
+        .step-number {
+            background: #059669;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: #475569;
+            margin-bottom: 0;
         }
 
         .cta-section {
@@ -413,6 +522,20 @@
                 padding: 2rem;
                 margin: 0 1rem 2rem 1rem;
             }
+
+            .framework-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
             
             .footer-content {
                 flex-direction: column;
@@ -451,10 +574,10 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    How I <span class="highlight">Work</span>
+                    The <span class="highlight">Default Mode</span> Framework
                 </h1>
                 <p class="hero-subtitle">
-                    Real change through confronting truth. Discover how I help men break free from destructive patterns and build authentic masculinity.
+                    Break free from destructive patterns and build authentic masculinity. Master the framework that transforms survival strategies into conscious living.
                 </p>
             </div>
         </div>
@@ -464,86 +587,112 @@
     <section class="main-content">
         <div class="container">
             <div class="content-section">
-                <h2>The Problem Most Men Face</h2>
-                <p style="font-size: 1.4rem; margin-bottom: 2.5rem; line-height: 1.7; color: #333;">
-                    Most men come to me stuck in patterns they don't understand. They've tried willpower and "just trying harder." None of it worked because they're fighting symptoms, not the source.
+                <h2>What is The Default Mode Framework?</h2>
+                <p>
+                    The Default Mode Framework is a powerful tool for understanding and transforming the unconscious patterns that keep you stuck. It's not about fixing yourself—it's about becoming aware of the survival strategies you developed to protect yourself, and learning to choose differently.
                 </p>
                 
-                <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: 3rem; color: #1a1a1a;">
-                    I help you find the source.
+                <p>
+                    Every man has a "default mode"—automatic responses that kick in when you feel threatened, vulnerable, or uncertain. These patterns served you once, but now they're limiting your growth and keeping you from the life you want.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>The Six Default Mode Patterns</h2>
+                <p>
+                    These are the most common survival strategies men develop. You might recognize yourself in one, several, or all of them. The key is not to judge yourself, but to understand.
                 </p>
 
-                <h3>Here's how we do it:</h3>
-
-                <div style="margin-bottom: 2.5rem;">
-                    <p style="font-size: 1.3rem; margin-bottom: 2rem; line-height: 1.7; color: #333;">
-                        <strong style="color: #059669;">We start with the truth.</strong> Not the story you tell yourself, but the raw truth about why you react and escape the way you do.
-                    </p>
-
-                    <p style="font-size: 1.3rem; margin-bottom: 2rem; line-height: 1.7; color: #333;">
-                        <strong style="color: #059669;">We stop running.</strong> When discomfort hits, you escape into anger, work, or whatever numbs you. We learn to sit with it instead and see what it's protecting.
-                    </p>
-
-                    <p style="font-size: 1.3rem; margin-bottom: 2rem; line-height: 1.7; color: #333;">
-                        <strong style="color: #059669;">We build from truth.</strong> Once you see the patterns, we rebuild your life on a foundation of presence and authenticity, not performance and approval.
-                    </p>
-                </div>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
-                    <div class="highlight-box">
-                        <h4>What this isn't:</h4>
+                <div class="framework-grid">
+                    <div class="framework-card">
+                        <h4><i class="fas fa-star"></i> Perfectionism</h4>
+                        <p><strong>The belief:</strong> "If I'm perfect, I'll be safe from criticism and rejection."</p>
                         <ul>
-                            <li>Quick fixes or life hacks</li>
-                            <li>Positive affirmations or feel-good sessions</li>
-                            <li>Magic formulas or step-by-step programs</li>
+                            <li>Overthinking every decision</li>
+                            <li>Procrastination from fear of failure</li>
+                            <li>Never feeling good enough</li>
+                            <li>Exhausting yourself trying to meet impossible standards</li>
                         </ul>
                     </div>
 
-                    <div class="highlight-box">
-                        <h4>What this is:</h4>
+                    <div class="framework-card">
+                        <h4><i class="fas fa-heart"></i> People-Pleasing</h4>
+                        <p><strong>The belief:</strong> "If everyone likes me, I won't be rejected or abandoned."</p>
                         <ul>
-                            <li>Confronting the lies you've been living</li>
-                            <li>Facing the parts of yourself you've been avoiding</li>
-                            <li>Building a life you don't need to escape from</li>
+                            <li>Saying yes when you want to say no</li>
+                            <li>Suppressing your true feelings</li>
+                            <li>Resentment building up over time</li>
+                            <li>Losing touch with what you actually want</li>
+                        </ul>
+                    </div>
+
+                    <div class="framework-card">
+                        <h4><i class="fas fa-briefcase"></i> Workaholism</h4>
+                        <p><strong>The belief:</strong> "If I'm busy enough, I won't have to feel or deal with my problems."</p>
+                        <ul>
+                            <li>Using work to avoid relationships</li>
+                            <li>Feeling guilty when not working</li>
+                            <li>Burning out from constant activity</li>
+                            <li>Missing out on life outside work</li>
+                        </ul>
+                    </div>
+
+                    <div class="framework-card">
+                        <h4><i class="fas fa-shield-alt"></i> Isolation</h4>
+                        <p><strong>The belief:</strong> "If I don't let anyone in, I can't be hurt or disappointed."</p>
+                        <ul>
+                            <li>Keeping people at arm's length</li>
+                            <li>Difficulty with intimacy</li>
+                            <li>Feeling lonely even in relationships</li>
+                            <li>Missing deep connections</li>
+                        </ul>
+                    </div>
+
+                    <div class="framework-card">
+                        <h4><i class="fas fa-fire"></i> Anger as Protection</h4>
+                        <p><strong>The belief:</strong> "If I'm angry, I won't feel vulnerable or weak."</p>
+                        <ul>
+                            <li>Using anger to avoid sadness</li>
+                            <li>Pushing people away with intensity</li>
+                            <li>Feeling out of control</li>
+                            <li>Damaging relationships</li>
+                        </ul>
+                    </div>
+
+                    <div class="framework-card">
+                        <h4><i class="fas fa-cogs"></i> Control Seeking</h4>
+                        <p><strong>The belief:</strong> "If I control everything, nothing can hurt me."</p>
+                        <ul>
+                            <li>Micromanaging others</li>
+                            <li>Difficulty with uncertainty</li>
+                            <li>Rigid thinking and planning</li>
+                            <li>Anxiety when things don't go as planned</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="content-section">
-                <h2>The Default Mode Framework</h2>
-                
-                <h3>Understanding Your Survival Patterns</h3>
+                <h2>The Five-Step Transformation Process</h2>
                 <p>
-                    Every man has developed survival strategies to protect himself from pain, rejection, and vulnerability. These strategies worked when you were younger, but now they're keeping you stuck in patterns that don't serve you.
+                    Breaking free from default mode isn't about willpower—it's about awareness and practice. Here's the framework for transformation:
                 </p>
 
-                <h3>Common Default Mode Patterns:</h3>
-                <ul>
-                    <li><strong>Perfectionism:</strong> "If I'm perfect, I'll be safe from criticism"</li>
-                    <li><strong>People-pleasing:</strong> "If everyone likes me, I won't be rejected"</li>
-                    <li><strong>Workaholism:</strong> "If I'm busy enough, I won't have to feel"</li>
-                    <li><strong>Isolation:</strong> "If I don't let anyone in, I can't be hurt"</li>
-                    <li><strong>Anger as protection:</strong> "If I'm angry, I won't feel vulnerable"</li>
-                    <li><strong>Control seeking:</strong> "If I control everything, nothing can hurt me"</li>
-                </ul>
-
-                <h3>Breaking Free from Default Mode:</h3>
-                <ul>
-                    <li><strong>Awareness:</strong> Notice when you're in default mode</li>
-                    <li><strong>Pause:</strong> Stop before reacting automatically</li>
-                    <li><strong>Question:</strong> "What am I really feeling right now?"</li>
-                    <li><strong>Choose:</strong> Respond from your authentic self, not your survival self</li>
-                    <li><strong>Practice:</strong> New patterns take time to build</li>
-                </ul>
+                <ol style="margin-left: 2rem; font-size: 1.1rem; line-height: 1.8;">
+                    <li><strong>Awareness:</strong> Notice when you're in default mode. What triggers it? What does it feel like in your body? What thoughts come up?</li>
+                    <li><strong>Pause:</strong> Stop before reacting automatically. Take a breath. Create space between the trigger and your response.</li>
+                    <li><strong>Question:</strong> Ask yourself: "What am I really feeling right now? What am I trying to protect myself from?"</li>
+                    <li><strong>Choose:</strong> Respond from your authentic self, not your survival self.</li>
+                    <li><strong>Practice:</strong> New patterns take time to build. Be patient with yourself.</li>
+                </ol>
             </div>
 
             <div class="cta-section">
-                <h3>Ready to Break Free?</h3>
+                <h3>Ready to Master The Default Mode Framework?</h3>
                 <p>
-                    If this resonates with you, let's have a conversation. No pressure, no sales pitch. Just two men talking about what's real.
+                    Understanding the framework is one thing. Living it is another. If you're ready to break free from your default mode and build authentic masculinity, let's work together.
                 </p>
-                <a href="index.html#contact" class="btn-primary">Start Your Journey</a>
+                <a href="index.html#contact" class="btn-primary">Start Your Transformation</a>
             </div>
         </div>
     </section>
