@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Men's Mentoring | Break Free from the Default Mode</title>
+    <meta name="description" content="Frequently asked questions about men's mentoring. Get answers about the process, what to expect, and how to get started with authentic mentoring for men.">
+    <meta name="keywords" content="men's mentoring FAQ, male coach questions, men's transformation FAQ, default mode mentoring, men's mental health questions">
+    <meta name="author" content="Mikkel Hansen">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mikkelhansen.org/faq.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mikkelhansen.org/faq.html">
+    <meta property="og:title" content="FAQ - Men's Mentoring | Break Free from the Default Mode">
+    <meta property="og:description" content="Frequently asked questions about men's mentoring. Get answers about the process, what to expect, and how to get started.">
+    <meta property="og:image" content="https://mikkelhansen.org/assets/mentor.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mikkelhansen.org/faq.html">
+    <meta property="twitter:title" content="FAQ - Men's Mentoring | Break Free from the Default Mode">
+    <meta property="twitter:description" content="Frequently asked questions about men's mentoring. Get answers about the process, what to expect, and how to get started.">
+    <meta property="twitter:image" content="https://mikkelhansen.org/assets/mentor.jpg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .nav-toggle {
+            background: none;
+            border: none;
+            color: #475569;
+            font-size: 1.2rem;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-toggle:hover {
+            color: #059669;
+            background: rgba(5, 150, 105, 0.1);
+        }
+
+        .nav-toggle.active {
+            color: #059669;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .nav-menu.open {
+            max-height: 500px;
+            padding: 1rem;
+        }
+
+        .nav-menu a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+
+        .nav-menu a:hover {
+            color: #059669;
+            background: rgba(5, 150, 105, 0.1);
+            transform: translateX(-5px);
+        }
+        
+        .nav-cta {
+            background: #059669;
+            color: #ffffff !important;
+            border-radius: 8px;
+            padding: 0.75rem 1rem !important;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .nav-cta:hover {
+            background: #047857;
+            color: #ffffff !important;
+            transform: translateX(-5px);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .page-header p {
+            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-item:hover {
+            border-color: #059669;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
+        }
+
+        .faq-item h3 {
+            font-size: 1.3rem;
+            color: #059669;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        /* Contact CTA Section */
+        .contact-cta {
+            padding: 4rem 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .contact-cta h2 {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .contact-cta p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-height: 44px;
+            background: #059669;
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #047857;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #f8fafc;
+            padding: 3rem 0 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo h3 {
+            color: #059669;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logo p {
+            color: #64748b;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #475569;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #059669;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-bottom p {
+            color: #94a3b8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .nav-container {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                border-radius: 12px;
+            }
+            
+            .nav-toggle {
+                padding: 0.75rem;
+                font-size: 1rem;
+            }
+            
+            .nav-menu {
+                gap: 0.25rem;
+            }
+            
+            .nav-menu a {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8rem;
+                min-height: 36px;
+            }
+            
+            .page-header {
+                padding: 6rem 0 3rem 0;
+            }
+            
+            .page-header h1 {
+                font-size: clamp(2rem, 6vw, 2.5rem);
+                line-height: 1.1;
+            }
+            
+            .page-header p {
+                font-size: clamp(1rem, 3vw, 1.1rem);
+            }
+            
+            .faq {
+                padding: 4rem 0;
+            }
+            
+            .faq-item {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .faq-item h3 {
+                font-size: 1.2rem;
+            }
+            
+            .faq-item p {
+                font-size: 1rem;
+            }
+            
+            .contact-cta {
+                padding: 3rem 0;
+            }
+            
+            .contact-cta h2 {
+                font-size: 1.8rem;
+            }
+            
+            .contact-cta p {
+                font-size: 1rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .nav-container {
+                padding: 0 10px;
+            }
+            
+            .page-header {
+                padding: 5rem 0 2rem 0;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+                line-height: 1.1;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .faq-item {
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .faq-item h3 {
+                font-size: 1.1rem;
+            }
+            
+            .faq-item p {
+                font-size: 0.95rem;
+            }
+            
+            .contact-cta h2 {
+                font-size: 1.6rem;
+            }
+            
+            .contact-cta p {
+                font-size: 0.95rem;
+            }
+            
+            .btn-primary {
+                padding: 1.1rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="mainNav">
+        <div class="nav-container">
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="default-mode-framework.html">Framework</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="success-stories.html">Success Stories</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Answers to the most common questions men ask before starting their transformation journey</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="faq-content">
+                <div class="faq-item">
+                    <h3>What kind of men do you work with?</h3>
+                    <p>Men who are ready to drop the mask, face themselves, and create real change. You don't need to have it all together—just a willingness to be honest and show up. I work with men who are feeling stuck, lost, or disconnected from their authentic selves.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What results can I expect?</h3>
+                    <p>Clarity, confidence, and a renewed sense of purpose. You'll learn to trust yourself, speak your truth, and build a life that feels real—on your terms. Most men experience greater self-awareness, improved relationships, and a stronger sense of direction in their lives.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Is this therapy?</h3>
+                    <p>No. This is not therapy or counseling. It's direct, practical mentoring focused on presence, action, and transformation—man to man. While therapy often focuses on healing past wounds, mentoring focuses on building your future and creating the life you want to live.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Is everything confidential?</h3>
+                    <p>Absolutely. What you share stays between us. Trust and respect are the foundation of this work. I understand that you're sharing deeply personal experiences, and I take confidentiality very seriously.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How do I get started?</h3>
+                    <p>Just reach out. We'll have a real conversation—no pressure, no sales pitch. If it feels right, we'll take the next step together. You can email me directly or book a free discovery call to see if we're a good fit.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How long does the process take?</h3>
+                    <p>Transformation is a journey, not a destination. Most men see significant changes within the first 30 days, but lasting change requires ongoing commitment. I offer different program lengths to meet you where you are—from a 30-day discovery to a 6-month mastery program.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What if I'm not sure if this is right for me?</h3>
+                    <p>That's exactly why I offer a free discovery call. We'll spend 30 minutes talking about your situation, what you're looking for, and whether we're a good fit. There's no pressure to commit—it's just a conversation between two men.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Do you work with men outside your country?</h3>
+                    <p>Yes, I work with men worldwide through video calls. The work we do is universal—it's about human nature and personal transformation, not geography. All sessions are conducted online for your convenience.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What makes your approach different?</h3>
+                    <p>I've been where you are. I understand the struggle because I lived it. This isn't theory—it's real experience. I focus on practical, actionable steps rather than just talking about problems. We work on breaking down your default mode patterns and building new ways of being.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What if I'm not ready to change?</h3>
+                    <p>That's completely okay. This work requires readiness and willingness. If you're not ready, that's actually a sign of self-awareness. When you are ready, I'll be here. The door is always open.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2>Still have questions?</h2>
+            <p>If you didn't find the answer you're looking for, let's have a conversation. Sometimes the best way to know if this is right for you is to talk it through.</p>
+            <a href="contact.html" class="btn-primary">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>MEN'S MENTORING</h3>
+                    <p>Authentic guidance for real men</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="default-mode-framework.html">Framework</a>
+                    <a href="about.html">About</a>
+                    <a href="success-stories.html">Success Stories</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Men's Mentoring. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        // Toggle navigation menu
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('open');
+        });
+
+        // Close navigation menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('open');
+            });
+        });
+
+        // Close navigation menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('open');
+            }
+        });
+
+        // Add scroll-based navbar styling
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
