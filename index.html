@@ -178,7 +178,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="main-nav" id="mainNav">
+    <nav class="navbar" id="mainNav">
         <div class="nav-container">
             <button class="nav-toggle" id="navToggle">
                 <i class="fas fa-bars"></i>
@@ -749,7 +749,7 @@
 
         // Add scroll-based navbar styling
         window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.main-nav');
+            const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
                 navbar.style.background = 'rgba(255, 255, 255, 0.98)';
                 navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
