@@ -1,0 +1,5 @@
+[33ma911a6c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Fix website appearance issues: synchronous CSS loading, improved critical CSS, and added debug test page
+[33m80820a0[m Fix navigation class inconsistency - change main-nav to navbar for consistency across all pages
+[33m4b12487[m Enhance about page with SEO meta tags, professional image, expanded credentials, and better content structure
+[33m197d895[m 🚀 Major Performance Optimization: Split CSS, optimize loading, add SEO files, and improve server configuration
+[33m722e691[m Create separate FAQ page and update navigation
