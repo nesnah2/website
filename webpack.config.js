@@ -1,9 +1,9 @@
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
@@ -11,12 +11,12 @@ module.exports = (env, argv) => {
   return {
     entry: {
       main: './public/js/main.js',
+      critical: './public/css/critical.css'
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: isProduction ? 'js/[name].[contenthash].js' : 'js/[name].js',
-      chunkFilename: isProduction ? 'js/[name].[contenthash].chunk.js' : 'js/[name].chunk.js',
-      clean: true,
+      clean: true
     },
     module: {
       rules: [
@@ -30,15 +30,15 @@ module.exports = (env, argv) => {
                 ['@babel/preset-env', {
                   targets: '> 0.25%, not dead',
                   useBuiltIns: 'usage',
-                  corejs: 3,
-                }],
+                  corejs: 3
+                }]
               ],
               plugins: [
                 '@babel/plugin-proposal-class-properties',
-                '@babel/plugin-proposal-object-rest-spread',
-              ],
-            },
-          },
+                '@babel/plugin-proposal-object-rest-spread'
+              ]
+            }
+          }
         },
         {
           test: /\.css$/,
@@ -51,62 +51,61 @@ module.exports = (env, argv) => {
                 postcssOptions: {
                   plugins: [
                     'autoprefixer',
-                    'cssnano',
-                  ],
-                },
-              },
-            },
-          ],
+                    isProduction && 'cssnano'
+                  ].filter(Boolean)
+                }
+              }
+            }
+          ]
         },
         {
-          test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+          test: /\.(png|jpg|jpeg|gif|svg|webp)$/,
+          type: 'asset',
+          parser: {
+            dataUrlCondition: {
+              maxSize: 8 * 1024 // 8kb
+            }
+          },
+          generator: {
+            filename: 'assets/[name].[hash][ext]'
+          }
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/,
           type: 'asset/resource',
           generator: {
-            filename: 'assets/[name].[hash][ext]',
-          },
-        },
-      ],
+            filename: 'fonts/[name].[hash][ext]'
+          }
+        }
+      ]
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: isProduction ? 'css/[name].[contenthash].css' : 'css/[name].css',
-      }),
-      new WebpackManifestPlugin({
-        fileName: 'asset-manifest.json',
-        generate: (seed, files, entrypoints) => {
-          const manifestFiles = {};
-          const entrypointFiles = {};
-
-          files.forEach((file) => {
-            manifestFiles[file.name] = file.path;
-          });
-
-          Object.keys(entrypoints).forEach((entrypoint) => {
-            entrypointFiles[entrypoint] = entrypoints[entrypoint].map(
-              (fileName) => manifestFiles[fileName]
-            );
-          });
-
-          return {
-            files: manifestFiles,
-            entrypoints: entrypointFiles,
-          };
-        },
+        filename: isProduction ? 'css/[name].[contenthash].css' : 'css/[name].css'
       }),
       new CopyWebpackPlugin({
         patterns: [
           {
             from: 'public/assets',
-            to: 'assets',
-            noErrorOnMissing: true,
+            to: 'assets'
           },
           {
-            from: 'public/sw.js',
-            to: 'sw.js',
-            noErrorOnMissing: true,
+            from: 'public/*.html',
+            to: '[name][ext]'
           },
-        ],
+          {
+            from: 'public/robots.txt',
+            to: 'robots.txt'
+          },
+          {
+            from: 'public/sitemap.xml',
+            to: 'sitemap.xml'
+          }
+        ]
       }),
+      new WebpackManifestPlugin({
+        fileName: 'asset-manifest.json'
+      })
     ],
     optimization: {
       minimize: isProduction,
@@ -115,13 +114,11 @@ module.exports = (env, argv) => {
           terserOptions: {
             compress: {
               drop_console: isProduction,
-              drop_debugger: isProduction,
-            },
-            mangle: true,
-          },
-          extractComments: false,
+              drop_debugger: isProduction
+            }
+          }
         }),
-        new CssMinimizerPlugin(),
+        new CssMinimizerPlugin()
       ],
       splitChunks: {
         chunks: 'all',
@@ -129,31 +126,31 @@ module.exports = (env, argv) => {
           vendor: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
-            chunks: 'all',
+            chunks: 'all'
           },
-        },
-      },
+          styles: {
+            name: 'styles',
+            test: /\.css$/,
+            chunks: 'all',
+            enforce: true
+          }
+        }
+      }
     },
-    resolve: {
-      extensions: ['.js', '.json'],
-      alias: {
-        '@': path.resolve(__dirname, 'public/js'),
-        '@assets': path.resolve(__dirname, 'public/assets'),
-        '@css': path.resolve(__dirname, 'public/css'),
+    devServer: {
+      static: {
+        directory: path.join(__dirname, 'dist')
       },
+      compress: true,
+      port: 3000,
+      hot: true,
+      open: true
     },
     devtool: isProduction ? 'source-map' : 'eval-source-map',
     performance: {
       hints: isProduction ? 'warning' : false,
       maxEntrypointSize: 512000,
-      maxAssetSize: 512000,
-    },
-    stats: {
-      colors: true,
-      modules: false,
-      children: false,
-      chunks: false,
-      chunkModules: false,
-    },
+      maxAssetSize: 512000
+    }
   };
 }; 

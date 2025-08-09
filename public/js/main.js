@@ -1,437 +1,320 @@
-// Professional Men's Mentoring Website - Main JavaScript
-class MensMentoringApp {
-  constructor() {
-    this.init();
-  }
+// Optimized JavaScript for Men's Mentoring Website
 
-  init() {
-    this.setupEventListeners();
-    this.initializeAnalytics();
-    this.setupPerformanceMonitoring();
-    this.initializeServiceWorker();
-    this.setupFormHandlers();
-    this.setupAnimations();
-    this.setupNavigation();
-  }
-
-  setupEventListeners() {
-    // Mobile navigation
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (hamburger && navMenu) {
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        this.trackEvent('navigation', 'mobile_menu_toggle');
-      });
-    }
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (target) {
-          const offsetTop = target.offsetTop - 80;
-          window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-          });
-          this.trackEvent('navigation', 'smooth_scroll', anchor.getAttribute('href'));
-        }
-      });
-    });
-
-    // Intersection Observer for animations
-    this.setupIntersectionObserver();
-  }
-
-  setupFormHandlers() {
-    // Contact form
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-      contactForm.addEventListener('submit', (e) => this.handleContactForm(e));
-    }
-
-    // Newsletter subscription
-    const newsletterForm = document.querySelector('.newsletter-form');
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', (e) => this.handleNewsletterForm(e));
-    }
-
-    // Session booking form
-    const bookingForm = document.querySelector('.booking-form');
-    if (bookingForm) {
-      bookingForm.addEventListener('submit', (e) => this.handleBookingForm(e));
-    }
-  }
-
-  async handleContactForm(e) {
-    e.preventDefault();
-    const form = e.target;
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-
-    try {
-      // Show loading state
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
-
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-
-      // Validate form
-      if (!this.validateContactForm(data)) {
-        return;
-      }
-
-      // Submit form
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        this.showNotification('Thank you for your message. I\'ll get back to you within 24 hours.', 'success');
-        form.reset();
-        this.trackEvent('form', 'contact_submitted');
-      } else {
-        this.showNotification(result.message || 'Something went wrong. Please try again.', 'error');
-      }
-
-    } catch (error) {
-      console.error('Contact form error:', error);
-      this.showNotification('Network error. Please check your connection and try again.', 'error');
-    } finally {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-    }
-  }
-
-  async handleNewsletterForm(e) {
-    e.preventDefault();
-    const form = e.target;
-    const email = form.querySelector('input[type="email"]').value;
-
-    try {
-      const response = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email })
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        this.showNotification('Successfully subscribed to the newsletter!', 'success');
-        form.reset();
-        this.trackEvent('form', 'newsletter_subscribed');
-      } else {
-        this.showNotification(result.message || 'Subscription failed.', 'error');
-      }
-
-    } catch (error) {
-      console.error('Newsletter error:', error);
-      this.showNotification('Subscription failed. Please try again.', 'error');
-    }
-  }
-
-  async handleBookingForm(e) {
-    e.preventDefault();
-    const form = e.target;
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-
-    try {
-      submitBtn.textContent = 'Processing...';
-      submitBtn.disabled = true;
-
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-
-      const response = await fetch('/api/book-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        this.showNotification('Booking request received. I\'ll contact you within 24 hours to confirm.', 'success');
-        form.reset();
-        this.trackEvent('form', 'session_booked', data.package);
-      } else {
-        this.showNotification(result.message || 'Booking failed.', 'error');
-      }
-
-    } catch (error) {
-      console.error('Booking error:', error);
-      this.showNotification('Booking failed. Please try again.', 'error');
-    } finally {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-    }
-  }
-
-  validateContactForm(data) {
-    const { name, email, message } = data;
-    
-    if (!name || !email || !message) {
-      this.showNotification('Please fill in all required fields.', 'error');
-      return false;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      this.showNotification('Please provide a valid email address.', 'error');
-      return false;
-    }
-
-    if (message.length < 10) {
-      this.showNotification('Please provide a more detailed message.', 'error');
-      return false;
-    }
-
-    return true;
-  }
-
-  showNotification(message, type = 'info') {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-      <div class="notification-content">
-        <span class="notification-message">${message}</span>
-        <button class="notification-close">&times;</button>
-      </div>
-    `;
-
-    // Add styles
-    notification.style.cssText = `
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: ${type === 'success' ? '#059669' : type === 'error' ? '#dc2626' : '#3b82f6'};
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      z-index: 10000;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      max-width: 400px;
-    `;
-
-    // Add to page
-    document.body.appendChild(notification);
-
-    // Animate in
-    setTimeout(() => {
-      notification.style.transform = 'translateX(0)';
-    }, 100);
-
-    // Close button
-    const closeBtn = notification.querySelector('.notification-close');
-    closeBtn.addEventListener('click', () => {
-      notification.style.transform = 'translateX(100%)';
-      setTimeout(() => notification.remove(), 300);
-    });
-
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-      if (notification.parentNode) {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => notification.remove(), 300);
-      }
-    }, 5000);
-  }
-
-  setupIntersectionObserver() {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-          this.trackEvent('scroll', 'section_viewed', entry.target.id);
-        }
-      });
-    }, observerOptions);
-
-    // Observe sections
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
-    });
-  }
-
-  setupAnimations() {
-    // Add CSS for animations
-    const style = document.createElement('style');
-    style.textContent = `
-      .animate-in {
-        animation: fadeInUp 0.6s ease-out forwards;
-      }
-      
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      
-      .notification-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-      }
-      
-      .notification-close {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0;
-        line-height: 1;
-      }
-    `;
-    document.head.appendChild(style);
-  }
-
-  setupNavigation() {
-    // Sticky navigation
-    const navbar = document.querySelector('.navbar');
-    let lastScrollTop = 0;
-
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      if (scrollTop > 100) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-
-      // Hide/show navbar on scroll
-      if (scrollTop > lastScrollTop && scrollTop > 200) {
-        navbar.style.transform = 'translateY(-100%)';
-      } else {
-        navbar.style.transform = 'translateY(0)';
-      }
-      
-      lastScrollTop = scrollTop;
-    });
-
-    // Active navigation highlighting
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    });
-  }
-
-  initializeAnalytics() {
-    // Google Analytics
-    if (window.gtag) {
-      this.trackEvent('page_view', 'homepage_loaded');
-    }
-
-    // Custom analytics
-    this.trackPageView();
-  }
-
-  trackEvent(category, action, label = null) {
-    // Google Analytics
-    if (window.gtag) {
-      window.gtag('event', action, {
-        event_category: category,
-        event_label: label
-      });
-    }
-
-    // Custom tracking
-    console.log('Event tracked:', { category, action, label });
-  }
-
-  trackPageView() {
-    const page = window.location.pathname;
-    this.trackEvent('page_view', page);
-  }
-
-  setupPerformanceMonitoring() {
-    // Core Web Vitals
-    if ('PerformanceObserver' in window) {
-      const observer = new PerformanceObserver((list) => {
-        for (const entry of list.getEntries()) {
-          if (entry.entryType === 'largest-contentful-paint') {
-            this.trackEvent('performance', 'lcp', Math.round(entry.startTime));
-          }
-          if (entry.entryType === 'first-input') {
-            this.trackEvent('performance', 'fid', Math.round(entry.processingStart - entry.startTime));
-          }
-        }
-      });
-
-      observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input'] });
-    }
-
-    // Page load time
-    window.addEventListener('load', () => {
-      const loadTime = performance.now();
-      this.trackEvent('performance', 'page_load_time', Math.round(loadTime));
-    });
-  }
-
-  async initializeServiceWorker() {
-    if ('serviceWorker' in navigator) {
-      try {
-        const registration = await navigator.serviceWorker.register('/sw.js');
-        console.log('Service Worker registered:', registration);
-      } catch (error) {
-        console.log('Service Worker registration failed:', error);
-      }
-    }
-  }
-}
-
-// Initialize app when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  new MensMentoringApp();
+// Performance optimizations
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all components
+    initNavigation();
+    initSmoothScrolling();
+    initLazyLoading();
+    initQuiz();
+    initContactForm();
+    initPerformanceOptimizations();
 });
 
-// Export for use in other modules
-window.MensMentoringApp = MensMentoringApp; 
+// Navigation functionality
+function initNavigation() {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (navToggle && navMenu) {
+        // Toggle navigation menu
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('open');
+        });
+
+        // Close navigation menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('open');
+            });
+        });
+
+        // Close navigation menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('open');
+            }
+        });
+    }
+
+    // Add scroll-based navbar styling
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const navbar = document.querySelector('.main-nav');
+                if (navbar) {
+                    if (window.scrollY > 50) {
+                        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+                    } else {
+                        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                    }
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
+
+// Smooth scrolling for anchor links
+function initSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// Lazy loading for images
+function initLazyLoading() {
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        img.classList.add('loaded');
+                    }
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+}
+
+// Quiz functionality
+function initQuiz() {
+    const quizForm = document.getElementById('defaultModeQuiz');
+    const quizResults = document.getElementById('quizResults');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const resultMessage = document.getElementById('resultMessage');
+
+    if (quizForm) {
+        quizForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            let totalScore = 0;
+            let answeredQuestions = 0;
+            
+            // Calculate score
+            for (let i = 1; i <= 5; i++) {
+                const answer = formData.get(`q${i}`);
+                if (answer) {
+                    totalScore += parseInt(answer);
+                    answeredQuestions++;
+                }
+            }
+            
+            if (answeredQuestions === 5) {
+                const averageScore = totalScore / 5;
+                displayQuizResults(averageScore);
+            } else {
+                alert('Please answer all questions to get your results.');
+            }
+        });
+    }
+
+    function displayQuizResults(averageScore) {
+        let resultText = '';
+        let message = '';
+        
+        if (averageScore <= 1.5) {
+            resultText = 'Low Default Mode';
+            message = 'You\'re living authentically and making conscious choices. Keep up the great work!';
+        } else if (averageScore <= 2.5) {
+            resultText = 'Moderate Default Mode';
+            message = 'You have some awareness but may be operating on autopilot in certain areas. This is a great opportunity for growth.';
+        } else if (averageScore <= 3.5) {
+            resultText = 'High Default Mode';
+            message = 'You\'re likely feeling stuck and disconnected from your authentic self. This is exactly what we work on together.';
+        } else {
+            resultText = 'Very High Default Mode';
+            message = 'You\'re deeply entrenched in default mode patterns. The good news? You\'re ready for transformation.';
+        }
+        
+        scoreDisplay.innerHTML = `
+            <div style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">${resultText}</div>
+            <div style="font-size: 1.2rem; margin-bottom: 2rem;">Score: ${averageScore.toFixed(1)}/4</div>
+        `;
+        
+        resultMessage.innerHTML = `<p style="font-size: 1.1rem; line-height: 1.6;">${message}</p>`;
+        
+        document.getElementById('defaultModeQuiz').style.display = 'none';
+        quizResults.style.display = 'block';
+        
+        // Smooth scroll to results
+        quizResults.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+
+// Contact form functionality
+function initContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    const formResponse = document.getElementById('formResponse');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            
+            // Show loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with actual API call)
+            setTimeout(() => {
+                // Success response
+                formResponse.textContent = 'Thank you! Your message has been sent. I\'ll get back to you within 24 hours.';
+                formResponse.style.color = '#059669';
+                formResponse.style.display = 'block';
+                
+                // Reset form
+                this.reset();
+                
+                // Reset button
+                submitBtn.textContent = 'Send Message';
+                submitBtn.disabled = false;
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    formResponse.style.display = 'none';
+                }, 5000);
+            }, 1500);
+        });
+    }
+}
+
+// Performance optimizations
+function initPerformanceOptimizations() {
+    // Improve touch targets
+    const buttons = document.querySelectorAll('button, .btn-primary, .btn-secondary');
+    buttons.forEach(button => {
+        button.style.minHeight = '44px';
+        button.style.touchAction = 'manipulation';
+    });
+
+    // Add loading states for better UX
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        if (!form.id.includes('contactForm')) {
+            form.addEventListener('submit', (e) => {
+                const submitBtn = form.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.textContent = 'Processing...';
+                    submitBtn.disabled = true;
+                    
+                    // Reset button after 3 seconds (simulate form submission)
+                    setTimeout(() => {
+                        submitBtn.textContent = 'Submit';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                }
+            });
+        }
+    });
+
+    // Optimize images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('load', () => {
+            img.style.opacity = '1';
+        });
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.3s ease';
+    });
+
+    // Add intersection observer for animations
+    if ('IntersectionObserver' in window) {
+        const animationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe elements for animation
+        document.querySelectorAll('.expectation-card, .testimonial-card, .pricing-option, .faq-item').forEach(el => {
+            animationObserver.observe(el);
+        });
+    }
+
+    // Preload critical resources
+    const criticalResources = [
+        '/assets/mentor.jpg',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
+    ];
+
+    criticalResources.forEach(resource => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = resource.includes('.jpg') ? 'image' : 'style';
+        link.href = resource;
+        document.head.appendChild(link);
+    });
+}
+
+// Utility functions
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Analytics tracking (if needed)
+function trackEvent(eventName, eventData = {}) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, eventData);
+    }
+    // Add other analytics tracking here
+}
+
+// Service Worker registration for PWA features
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('SW registered: ', registration);
+            })
+            .catch(registrationError => {
+                console.log('SW registration failed: ', registrationError);
+            });
+    });
+} 

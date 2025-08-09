@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Critical Meta Tags -->
     <title>Men's Mentoring | Break Free from the Default Mode</title>
     <meta name="description" content="Authentic mentoring for men feeling lost and stuck. Break free from destructive patterns and default mode thinking. Experienced mentor helping men find their authentic path.">
     <meta name="keywords" content="men's mentoring, male coach, men struggling, default mode, men feeling lost, men stuck, men's transformation, authentic mentoring, male life coach, men's mental health">
@@ -11,12 +12,26 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://mikkelhansen.org/">
     
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="/css/critical.css">
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mikkelhansen.org/">
     <meta property="og:title" content="Men's Mentoring | Break Free from the Default Mode">
     <meta property="og:description" content="Authentic mentoring for men feeling lost and stuck. Break free from destructive patterns and find your authentic path forward.">
     <meta property="og:image" content="https://mikkelhansen.org/assets/mentor.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -24,10 +39,13 @@
     <meta property="twitter:title" content="Men's Mentoring | Break Free from the Default Mode">
     <meta property="twitter:description" content="Authentic mentoring for men feeling lost and stuck. Break free from destructive patterns and find your authentic path forward.">
     <meta property="twitter:image" content="https://mikkelhansen.org/assets/mentor.jpg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#059669">
+    <meta name="msapplication-TileColor" content="#059669">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Men's Mentoring">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -37,7 +55,6 @@
       "name": "Men's Mentoring by Mikkel Hansen",
       "description": "Authentic mentoring for men feeling lost and stuck. Break free from destructive patterns and default mode thinking.",
       "url": "https://mikkelhansen.org",
-
       "email": "contact@mikkelhansen.org",
       "address": {
         "@type": "PostalAddress",
@@ -131,1659 +148,32 @@
       ]
     }
     </script>
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: absolute;
-            top: 0;
-            right: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            overflow: hidden;
-        }
-
-        .nav-toggle {
-            background: none;
-            border: none;
-            color: #475569;
-            font-size: 1.2rem;
-            padding: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .nav-toggle:hover {
-            color: #059669;
-            background: rgba(5, 150, 105, 0.1);
-        }
-
-        .nav-toggle.active {
-            color: #059669;
-        }
-
-        .nav-logo {
-            display: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            flex-direction: column;
-            list-style: none;
-            gap: 0.5rem;
-            margin: 0;
-            padding: 1rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-
-        .nav-menu.open {
-            max-height: 500px;
-            padding: 1rem;
-        }
-
-        .nav-menu a {
-            color: #475569;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            white-space: nowrap;
-            font-size: 0.9rem;
-        }
-
-        .nav-menu a:hover {
-            color: #059669;
-            background: rgba(5, 150, 105, 0.1);
-            transform: translateX(-5px);
-        }
-        
-        .nav-cta {
-            background: #059669;
-            color: #ffffff !important;
-            border-radius: 8px;
-            padding: 0.75rem 1rem !important;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-        
-        .nav-cta:hover {
-            background: #047857;
-            color: #ffffff !important;
-            transform: translateX(-5px);
-            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
-        }
-
-        /* Dropdown Styles */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-toggle {
-            cursor: pointer;
-        }
-
-        .dropdown-toggle i {
-            font-size: 0.8rem;
-            transition: transform 0.3s ease;
-        }
-
-        .dropdown:hover .dropdown-toggle i {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            min-width: 200px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            padding: 0.5rem 0;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu li {
-            margin: 0;
-        }
-
-        .dropdown-menu a {
-            padding: 0.75rem 1.5rem;
-            display: block;
-            color: #64748b;
-            font-size: 0.95rem;
-            border-bottom: 1px solid #f1f5f9;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-        }
-
-        .dropdown-menu a:hover {
-            background: rgba(5, 150, 105, 0.05);
-            color: #059669;
-        }
-
-        .dropdown-menu li:last-child a {
-            border-bottom: none;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #475569;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: #1e293b;
-        }
-
-        .highlight {
-            color: #059669;
-            position: relative;
-        }
-
-        .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: #059669;
-            transform: scaleX(0);
-            transform-origin: left;
-            animation: highlight 2s ease-out forwards;
-        }
-
-        @keyframes highlight {
-            to {
-                transform: scaleX(1);
-            }
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
-            color: #64748b;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary, .btn-secondary {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            min-height: 44px;
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .btn-primary {
-            background: #059669;
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
-            background: #047857;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #475569;
-            border: 2px solid #cbd5e1;
-        }
-
-        .btn-secondary:hover {
-            border-color: #059669;
-            color: #059669;
-            transform: translateY(-2px);
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .image-placeholder {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #e2e8f0;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .image-placeholder i {
-            font-size: 8rem;
-            color: #059669;
-            opacity: 0.8;
-        }
-
-        /* Section Headers */
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            font-size: 1.25rem;
-            color: #64748b;
-        }
-
-        /* What to Expect Section */
-        .expectations {
-            padding: 6rem 0;
-            background: #f8fafc;
-        }
-
-        .expectations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .expectation-card {
-            padding: 2rem;
-            background: #ffffff;
-            border-radius: 15px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .expectation-card:hover {
-            border-color: #059669;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
-        }
-
-        .expectation-card.positive {
-            border-left: 4px solid #059669;
-        }
-
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(5, 150, 105, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-        }
-
-        .card-icon i {
-            font-size: 1.5rem;
-            color: #059669;
-        }
-
-        .expectation-card h4 {
-            font-size: 1.1rem;
-            color: #1e293b;
-            font-weight: 600;
-            line-height: 1.4;
-        }
-
-        .expectations-footer {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(5, 150, 105, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(5, 150, 105, 0.2);
-        }
-
-        .highlight-text {
-            font-size: 1.2rem;
-            color: #059669;
-            font-weight: 600;
-            font-style: italic;
-            margin: 0;
-        }
-
-        /* Default Mode Section */
-        .default-mode {
-            padding: 6rem 0;
-            background: #ffffff;
-        }
-
-        .story-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .story-chapter {
-            margin-bottom: 3rem;
-        }
-
-        .story-chapter h3 {
-            font-size: 1.6rem;
-            color: #1e293b;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .story-chapter p {
-            font-size: 1.1rem;
-            color: #64748b;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .story-chapter p:last-child {
-            margin-bottom: 0;
-        }
-
-        .highlight-quote {
-            font-size: 1.2rem;
-            color: #1e293b;
-            font-weight: 600;
-            font-style: italic;
-            margin: 2rem 0;
-            padding-left: 1rem;
-            border-left: 3px solid #059669;
-        }
-
-        .warning-text {
-            font-size: 1.1rem;
-            color: #dc2626;
-            font-weight: 600;
-            margin: 1.5rem 0;
-        }
-
-        .empowerment-quote {
-            font-size: 1.3rem;
-            color: #059669;
-            font-weight: 600;
-            margin: 2rem 0;
-            font-style: italic;
-        }
-
-        .call-to-action {
-            font-size: 1.2rem;
-            color: #1e293b;
-            font-weight: 600;
-            margin: 2rem 0;
-        }
-
-        .freedom-quote {
-            font-size: 1.4rem;
-            color: #059669;
-            font-weight: 600;
-            font-style: italic;
-            margin: 2rem 0;
-            text-align: center;
-        }
-
-        .example-story {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #059669;
-        }
-
-        .default-mode-quote {
-            font-weight: 600;
-            color: #dc2626;
-            font-style: italic;
-        }
-
-        .transformation-quote {
-            font-size: 1.2rem;
-            color: #059669;
-            font-weight: 600;
-            font-style: italic;
-            margin: 1.5rem 0;
-        }
-
-        .insight-quote {
-            font-size: 1.2rem;
-            color: #1e293b;
-            font-weight: 600;
-            margin: 1.5rem 0;
-            font-style: italic;
-        }
-
-        .compassion-quote {
-            font-size: 1.1rem;
-            color: #059669;
-            font-weight: 600;
-            margin: 1.5rem 0;
-        }
-
-        .wisdom-quote {
-            font-size: 1.1rem;
-            color: #1e293b;
-            font-weight: 600;
-            margin: 1.5rem 0;
-        }
-
-        .courage-quote {
-            font-size: 1.2rem;
-            color: #dc2626;
-            font-weight: 600;
-            margin: 1.5rem 0;
-        }
-
-        .final-wisdom {
-            font-size: 1.3rem;
-            color: #059669;
-            font-weight: 600;
-            text-align: center;
-            margin: 2rem 0 0 0;
-            font-style: italic;
-        }
-
-        /* How I Work Section */
-        .how-i-work {
-            padding: 6rem 0;
-            background: #ffffff;
-        }
-
-        .work-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .work-intro {
-            text-align: center;
-            margin-bottom: 4rem;
-            padding: 2rem;
-            background: rgba(5, 150, 105, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(5, 150, 105, 0.2);
-        }
-
-        .work-intro h3 {
-            font-size: 2rem;
-            color: #059669;
-            margin-bottom: 1.5rem;
-        }
-
-        .work-intro p {
-            font-size: 1.1rem;
-            color: #64748b;
-            margin-bottom: 1rem;
-        }
-
-        .work-steps {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .step {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 2rem;
-            padding: 2rem;
-            background: #f8fafc;
-            border-radius: 15px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-
-        .step:hover {
-            border-color: #059669;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: #059669;
-            color: #ffffff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .step h4 {
-            font-size: 1.25rem;
-            color: #1e293b;
-            margin-bottom: 0.5rem;
-        }
-
-        .step p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        .step-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(5, 150, 105, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem auto;
-        }
-        .step-icon i {
-            font-size: 1.7rem;
-            color: #059669;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .nav-container {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                border-radius: 12px;
-            }
-            
-            .nav-toggle {
-                padding: 0.75rem;
-                font-size: 1rem;
-            }
-            
-            .nav-menu {
-                gap: 0.25rem;
-            }
-            
-            .nav-menu a {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.8rem;
-                min-height: 36px;
-            }
-            
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-                padding: 0 15px;
-            }
-            
-            .hero-title {
-                font-size: clamp(2rem, 6vw, 2.5rem);
-                line-height: 1.1;
-            }
-            
-            .hero-subtitle {
-                font-size: clamp(1rem, 3vw, 1.1rem);
-            }
-            
-            .hero-cta {
-                justify-content: center;
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                max-width: 300px;
-                padding: 1.2rem 2rem;
-                font-size: 1.1rem;
-                min-height: 48px;
-            }
-            
-            .step {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 1.5rem;
-            }
-            
-            .step-number {
-                margin: 0 auto;
-            }
-            
-            .section-header h2 {
-                font-size: clamp(1.8rem, 4vw, 2rem);
-            }
-            
-            .section-header p {
-                font-size: 1.1rem;
-            }
-            
-            .who-are-you h2 {
-                font-size: 1.8rem;
-            }
-            
-            .who-are-you .pondus {
-                font-size: 1.1rem;
-            }
-            
-            .about-intro {
-                padding: 1.5rem;
-                margin: 0 15px 2rem 15px;
-            }
-            
-            .about-intro p {
-                font-size: 1.1rem;
-            }
-            
-            .pricing-options {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .pricing-option.featured {
-                transform: none;
-            }
-            
-            .pricing-option.featured:hover {
-                transform: translateY(-5px);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 10px;
-            }
-            
-            .nav-container {
-                padding: 0 10px;
-            }
-            
-            .nav-logo h2 {
-                font-size: 1.2rem;
-            }
-            
-            .hero-content {
-                padding: 0 10px;
-                gap: 1.5rem;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-                line-height: 1.1;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            
-            .btn-primary, .btn-secondary {
-                padding: 1.1rem 1.5rem;
-                font-size: 1rem;
-            }
-            
-            .image-placeholder {
-                width: 280px;
-                height: 280px;
-            }
-            
-            .image-placeholder i {
-                font-size: 5rem;
-            }
-            
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            .section-header p {
-                font-size: 1rem;
-            }
-            
-            .who-are-you h2 {
-                font-size: 1.6rem;
-            }
-            
-            .who-are-you .pondus {
-                font-size: 1rem;
-            }
-            
-            .about-intro {
-                padding: 1rem;
-                margin: 0 10px 1.5rem 10px;
-            }
-            
-            .about-intro p {
-                font-size: 1rem;
-            }
-        }
-
-        /* Smooth Scrolling and Performance */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-        
-        /* Optimize animations */
-        * {
-            will-change: auto;
-        }
-        
-        .btn-primary:hover,
-        .btn-secondary:hover,
-        .pricing-option:hover,
-        .testimonial-card:hover,
-        .faq-item:hover {
-            will-change: transform;
-        }
-
-        /* Who Are You Section */
-        .who-are-you {
-            background: #f0fdf4;
-            padding: 4rem 0 2rem 0;
-            text-align: center;
-        }
-        .who-are-you-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .who-are-you h2 {
-            font-size: 2.2rem;
-            color: #059669;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-        .who-are-you .pondus {
-            font-size: 1.3rem;
-            color: #1e293b;
-            font-weight: 500;
-            line-height: 1.7;
-            letter-spacing: 0.01em;
-        }
-
-        /* About Section */
-        .about {
-            padding: 6rem 0;
-            background: #ffffff;
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .about-intro {
-            text-align: center;
-            margin-bottom: 4rem;
-            padding: 2rem;
-            background: rgba(5, 150, 105, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(5, 150, 105, 0.2);
-        }
-
-        .about-intro p {
-            font-size: 1.2rem;
-            color: #64748b;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-intro p:last-child {
-            margin-bottom: 0;
-        }
-
-        .about-sections {
-            display: grid;
-            gap: 3rem;
-        }
-
-        .about-section {
-            padding: 2rem;
-            background: #f8fafc;
-            border-radius: 15px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-
-        .about-section:hover {
-            border-color: #059669;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
-        }
-
-        .about-section h3 {
-            font-size: 1.5rem;
-            color: #059669;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .about-section p {
-            color: #64748b;
-            line-height: 1.7;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-section p:last-child {
-            margin-bottom: 0;
-        }
-
-
-
-        /* Pricing Section */
-        .pricing {
-            padding: 6rem 0;
-            background: #ffffff;
-        }
-
-        .pricing-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .pricing-intro {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: rgba(5, 150, 105, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(5, 150, 105, 0.2);
-        }
-
-        .pricing-intro h3 {
-            font-size: 1.8rem;
-            color: #059669;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .pricing-intro p {
-            color: #64748b;
-            line-height: 1.6;
-            font-size: 1.1rem;
-        }
-
-        .pricing-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .pricing-option {
-            padding: 2rem;
-            background: #ffffff;
-            border-radius: 15px;
-            border: 2px solid #e2e8f0;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .pricing-option:hover {
-            border-color: #059669;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
-        }
-
-        .pricing-option.featured {
-            border-color: #059669;
-            background: rgba(5, 150, 105, 0.02);
-            transform: scale(1.05);
-        }
-
-        .pricing-option.featured:hover {
-            transform: scale(1.05) translateY(-5px);
-        }
-
-        .option-header {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .option-header h4 {
-            font-size: 1.4rem;
-            color: #1e293b;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .price {
-            font-size: 2.5rem;
-            color: #059669;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .save-badge {
-            background: #059669;
-            color: #ffffff;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
-        }
-
-        .pricing-option p {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .pricing-option ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .pricing-option ul li {
-            color: #64748b;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #f1f5f9;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .pricing-option ul li:before {
-            content: "✓";
-            color: #059669;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .pricing-option ul li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-notes {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .note-item {
-            padding: 1.5rem;
-            background: #f8fafc;
-            border-radius: 10px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .note-item h4 {
-            font-size: 1.2rem;
-            color: #059669;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .note-item p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 6rem 0;
-            background: #f8fafc;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .testimonial-card {
-            padding: 2rem;
-            background: #ffffff;
-            border-radius: 15px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .testimonial-card:hover {
-            border-color: #059669;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.1);
-        }
-
-        .testimonial-content p {
-            color: #64748b;
-            line-height: 1.6;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            text-align: right;
-        }
-
-        .author-name {
-            color: #059669;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 6rem 0;
-            background: #ffffff;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            color: #1e293b;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info p {
-            font-size: 1.1rem;
-            color: #64748b;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f8fafc;
-            border-radius: 10px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .contact-method i {
-            font-size: 1.5rem;
-            color: #059669;
-        }
-
-        .contact-method span {
-            color: #475569;
-            font-weight: 500;
-        }
-
-        .contact-form {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            background: #ffffff;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            color: #1e293b;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            min-height: 44px;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #059669;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: #94a3b8;
-        }
-
-        /* Additional Mobile Optimizations */
-        @media (max-width: 768px) {
-            /* Better spacing on mobile */
-            section {
-                padding: 3rem 1rem;
-            }
-            
-            /* Improve form fields on mobile */
-            input, textarea, select, button {
-                font-size: 16px !important; /* Prevents iOS zoom on focus */
-            }
-            
-            /* Improve readability */
-            p, li {
-                font-size: 1rem !important;
-                line-height: 1.6 !important;
-            }
-            
-            h1, h2, h3 {
-                word-break: break-word;
-            }
-            
-            /* Better form spacing */
-            .form-group {
-                margin-bottom: 1.5rem;
-            }
-            
-            /* Fix testimonial cards */
-            .testimonial-card {
-                padding: 1.5rem;
-            }
-        }
-        
-        /* Footer */
-        .footer {
-            background: #f8fafc;
-            padding: 3rem 0 1rem;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .footer-logo h3 {
-            color: #059669;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-logo p {
-            color: #64748b;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #475569;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #059669;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .footer-bottom p {
-            color: #94a3b8;
-        }
-
-        /* Responsive Design for new sections */
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 80px;
-                flex-direction: column;
-                background-color: #ffffff;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 2rem 0;
-                height: calc(100vh - 80px);
-                overflow-y: auto;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-menu li {
-                margin: 1.5rem 0;
-            }
-            
-            .nav-menu a {
-                font-size: 1.2rem;
-                padding: 0.8rem 1rem;
-                display: block;
-            }
-            
-            .nav-cta {
-                margin: 1rem auto;
-                width: 80%;
-                max-width: 250px;
-            }
-
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                border: none;
-                background: rgba(5, 150, 105, 0.05);
-                margin: 0.5rem 0;
-                display: none;
-                border-radius: 8px;
-            }
-
-            .dropdown.active .dropdown-menu {
-                display: block;
-            }
-
-            .dropdown-toggle i {
-                transform: rotate(0deg);
-                transition: transform 0.3s ease;
-            }
-
-            .dropdown.active .dropdown-toggle i {
-                transform: rotate(180deg);
-            }
-
-            .hamburger {
-                display: flex;
-                padding: 0.5rem;
-                border-radius: 4px;
-                transition: background-color 0.3s ease;
-            }
-            
-            .hamburger:hover {
-                background-color: rgba(5, 150, 105, 0.1);
-            }
-
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.active span:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-
-            .hamburger.active span:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .footer-links {
-                justify-content: center;
-            }
-            
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            /* Improve touch targets */
-            .btn-primary, .btn-secondary {
-                min-height: 44px;
-                touch-action: manipulation;
-            }
-            
-            /* Better spacing for mobile */
-            .hero {
-                padding-top: 100px;
-                min-height: 90vh;
-            }
-            
-            .about {
-                padding: 4rem 0;
-            }
-            
-            .who-are-you {
-                padding: 3rem 0 2rem 0;
-            }
-        }
-        .how-i-work .work-steps-journey {
-            position: relative;
-            width: 600px;
-            height: 600px;
-            margin: 0 auto 3rem auto;
-            display: block;
-        }
-        @media (max-width: 900px) {
-            .how-i-work .work-steps-journey {
-                width: 100%;
-                height: auto;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 2rem;
-            }
-            .work-steps-journey .step {
-                position: static !important;
-                margin: 0 auto;
-            }
-            .work-steps-journey .journey-center {
-                display: none;
-            }
-        }
-        /* Refined step content and arrows for the journey circle */
-        .work-steps-journey .step {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 6px 24px rgba(5,150,105,0.08);
-            border: 2px solid #e2e8f0;
-            width: 210px;
-            height: 210px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            text-align: center;
-            padding: 1.5rem 1rem 1rem 1rem;
-            transition: box-shadow 0.3s, border-color 0.3s;
-            overflow: hidden;
-        }
-        .work-steps-journey .step ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 auto;
-            max-width: 170px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .work-steps-journey .step ul li {
-            color: #64748b;
-            font-size: 0.95rem;
-            margin-bottom: 0.4rem;
-            line-height: 1.5;
-            position: relative;
-            padding-left: 0;
-            word-break: break-word;
-        }
-        .work-steps-journey .step ul li:last-child {
-            margin-bottom: 0;
-        }
-        .work-steps-journey .step:hover {
-            border-color: #059669;
-            box-shadow: 0 12px 32px rgba(5,150,105,0.13);
-        }
-        .work-steps-journey .step-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(5, 150, 105, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 0.7rem auto;
-        }
-        .work-steps-journey .step-icon i {
-            font-size: 1.4rem;
-            color: #059669;
-        }
-        .work-steps-journey .step-number {
-            width: 32px;
-            height: 32px;
-            background: #059669;
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            font-weight: 700;
-            margin: 0 auto 0.5rem auto;
-        }
-        .work-steps-journey .step h4 {
-            font-size: 1.05rem;
-            color: #1e293b;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.01em;
-        }
-        .work-steps-journey .journey-center {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 160px;
-            height: 160px;
-            background: #f0fdf4;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-size: 1.25rem;
-            color: #059669;
-            font-weight: 700;
-            box-shadow: 0 2px 12px rgba(5,150,105,0.07);
-            border: 2px solid #e2e8f0;
-            z-index: 2;
-            letter-spacing: 0.02em;
-        }
-
-        /* Position each step around the circle (desktop only) */
-        .work-steps-journey .step.step-1 { transform: translate(-50%, -50%) rotate(0deg) translateY(-250px) rotate(0deg); }
-        .work-steps-journey .step.step-2 { transform: translate(-50%, -50%) rotate(60deg) translateY(-250px) rotate(-60deg); }
-        .work-steps-journey .step.step-3 { transform: translate(-50%, -50%) rotate(120deg) translateY(-250px) rotate(-120deg); }
-        .work-steps-journey .step.step-4 { transform: translate(-50%, -50%) rotate(180deg) translateY(-250px) rotate(-180deg); }
-        .work-steps-journey .step.step-5 { transform: translate(-50%, -50%) rotate(240deg) translateY(-250px) rotate(-240deg); }
-        .work-steps-journey .step.step-6 { transform: translate(-50%, -50%) rotate(300deg) translateY(-250px) rotate(-300deg); }
-
-        /* Improved arrows for clockwise journey */
-        @media (min-width: 901px) {
-            .work-steps-journey .step {
-                z-index: 2;
-            }
-            .work-steps-journey .step::after {
-                content: '';
-                position: absolute;
-                width: 48px;
-                height: 48px;
-                background: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M8 24c0-8.837 7.163-16 16-16s16 7.163 16 16-7.163 16-16 16" stroke="%23059669" stroke-width="3" stroke-linecap="round"/><path d="M24 40l-6-6m6 6l6-6" stroke="%23059669" stroke-width="3" stroke-linecap="round"/></svg>') no-repeat center center;
-                background-size: 48px 48px;
-                pointer-events: none;
-                opacity: 0.7;
-            }
-            .work-steps-journey .step.step-1::after { top: 10%; left: 85%; transform: rotate(60deg); }
-            .work-steps-journey .step.step-2::after { top: 35%; left: 97%; transform: rotate(120deg); }
-            .work-steps-journey .step.step-3::after { top: 75%; left: 85%; transform: rotate(180deg); }
-            .work-steps-journey .step.step-4::after { top: 90%; left: 35%; transform: rotate(240deg); }
-            .work-steps-journey .step.step-5::after { top: 75%; left: -5%; transform: rotate(300deg); }
-            .work-steps-journey .step.step-6::after { top: 35%; left: -10%; transform: rotate(0deg); }
-        }
-
-        .main-nav.sticky { position: sticky; top: 0; z-index: 1000; background: #fff; box-shadow: 0 2px 8px rgba(30,41,59,0.04); }
-        .main-nav a.active { color: #059669; font-weight: 700; border-bottom: 2px solid #059669; }
-
-        .section-divider { width:100%;height:2px;background:#e2e8f0;margin:3rem 0 2rem 0;border-radius:1px; }
-        .expectation-card .card-icon, .step-icon, .faq-item h3:before { color:#059669;font-size:2rem; }
-
-        .step-tooltip {
-            display: none;
-            position: absolute;
-            left: 50%;
-            bottom: 110%;
-            transform: translateX(-50%);
-            background: #fff;
-            color: #1e293b;
-            border: 1.5px solid #059669;
-            border-radius: 8px;
-            padding: 1rem 1.3rem;
-            font-size: 1rem;
-            font-weight: 500;
-            box-shadow: 0 6px 24px rgba(5,150,105,0.13);
-            z-index: 100;
-            min-width: 220px;
-            max-width: 320px;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.2s;
-            white-space: normal;
-        }
-        .step-tooltip::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border-width: 8px;
-            border-style: solid;
-            border-color: #fff transparent transparent transparent;
-            filter: drop-shadow(0 2px 2px rgba(5,150,105,0.10));
-        }
-        .step:hover .step-tooltip,
-        .step:focus-within .step-tooltip {
-            display: block;
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .step { position: relative; z-index: 10; }
-
-        .work-content, .work-steps-journey {
-            overflow: visible !important; /* Ensure tooltips are not cut off */
-        }
-        .step-tooltip {
-            z-index: 9999 !important; /* Always on top */
-        }
-    </style>
-
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/main.css"></noscript>
+    
+    <!-- Service Worker Registration -->
     <script>
-
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(error => console.log('SW registration failed'));
+            });
+        }
+    </script>
+    
+    <!-- Performance Monitoring -->
+    <script>
+        // Performance monitoring
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const perfData = performance.getEntriesByType('navigation')[0];
+                console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+                console.log('DOM Content Loaded:', perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart, 'ms');
+            }, 0);
+        });
     </script>
 </head>
 <body>
@@ -1838,6 +228,86 @@
 
 
 
+
+    <!-- Default Mode Quiz Section -->
+    <section id="quiz" class="quiz">
+        <div class="container">
+            <div class="section-header">
+                <h1>Are You Stuck in Default Mode?</h1>
+                <p>Take this quick assessment to see where you stand</p>
+            </div>
+            
+            <div class="quiz-content">
+                <div class="quiz-intro">
+                    <p>Answer these 5 questions honestly to discover if you're living in Default Mode and what it's costing you.</p>
+                </div>
+                
+                <form id="defaultModeQuiz" class="quiz-form">
+                    <div class="quiz-question">
+                        <h3>1. How often do you feel like you're just going through the motions?</h3>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q1" value="1"> Rarely</label>
+                            <label><input type="radio" name="q1" value="2"> Sometimes</label>
+                            <label><input type="radio" name="q1" value="3"> Often</label>
+                            <label><input type="radio" name="q1" value="4"> Almost always</label>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h3>2. Do you feel authentic in your relationships and work?</h3>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q2" value="1"> Very authentic</label>
+                            <label><input type="radio" name="q2" value="2"> Mostly authentic</label>
+                            <label><input type="radio" name="q2" value="3"> Sometimes authentic</label>
+                            <label><input type="radio" name="q2" value="4"> Rarely authentic</label>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h3>3. How satisfied are you with your current direction in life?</h3>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q3" value="1"> Very satisfied</label>
+                            <label><input type="radio" name="q3" value="2"> Satisfied</label>
+                            <label><input type="radio" name="q3" value="3"> Somewhat dissatisfied</label>
+                            <label><input type="radio" name="q3" value="4"> Very dissatisfied</label>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h3>4. Do you feel like you're living up to your potential?</h3>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q4" value="1"> Yes, absolutely</label>
+                            <label><input type="radio" name="q4" value="2"> Mostly yes</label>
+                            <label><input type="radio" name="q4" value="3"> Not really</label>
+                            <label><input type="radio" name="q4" value="4"> Definitely not</label>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h3>5. How often do you feel overwhelmed or stuck?</h3>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q5" value="1"> Rarely</label>
+                            <label><input type="radio" name="q5" value="2"> Sometimes</label>
+                            <label><input type="radio" name="q5" value="3"> Often</label>
+                            <label><input type="radio" name="q5" value="4"> Almost always</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Get Your Results</button>
+                </form>
+                
+                <div id="quizResults" class="quiz-results" style="display: none;">
+                    <h2>Your Default Mode Score</h2>
+                    <div id="scoreDisplay"></div>
+                    <div id="resultMessage"></div>
+                    <div class="quiz-cta">
+                        <p>Ready to break free from Default Mode?</p>
+                        <a href="#contact" class="btn btn-primary">Start Your Transformation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- About Me Section -->
     <section id="about" class="about">
@@ -2018,6 +488,48 @@
                 </div>
 
 
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h1>Frequently Asked Questions</h1>
+                <p>Answers to the most common questions men ask before starting their transformation journey</p>
+            </div>
+            
+            <div class="faq-content">
+                <div class="faq-item">
+                    <h3>What kind of men do you work with?</h3>
+                    <p>Men who are ready to drop the mask, face themselves, and create real change. You don't need to have it all together—just a willingness to be honest and show up. I work with men who are feeling stuck, lost, or disconnected from their authentic selves.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What results can I expect?</h3>
+                    <p>Clarity, confidence, and a renewed sense of purpose. You'll learn to trust yourself, speak your truth, and build a life that feels real—on your terms. Most men experience greater self-awareness, improved relationships, and a stronger sense of direction in their lives.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Is this therapy?</h3>
+                    <p>No. This is not therapy or counseling. It's direct, practical mentoring focused on presence, action, and transformation—man to man. While therapy often focuses on healing past wounds, mentoring focuses on building your future and creating the life you want to live.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How do I get started?</h3>
+                    <p>Just reach out. We'll have a real conversation—no pressure, no sales pitch. If it feels right, we'll take the next step together. You can email me directly or book a free discovery call to see if we're a good fit.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What if I'm not sure if this is right for me?</h3>
+                    <p>That's exactly why I offer a free discovery call. We'll spend 30 minutes talking about your situation, what you're looking for, and whether we're a good fit. There's no pressure to commit—it's just a conversation between two men.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What makes your approach different?</h3>
+                    <p>I've been where you are. I understand the struggle because I lived it. This isn't theory—it's real experience. I focus on practical, actionable steps rather than just talking about problems. We work on breaking down your default mode patterns and building new ways of being.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -2247,5 +759,14 @@
             }
         });
     </script>
-
- </section></body></html>
+    
+    <!-- Optimized JavaScript Loading -->
+    <script src="/js/main.js" defer></script>
+    
+    <!-- Analytics and Tracking (load after main content) -->
+    <script>
+        // Google Analytics or other tracking code can go here
+        // Load asynchronously to not block page rendering
+    </script>
+</body>
+</html>

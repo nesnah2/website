@@ -1,290 +1,229 @@
-# Men's Mentoring Website - Professional Edition
+# Men's Mentoring Website - Performance Optimized
 
-A modern, professional website for men's mentoring services with advanced features including analytics, performance optimization, and secure backend functionality.
+A high-performance, SEO-optimized website for men's mentoring services. Built with modern web technologies and optimized for speed, accessibility, and search engine visibility.
 
-## 🚀 Features
+## 🚀 Performance Features
 
-### Frontend
-- **Modern Design**: Clean, professional design optimized for conversion
-- **Responsive Layout**: Mobile-first approach with perfect mobile experience
-- **Performance Optimized**: Fast loading with service worker caching
-- **SEO Optimized**: Meta tags, structured data, and semantic HTML
-- **Accessibility**: WCAG compliant with keyboard navigation
-- **Analytics**: Google Analytics integration with custom event tracking
-- **Offline Support**: Service worker for offline functionality
+### Core Web Vitals Optimized
+- **Largest Contentful Paint (LCP)**: < 2.5s
+- **First Input Delay (FID)**: < 100ms  
+- **Cumulative Layout Shift (CLS)**: < 0.1
 
-### Backend
-- **Express.js Server**: Fast, secure Node.js backend
-- **Security**: Helmet.js, CORS, rate limiting, input validation
-- **Database**: Redis for caching and session management
-- **Email Integration**: Nodemailer for contact form processing
-- **Payment Processing**: Stripe integration ready
-- **SMS Notifications**: Twilio integration ready
-- **File Uploads**: AWS S3 integration ready
-- **Logging**: Winston for comprehensive logging
-- **Monitoring**: Health checks and performance monitoring
+### Performance Optimizations
+- ✅ Critical CSS inlined for above-the-fold content
+- ✅ Non-critical CSS loaded asynchronously
+- ✅ JavaScript deferred and optimized
+- ✅ Images optimized and lazy-loaded
+- ✅ Font loading optimized with preloading
+- ✅ Service Worker for caching
+- ✅ Gzip compression enabled
+- ✅ Browser caching configured
+- ✅ CDN-ready structure
 
-### Professional Features
-- **Contact Form Processing**: Secure form handling with validation
-- **Newsletter Subscription**: Email list management
-- **Session Booking**: Automated booking system
-- **Analytics Dashboard**: Track conversions and user behavior
-- **Performance Monitoring**: Core Web Vitals tracking
-- **Error Handling**: Comprehensive error management
-- **Background Jobs**: Queue system for heavy tasks
+### SEO Optimizations
+- ✅ Semantic HTML structure
+- ✅ Meta tags optimized
+- ✅ Structured data (JSON-LD)
+- ✅ Sitemap.xml generated
+- ✅ Robots.txt configured
+- ✅ Open Graph tags
+- ✅ Twitter Card tags
+- ✅ Canonical URLs
 
-## 📋 Prerequisites
-
-- Node.js 18+ 
-- npm 9+
-- Redis (optional, for caching)
-- MongoDB (optional, for database)
-
-## 🛠️ Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd website
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Environment Setup**
-   ```bash
-   cp env.example .env
-   ```
-   
-   Edit `.env` with your configuration:
-   ```env
-   NODE_ENV=development
-   PORT=3000
-   REDIS_URL=redis://localhost:6379
-   SMTP_HOST=smtp.gmail.com
-   SMTP_USER=your-email@gmail.com
-   SMTP_PASS=your-app-password
-   ```
-
-4. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-
-5. **Build for production**
-   ```bash
-   npm run build
-   npm start
-   ```
-
-## 🏗️ Project Structure
+## 📁 Project Structure
 
 ```
 website/
-├── public/                 # Static files
-│   ├── js/
-│   │   └── main.js        # Main JavaScript application
+├── index.html              # Main homepage (optimized)
+├── public/
 │   ├── css/
-│   │   └── main.css       # Styles (if separated)
-│   ├── assets/            # Images and media
-│   └── sw.js             # Service worker
-├── logs/                  # Application logs
-├── server.js             # Express server
-├── package.json          # Dependencies and scripts
-├── env.example           # Environment variables template
-└── README.md            # This file
+│   │   ├── critical.css    # Critical above-the-fold styles
+│   │   └── main.css        # Non-critical styles
+│   ├── js/
+│   │   └── main.js         # Optimized JavaScript
+│   ├── sw.js              # Service Worker
+│   ├── robots.txt         # SEO robots file
+│   └── sitemap.xml        # SEO sitemap
+├── assets/
+│   └── mentor.jpg         # Optimized images
+├── server.js              # Optimized Express server
+├── package.json           # Dependencies and scripts
+├── webpack.config.js      # Build optimization
+└── deploy.sh             # Deployment script
 ```
 
-## 🔧 Configuration
+## 🛠️ Installation & Setup
 
-### Environment Variables
+### Prerequisites
+- Node.js 16+ 
+- npm or yarn
 
-| Variable | Description | Required | Default |
-|----------|-------------|----------|---------|
-| `NODE_ENV` | Environment mode | Yes | `development` |
-| `PORT` | Server port | No | `3000` |
-| `REDIS_URL` | Redis connection URL | No | - |
-| `SMTP_HOST` | SMTP server host | No | - |
-| `SMTP_USER` | SMTP username | No | - |
-| `SMTP_PASS` | SMTP password | No | - |
-| `STRIPE_SECRET_KEY` | Stripe secret key | No | - |
-| `TWILIO_ACCOUNT_SID` | Twilio account SID | No | - |
-| `AWS_ACCESS_KEY_ID` | AWS access key | No | - |
+### Quick Start
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd website
 
-### Feature Flags
+# Install dependencies
+npm install
 
-Control which features are enabled:
+# Start development server
+npm run dev
 
-```env
-ENABLE_ANALYTICS=true
-ENABLE_NOTIFICATIONS=true
-ENABLE_PAYMENTS=true
-ENABLE_FILE_UPLOADS=true
+# Build for production
+npm run build
+
+# Run optimization
+npm run optimize
+```
+
+## 📊 Performance Commands
+
+```bash
+# Build optimized version
+npm run build
+
+# Run Lighthouse audit
+npm run lighthouse
+
+# Optimize CSS
+npm run minify-css
+
+# Compress images
+npm run compress-images
+
+# Full optimization
+npm run optimize
 ```
 
 ## 🚀 Deployment
 
-### Production Deployment
-
-1. **Build the application**
-   ```bash
-   npm run build
-   npm run optimize
-   ```
-
-2. **Set production environment**
-   ```bash
-   export NODE_ENV=production
-   ```
-
-3. **Start the server**
-   ```bash
-   npm start
-   ```
-
-### Docker Deployment
-
-```dockerfile
-FROM node:18-alpine
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm ci --only=production
-
-COPY . .
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
-```
-
-### PM2 Deployment
-
+### Quick Deployment
 ```bash
-npm install -g pm2
-pm2 start server.js --name "mens-mentoring"
-pm2 save
-pm2 startup
+# Run the deployment script
+chmod +x deploy.sh
+./deploy.sh
 ```
 
-## 📊 Analytics & Monitoring
+### Manual Deployment Steps
+1. **Build the project**: `npm run build`
+2. **Optimize assets**: `npm run optimize`
+3. **Upload to hosting provider**
+4. **Configure domain and SSL**
+5. **Set up CDN (recommended)**
 
-### Google Analytics
-- Page views and user behavior tracking
-- Custom events for form submissions
-- Conversion tracking
-- Performance monitoring
+### Hosting Recommendations
+- **Vercel**: Excellent for static sites with automatic optimization
+- **Netlify**: Great performance and easy deployment
+- **Cloudflare Pages**: Built-in CDN and optimization
+- **AWS S3 + CloudFront**: Enterprise-grade performance
 
-### Performance Monitoring
-- Core Web Vitals tracking
+## 📈 Performance Monitoring
+
+### Built-in Monitoring
+The website includes performance monitoring that logs:
 - Page load times
-- API response times
-- Error tracking
+- DOM content loaded times
+- Core Web Vitals metrics
 
-### Custom Analytics
-- Contact form submissions
-- Newsletter subscriptions
-- Session bookings
-- User engagement metrics
+### External Tools
+- **Google PageSpeed Insights**: Test performance
+- **GTmetrix**: Detailed performance analysis
+- **WebPageTest**: Advanced performance testing
+- **Lighthouse**: Comprehensive audits
+
+## 🔧 Customization
+
+### Adding New Pages
+1. Create HTML file in root directory
+2. Add route in `server.js`
+3. Update `sitemap.xml`
+4. Add to navigation if needed
+
+### Styling Changes
+- **Critical styles**: Edit `public/css/critical.css`
+- **Non-critical styles**: Edit `public/css/main.css`
+- **Build**: Run `npm run build` to optimize
+
+### JavaScript Modifications
+- Edit `public/js/main.js`
+- Run `npm run build` to optimize and bundle
+
+## 📱 Mobile Optimization
+
+The website is fully optimized for mobile devices:
+- Responsive design
+- Touch-friendly interactions
+- Optimized font sizes
+- Fast loading on mobile networks
+- PWA-ready structure
 
 ## 🔒 Security Features
 
-- **Helmet.js**: Security headers
-- **CORS**: Cross-origin resource sharing
-- **Rate Limiting**: API protection
-- **Input Validation**: Joi validation
-- **SQL Injection Protection**: Parameterized queries
-- **XSS Protection**: Content Security Policy
-- **CSRF Protection**: Token-based protection
+- Content Security Policy (CSP) headers
+- Helmet.js security middleware
+- XSS protection
+- CSRF protection
+- Secure headers configuration
 
-## 📱 PWA Features
+## 📊 Analytics Setup
 
-- **Service Worker**: Offline functionality
-- **App Manifest**: Installable web app
-- **Push Notifications**: Real-time updates
-- **Background Sync**: Offline form submissions
-- **Caching**: Intelligent resource caching
+### Google Analytics
+Add your GA tracking code to the analytics section in `index.html`:
 
-## 🧪 Testing
-
-```bash
-# Run tests
-npm test
-
-# Run tests with coverage
-npm run test:coverage
-
-# Run linting
-npm run lint
-
-# Format code
-npm run format
+```html
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
 ```
 
-## 📈 Performance Optimization
+### Other Analytics
+- Facebook Pixel
+- LinkedIn Insight Tag
+- Custom event tracking
 
-- **Image Optimization**: Automatic image compression
-- **CSS/JS Minification**: Production builds
-- **Gzip Compression**: Reduced file sizes
-- **Caching**: Multiple cache layers
-- **CDN Ready**: Static asset optimization
-- **Lazy Loading**: On-demand resource loading
+## 🐛 Troubleshooting
 
-## 🔧 Development
+### Common Issues
 
-### Available Scripts
-
+**Build fails**
 ```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run optimize     # Optimize assets
-npm run deploy       # Build and optimize
-npm run lint         # Run ESLint
-npm run format       # Format code with Prettier
-npm test             # Run tests
+# Clear cache and reinstall
+rm -rf node_modules package-lock.json
+npm install
+npm run build
 ```
 
-### Code Quality
+**Performance issues**
+```bash
+# Run full optimization
+npm run optimize
+npm run lighthouse
+```
 
-- **ESLint**: JavaScript linting
-- **Prettier**: Code formatting
-- **Jest**: Unit testing
-- **Supertest**: API testing
+**CSS not loading**
+- Check file paths in `index.html`
+- Verify CSS files exist in `public/css/`
+- Clear browser cache
 
 ## 📞 Support
 
-For support and questions:
-
-- **Email**: [your-email@domain.com]
-- **Documentation**: [docs-url]
-- **Issues**: [GitHub issues]
+For technical support or questions about the optimization:
+- Check the performance logs in browser console
+- Run Lighthouse audit for detailed analysis
+- Review the optimization checklist in this README
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## 🎯 Roadmap
-
-- [ ] Payment processing integration
-- [ ] Advanced analytics dashboard
-- [ ] Multi-language support
-- [ ] Advanced booking system
-- [ ] Video call integration
-- [ ] Client portal
-- [ ] Automated email sequences
-- [ ] Advanced SEO features
+MIT License - feel free to use this optimized structure for your own projects.
 
 ---
 
-**Built with ❤️ for professional men's mentoring services**
+**Performance Score Target**: 95+ on Google PageSpeed Insights
+**SEO Score Target**: 100/100
+**Accessibility Score Target**: 95+
