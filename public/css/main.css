@@ -1032,6 +1032,30 @@
     padding: 6rem 0;
 }
 
+/* Page Header Styles */
+.page-header {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
+    padding: 8rem 0 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.page-header p {
+    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .faq-content {
     max-width: 800px;
     margin: 0 auto;
@@ -1063,6 +1087,26 @@
 .faq-item p {
     color: #64748b;
     line-height: 1.7;
+}
+
+/* Contact CTA Section */
+.contact-cta {
+    padding: 4rem 0;
+    background: #ffffff;
+    text-align: center;
+}
+
+.contact-cta h2 {
+    font-size: 2rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.contact-cta p {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 2rem;
 }
 
 /* Contact Section */
