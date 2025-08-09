@@ -85,6 +85,11 @@ app.get('/success-stories', (req, res) => {
     res.sendFile(path.join(__dirname, 'success-stories.html'));
 });
 
+// Test page route for debugging
+app.get('/test', (req, res) => {
+    res.sendFile(path.join(__dirname, 'test-page.html'));
+});
+
 // Service Worker route
 app.get('/sw.js', (req, res) => {
     res.setHeader('Content-Type', 'application/javascript');

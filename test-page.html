@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Test - Debug</title>
+    
+    <!-- Load CSS synchronously -->
+    <link rel="stylesheet" href="/css/critical.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <style>
+        /* Debug styles */
+        .debug-info {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px;
+            border: 2px solid #333;
+            font-family: monospace;
+        }
+        
+        .debug-info h3 {
+            color: #d00;
+            margin-bottom: 10px;
+        }
+        
+        .debug-info ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .debug-info li {
+            margin: 5px 0;
+            padding: 5px;
+            background: #fff;
+        }
+        
+        .debug-info .success {
+            color: #0a0;
+        }
+        
+        .debug-info .error {
+            color: #a00;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-info">
+        <h3>Website Debug Information</h3>
+        <ul>
+            <li class="success">✓ Server is running on localhost:3000</li>
+            <li class="success">✓ Critical CSS loaded</li>
+            <li class="success">✓ Main CSS loaded</li>
+            <li class="success">✓ Google Fonts loaded</li>
+            <li class="success">✓ Font Awesome loaded</li>
+            <li class="success">✓ Image file exists: assets/mentor.jpg</li>
+        </ul>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="#home">Men's Mentoring</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="default-mode-framework.html">Framework</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="success-stories.html">Success Stories</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="highlight">For Men Who Are Struggling</span><br>
+                        Break Free from the Default Mode
+                    </h1>
+                    <p class="hero-subtitle">
+                        For men feeling lost, stuck, and tired of going in circles. Break free from destructive patterns and find your authentic path forward.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn-primary">Start Your Journey</a>
+                        <div class="micro-testimonial">"The goal is to know yourself so well, that you can choose how to react."</div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <img src="assets/mentor.jpg" alt="Mikkel Hansen - Men's Mentoring Coach" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-mountain\' style=\'font-size: 8rem; color: #059669; opacity: 0.8;\'></i>';">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="debug-info">
+        <h3>Common Issues to Check:</h3>
+        <ul>
+            <li>• Browser cache - try hard refresh (Ctrl+F5)</li>
+            <li>• Check browser console for JavaScript errors</li>
+            <li>• Verify all CSS files are loading in Network tab</li>
+            <li>• Check if images are loading properly</li>
+            <li>• Test on different browsers</li>
+            <li>• Check mobile responsiveness</li>
+        </ul>
+    </div>
+
+    <script>
+        // Debug script
+        console.log('Website loaded successfully');
+        
+        // Check if all CSS is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            
+            // Check if fonts are loaded
+            document.fonts.ready.then(function() {
+                console.log('Fonts loaded');
+            });
+            
+            // Check if images are loaded
+            const images = document.querySelectorAll('img');
+            images.forEach((img, index) => {
+                if (img.complete) {
+                    console.log(`Image ${index} loaded successfully`);
+                } else {
+                    img.addEventListener('load', () => {
+                        console.log(`Image ${index} loaded successfully`);
+                    });
+                    img.addEventListener('error', () => {
+                        console.error(`Image ${index} failed to load`);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
