@@ -50,3 +50,6 @@
   ESC-n             *  Repeat previous search, spanning files.
   ESC-N             *  Repeat previous search, reverse dir. & spanning files.
   ^O^N  ^On         *  Search forward for (_N-th) OSC8 hyperlink.
+* [32mmaster[m
+  [31mremotes/origin/HEAD[m -> origin/main
+  [31mremotes/origin/main[m

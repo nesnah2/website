@@ -3,10 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Men's Mentoring - Authentic Guidance for Real Men. Transform your life with proven strategies and authentic mentorship.">
+    <meta name="keywords" content="men's mentoring, life transformation, authentic masculinity, personal development">
+    <meta name="author" content="Mikkel Hansen">
+    
     <title>Men's Mentoring - Authentic Guidance for Real Men</title>
-    <link rel="stylesheet" href="public/css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/mentor.jpg" as="image">
+    <link rel="preload" href="public/css/styles.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    
+    <!-- Critical CSS inline for above-the-fold content -->
+    <style>
+        .navbar{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 0}.nav-container{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}.hero{padding:120px 0 80px;background:linear-gradient(135deg,#f5f7fa 0,#c3cfe2 100%);min-height:100vh;display:flex;align-items:center}.hero-container{max-width:1200px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    </style>
+    
+    <!-- External CSS (non-critical) -->
+    <link rel="stylesheet" href="public/css/styles.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="Men's Mentoring - Authentic Guidance for Real Men_files/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 <body>
     <!-- Navigation -->
@@ -18,7 +37,7 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -38,11 +57,11 @@
                 <p>Transform your life with proven strategies and authentic mentorship. Break through limitations and become the man you're meant to be.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Start Your Journey</a>
-                    <a href="about.html" class="btn btn-secondary">Learn More</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="assets/mentor.jpg" alt="Mikkel Hansen - Men's Mentor">
+                <img src="assets/mentor.jpg" alt="Mikkel Hansen - Men's Mentor" loading="eager" width="400" height="400">
             </div>
         </div>
     </section>
@@ -58,17 +77,17 @@
                     <p>Through years of experience and deep understanding of what it means to be a man in today's world, I provide guidance that goes beyond surface-level advice.</p>
                     <div class="about-features">
                         <div class="feature">
-                            <i class="fas fa-target"></i>
+                            <i class="fas fa-target" aria-hidden="true"></i>
                             <h4>Clear Direction</h4>
                             <p>Get focused, actionable steps toward your goals</p>
                         </div>
                         <div class="feature">
-                            <i class="fas fa-shield-alt"></i>
+                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
                             <h4>Authentic Support</h4>
                             <p>Real guidance from someone who's been there</p>
                         </div>
                         <div class="feature">
-                            <i class="fas fa-rocket"></i>
+                            <i class="fas fa-rocket" aria-hidden="true"></i>
                             <h4>Rapid Growth</h4>
                             <p>Accelerate your personal development journey</p>
                         </div>
@@ -85,7 +104,7 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-fire"></i>
+                        <i class="fas fa-fire" aria-hidden="true"></i>
                     </div>
                     <h3>Transformation Package</h3>
                     <p class="price">$800</p>
@@ -100,7 +119,7 @@
                 </div>
                 <div class="service-card featured">
                     <div class="service-icon">
-                        <i class="fas fa-crown"></i>
+                        <i class="fas fa-crown" aria-hidden="true"></i>
                     </div>
                     <h3>Mastery Program</h3>
                     <p class="price">$500</p>
@@ -115,7 +134,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-lightbulb"></i>
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i>
                     </div>
                     <h3>Discovery Session</h3>
                     <p class="price">$150</p>
@@ -141,27 +160,27 @@
                 <div class="contact-info">
                     <h3>Get in Touch</h3>
                     <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
                         <span>Email: mikkel@mikkelhansen.org</span>
                     </div>
                     <div class="contact-item">
-                        <i class="fas fa-phone"></i>
+                        <i class="fas fa-phone" aria-hidden="true"></i>
                         <span>Phone: [Your Phone Number]</span>
                     </div>
                     <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                         <span>Location: [Your Location]</span>
                     </div>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
+                        <input type="text" placeholder="Your Name" required aria-label="Your Name">
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
+                        <input type="email" placeholder="Your Email" required aria-label="Your Email">
                     </div>
                     <div class="form-group">
-                        <select required>
+                        <select required aria-label="Select Service">
                             <option value="">Select Service</option>
                             <option value="transformation">Transformation Package ($800)</option>
                             <option value="mastery">Mastery Program ($500)</option>
@@ -169,7 +188,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Tell me about your goals and challenges..." rows="5" required></textarea>
+                        <textarea placeholder="Tell me about your goals and challenges..." rows="5" required aria-label="Your Message"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
@@ -189,7 +208,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="about.html">About</a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -209,6 +228,8 @@
         </div>
     </footer>
 
-    <script src="public/js/main.js"></script>
+    <!-- Deferred JavaScript loading for better performance -->
+    <script src="public/js/main.js" defer></script>
 </body>
 </html>
+

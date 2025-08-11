@@ -1,11 +1,3 @@
-[33m19f1f61[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Add new pages and update configuration
-[33m92d45af[m Fix YouTube links and update website content - Fixed YouTube profile links from @just__mikkell to @just__mikkel - Updated about.html, links.html, success-stories.html, and index.html - Added Perplexity MCP server configuration - Updated package dependencies
-[33m821dd03[m Add actual Google Analytics tracking ID G-WFRHEYY31D
-[33m990f82f[m Add Google Analytics tracking code placeholder
-[33m0618d0e[m Fix image path in links page to use full URL
-* [32mmain[m
-  [31mremotes/origin/HEAD[m -> origin/main
-  [31mremotes/origin/main[m
 
                    SSUUMMMMAARRYY OOFF LLEESSSS CCOOMMMMAANNDDSS
 

@@ -1,229 +1,107 @@
-# Men's Mentoring Website - Performance Optimized
+# Men's Mentoring Website
 
-A high-performance, SEO-optimized website for men's mentoring services. Built with modern web technologies and optimized for speed, accessibility, and search engine visibility.
+A professional, modern website for Mikkel Hansen's men's mentoring services.
 
-## 🚀 Performance Features
+## Features
 
-### Core Web Vitals Optimized
-- **Largest Contentful Paint (LCP)**: < 2.5s
-- **First Input Delay (FID)**: < 100ms  
-- **Cumulative Layout Shift (CLS)**: < 0.1
+- **Professional Design**: Modern, responsive layout with beautiful gradients and typography
+- **Mobile-First**: Fully responsive design that works on all devices
+- **Interactive Elements**: Smooth animations, hover effects, and form validation
+- **Professional Content**: Structured sections for services, about, and contact
+- **Font Awesome Icons**: Professional iconography throughout the site
+- **Google Fonts**: Inter font family for modern, readable typography
 
-### Performance Optimizations
-- ✅ Critical CSS inlined for above-the-fold content
-- ✅ Non-critical CSS loaded asynchronously
-- ✅ JavaScript deferred and optimized
-- ✅ Images optimized and lazy-loaded
-- ✅ Font loading optimized with preloading
-- ✅ Service Worker for caching
-- ✅ Gzip compression enabled
-- ✅ Browser caching configured
-- ✅ CDN-ready structure
+## Website Sections
 
-### SEO Optimizations
-- ✅ Semantic HTML structure
-- ✅ Meta tags optimized
-- ✅ Structured data (JSON-LD)
-- ✅ Sitemap.xml generated
-- ✅ Robots.txt configured
-- ✅ Open Graph tags
-- ✅ Twitter Card tags
-- ✅ Canonical URLs
+1. **Hero Section**: Compelling headline with call-to-action buttons
+2. **About Section**: Personal introduction with key features
+3. **Services Section**: Three-tier pricing structure
+   - Transformation Package ($800)
+   - Mastery Program ($500)
+   - Discovery Session ($150)
+4. **Contact Section**: Contact form and information
+5. **Footer**: Links and company information
 
-## 📁 Project Structure
+## Technical Details
+
+- **HTML5**: Semantic markup structure
+- **CSS3**: Modern styling with CSS Grid, Flexbox, and animations
+- **JavaScript**: Interactive functionality and mobile navigation
+- **Responsive Design**: Mobile-first approach with breakpoints
+- **Performance**: Optimized images and smooth animations
+
+## Getting Started
+
+1. **Start the server**:
+   ```bash
+   start-server.bat
+   ```
+
+2. **View the website**:
+   Open your browser and go to `http://localhost:8000`
+
+## File Structure
 
 ```
 website/
-├── index.html              # Main homepage (optimized)
+├── index.html                 # Main website file
 ├── public/
 │   ├── css/
-│   │   ├── critical.css    # Critical above-the-fold styles
-│   │   └── main.css        # Non-critical styles
-│   ├── js/
-│   │   └── main.js         # Optimized JavaScript
-│   ├── sw.js              # Service Worker
-│   ├── robots.txt         # SEO robots file
-│   └── sitemap.xml        # SEO sitemap
-├── assets/
-│   └── mentor.jpg         # Optimized images
-├── server.js              # Optimized Express server
-├── package.json           # Dependencies and scripts
-├── webpack.config.js      # Build optimization
-└── deploy.sh             # Deployment script
+│   │   └── styles.css        # Main stylesheet
+│   └── js/
+│       └── main.js           # JavaScript functionality
+├── Men's Mentoring - Authentic Guidance for Real Men_files/
+│   ├── mentor.jpg            # Mentor profile image
+│   ├── all.min.css           # Font Awesome icons
+│   └── css2                  # Google Fonts (Inter)
+├── start-server.bat          # Server startup script
+└── README.md                 # This file
 ```
 
-## 🛠️ Installation & Setup
+## Customization
 
-### Prerequisites
-- Node.js 16+ 
-- npm or yarn
+### Colors
+The website uses a modern color scheme:
+- Primary: `#667eea` (Blue)
+- Secondary: `#764ba2` (Purple)
+- Text: `#333` (Dark Gray)
+- Background: `#f8fafc` (Light Gray)
 
-### Quick Start
-```bash
-# Clone the repository
-git clone <your-repo-url>
-cd website
+### Content
+Update the following in `index.html`:
+- Personal information and bio
+- Service descriptions and pricing
+- Contact details
+- Profile image
 
-# Install dependencies
-npm install
+### Styling
+Modify `public/css/styles.css` to:
+- Change colors and fonts
+- Adjust spacing and layout
+- Modify animations and effects
 
-# Start development server
-npm run dev
+## Browser Support
 
-# Build for production
-npm run build
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers
 
-# Run optimization
-npm run optimize
-```
+## Future Enhancements
 
-## 📊 Performance Commands
+- Blog section for mentoring content
+- Client testimonials
+- Online booking system
+- Payment integration
+- Newsletter signup
+- Social media integration
 
-```bash
-# Build optimized version
-npm run build
+## Support
 
-# Run Lighthouse audit
-npm run lighthouse
-
-# Optimize CSS
-npm run minify-css
-
-# Compress images
-npm run compress-images
-
-# Full optimization
-npm run optimize
-```
-
-## 🚀 Deployment
-
-### Quick Deployment
-```bash
-# Run the deployment script
-chmod +x deploy.sh
-./deploy.sh
-```
-
-### Manual Deployment Steps
-1. **Build the project**: `npm run build`
-2. **Optimize assets**: `npm run optimize`
-3. **Upload to hosting provider**
-4. **Configure domain and SSL**
-5. **Set up CDN (recommended)**
-
-### Hosting Recommendations
-- **Vercel**: Excellent for static sites with automatic optimization
-- **Netlify**: Great performance and easy deployment
-- **Cloudflare Pages**: Built-in CDN and optimization
-- **AWS S3 + CloudFront**: Enterprise-grade performance
-
-## 📈 Performance Monitoring
-
-### Built-in Monitoring
-The website includes performance monitoring that logs:
-- Page load times
-- DOM content loaded times
-- Core Web Vitals metrics
-
-### External Tools
-- **Google PageSpeed Insights**: Test performance
-- **GTmetrix**: Detailed performance analysis
-- **WebPageTest**: Advanced performance testing
-- **Lighthouse**: Comprehensive audits
-
-## 🔧 Customization
-
-### Adding New Pages
-1. Create HTML file in root directory
-2. Add route in `server.js`
-3. Update `sitemap.xml`
-4. Add to navigation if needed
-
-### Styling Changes
-- **Critical styles**: Edit `public/css/critical.css`
-- **Non-critical styles**: Edit `public/css/main.css`
-- **Build**: Run `npm run build` to optimize
-
-### JavaScript Modifications
-- Edit `public/js/main.js`
-- Run `npm run build` to optimize and bundle
-
-## 📱 Mobile Optimization
-
-The website is fully optimized for mobile devices:
-- Responsive design
-- Touch-friendly interactions
-- Optimized font sizes
-- Fast loading on mobile networks
-- PWA-ready structure
-
-## 🔒 Security Features
-
-- Content Security Policy (CSP) headers
-- Helmet.js security middleware
-- XSS protection
-- CSRF protection
-- Secure headers configuration
-
-## 📊 Analytics Setup
-
-### Google Analytics
-Add your GA tracking code to the analytics section in `index.html`:
-
-```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_MEASUREMENT_ID');
-</script>
-```
-
-### Other Analytics
-- Facebook Pixel
-- LinkedIn Insight Tag
-- Custom event tracking
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**Build fails**
-```bash
-# Clear cache and reinstall
-rm -rf node_modules package-lock.json
-npm install
-npm run build
-```
-
-**Performance issues**
-```bash
-# Run full optimization
-npm run optimize
-npm run lighthouse
-```
-
-**CSS not loading**
-- Check file paths in `index.html`
-- Verify CSS files exist in `public/css/`
-- Clear browser cache
-
-## 📞 Support
-
-For technical support or questions about the optimization:
-- Check the performance logs in browser console
-- Run Lighthouse audit for detailed analysis
-- Review the optimization checklist in this README
-
-## 📄 License
-
-MIT License - feel free to use this optimized structure for your own projects.
+For questions or customization requests, contact Mikkel Hansen at mikkel@mikkelhansen.org
 
 ---
 
-**Performance Score Target**: 95+ on Google PageSpeed Insights
-**SEO Score Target**: 100/100
-**Accessibility Score Target**: 95+
+*Built with modern web technologies for a professional online presence.*
+
