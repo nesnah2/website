@@ -50,13 +50,34 @@ website/
 │   │   └── styles.css        # Main stylesheet
 │   └── js/
 │       └── main.js           # JavaScript functionality
-├── Men's Mentoring - Authentic Guidance for Real Men_files/
+├── assets/
 │   ├── mentor.jpg            # Mentor profile image
-│   ├── all.min.css           # Font Awesome icons
-│   └── css2                  # Google Fonts (Inter)
+│   └── video-thumbnail.jpg   # Custom video thumbnail (add this!)
 ├── start-server.bat          # Server startup script
 └── README.md                 # This file
 ```
+
+## 🎥 **Video Thumbnail Setup**
+
+To complete the video section setup, you need to add your custom video thumbnail image:
+
+1. **Save your new video picture** as `video-thumbnail.jpg`
+2. **Place it in the `assets/` folder** alongside your existing `mentor.jpg`
+3. **The image should be** at least 800x450 pixels for best quality
+
+### **How the Video Section Works:**
+
+1. **Visitors see your custom thumbnail** with a red play button overlay
+2. **Click the thumbnail** to reveal the video player
+3. **Video starts playing** from YouTube at [https://youtu.be/Ht3vwpCsYzo](https://youtu.be/Ht3vwpCsYzo)
+4. **Mobile responsive** - works perfectly on all devices
+
+### **Features Added:**
+
+- ✅ **Custom Video Thumbnail** - Shows your new picture before video plays
+- ✅ **Interactive Play Button** - Red YouTube-style play button overlay
+- ✅ **Click to Play** - Click thumbnail to reveal the video
+- ✅ **Professional Look** - Enhanced video section with your branding
 
 ## Customization
 

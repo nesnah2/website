@@ -202,3 +202,15 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Video thumbnail functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const videoThumbnails = document.querySelectorAll('.video-thumbnail');
+    
+    videoThumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', function() {
+            const videoContainer = this.closest('.video-container');
+            videoContainer.classList.add('playing');
+        });
+    });
+});
+
