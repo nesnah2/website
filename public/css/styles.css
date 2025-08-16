@@ -741,6 +741,8 @@ html {
     height: 450px;
     cursor: pointer;
     display: block;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
 }
 
 .video-thumbnail:hover .play-button {
@@ -782,14 +784,19 @@ html {
     height: 450px;
     border: none;
     display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease;
 }
 
 .video-container.playing .video-thumbnail {
     display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .video-container.playing iframe {
     display: block;
+    opacity: 1;
 }
 
 .video-cta {

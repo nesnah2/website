@@ -212,5 +212,30 @@ document.addEventListener('DOMContentLoaded', function() {
             videoContainer.classList.add('playing');
         });
     });
+    
+    // Auto-play video when scrolled into view
+    const videoSection = document.querySelector('.video-section');
+    const videoContainer = document.querySelector('.video-container');
+    
+    if (videoSection && videoContainer) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add a small delay for better UX
+                    setTimeout(() => {
+                        videoContainer.classList.add('playing');
+                    }, 500);
+                    
+                    // Only trigger once
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.3, // Trigger when 30% of the section is visible
+            rootMargin: '0px 0px -100px 0px' // Start a bit before fully in view
+        });
+        
+        observer.observe(videoSection);
+    }
 });
 
