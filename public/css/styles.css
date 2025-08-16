@@ -223,6 +223,16 @@ p {
     margin-bottom: 2rem;
 }
 
+.hero-subtitle {
+    font-size: 1.4rem !important;
+    font-style: italic;
+    color: #667eea !important;
+    font-weight: 500;
+    margin-bottom: 1.5rem !important;
+    border-left: 4px solid #667eea;
+    padding-left: 1rem;
+}
+
 .hero-buttons {
     display: flex;
     gap: 1rem;
