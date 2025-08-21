@@ -219,8 +219,50 @@ p {
     font-size: 1.3rem;
     opacity: 0.9;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto 3rem;
     line-height: 1.6;
+}
+
+/* Hero Stats */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.stat-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 /* Journey Section */
@@ -390,6 +432,73 @@ p {
 }
 
 .principle p {
+    color: #4a5568;
+    margin: 0;
+}
+
+/* Expectations Section */
+.expectations {
+    padding: 100px 0;
+    background: #f8fafc;
+}
+
+.expectations h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.expectations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.expectation-item {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.expectation-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.expectation-item:hover::before {
+    transform: scaleX(1);
+}
+
+.expectation-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.expectation-item i {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.expectation-item h3 {
+    color: #1a202c;
+    margin-bottom: 1rem;
+}
+
+.expectation-item p {
     color: #4a5568;
     margin: 0;
 }
@@ -790,6 +899,18 @@ p {
         font-size: 3rem;
     }
     
+    .hero-stats {
+        gap: 2rem;
+    }
+    
+    .stat {
+        padding: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
     .journey-item {
         flex-direction: column;
         text-align: center;
@@ -812,7 +933,8 @@ p {
     .struggles-grid,
     .credentials-grid,
     .testimonials-grid,
-    .transformations-grid {
+    .transformations-grid,
+    .expectations-grid {
         grid-template-columns: 1fr;
     }
     
@@ -839,6 +961,22 @@ p {
         font-size: 2.5rem;
     }
     
+    .hero-stats {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat {
+        padding: 1rem;
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
     .btn {
         padding: 14px 24px;
         font-size: 0.9rem;
@@ -859,6 +997,7 @@ p {
     .results,
     .transformations,
     .personal,
+    .expectations,
     .cta {
         padding: 60px 0;
     }
