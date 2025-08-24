@@ -541,5 +541,80 @@ document.addEventListener('DOMContentLoaded', function() {
     if (isMobile) {
         document.body.style.webkitOverflowScrolling = 'touch';
     }
+    
+    // FAQ Accordion Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        if (question && answer) {
+            question.addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other FAQ items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
+                
+                // Smooth scroll to answer if opening
+                if (!isActive) {
+                    setTimeout(() => {
+                        answer.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'nearest' 
+                        });
+                    }, 300);
+                }
+            });
+            
+            // Add keyboard support for accessibility
+            question.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    question.click();
+                }
+            });
+            
+            // Set proper ARIA attributes
+            question.setAttribute('role', 'button');
+            question.setAttribute('tabindex', '0');
+            question.setAttribute('aria-expanded', 'false');
+            question.setAttribute('aria-controls', `faq-answer-${Array.from(faqItems).indexOf(item)}`);
+            
+            answer.setAttribute('id', `faq-answer-${Array.from(faqItems).indexOf(item)}`);
+            answer.setAttribute('aria-hidden', 'true');
+        }
+    });
+    
+    // Update ARIA attributes when FAQ items are toggled
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        if (question && answer) {
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        const isActive = item.classList.contains('active');
+                        question.setAttribute('aria-expanded', isActive.toString());
+                        answer.setAttribute('aria-hidden', (!isActive).toString());
+                    }
+                });
+            });
+            
+            observer.observe(item, { attributes: true });
+        }
+    });
 });
 
