@@ -256,6 +256,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const serviceOptions = document.querySelectorAll('.service-option');
     const calendlyWidget = document.querySelector('.calendly-inline-widget');
     
+    // Touch event support for mobile
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
     // Open modal when Book Now buttons are clicked
     bookNowBtns.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -276,22 +280,63 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Show appropriate content based on service
             showServiceContent(service);
+            
+            // Add touch event listeners for mobile
+            addTouchEventListeners();
         });
     });
     
     // Close modal when X is clicked
     if (closeBtn) {
         closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            closeModal();
         });
     }
     
     // Close modal when clicking outside
     window.addEventListener('click', function(event) {
         if (event.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            closeModal();
+        }
+    });
+    
+    // Touch events for mobile modal closing
+    function addTouchEventListeners() {
+        modal.addEventListener('touchstart', function(e) {
+            touchStartY = e.touches[0].clientY;
+        });
+        
+        modal.addEventListener('touchmove', function(e) {
+            touchEndY = e.touches[0].clientY;
+        });
+        
+        modal.addEventListener('touchend', function(e) {
+            const touchDiff = touchStartY - touchEndY;
+            const modalContent = document.querySelector('.modal-content');
+            const modalRect = modalContent.getBoundingClientRect();
+            
+            // If user swipes down significantly on the modal header, close it
+            if (touchDiff < -50 && touchStartY < modalRect.top + 100) {
+                closeModal();
+            }
+        });
+    }
+    
+    // Close modal function
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // Remove touch event listeners
+        modal.removeEventListener('touchstart', function(){});
+        modal.removeEventListener('touchmove', function(){});
+        modal.removeEventListener('touchend', function(){});
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            closeModal();
         }
     });
     
@@ -429,5 +474,72 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     // Video now plays on hover - no JavaScript needed for basic functionality
     // The CSS handles the hover effect automatically
+    
+    // Mobile-specific improvements
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // Improve mobile navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const navLinks = navMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        }
+        
+        // Improve mobile button touch targets
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(btn => {
+            btn.style.minHeight = '44px';
+            btn.style.minWidth = '44px';
+        });
+        
+        // Add touch feedback for mobile
+        const touchElements = document.querySelectorAll('.service-card, .testimonial-card, .faq-item');
+        touchElements.forEach(element => {
+            element.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+            
+            element.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    }
+    
+    // Prevent zoom on double tap for mobile
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+    
+    // Improve mobile scrolling performance
+    if (isMobile) {
+        document.body.style.webkitOverflowScrolling = 'touch';
+    }
 });
 
