@@ -202,43 +202,9 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Video thumbnail functionality
+// Video hover functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const videoThumbnails = document.querySelectorAll('.video-thumbnail');
-    
-    videoThumbnails.forEach(thumbnail => {
-        thumbnail.addEventListener('click', function() {
-            const videoContainer = this.closest('.video-container');
-            videoContainer.classList.add('playing');
-        });
-    });
-    
-    // Auto-play video when scrolled into view (but not on page load)
-    const videoSection = document.querySelector('.video-section');
-    const videoContainer = document.querySelector('.video-container');
-    
-    if (videoSection && videoContainer) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Only auto-play if user has scrolled to the video section
-                    // Don't auto-play on initial page load
-                    if (window.pageYOffset > 100) {
-                        setTimeout(() => {
-                            videoContainer.classList.add('playing');
-                        }, 500);
-                    }
-                    
-                    // Only trigger once
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.3,
-            rootMargin: '0px 0px -100px 0px'
-        });
-        
-        observer.observe(videoSection);
-    }
+    // Video now plays on hover - no JavaScript needed for basic functionality
+    // The CSS handles the hover effect automatically
 });
 

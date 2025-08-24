@@ -813,13 +813,13 @@ html {
     transition: opacity 0.8s ease;
 }
 
-.video-container.playing .video-thumbnail {
+.video-container:hover .video-thumbnail {
     display: none;
     opacity: 0;
     transition: opacity 0.5s ease;
 }
 
-.video-container.playing iframe {
+.video-container:hover iframe {
     display: block;
     opacity: 1;
 }
