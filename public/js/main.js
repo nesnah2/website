@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Auto-play video when scrolled into view
+    // Auto-play video when scrolled into view (but not on page load)
     const videoSection = document.querySelector('.video-section');
     const videoContainer = document.querySelector('.video-container');
     
@@ -221,18 +221,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Add a small delay for better UX
-                    setTimeout(() => {
-                        videoContainer.classList.add('playing');
-                    }, 500);
+                    // Only auto-play if user has scrolled to the video section
+                    // Don't auto-play on initial page load
+                    if (window.pageYOffset > 100) {
+                        setTimeout(() => {
+                            videoContainer.classList.add('playing');
+                        }, 500);
+                    }
                     
                     // Only trigger once
                     observer.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.3, // Trigger when 30% of the section is visible
-            rootMargin: '0px 0px -100px 0px' // Start a bit before fully in view
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
         });
         
         observer.observe(videoSection);
