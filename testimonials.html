@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Real testimonials from men whose lives have been transformed through Mikkel Hansen's authentic mentoring approach.">
-    <meta name="keywords" content="men's mentor testimonials, transformation stories, authentic mentoring results, Copenhagen">
+    <meta name="keywords" content="men's mentor testimonials, transformation stories, authentic mentoring results, Copenhagen, Denmark, client success stories, men's transformation, real results, authentic guidance, life change stories">
     <meta name="author" content="Mikkel Hansen">
+    <link rel="canonical" href="https://mikkelhansen.org/testimonials.html">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Testimonials - Real Stories of Transformation">
     <meta property="og:description" content="Real testimonials from men whose lives have been transformed through Mikkel Hansen's authentic mentoring approach.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nesnah2.github.io/website/testimonials.html">
+    <meta property="og:url" content="https://mikkelhansen.org/testimonials.html">
     <meta property="og:image" content="https://mikkelhansen.org/assets/mentor.jpg">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Testimonials - Real Stories of Transformation">
     <meta name="twitter:description" content="Real testimonials from men whose lives have been transformed through Mikkel Hansen's authentic mentoring approach.">
+    <meta name="twitter:site" content="@just__mikkel">
     
     <title>Testimonials - Real Stories of Transformation</title>
     
@@ -122,13 +124,92 @@
         </div>
     </section>
 
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <h2>Book Your Session</h2>
+                <p>Choose a time that works for you</p>
+            </div>
+            <div class="modal-body">
+                <div class="service-selection">
+                    <h3>Select Your Service:</h3>
+                    <div class="service-options">
+                        <button class="service-option active" data-service="discovery" data-price="Free">
+                            <span class="service-name">Discovery Call</span>
+                            <span class="service-price">Free</span>
+                            <span class="service-duration">30 min</span>
+                        </button>
+                        <button class="service-option" data-service="single" data-price="$250">
+                            <span class="service-name">Single Session</span>
+                            <span class="service-price">$250</span>
+                            <span class="service-duration">50 min</span>
+                        </button>
+                        <button class="service-option" data-service="package" data-price="$800">
+                            <span class="service-name">3-Month Package</span>
+                            <span class="service-price">$800</span>
+                            <span class="service-duration">12 sessions</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="calendly-container">
+                    <div id="calendly-loading" class="calendly-loading">
+                        <div class="spinner"></div>
+                        <p>Loading calendar...</p>
+                    </div>
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/contact-mikkelhansen/30min" style="min-width:320px;height:600px;display:none;"></div>
+                    
+                    <!-- Contact Options for Paid Services -->
+                    <div id="contact-options" class="contact-options" style="display:none;">
+                        <div class="contact-header">
+                            <h3>Let's Discuss Your Needs</h3>
+                            <p>For personalized mentoring, let's have a conversation first to ensure we're the right fit.</p>
+                        </div>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Email Me</h4>
+                                    <p>Send me a detailed message about your situation and goals.</p>
+                                    <a href="mailto:contact@mikkelhansen.org?subject=Interested in Mentoring Session" class="btn btn-primary">
+                                        <i class="fas fa-envelope"></i>
+                                        Send Email
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>WhatsApp Chat</h4>
+                                    <p>Quick chat to discuss your needs and answer questions.</p>
+                                    <a href="https://wa.me/4520922590?text=Hi Mikkel, I'm interested in your mentoring services. Can we chat about my situation?" class="btn btn-primary whatsapp-btn">
+                                        <i class="fab fa-whatsapp"></i>
+                                        Start Chat
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-note">
+                            <p><i class="fas fa-info-circle"></i> I'll respond within 24 hours to discuss your specific needs and how we can work together.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Call to Action Section -->
     <section class="cta">
         <div class="container">
             <h2>Ready to Start Your Transformation?</h2>
             <p>If these stories resonate with you, if you're tired of living in the shadows, let's talk. Real transformation is possible.</p>
             <div class="cta-buttons">
-                <a href="index.html#contact" class="btn btn-primary">Start Your Journey</a>
+                <button class="btn btn-primary book-now-btn" data-service="discovery" data-price="Free">Start Your Journey</button>
                 <a href="about.html" class="btn btn-secondary">Learn More About Me</a>
             </div>
         </div>
@@ -152,12 +233,19 @@
                         <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                                                    <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li>Transformation Package</li>
-                        <li>Mastery Program</li>
-                        <li>Discovery Session</li>
+                        <li>3-Month Transformation Package</li>
+                        <li>Single Session</li>
+                        <li>Discovery Call</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -178,6 +266,59 @@
         </div>
     </footer>
 
+    <!-- Structured Data JSON-LD for Testimonials -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Mikkel Hansen Men's Mentoring",
+      "description": "Real testimonials from men whose lives have been transformed through authentic mentoring",
+      "url": "https://mikkelhansen.org/testimonials.html",
+      "review": [
+        {
+          "@type": "Review",
+          "reviewBody": "My sessions with Mikkel truly hit SPOT ON! It might sound wild, but when I talk to Mikkel, it feels like coming 'home' to safety. A safe space where I can share directly from the heart without worrying about how it will be received.",
+          "author": {
+            "@type": "Person",
+            "name": "M"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "reviewBody": "In my journey with Mikkel so far, I've worked on giving myself the tools to be kind to myself, to bring structure into my everyday life, and to feel like a new person. A person who is actually living, not just running on autopilot.",
+          "author": {
+            "@type": "Person",
+            "name": "Nicolai"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <p>We use cookies to improve your experience on our website. By continuing to use this site, you consent to our use of cookies.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="btn btn-primary">Accept</button>
+                <button id="decline-cookies" class="btn btn-secondary">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendly Script -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    
     <!-- JavaScript -->
     <script src="public/js/main.js" defer></script>
 </body>
