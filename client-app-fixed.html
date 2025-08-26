@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Personal Transformation App - Track your daily progress, complete exercises, and map your journey to mastery.">
+    <meta name="keywords" content="transformation app, daily exercises, personal growth, journey tracking, men's mentoring">
+    <meta name="author" content="Mikkel Hansen">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Transformation App - Your Daily Journey to Mastery">
+    <meta property="og:description" content="Track your daily progress, complete exercises, and map your journey to transformation with this comprehensive personal growth app.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mikkelhansen.org/client-app.html">
+    <meta property="og:image" content="https://mikkelhansen.org/assets/mentor.jpg">
+    
+    <title>Transformation App - Your Daily Journey</title>
+    <link rel="stylesheet" href="./public/css/client-app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Chart.js for progress visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- App Header -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <h3 id="userName">Welcome Back</h3>
+                    <p id="userStreak">Day 1 of your journey</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon" id="notificationsBtn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge" id="notificationCount">0</span>
+                </button>
+                <button class="btn-icon" id="settingsBtn">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main App Container -->
+    <main class="app-main">
+        <!-- Daily Progress Overview -->
+        <section class="progress-overview">
+            <div class="progress-card">
+                <div class="progress-header">
+                    <h2>Today's Progress</h2>
+                    <span class="date" id="currentDate"></span>
+                </div>
+                <div class="progress-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="tasksCompleted">0</div>
+                        <div class="stat-label">Tasks Done</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="exercisesCompleted">0</div>
+                        <div class="stat-label">Exercises</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="currentStreak">0</div>
+                        <div class="stat-label">Day Streak</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="dailyProgressBar"></div>
+                </div>
+                <p class="progress-text">Complete today's tasks to maintain your streak!</p>
+            </div>
+        </section>
+
+        <!-- Daily Tasks Section -->
+        <section class="daily-tasks">
+            <div class="section-header">
+                <h2>Today's Tasks</h2>
+                <button class="btn-secondary" id="addTaskBtn">
+                    <i class="fas fa-plus"></i> Add Task
+                </button>
+            </div>
+            <div class="tasks-container" id="tasksContainer">
+                <!-- Tasks will be dynamically loaded here -->
+            </div>
+        </section>
+
+        <!-- Daily Exercise Section -->
+        <section class="daily-exercise">
+            <div class="section-header">
+                <h2>Daily Exercise</h2>
+                <span class="exercise-type" id="exerciseType">Mindset</span>
+            </div>
+            <div class="exercise-card" id="exerciseCard">
+                <div class="exercise-header">
+                    <h3 id="exerciseTitle">Loading Exercise...</h3>
+                    <div class="exercise-timer" id="exerciseTimer">
+                        <i class="fas fa-clock"></i>
+                        <span id="timerDisplay">5:00</span>
+                    </div>
+                </div>
+                <div class="exercise-content" id="exerciseContent">
+                    <p>Your daily exercise is loading...</p>
+                </div>
+                <div class="exercise-actions">
+                    <button class="btn-primary" id="startExerciseBtn">
+                        <i class="fas fa-play"></i> Start Exercise
+                    </button>
+                    <button class="btn-secondary" id="completeExerciseBtn" style="display: none;">
+                        <i class="fas fa-check"></i> Mark Complete
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Tracking -->
+        <section class="journey-tracking">
+            <div class="section-header">
+                <h2>Your Journey</h2>
+                <button class="btn-secondary" id="viewFullJourneyBtn">
+                    <i class="fas fa-chart-line"></i> View Full Journey
+                </button>
+            </div>
+            <div class="journey-overview">
+                <div class="journey-chart">
+                    <canvas id="journeyChart"></canvas>
+                </div>
+                <div class="journey-milestones">
+                    <h3>Recent Milestones</h3>
+                    <div class="milestones-list" id="milestonesList">
+                        <!-- Milestones will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Reflection -->
+        <section class="daily-reflection">
+            <div class="section-header">
+                <h2>Daily Reflection</h2>
+                <span class="reflection-date" id="reflectionDate"></span>
+            </div>
+            <div class="reflection-form">
+                <div class="form-group">
+                    <label for="reflectionQuestion">Today's Question:</label>
+                    <p class="reflection-question" id="reflectionQuestion">What did you learn about yourself today?</p>
+                </div>
+                <div class="form-group">
+                    <label for="reflectionAnswer">Your Answer:</label>
+                    <textarea id="reflectionAnswer" placeholder="Share your thoughts, insights, or breakthroughs from today..." rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="moodRating">How are you feeling today?</label>
+                    <div class="mood-rating" id="moodRating">
+                        <button class="mood-btn" data-mood="1">😢</button>
+                        <button class="mood-btn" data-mood="2">😕</button>
+                        <button class="mood-btn" data-mood="3">😐</button>
+                        <button class="mood-btn" data-mood="4">🙂</button>
+                        <button class="mood-btn" data-mood="5">😊</button>
+                    </div>
+                </div>
+                <button class="btn-primary" id="saveReflectionBtn">
+                    <i class="fas fa-save"></i> Save Reflection
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-section="dashboard">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-section="exercises">
+            <i class="fas fa-dumbbell"></i>
+            <span>Exercises</span>
+        </button>
+        <button class="nav-item" data-section="journey">
+            <i class="fas fa-route"></i>
+            <span>Journey</span>
+        </button>
+        <button class="nav-item" data-section="journal">
+            <i class="fas fa-book"></i>
+            <span>Journal</span>
+        </button>
+        <button class="nav-item" data-section="profile">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </button>
+    </nav>
+
+    <!-- Add Task Modal -->
+    <div id="addTaskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Task</h3>
+                <button class="close" id="closeTaskModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="taskTitle">Task Title</label>
+                    <input type="text" id="taskTitle" placeholder="Enter task title">
+                </div>
+                <div class="form-group">
+                    <label for="taskDescription">Description</label>
+                    <textarea id="taskDescription" placeholder="Describe what needs to be done" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="taskPriority">Priority</label>
+                    <select id="taskPriority">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="taskCategory">Category</label>
+                    <select id="taskCategory">
+                        <option value="mindset">Mindset</option>
+                        <option value="health">Health</option>
+                        <option value="relationships">Relationships</option>
+                        <option value="career">Career</option>
+                        <option value="personal">Personal</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelTaskBtn">Cancel</button>
+                <button class="btn-primary" id="saveTaskBtn">Save Task</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Settings</h3>
+                <button class="close" id="closeSettingsModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h4>Notifications</h4>
+                    <div class="setting-item">
+                        <label class="switch">
+                            <input type="checkbox" id="dailyReminders" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span>Daily reminders</span>
+                    </div>
+                    <div class="setting-item">
+                        <label class="switch">
+                            <input type="checkbox" id="weeklyReports" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span>Weekly progress reports</span>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h4>Privacy</h4>
+                    <div class="setting-item">
+                        <label class="switch">
+                            <input type="checkbox" id="dataSharing">
+                            <span class="slider"></span>
+                        </label>
+                        <span>Share progress with mentor</span>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h4>Account</h4>
+                    <button class="btn-secondary" id="exportDataBtn">Export My Data</button>
+                    <button class="btn-secondary" id="resetProgressBtn">Reset Progress</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./public/js/client-app.js"></script>
+</body>
+</html>
