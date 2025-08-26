@@ -10,6 +10,8 @@ body {
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
 }
 
 .container {
@@ -135,6 +137,8 @@ p {
     cursor: pointer;
     padding: 8px;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 1001;
 }
 
 .hamburger span {
@@ -161,12 +165,13 @@ p {
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
     .hamburger {
-        display: flex;
+        display: flex !important;
         width: 44px;
         height: 44px;
         align-items: center;
         justify-content: center;
         z-index: 1001;
+        position: relative;
     }
     
     .nav-menu {
@@ -596,11 +601,12 @@ p {
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
-        display: flex;
+        display: flex !important;
         width: 44px;
         height: 44px;
         align-items: center;
         justify-content: center;
+        z-index: 1001;
     }
     
     .nav-menu {
@@ -614,6 +620,7 @@ p {
         padding: 2rem;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         z-index: 1000;
+        animation: slideDown 0.3s ease-out;
     }
     
     .nav-menu.active {
@@ -629,6 +636,13 @@ p {
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+    }
+    
+    .nav-menu li a:hover {
+        background: rgba(102, 126, 234, 0.1);
+        color: #667eea;
     }
     
     .hero-container {
@@ -2115,6 +2129,24 @@ html {
     font-family: 'Inter', sans-serif;
 }
 
+/* Hide navigation elements on linktree page */
+.linktree-body .navbar,
+.linktree-body .nav-container,
+.linktree-body .nav-menu,
+.linktree-body .hamburger {
+    display: none !important;
+}
+
+/* Ensure proper mobile viewport */
+.linktree-body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 .linktree-container {
     max-width: 600px;
     margin: 0 auto;
@@ -2333,6 +2365,9 @@ html {
 @media (max-width: 480px) {
     .linktree-container {
         padding: 1rem 0.75rem;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
     }
     
     .profile-section {
@@ -2348,6 +2383,30 @@ html {
     .profile-name {
         font-size: 1.6rem;
     }
+    
+    /* Ensure links don't overflow on very small screens */
+    .link-card {
+        padding: 1rem;
+        margin: 0 0.5rem;
+        width: calc(100% - 1rem);
+        box-sizing: border-box;
+    }
+    
+    .link-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        margin-right: 0.75rem;
+    }
+    
+    .link-content h3 {
+        font-size: 0.95rem;
+    }
+    
+    .link-content p {
+        font-size: 0.8rem;
+    }
+}
     
     .profile-title {
         font-size: 0.95rem;
