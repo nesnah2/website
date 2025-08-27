@@ -26,6 +26,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // Function to show mobile menu
+    function showMobileMenu() {
+        navMenu.style.display = 'flex';
+        navMenu.style.position = 'fixed';
+        navMenu.style.top = '70px';
+        navMenu.style.left = '0';
+        navMenu.style.right = '0';
+        navMenu.style.width = '100%';
+        navMenu.style.height = 'auto';
+        navMenu.style.zIndex = '9998';
+        navMenu.style.background = 'rgba(255, 255, 255, 0.98)';
+        navMenu.style.backdropFilter = 'blur(10px)';
+        navMenu.style.padding = '2rem 1rem';
+        navMenu.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+        navMenu.style.overflow = 'hidden';
+        navMenu.style.boxSizing = 'border-box';
+        navMenu.style.flexDirection = 'column';
+        navMenu.style.gap = '1rem';
+        navMenu.style.alignItems = 'center';
+        navMenu.style.justifyContent = 'flex-start';
+        navMenu.style.margin = '0';
+        navMenu.style.border = 'none';
+        navMenu.style.borderRadius = '0';
+        console.log('Mobile menu shown with inline styles');
+    }
+    
+    // Function to hide mobile menu
+    function hideMobileMenu() {
+        navMenu.style.display = 'none';
+        console.log('Mobile menu hidden');
+    }
+    
     // Only run navigation code if elements exist
     if (hamburger && navMenu) {
         console.log('Adding click event to hamburger...');
@@ -43,6 +75,13 @@ document.addEventListener('DOMContentLoaded', function() {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             
+            // CRITICAL: Force the menu to show/hide with inline styles
+            if (navMenu.classList.contains('active')) {
+                showMobileMenu();
+            } else {
+                hideMobileMenu();
+            }
+            
             console.log('Hamburger active:', hamburger.classList.contains('active'));
             console.log('Nav menu active:', navMenu.classList.contains('active'));
             
@@ -50,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 console.log('After toggle - Nav menu display:', window.getComputedStyle(navMenu).display);
                 console.log('After toggle - Nav menu classes:', navMenu.className);
+                console.log('After toggle - Nav menu inline styles:', navMenu.style.display);
             }, 100);
         });
         
@@ -63,6 +103,13 @@ document.addEventListener('DOMContentLoaded', function() {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             
+            // CRITICAL: Force the menu to show/hide with inline styles
+            if (navMenu.classList.contains('active')) {
+                showMobileMenu();
+            } else {
+                hideMobileMenu();
+            }
+            
             console.log('Hamburger active:', hamburger.classList.contains('active'));
             console.log('Nav menu active:', navMenu.classList.contains('active'));
         });
@@ -73,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Menu link clicked, closing menu...');
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                hideMobileMenu();
             });
             
             // Also add touch events for links
@@ -80,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Menu link touched, closing menu...');
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                hideMobileMenu();
             });
         });
         
@@ -90,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log('Clicking outside menu, closing...');
                     hamburger.classList.remove('active');
                     navMenu.classList.remove('active');
+                    hideMobileMenu();
                 }
             }
         });
@@ -101,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log('Touching outside menu, closing...');
                     hamburger.classList.remove('active');
                     navMenu.classList.remove('active');
+                    hideMobileMenu();
                 }
             }
         });
@@ -118,6 +169,13 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Test button clicked!');
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
+            
+            if (navMenu.classList.contains('active')) {
+                showMobileMenu();
+            } else {
+                hideMobileMenu();
+            }
+            
             console.log('Menu toggled via test button');
             console.log('Nav menu active:', navMenu.classList.contains('active'));
         });
