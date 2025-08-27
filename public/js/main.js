@@ -3,20 +3,51 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     
+    console.log('DOM loaded, looking for menu elements...');
+    console.log('Hamburger found:', hamburger);
+    console.log('Nav menu found:', navMenu);
+    
     // Only run navigation code if elements exist
     if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
+        console.log('Adding click event to hamburger...');
+        
+        hamburger.addEventListener('click', function(e) {
+            console.log('Hamburger clicked!');
+            e.preventDefault();
+            e.stopPropagation();
+            
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+            
+            console.log('Hamburger active:', hamburger.classList.contains('active'));
+            console.log('Nav menu active:', navMenu.classList.contains('active'));
         });
         
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
+                console.log('Menu link clicked, closing menu...');
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
             });
         });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                if (navMenu.classList.contains('active')) {
+                    console.log('Clicking outside menu, closing...');
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            }
+        });
+        
+        console.log('Mobile menu setup complete!');
+    } else {
+        console.error('Mobile menu elements not found!');
+        console.error('Hamburger:', hamburger);
+        console.error('Nav menu:', navMenu);
     }
 });
 
