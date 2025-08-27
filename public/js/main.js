@@ -1,4 +1,4 @@
-// Mobile Navigation Toggle
+// Mobile Navigation Toggle - Enhanced for better mobile functionality
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -7,15 +7,46 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Hamburger found:', hamburger);
     console.log('Nav menu found:', navMenu);
     
+    // Test function to verify burger menu is working
+    function testBurgerMenu() {
+        console.log('Testing burger menu functionality...');
+        console.log('Hamburger element:', hamburger);
+        console.log('Hamburger display:', window.getComputedStyle(hamburger).display);
+        console.log('Hamburger visibility:', window.getComputedStyle(hamburger).visibility);
+        console.log('Hamburger opacity:', window.getComputedStyle(hamburger).opacity);
+        console.log('Hamburger z-index:', window.getComputedStyle(hamburger).zIndex);
+        console.log('Hamburger position:', window.getComputedStyle(hamburger).position);
+        console.log('Hamburger pointer-events:', window.getComputedStyle(hamburger).pointerEvents);
+    }
+    
     // Only run navigation code if elements exist
     if (hamburger && navMenu) {
         console.log('Adding click event to hamburger...');
         
+        // Test the burger menu initially
+        testBurgerMenu();
+        
+        // Enhanced click handler with better touch support
         hamburger.addEventListener('click', function(e) {
             console.log('Hamburger clicked!');
             e.preventDefault();
             e.stopPropagation();
             
+            // Toggle active states
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            console.log('Hamburger active:', hamburger.classList.contains('active'));
+            console.log('Nav menu active:', navMenu.classList.contains('active'));
+        });
+        
+        // Add touch events for better mobile support
+        hamburger.addEventListener('touchstart', function(e) {
+            console.log('Hamburger touch start!');
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Toggle active states
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             
@@ -27,6 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 console.log('Menu link clicked, closing menu...');
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+            
+            // Also add touch events for links
+            link.addEventListener('touchstart', () => {
+                console.log('Menu link touched, closing menu...');
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
             });
@@ -43,7 +81,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
+        // Close mobile menu when touching outside (mobile specific)
+        document.addEventListener('touchstart', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                if (navMenu.classList.contains('active')) {
+                    console.log('Touching outside menu, closing...');
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            }
+        });
+        
         console.log('Mobile menu setup complete!');
+        
+        // Test again after setup
+        setTimeout(testBurgerMenu, 1000);
     } else {
         console.error('Mobile menu elements not found!');
         console.error('Hamburger:', hamburger);
