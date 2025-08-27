@@ -48,6 +48,41 @@
         box-sizing: border-box;
     }
     
+    /* FAQ specific fixes */
+    .faq-item,
+    .faq-question,
+    .faq-answer {
+        max-width: 100%;
+        overflow-x: hidden;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+    }
+    
+    .faq-question h3 {
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+    }
+    
+    .faq-answer p,
+    .faq-answer ul {
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+    }
+    
+    .faq-answer li {
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+    }
+    
     /* Container constraints */
     .container {
         padding: 0 1rem;
