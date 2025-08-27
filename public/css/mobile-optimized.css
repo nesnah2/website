@@ -152,6 +152,27 @@
         gap: 1rem !important;
         align-items: center !important;
         justify-content: flex-start !important;
+        /* Force visibility with !important */
+        visibility: visible !important;
+        opacity: 1 !important;
+        /* Ensure it's above everything */
+        z-index: 9998 !important;
+        /* Force positioning */
+        position: fixed !important;
+        top: 70px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(10px) !important;
+        padding: 2rem 1rem !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
     }
     
     .navbar .nav-menu li {

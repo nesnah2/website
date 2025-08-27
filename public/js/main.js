@@ -1,5 +1,7 @@
-// Mobile Navigation Toggle - Enhanced for better mobile functionality
+// Mobile Navigation Toggle - Complete Fix with Better Debugging
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('=== MOBILE NAVIGATION DEBUG START ===');
+    
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     
@@ -7,127 +9,143 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Hamburger found:', hamburger);
     console.log('Nav menu found:', navMenu);
     
-    // Test function to verify burger menu is working
-    function testBurgerMenu() {
-        console.log('Testing burger menu functionality...');
-        console.log('Hamburger element:', hamburger);
-        console.log('Hamburger display:', window.getComputedStyle(hamburger).display);
-        console.log('Hamburger visibility:', window.getComputedStyle(hamburger).visibility);
-        console.log('Hamburger opacity:', window.getComputedStyle(hamburger).opacity);
-        console.log('Hamburger z-index:', window.getComputedStyle(hamburger).zIndex);
-        console.log('Hamburger position:', window.getComputedStyle(hamburger).position);
-        console.log('Hamburger pointer-events:', window.getComputedStyle(hamburger).pointerEvents);
-        
-        if (navMenu) {
-            console.log('Nav menu display:', window.getComputedStyle(navMenu).display);
-            console.log('Nav menu position:', window.getComputedStyle(navMenu).position);
-            console.log('Nav menu z-index:', window.getComputedStyle(navMenu).zIndex);
-            console.log('Nav menu width:', window.getComputedStyle(navMenu).width);
-        }
+    // Check if elements exist and log their properties
+    if (hamburger) {
+        console.log('Hamburger element details:');
+        console.log('- Tag name:', hamburger.tagName);
+        console.log('- Classes:', hamburger.className);
+        console.log('- Display:', window.getComputedStyle(hamburger).display);
+        console.log('- Position:', window.getComputedStyle(hamburger).position);
+        console.log('- Z-index:', window.getComputedStyle(hamburger).zIndex);
     }
     
-    // Function to show mobile menu
+    if (navMenu) {
+        console.log('Nav menu element details:');
+        console.log('- Tag name:', navMenu.tagName);
+        console.log('- Classes:', navMenu.className);
+        console.log('- Display:', window.getComputedStyle(navMenu).display);
+        console.log('- Position:', window.getComputedStyle(navMenu).position);
+        console.log('- Z-index:', window.getComputedStyle(navMenu).zIndex);
+        console.log('- Width:', window.getComputedStyle(navMenu).width);
+        console.log('- Height:', window.getComputedStyle(navMenu).height);
+    }
+    
+    // Function to show mobile menu with comprehensive styling
     function showMobileMenu() {
-        navMenu.style.display = 'flex';
-        navMenu.style.position = 'fixed';
-        navMenu.style.top = '70px';
-        navMenu.style.left = '0';
-        navMenu.style.right = '0';
-        navMenu.style.width = '100%';
-        navMenu.style.height = 'auto';
-        navMenu.style.zIndex = '9998';
-        navMenu.style.background = 'rgba(255, 255, 255, 0.98)';
-        navMenu.style.backdropFilter = 'blur(10px)';
-        navMenu.style.padding = '2rem 1rem';
-        navMenu.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
-        navMenu.style.overflow = 'hidden';
-        navMenu.style.boxSizing = 'border-box';
-        navMenu.style.flexDirection = 'column';
-        navMenu.style.gap = '1rem';
-        navMenu.style.alignItems = 'center';
-        navMenu.style.justifyContent = 'flex-start';
-        navMenu.style.margin = '0';
-        navMenu.style.border = 'none';
-        navMenu.style.borderRadius = '0';
+        if (!navMenu) {
+            console.error('Nav menu element not found for showMobileMenu');
+            return;
+        }
+        
+        console.log('Showing mobile menu...');
+        
+        // Apply all necessary styles directly
+        navMenu.style.cssText = `
+            display: flex !important;
+            position: fixed !important;
+            top: 70px !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            height: auto !important;
+            z-index: 9998 !important;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(10px) !important;
+            padding: 2rem 1rem !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+            overflow: hidden !important;
+            box-sizing: border-box !important;
+            flex-direction: column !important;
+            gap: 1rem !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            margin: 0 !important;
+            border: none !important;
+            border-radius: 0 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        `;
+        
+        // Also add the active class
+        navMenu.classList.add('active');
+        hamburger.classList.add('active');
+        
         console.log('Mobile menu shown with inline styles');
+        console.log('Nav menu display after show:', navMenu.style.display);
+        console.log('Nav menu classes after show:', navMenu.className);
     }
     
     // Function to hide mobile menu
     function hideMobileMenu() {
+        if (!navMenu) {
+            console.error('Nav menu element not found for hideMobileMenu');
+            return;
+        }
+        
+        console.log('Hiding mobile menu...');
         navMenu.style.display = 'none';
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
         console.log('Mobile menu hidden');
     }
     
     // Only run navigation code if elements exist
     if (hamburger && navMenu) {
-        console.log('Adding click event to hamburger...');
+        console.log('Both elements found, setting up mobile navigation...');
         
         // Test the burger menu initially
-        testBurgerMenu();
+        console.log('Initial state - Nav menu display:', window.getComputedStyle(navMenu).display);
+        console.log('Initial state - Nav menu classes:', navMenu.className);
         
         // Enhanced click handler with better touch support
         hamburger.addEventListener('click', function(e) {
-            console.log('Hamburger clicked!');
+            console.log('=== HAMBURGER CLICKED ===');
             e.preventDefault();
             e.stopPropagation();
             
-            // Toggle active states
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            const wasActive = navMenu.classList.contains('active');
+            console.log('Menu was active before click:', wasActive);
             
-            // CRITICAL: Force the menu to show/hide with inline styles
-            if (navMenu.classList.contains('active')) {
-                showMobileMenu();
-            } else {
+            if (wasActive) {
                 hideMobileMenu();
+            } else {
+                showMobileMenu();
             }
             
-            console.log('Hamburger active:', hamburger.classList.contains('active'));
-            console.log('Nav menu active:', navMenu.classList.contains('active'));
-            
-            // Test menu display after toggle
-            setTimeout(() => {
-                console.log('After toggle - Nav menu display:', window.getComputedStyle(navMenu).display);
-                console.log('After toggle - Nav menu classes:', navMenu.className);
-                console.log('After toggle - Nav menu inline styles:', navMenu.style.display);
-            }, 100);
+            console.log('After click - Nav menu active:', navMenu.classList.contains('active'));
+            console.log('After click - Nav menu display:', navMenu.style.display);
+            console.log('After click - Nav menu computed display:', window.getComputedStyle(navMenu).display);
         });
         
         // Add touch events for better mobile support
         hamburger.addEventListener('touchstart', function(e) {
-            console.log('Hamburger touch start!');
+            console.log('=== HAMBURGER TOUCH START ===');
             e.preventDefault();
             e.stopPropagation();
             
-            // Toggle active states
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            const wasActive = navMenu.classList.contains('active');
+            console.log('Menu was active before touch:', wasActive);
             
-            // CRITICAL: Force the menu to show/hide with inline styles
-            if (navMenu.classList.contains('active')) {
-                showMobileMenu();
-            } else {
+            if (wasActive) {
                 hideMobileMenu();
+            } else {
+                showMobileMenu();
             }
             
-            console.log('Hamburger active:', hamburger.classList.contains('active'));
-            console.log('Nav menu active:', navMenu.classList.contains('active'));
+            console.log('After touch - Nav menu active:', navMenu.classList.contains('active'));
+            console.log('After touch - Nav menu display:', navMenu.style.display);
         });
         
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 console.log('Menu link clicked, closing menu...');
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
                 hideMobileMenu();
             });
             
             // Also add touch events for links
             link.addEventListener('touchstart', () => {
                 console.log('Menu link touched, closing menu...');
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
                 hideMobileMenu();
             });
         });
@@ -137,8 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
                 if (navMenu.classList.contains('active')) {
                     console.log('Clicking outside menu, closing...');
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
                     hideMobileMenu();
                 }
             }
@@ -149,8 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
                 if (navMenu.classList.contains('active')) {
                     console.log('Touching outside menu, closing...');
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
                     hideMobileMenu();
                 }
             }
@@ -159,33 +173,57 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Mobile menu setup complete!');
         
         // Test again after setup
-        setTimeout(testBurgerMenu, 1000);
+        setTimeout(() => {
+            console.log('=== POST-SETUP TEST ===');
+            console.log('Nav menu display:', window.getComputedStyle(navMenu).display);
+            console.log('Nav menu classes:', navMenu.className);
+            console.log('Nav menu inline styles:', navMenu.style.display);
+        }, 1000);
         
-        // Add a test button to manually test the menu
+        // Enhanced test button with better debugging
         const testButton = document.createElement('button');
         testButton.textContent = 'Test Menu';
-        testButton.style.cssText = 'position: fixed; top: 100px; right: 10px; z-index: 10002; padding: 10px; background: red; color: white; border: none; border-radius: 5px;';
+        testButton.style.cssText = 'position: fixed; top: 100px; right: 10px; z-index: 10002; padding: 10px; background: red; color: white; border: none; border-radius: 5px; font-size: 12px;';
         testButton.addEventListener('click', () => {
-            console.log('Test button clicked!');
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
+            console.log('=== TEST BUTTON CLICKED ===');
+            console.log('Current nav menu state:', navMenu.classList.contains('active'));
+            console.log('Current nav menu display:', navMenu.style.display);
+            console.log('Current nav menu computed display:', window.getComputedStyle(navMenu).display);
             
             if (navMenu.classList.contains('active')) {
-                showMobileMenu();
-            } else {
                 hideMobileMenu();
+            } else {
+                showMobileMenu();
             }
             
-            console.log('Menu toggled via test button');
-            console.log('Nav menu active:', navMenu.classList.contains('active'));
+            console.log('After test button - Nav menu active:', navMenu.classList.contains('active'));
+            console.log('After test button - Nav menu display:', navMenu.style.display);
         });
         document.body.appendChild(testButton);
         
+        // Add a second test button to force show
+        const forceShowButton = document.createElement('button');
+        forceShowButton.textContent = 'Force Show';
+        forceShowButton.style.cssText = 'position: fixed; top: 140px; right: 10px; z-index: 10002; padding: 10px; background: blue; color: white; border: none; border-radius: 5px; font-size: 12px;';
+        forceShowButton.addEventListener('click', () => {
+            console.log('=== FORCE SHOW BUTTON CLICKED ===');
+            showMobileMenu();
+        });
+        document.body.appendChild(forceShowButton);
+        
     } else {
-        console.error('Mobile menu elements not found!');
-        console.error('Hamburger:', hamburger);
-        console.error('Nav menu:', navMenu);
+        console.error('=== MOBILE MENU SETUP FAILED ===');
+        console.error('Hamburger element missing:', !hamburger);
+        console.error('Nav menu element missing:', !navMenu);
+        
+        // Try to find elements with different selectors
+        const altHamburger = document.querySelector('[class*="hamburger"]');
+        const altNavMenu = document.querySelector('[class*="nav-menu"]');
+        console.log('Alternative hamburger found:', altHamburger);
+        console.log('Alternative nav menu found:', altNavMenu);
     }
+    
+    console.log('=== MOBILE NAVIGATION DEBUG END ===');
 });
 
 // Smooth scrolling for navigation links
