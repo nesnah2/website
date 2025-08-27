@@ -17,6 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Hamburger z-index:', window.getComputedStyle(hamburger).zIndex);
         console.log('Hamburger position:', window.getComputedStyle(hamburger).position);
         console.log('Hamburger pointer-events:', window.getComputedStyle(hamburger).pointerEvents);
+        
+        if (navMenu) {
+            console.log('Nav menu display:', window.getComputedStyle(navMenu).display);
+            console.log('Nav menu position:', window.getComputedStyle(navMenu).position);
+            console.log('Nav menu z-index:', window.getComputedStyle(navMenu).zIndex);
+            console.log('Nav menu width:', window.getComputedStyle(navMenu).width);
+        }
     }
     
     // Only run navigation code if elements exist
@@ -38,6 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log('Hamburger active:', hamburger.classList.contains('active'));
             console.log('Nav menu active:', navMenu.classList.contains('active'));
+            
+            // Test menu display after toggle
+            setTimeout(() => {
+                console.log('After toggle - Nav menu display:', window.getComputedStyle(navMenu).display);
+                console.log('After toggle - Nav menu classes:', navMenu.className);
+            }, 100);
         });
         
         // Add touch events for better mobile support
@@ -96,6 +109,20 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Test again after setup
         setTimeout(testBurgerMenu, 1000);
+        
+        // Add a test button to manually test the menu
+        const testButton = document.createElement('button');
+        testButton.textContent = 'Test Menu';
+        testButton.style.cssText = 'position: fixed; top: 100px; right: 10px; z-index: 10002; padding: 10px; background: red; color: white; border: none; border-radius: 5px;';
+        testButton.addEventListener('click', () => {
+            console.log('Test button clicked!');
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            console.log('Menu toggled via test button');
+            console.log('Nav menu active:', navMenu.classList.contains('active'));
+        });
+        document.body.appendChild(testButton);
+        
     } else {
         console.error('Mobile menu elements not found!');
         console.error('Hamburger:', hamburger);
