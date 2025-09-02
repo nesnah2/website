@@ -164,29 +164,9 @@ p {
 
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex !important;
-        width: 44px;
-        height: 44px;
-        align-items: center;
-        justify-content: center;
-        z-index: 1001;
-        position: relative;
-    }
+    /* Mobile hamburger styles moved to mobile-optimized.css */
     
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        padding: 2rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        animation: slideDown 0.3s ease-out;
-    }
+    /* Mobile nav-menu styles moved to mobile-optimized.css */
     
     .nav-menu.active {
         display: flex;
@@ -600,28 +580,9 @@ p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex !important;
-        width: 44px;
-        height: 44px;
-        align-items: center;
-        justify-content: center;
-        z-index: 1001;
-    }
+    /* Mobile hamburger styles moved to mobile-optimized.css */
     
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        padding: 2rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        animation: slideDown 0.3s ease-out;
-    }
+    /* Mobile nav-menu styles moved to mobile-optimized.css */
     
     .nav-menu.active {
         display: flex;

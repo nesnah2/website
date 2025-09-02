@@ -1,4 +1,4 @@
-// Simple Mobile Navigation - Clean and Working
+// Mobile Navigation - Complete Fix
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -6,43 +6,75 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Setting up mobile navigation...');
     
     if (hamburger && navMenu) {
-        // Simple click handler
-        hamburger.addEventListener('click', function() {
-            console.log('Hamburger clicked');
+        // Function to show mobile menu
+        function showMobileMenu() {
+            navMenu.classList.add('active');
+            hamburger.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            console.log('Mobile menu shown');
+        }
+        
+        // Function to hide mobile menu
+        function hideMobileMenu() {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+            console.log('Mobile menu hidden');
+        }
+        
+        // Hamburger click handler
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             
-            // Toggle the active class
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            
-            // Simple inline style override
             if (navMenu.classList.contains('active')) {
-                navMenu.style.display = 'block';
-                navMenu.style.position = 'fixed';
-                navMenu.style.top = '70px';
-                navMenu.style.left = '0';
-                navMenu.style.right = '0';
-                navMenu.style.width = '100%';
-                navMenu.style.background = 'white';
-                navMenu.style.zIndex = '9999';
-                navMenu.style.padding = '20px';
-                navMenu.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                hideMobileMenu();
             } else {
-                navMenu.style.display = 'none';
+                showMobileMenu();
             }
         });
         
         // Close menu when clicking links
         navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-                navMenu.style.display = 'none';
+            link.addEventListener('click', function() {
+                hideMobileMenu();
             });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                if (navMenu.classList.contains('active')) {
+                    hideMobileMenu();
+                }
+            }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                hideMobileMenu();
+            }
+        });
+        
+        // Touch support for mobile
+        hamburger.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (navMenu.classList.contains('active')) {
+                hideMobileMenu();
+            } else {
+                showMobileMenu();
+            }
         });
         
         console.log('Mobile navigation setup complete');
     } else {
-        console.error('Mobile menu elements not found');
+        console.error('Mobile menu elements not found:', {
+            hamburger: !!hamburger,
+            navMenu: !!navMenu
+        });
     }
 });
 
@@ -508,33 +540,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const isMobile = window.innerWidth <= 768;
     
     if (isMobile) {
-        // Improve mobile navigation
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-                hamburger.classList.toggle('active');
-            });
-            
-            // Close mobile menu when clicking on a link
-            const navLinks = navMenu.querySelectorAll('a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    navMenu.classList.remove('active');
-                    hamburger.classList.remove('active');
-                });
-            });
-            
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                    navMenu.classList.remove('active');
-                    hamburger.classList.remove('active');
-                }
-            });
-        }
+        // Mobile navigation is handled by the main navigation code above
         
         // Improve mobile button touch targets
         const buttons = document.querySelectorAll('.btn');
