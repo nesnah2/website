@@ -49,3 +49,4 @@
 - **Music**: Dramatic, building tension
 - **Text**: Bold, easy to read, high contrast
 - **Ending**: Strong call-to-action with urgency
+
