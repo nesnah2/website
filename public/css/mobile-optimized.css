@@ -113,6 +113,9 @@
         overflow-wrap: break-word;
         padding: 0 0.5rem;
         box-sizing: border-box;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
     }
     
     .faq-answer li {
@@ -120,6 +123,14 @@
         word-wrap: break-word;
         overflow-wrap: break-word;
         box-sizing: border-box;
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+    }
+    
+    .faq-question h3 {
+        font-size: 1.1rem;
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
     }
     
     /* Container constraints */
