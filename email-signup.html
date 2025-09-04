@@ -433,39 +433,26 @@
                         </html>
                     `;
                     
-                    // Send welcome email
-                    const emailResponse = await fetch('https://connect.mailerlite.com/api/campaigns', {
+                    // Send welcome email using transactional API
+                    const emailResponse = await fetch('https://connect.mailerlite.com/api/emails', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${MAILERLITE_API_KEY}`
                         },
                         body: JSON.stringify({
-                            name: `Welcome ${firstName} - Reflection Guide`,
-                            type: 'regular',
+                            to: email,
                             subject: 'Your Reflection Guide is Here',
                             from: 'Mikkel Hansen <contact@mikkelhansen.org>',
                             from_name: 'Mikkel Hansen',
-                            reply_to: 'contact@mikkelhansen.org',
-                            content: {
-                                html: welcomeEmailContent,
-                                plain: welcomeEmailContent.replace(/<[^>]*>/g, '')
-                            },
-                            groups: [MAILERLITE_GROUP_ID]
+                            content: welcomeEmailContent
                         })
                     });
                     
                     if (emailResponse.ok) {
-                        const campaign = await emailResponse.json();
-                        
-                        // Send the campaign
-                        await fetch(`https://connect.mailerlite.com/api/campaigns/${campaign.data.id}/send`, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Authorization': `Bearer ${MAILERLITE_API_KEY}`
-                            }
-                        });
+                        console.log('Welcome email sent successfully');
+                    } else {
+                        console.log('Failed to send welcome email');
                     }
                     
                     // Success
