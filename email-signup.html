@@ -372,6 +372,7 @@
             
             try {
                 // Step 1: Add subscriber to MailerLite
+                console.log('📧 Adding subscriber to MailerLite...');
                 const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
                     method: 'POST',
                     headers: {
@@ -387,11 +388,13 @@
                     })
                 });
                 
+                console.log('Response status:', response.status);
+                
                 if (response.ok) {
-                    // Success - subscriber added to MailerLite
-                    console.log('✅ Subscriber added successfully!');
+                    const result = await response.json();
+                    console.log('✅ Success! Subscriber added:', result);
                     
-                    // Show success message
+                    // Success - subscriber added to MailerLite
                     document.getElementById('emailSignupForm').style.display = 'none';
                     downloadSection.style.display = 'block';
                     
@@ -404,14 +407,14 @@
                     }
                 } else {
                     const errorData = await response.text();
-                    console.error('MailerLite API Error:', errorData);
-                    throw new Error('Failed to add subscriber');
+                    console.error('MailerLite API Error:', response.status, errorData);
+                    throw new Error(`API Error: ${response.status} - ${errorData}`);
                 }
                 
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Error details:', error);
                 errorMessage.style.display = 'block';
-                document.getElementById('errorText').textContent = 'There was an error processing your request. Please try again.';
+                document.getElementById('errorText').textContent = `Error: ${error.message}`;
             } finally {
                 // Re-enable submit button
                 submitBtn.disabled = false;
