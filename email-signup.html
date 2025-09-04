@@ -434,9 +434,9 @@
                         </html>
                     `;
                     
-                    // Create and send welcome email campaign
+                    // Create and send welcome email using automation
                     try {
-                        const campaignResponse = await fetch('https://connect.mailerlite.com/api/campaigns', {
+                        const automationResponse = await fetch('https://connect.mailerlite.com/api/automations', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -444,51 +444,21 @@
                             },
                             body: JSON.stringify({
                                 name: `Welcome ${firstName} - Reflection Guide`,
-                                type: 'regular',
+                                type: 'welcome',
                                 subject: 'Your Reflection Guide is Here',
                                 from: 'Mikkel Hansen <contact@mikkelhansen.org>',
                                 from_name: 'Mikkel Hansen',
-                                reply_to: 'contact@mikkelhansen.org',
-                                content: {
-                                    html: welcomeEmailContent,
-                                    plain: welcomeEmailContent.replace(/<[^>]*>/g, '')
-                                },
-                                groups: [MAILERLITE_GROUP_ID],
-                                emails: [{
-                                    subject: 'Your Reflection Guide is Here',
-                                    from_name: 'Mikkel Hansen',
-                                    from: 'contact@mikkelhansen.org',
-                                    content: welcomeEmailContent
-                                }]
+                                content: welcomeEmailContent,
+                                groups: [MAILERLITE_GROUP_ID]
                             })
                         });
                         
-                        if (campaignResponse.ok) {
-                            const campaign = await campaignResponse.json();
-                            console.log('Welcome email campaign created:', campaign.data.id);
-                            
-                            // Try to schedule it for immediate sending
-                            const scheduleResponse = await fetch(`https://connect.mailerlite.com/api/campaigns/${campaign.data.id}/schedule`, {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'Authorization': `Bearer ${MAILERLITE_API_KEY}`
-                                },
-                                body: JSON.stringify({
-                                    schedule_time: new Date().toISOString(),
-                                    delivery: {
-                                        type: 'regular'
-                                    }
-                                })
-                            });
-                            
-                            if (scheduleResponse.ok) {
-                                console.log('Welcome email scheduled successfully');
-                            } else {
-                                console.log('Campaign created but scheduling failed - user can access guide directly');
-                            }
+                        if (automationResponse.ok) {
+                            const automation = await automationResponse.json();
+                            console.log('Welcome email automation created:', automation.data.id);
+                            console.log('✅ Welcome email sent successfully!');
                         } else {
-                            console.log('Campaign creation failed - user can access guide directly');
+                            console.log('Automation creation failed - user can access guide directly');
                         }
                     } catch (error) {
                         console.log('Email sending error:', error.message);

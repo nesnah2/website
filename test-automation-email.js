@@ -1,11 +1,11 @@
-// Test Welcome Email Fix
-// Using correct MailerLite campaign structure
+// Test Automation Email
+// Using MailerLite's automation API
 
 const MAILERLITE_API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiN2NmZWM4NmM5YzMyN2ExNWZhYWJjM2Q4OWRlNGFkYzEzNDEyOGNjYmZiOTcxYTc1ZGQ2NjAzNjY0MjE4YjNlNDY4YzZmOGQ2YzkzNDgyYjAiLCJpYXQiOjE3NTY5MTIxNzMuNDI2MzEzLCJuYmYiOjE3NTY5MTIxNzMuNDI2MzE2LCJleHAiOjQ5MTI1ODU3NzMuNDIxODcsInN1YiI6IjE3OTAzMjAiLCJzY29wZXMiOltdfQ.v0Z7VSyrgB7zTYTkfxZKfJjtep0KBje-wQHOnnpB0c3siyRu9gRUtguXvuV6H-QtQikR-IPSKD20rlGTEGUeQ7U2vV3iVFltrQPzYRhDrbdaqOdMJUFmquSLc2lIYE-wChea9dOIRTehYHs5IOjcMj8j7bbMhzPhSbaAIGQrLvvgHMtHlQpp_Q831uOIRIlIWljUAb6sJ3bduRTj1bmrDXwRUfYIu0PH_JnxU11NuDE1UYgr2JA__nTYy9_AIlGoiEK6MPkF66ukLhF7XpcGUaMuH_w67K5BzpnLJODlRu64JGHEmFremA7AyQlzvX0_DwO0BDBzxR11IXqFItVoLNGaScCEJUkSeVaQgXgrxXElbgUFGchYxUpwYY_1yx63H9NHqagPM2Tuu7UaswwFXhvAHbOH5JVm-8wJGIe_VqMQIw10A_MU1lOiKnSbRqQ1vqCcKqIKoCDsyYsWWRQ3B590kwx3Zx0PoThK_y2u9YAR8zwYG_7eIY7X8m8lRsdpRxlAY0KHu0X9Ok1vqtsHKgB5Vk7fi5UfVXjGMZ-cn9JZOZCUbHEUyw3NITijhrgtqfGpooyjPrfNDR98HmNcHcll76IjMIuthx6SaPVBYOFMd1AE5jLRYm_gJr3lVuTl0_wCIb0C-USP5-StwzY2BtjDfErjOh0vxigvExKe61c';
 const GROUP_ID = '164535238277466018';
 
-async function testWelcomeEmail() {
-    console.log('🧪 Testing Welcome Email Fix...\n');
+async function testAutomationEmail() {
+    console.log('🧪 Testing Automation Email...\n');
     
     const testEmail = 'contact@mikkelhansen.org';
     const firstName = 'Test';
@@ -56,9 +56,9 @@ async function testWelcomeEmail() {
     `;
 
     try {
-        // Step 1: Create campaign with simpler structure
-        console.log('📧 Creating welcome email campaign...');
-        const campaignResponse = await fetch('https://connect.mailerlite.com/api/campaigns', {
+        // Try to send email using automation
+        console.log('📧 Creating automation email...');
+        const automationResponse = await fetch('https://connect.mailerlite.com/api/automations', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -66,57 +66,23 @@ async function testWelcomeEmail() {
             },
             body: JSON.stringify({
                 name: `Welcome ${firstName} - Reflection Guide`,
-                type: 'regular',
+                type: 'welcome',
                 subject: 'Your Reflection Guide is Here',
                 from: 'Mikkel Hansen <contact@mikkelhansen.org>',
                 from_name: 'Mikkel Hansen',
-                reply_to: 'contact@mikkelhansen.org',
-                content: {
-                    html: welcomeEmailContent,
-                    plain: welcomeEmailContent.replace(/<[^>]*>/g, '')
-                },
-                groups: [GROUP_ID],
-                emails: [GROUP_ID]
+                content: welcomeEmailContent,
+                groups: [GROUP_ID]
             })
         });
 
-        if (!campaignResponse.ok) {
-            const errorText = await campaignResponse.text();
-            console.log('❌ Campaign Creation Failed');
-            console.log('Status:', campaignResponse.status);
-            console.log('Error:', errorText);
-            return;
-        }
-
-        const campaign = await campaignResponse.json();
-        console.log('✅ Campaign created successfully!');
-        console.log('Campaign ID:', campaign.data.id);
-
-        // Step 2: Try different scheduling approach
-        console.log('📤 Trying to schedule welcome email...');
-        
-        // Try immediate sending without delivery type
-        const scheduleResponse = await fetch(`https://connect.mailerlite.com/api/campaigns/${campaign.data.id}/schedule`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${MAILERLITE_API_KEY}`
-            },
-            body: JSON.stringify({
-                schedule_time: new Date().toISOString(),
-                delivery: {
-                    type: 'immediate'
-                }
-            })
-        });
-
-        if (scheduleResponse.ok) {
-            console.log('✅ Welcome email scheduled and sent successfully!');
-            console.log('📧 Check your email for the welcome message');
+        if (automationResponse.ok) {
+            const automation = await automationResponse.json();
+            console.log('✅ Automation created successfully!');
+            console.log('Automation ID:', automation.data.id);
         } else {
-            const errorText = await scheduleResponse.text();
-            console.log('❌ Failed to schedule welcome email');
-            console.log('Status:', scheduleResponse.status);
+            const errorText = await automationResponse.text();
+            console.log('❌ Automation Creation Failed');
+            console.log('Status:', automationResponse.status);
             console.log('Error:', errorText);
         }
 
@@ -126,4 +92,4 @@ async function testWelcomeEmail() {
 }
 
 // Run the test
-testWelcomeEmail();
+testAutomationEmail();
