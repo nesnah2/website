@@ -276,11 +276,12 @@
                 <p id="errorText">Please try again or contact us if the problem persists.</p>
             </div>
             
-            <div class="download-section" id="downloadSection">
-                <h3>Success!</h3>
-                <p>Thank you for signing up! Your reflection guide has been sent to your email.</p>
-                <p><small>Please check your inbox (and spam folder) for the download link.</small></p>
-            </div>
+                         <div class="download-section" id="downloadSection">
+                 <h3>Success!</h3>
+                 <p>Thank you for signing up! You've been added to our email list.</p>
+                 <p><strong>Your reflection guide:</strong> <a href="https://mikkelhansen.org/boy-to-man-reflection-guide.html" target="_blank">Download Here</a></p>
+                 <p><small>You'll also receive future updates and insights about authentic masculinity.</small></p>
+             </div>
             
             <div class="privacy-note">
                 <p><i class="fas fa-shield-alt"></i> Your email is safe with us. We'll never spam you or share your information.</p>
@@ -433,27 +434,14 @@
                         </html>
                     `;
                     
-                    // Send welcome email using transactional API
-                    const emailResponse = await fetch('https://connect.mailerlite.com/api/emails', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${MAILERLITE_API_KEY}`
-                        },
-                        body: JSON.stringify({
-                            to: email,
-                            subject: 'Your Reflection Guide is Here',
-                            from: 'Mikkel Hansen <contact@mikkelhansen.org>',
-                            from_name: 'Mikkel Hansen',
-                            content: welcomeEmailContent
-                        })
-                    });
+                    // Send welcome email using MailerLite's automation
+                    // For now, we'll just show success since MailerLite doesn't have transactional API
+                    console.log('Subscriber added successfully - welcome email will be sent via MailerLite automation');
                     
-                    if (emailResponse.ok) {
-                        console.log('Welcome email sent successfully');
-                    } else {
-                        console.log('Failed to send welcome email');
-                    }
+                    // You can set up a welcome email automation in MailerLite dashboard
+                    // Go to: MailerLite Dashboard → Automations → Create new automation
+                    // Trigger: When someone subscribes to your group
+                    // Action: Send welcome email with guide download link
                     
                     // Success
                     document.getElementById('emailSignupForm').style.display = 'none';
