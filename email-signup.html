@@ -434,14 +434,66 @@
                         </html>
                     `;
                     
-                    // Send welcome email using MailerLite's automation
-                    // For now, we'll just show success since MailerLite doesn't have transactional API
-                    console.log('Subscriber added successfully - welcome email will be sent via MailerLite automation');
-                    
-                    // You can set up a welcome email automation in MailerLite dashboard
-                    // Go to: MailerLite Dashboard → Automations → Create new automation
-                    // Trigger: When someone subscribes to your group
-                    // Action: Send welcome email with guide download link
+                    // Create and send welcome email campaign
+                    try {
+                        const campaignResponse = await fetch('https://connect.mailerlite.com/api/campaigns', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${MAILERLITE_API_KEY}`
+                            },
+                            body: JSON.stringify({
+                                name: `Welcome ${firstName} - Reflection Guide`,
+                                type: 'regular',
+                                subject: 'Your Reflection Guide is Here',
+                                from: 'Mikkel Hansen <contact@mikkelhansen.org>',
+                                from_name: 'Mikkel Hansen',
+                                reply_to: 'contact@mikkelhansen.org',
+                                content: {
+                                    html: welcomeEmailContent,
+                                    plain: welcomeEmailContent.replace(/<[^>]*>/g, '')
+                                },
+                                groups: [MAILERLITE_GROUP_ID],
+                                emails: [{
+                                    subject: 'Your Reflection Guide is Here',
+                                    from_name: 'Mikkel Hansen',
+                                    from: 'contact@mikkelhansen.org',
+                                    content: welcomeEmailContent
+                                }]
+                            })
+                        });
+                        
+                        if (campaignResponse.ok) {
+                            const campaign = await campaignResponse.json();
+                            console.log('Welcome email campaign created:', campaign.data.id);
+                            
+                            // Try to schedule it for immediate sending
+                            const scheduleResponse = await fetch(`https://connect.mailerlite.com/api/campaigns/${campaign.data.id}/schedule`, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': `Bearer ${MAILERLITE_API_KEY}`
+                                },
+                                body: JSON.stringify({
+                                    schedule_time: new Date().toISOString(),
+                                    delivery: {
+                                        type: 'regular'
+                                    }
+                                })
+                            });
+                            
+                            if (scheduleResponse.ok) {
+                                console.log('Welcome email scheduled successfully');
+                            } else {
+                                console.log('Campaign created but scheduling failed - user can access guide directly');
+                            }
+                        } else {
+                            console.log('Campaign creation failed - user can access guide directly');
+                        }
+                    } catch (error) {
+                        console.log('Email sending error:', error.message);
+                        console.log('User can access guide directly');
+                    }
                     
                     // Success
                     document.getElementById('emailSignupForm').style.display = 'none';
