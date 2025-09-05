@@ -25,22 +25,23 @@
             width: 100% !important;
             min-width: 100%;
             height: 100%;
-            background-color: #f8f9fa;
+            background-color: #1a1a1a;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333333;
+            color: #e0e0e0;
         }
         
         .email-container {
             max-width: 600px;
             margin: 0 auto;
-            background-color: #ffffff;
+            background-color: #2d2d2d;
         }
         
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             padding: 40px 30px;
             text-align: center;
+            border-bottom: 2px solid #444444;
         }
         
         .header h1 {
@@ -57,27 +58,27 @@
         
         .greeting {
             font-size: 18px;
-            color: #2c3e50;
+            color: #ffffff;
             margin-bottom: 20px;
         }
         
         .intro-text {
             font-size: 16px;
-            color: #555555;
+            color: #b0b0b0;
             margin-bottom: 30px;
             line-height: 1.7;
         }
         
         .benefits-list {
-            background-color: #f8f9fa;
-            border-left: 4px solid #667eea;
+            background-color: #3a3a3a;
+            border-left: 4px solid #666666;
             padding: 25px;
             margin: 30px 0;
             border-radius: 8px;
         }
         
         .benefits-list h3 {
-            color: #2c3e50;
+            color: #ffffff;
             font-size: 20px;
             margin: 0 0 15px 0;
         }
@@ -88,7 +89,7 @@
         }
         
         .benefits-list li {
-            color: #555555;
+            color: #b0b0b0;
             margin-bottom: 8px;
             font-size: 15px;
         }
@@ -100,62 +101,48 @@
         
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #ffffff !important;
+            background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+            color: #1a1a1a !important;
             text-decoration: none;
             padding: 18px 35px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 16px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
         
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
         }
         
         .important-note {
-            background-color: #fff3cd;
-            border: 1px solid #ffeaa7;
+            background-color: #4a4a4a;
+            border: 1px solid #666666;
             border-radius: 8px;
             padding: 20px;
             margin: 30px 0;
         }
         
         .important-note h4 {
-            color: #856404;
+            color: #ffffff;
             margin: 0 0 10px 0;
             font-size: 16px;
         }
         
         .important-note p {
-            color: #856404;
+            color: #b0b0b0;
             margin: 0;
             font-size: 14px;
         }
         
-        .personal-message {
-            background-color: #e8f4fd;
-            border-radius: 8px;
-            padding: 25px;
-            margin: 30px 0;
-            border-left: 4px solid #3498db;
-        }
-        
-        .personal-message p {
-            color: #2c3e50;
-            font-style: italic;
-            margin: 0;
-            font-size: 15px;
-        }
-        
         .footer {
-            background-color: #2c3e50;
+            background-color: #1a1a1a;
             color: #ffffff;
             padding: 30px;
             text-align: center;
+            border-top: 2px solid #444444;
         }
         
         .footer h3 {
@@ -212,63 +199,84 @@
     <div class="email-container">
         <!-- Header -->
         <div class="header">
-            <h1>Your Reflection Guide is Ready!</h1>
+            <h1>Your workbook is ready. Are you?</h1>
         </div>
         
         <!-- Main Content -->
         <div class="content">
-            <div class="greeting">
-                Hey {{subscriber.name}},
-            </div>
+                               <div class="greeting">
+                       Hey {{subscriber.name}}, thank you for showing up for yourself with bravery.
+                   </div>
             
             <div class="intro-text">
-                Thank you for signing up! Your personalized <strong>"From Boy to Man: A Reflection Guide"</strong> is ready for you.
+                You wake up empty despite your achievements. You're still performing for approval like a scared little boy. Every day you stay stuck is another day you're not the man you could be.
             </div>
             
-            <div class="personal-message">
-                <p>
-                    "I created this guide because I've worked with hundreds of men like Alex - men who wake up feeling empty despite their achievements, who constantly compare themselves to other men, who feel like they're running on a treadmill with lots of motion but no progress. Men who know something is wrong but can't pinpoint it."
+            <div style="background-color: #3a3a3a; padding: 25px; border-radius: 8px; margin: 30px 0;">
+                <p style="color: #ffffff; margin: 0 0 15px 0; font-size: 16px; font-weight: 600;">
+                    This is not a feel good workbook.
+                </p>
+                <p style="color: #b0b0b0; margin: 0 0 15px 0; font-size: 16px;">
+                    You know exactly what I'm talking about. You're tired of wearing masks and pretending to be someone you're not.
+                </p>
+                <p style="color: #b0b0b0; margin: 0; font-size: 16px;">
+                    The courage you got to start this journey, is required. No more excuses.
                 </p>
             </div>
             
-            <div style="background-color: #f8f9fa; padding: 25px; border-radius: 8px; margin: 30px 0;">
-                <h3 style="color: #2c3e50; margin: 0 0 15px 0;">Meet Alex - The Stuck Man</h3>
-                <p style="color: #555555; margin: 0 0 15px 0;">
-                    Alex wakes up feeling empty despite his achievements. He constantly compares himself to other men, feels like he's wearing a mask but doesn't know who's underneath. He's desperate for validation but ashamed of needing it. He performs for approval in every situation, avoids conflict to maintain his "nice guy" image, and changes his personality based on who he's with.
+            <div style="background-color: #4a2a2a; padding: 25px; border-radius: 8px; margin: 30px 0; border-left: 4px solid #cc4444;">
+                <p style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0; font-weight: 600;">
+                    Stop lying to yourself:
                 </p>
-                <p style="color: #555555; margin: 0;">
-                    <strong>Sound familiar?</strong> Alex represents every man who's still acting like a boy seeking approval instead of becoming the man he's meant to be.
+                <p style="color: #b0b0b0; margin: 0 0 15px 0; font-size: 16px;">
+                    You're not "just thinking things through" - you're paralyzed by overthinking.
+                </p>
+                <p style="color: #b0b0b0; margin: 0 0 15px 0; font-size: 16px;">
+                    You're not "being nice" - you're people-pleasing because you're afraid of rejection.
+                </p>
+                <p style="color: #b0b0b0; margin: 0; font-size: 16px;">
+                    You're not "staying busy" - you're running from yourself.
                 </p>
             </div>
             
             <div class="benefits-list">
-                <h3>What This Guide Will Help You Break Free From:</h3>
+                <p style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0; font-weight: 600;">
+                    Identify why and erase how:
+                </p>
                 <ul>
-                    <li><strong>The Performance Trap</strong> - Stop seeking approval and start being authentic</li>
-                    <li><strong>The Comparison Game</strong> - Stop measuring yourself against other men</li>
-                    <li><strong>The Mask You Wear</strong> - Discover who you really are beneath the performance</li>
-                    <li><strong>The Validation Addiction</strong> - Learn to create your own worth instead of seeking it from others</li>
-                    <li><strong>The "Nice Guy" Syndrome</strong> - Stop avoiding conflict and start setting boundaries</li>
-                    <li><strong>The Identity Confusion</strong> - Figure out who you really are and what you actually want</li>
+                    <li><strong>Which shortcuts do you fall into</strong> - Identify the patterns that keep you stuck</li>
+                    <li><strong>What default behaviors are actually working against you</strong> - Stop sabotaging yourself unconsciously</li>
+                    <li><strong>Being stuck in endless thinking</strong> - Break free from overthinking and take action</li>
+                    <li><strong>Confront the narratives that are creating your limits</strong> - Challenge the stories you tell yourself</li>
+                </ul>
+            </div>
+            
+            <div style="background-color: #2a4a2a; padding: 25px; border-radius: 8px; margin: 30px 0; border-left: 4px solid #44cc44;">
+                <p style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0; font-weight: 600;">
+                    What you'll gain from doing the work:
+                </p>
+                <ul>
+                    <li><strong>Clear patterns that serve you</strong> - Know exactly what behaviors move you forward</li>
+                    <li><strong>Real confidence that comes from within</strong> - Stop performing and start being real</li>
+                    <li><strong>Action over endless thinking</strong> - Make decisions and move forward with purpose</li>
+                    <li><strong>Freedom from the stories that limit you</strong> - Rewrite your narrative and create new possibilities</li>
                 </ul>
             </div>
             
             <div class="cta-section">
-                <a href="https://mikkelhansen.org/boy-to-man-reflection-guide.html" class="cta-button">
-                    📥 Download Your Guide
+                <a href="https://storage.googleapis.com/mailerlite-uploads-prod/1776097/EVxJpK69FtFgRvC8hPIii7aruQcCNW7fLyvAUFxe.pdf" class="cta-button">
+                    📥 Download Your Workbook PDF
                 </a>
+                <p style="color: #b0b0b0; font-size: 14px; margin-top: 15px;">
+                    Your workbook is attached as a PDF file. Click above to download it directly to your device.
+                </p>
             </div>
             
             <div class="important-note">
                 <h4>⚠️ Important:</h4>
-                <p>This guide is designed for deep reflection. Take your time with each question and be completely honest with yourself. The real transformation happens when you stop lying to yourself about who you are - when you stop being Alex and start becoming the man you're meant to be.</p>
+                <p>This guide is designed for deep reflection. Take your time with each question and be completely honest with yourself. The real transformation happens when you stop lying to yourself about who you are.</p>
             </div>
             
-            <div style="margin-top: 30px;">
-                <p style="color: #555555; font-size: 15px;">
-                    If you recognize yourself in Alex's story, this guide is for you. If you have any questions or want to share your thoughts as you work through it, feel free to reply to this email. I read every message and I'm here to help you break free from the patterns that are keeping you stuck.
-                </p>
-            </div>
         </div>
         
         <!-- Footer -->
@@ -286,6 +294,7 @@
                 <a href="https://mikkelhansen.org" style="color: #667eea;">mikkelhansen.org</a> | 
                 <a href="mailto:contact@mikkelhansen.org" style="color: #667eea;">contact@mikkelhansen.org</a>
             </p>
+            
         </div>
     </div>
 </body>
