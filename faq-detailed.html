@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Mikkel Hansen | Men's Coach</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: #e2e8f0;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: transparent;
+            color: #ffd700;
+            border: 2px solid #ffd700;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #ffd700;
+            color: #0f1419;
+        }
+
+        .faq {
+            padding: 40px 0;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .faq-question h3 {
+            font-size: 1.3rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: #ffd700;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 30px 30px;
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .faq-answer ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .faq-answer li {
+            margin-bottom: 8px;
+        }
+
+        .faq-answer strong {
+            color: #ffd700;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            margin-top: 40px;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            color: #e2e8f0;
+            margin-bottom: 30px;
+        }
+
+        .cta .btn {
+            display: inline-block;
+            padding: 18px 36px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #0f1419;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .faq-question {
+                padding: 20px;
+            }
+
+            .faq-answer {
+                padding: 0 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">← Back to Home</a>
+            <h1>Frequently Asked Questions</h1>
+            <p>Everything you need to know about working with me</p>
+        </div>
+
+        <div class="faq">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>How long does it take to see results?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Most men see significant changes within the first few weeks. The 3-month program is designed for lasting transformation, but you'll notice improvements in confidence and clarity from day one.</p>
+                    <p>Here's what you can expect:</p>
+                    <ul>
+                        <li><strong>Week 1-2:</strong> Clarity on what's holding you back</li>
+                        <li><strong>Week 3-4:</strong> First actionable steps and momentum</li>
+                        <li><strong>Month 2-3:</strong> Significant life changes and new habits</li>
+                        <li><strong>Ongoing:</strong> Continued growth and transformation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>What happens in a coaching session?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Each 50-minute session is focused on your specific challenges. We identify what's holding you back, create actionable steps, and I hold you accountable between sessions.</p>
+                    <p>A typical session includes:</p>
+                    <ul>
+                        <li><strong>Check-in:</strong> Review progress since last session</li>
+                        <li><strong>Deep dive:</strong> Explore current challenges and obstacles</li>
+                        <li><strong>Strategy:</strong> Create specific action steps</li>
+                        <li><strong>Accountability:</strong> Set clear expectations for next session</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Do you work with men outside Denmark?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! I work exclusively online with men worldwide via video calls. I've successfully helped men from every continent.</p>
+                    <p>My approach works regardless of location because true transformation happens within you, not in a specific place. All sessions are conducted online via Zoom or similar platforms.</p>
+                    <p>This means you can work with me from anywhere in the world, at any time that fits your schedule. Location is never a barrier to transformation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>What if I'm not sure about committing to 3 months?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Start with a single session ($250) to see if we're a good fit. Many men choose this option first, then upgrade to the program once they experience the results.</p>
+                    <p>Here's my recommendation:</p>
+                    <ul>
+                        <li><strong>Discovery Call (Free):</strong> 30-minute chat to see if we connect</li>
+                        <li><strong>Single Session ($250):</strong> One powerful session to experience my approach</li>
+                        <li><strong>3-Month Program ($2,700):</strong> Complete transformation journey</li>
+                    </ul>
+                    <p>There's no pressure to commit long-term. Start small and see the difference one session can make.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>What makes your approach different?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>I don't give you answers. I ask the questions that help you find your own truth. Because real transformation only happens when you discover it yourself.</p>
+                    <p>My approach is built on:</p>
+                    <ul>
+                        <li><strong>Truth First:</strong> Brutal honesty about where you actually are</li>
+                        <li><strong>No Judgment:</strong> I've been where you are - you can tell me anything</li>
+                        <li><strong>Action Over Theory:</strong> Every session ends with concrete steps</li>
+                        <li><strong>Real Accountability:</strong> I won't watch you sabotage yourself</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>How do I book a session?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>It's simple. Click "Book Free Call" anywhere on the site, or email me directly at contact@mikkelhansen.org.</p>
+                    <p>For the free discovery call, you can book directly through the calendar. For paid sessions, I'll send you a payment link after we confirm the time.</p>
+                    <p>I respond to all inquiries within 24 hours, usually much faster.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2>Still Have Questions?</h2>
+            <p>Let's talk. Book a free discovery call and ask me anything.</p>
+            <a href="index.html#contact" class="btn">Book Free Call</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                if (item !== answer) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            document.querySelectorAll('.faq-question i').forEach(icon => {
+                icon.style.transform = 'rotate(0deg)';
+            });
+            
+            // Toggle current item
+            answer.classList.toggle('active');
+            
+            if (answer.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+</body>
+</html>

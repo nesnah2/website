@@ -50,3 +50,9 @@ Society is literally programming men to be stuck, confused, and performing versi
 This is why so many men feel like they're wearing masks, feeling alone even around people who love them, and constantly seeking validation they'll never find.
 
 Because society taught them to look for it in all the wrong places.
+
+
+
+
+
+

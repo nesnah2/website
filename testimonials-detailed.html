@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Stories - Mikkel Hansen | Men's Coach</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: #e2e8f0;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: transparent;
+            color: #ffd700;
+            border: 2px solid #ffd700;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #ffd700;
+            color: #0f1419;
+        }
+
+        .testimonials {
+            padding: 40px 0;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            font-size: 4rem;
+            color: #ffd700;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-size: 1.1rem;
+            color: #ffd700;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            margin-top: 40px;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            color: #e2e8f0;
+            margin-bottom: 30px;
+        }
+
+        .cta .btn {
+            display: inline-block;
+            padding: 18px 36px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #0f1419;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .testimonial {
+                padding: 30px 20px;
+            }
+
+            .testimonial::before {
+                left: 20px;
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">← Back to Home</a>
+            <h1>Real Stories of Transformation</h1>
+            <p>These aren't marketing testimonials. These are the real words of men whose lives have changed through authentic coaching.</p>
+        </div>
+
+        <div class="testimonials">
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "My sessions with Mikkel truly hit SPOT ON! It might sound wild, but when I talk to Mikkel, it feels like coming 'home' to safety. A safe space where I can share directly from the heart without worrying about how it will be received."
+                </div>
+                <div class="testimonial-author">- M</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "In my journey with Mikkel so far, I've worked on giving myself the tools to be kind to myself, to bring structure into my everyday life, and to feel like a new person. A person who is actually living, not just running on autopilot."
+                </div>
+                <div class="testimonial-author">- Nicolai</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "I was stuck in endless thinking about quick solutions, focused on looks and being liked. Restless, not able to enjoy the present. Through several sessions with Mikkel, I found more inner peace."
+                </div>
+                <div class="testimonial-author">- Jakob</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "We worked on my addiction, anger issues, and shadow work around my default mode. Mikkel didn't sugarcoat anything. He helped me see the patterns I was running from and the ways I was sabotaging myself."
+                </div>
+                <div class="testimonial-author">- A</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "I had a career, a family, everything that should make me happy. But I felt stuck. Nothing gave me joy anymore. Mikkel helped me see that I was living on autopilot, disconnected from myself."
+                </div>
+                <div class="testimonial-author">- Søren</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "Often, I was physically restless and fearful prior to our sessions, but the relief was amazing. During our work, I gained greater awareness of myself and why I kept speaking badly about myself."
+                </div>
+                <div class="testimonial-author">- Kevin</div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2>Ready to Start Your Transformation?</h2>
+            <p>If these stories resonate with you, if you're tired of living in the shadows, let's talk. Real transformation is possible.</p>
+            <a href="index.html#contact" class="btn">Start Your Journey</a>
+        </div>
+    </div>
+</body>
+</html>

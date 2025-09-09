@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download the FREE 'From Boy to Man' workbook - Stop performing. Start living. Begin your transformation journey today.">
+    <meta name="keywords" content="men's workbook, transformation, personal growth, masculinity, self-reflection, men's coaching, free download">
+    <meta name="author" content="Mikkel Hansen">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="FREE Download: From Boy to Man Workbook">
+    <meta property="og:description" content="Stop performing. Start living. Download this free workbook to begin your transformation journey.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mikkelhansen.org/workbook-download.html">
+    <meta property="og:image" content="https://mikkelhansen.org/assets/mentor.jpg">
+    
+    <title>FREE Download: From Boy to Man Workbook</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-section .tagline {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            padding: 4rem 0;
+        }
+
+        .workbook-preview {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .workbook-preview h2 {
+            color: #1a1a1a;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .workbook-preview .preview-content {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .workbook-preview h3 {
+            color: #1a1a1a;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .workbook-preview ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .workbook-preview li {
+            margin-bottom: 0.5rem;
+        }
+
+        .download-form {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .download-form h2 {
+            color: #1a1a1a;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .download-form .form-description {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #6c757d;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #1a1a1a;
+        }
+
+        .download-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            border: none;
+            padding: 1.2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .download-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .benefits-section {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .benefits-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .benefit-card i {
+            font-size: 3rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .benefit-card p {
+            color: #6c757d;
+        }
+
+        .testimonial-section {
+            background: #f8f9fa;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .testimonial-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .testimonial blockquote {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .testimonial .author {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #ffc107;
+            color: #1a1a1a;
+        }
+
+        .btn-primary:hover {
+            background: #e0a800;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1a1a1a;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>FROM BOY TO MAN</h1>
+            <p class="subtitle">A Reflection Workbook</p>
+            <p class="tagline">Stop performing. Start living.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="workbook-preview">
+                <h2>What You'll Get</h2>
+                <div class="preview-content">
+                    <h3>8 Powerful Exercises</h3>
+                    <ul>
+                        <li>Identify patterns that keep you stuck</li>
+                        <li>Stop sabotaging yourself unconsciously</li>
+                        <li>Break free from overthinking</li>
+                        <li>Challenge limiting stories</li>
+                        <li>Know what behaviors move you forward</li>
+                        <li>Stop performing and start being real</li>
+                        <li>Make decisions with purpose</li>
+                        <li>Rewrite your narrative</li>
+                    </ul>
+                </div>
+                
+                <div class="preview-content">
+                    <h3>This Workbook Will Help You:</h3>
+                    <ul>
+                        <li>Stop seeking external validation</li>
+                        <li>Break free from people-pleasing</li>
+                        <li>Make decisions with confidence</li>
+                        <li>Build authentic self-respect</li>
+                        <li>Create real change in your life</li>
+                    </ul>
+                </div>
+                
+                <p style="text-align: center; font-weight: 600; color: #1a1a1a;">
+                    <i class="fas fa-download"></i> Instant Download
+                </p>
+            </div>
+
+            <div class="download-form">
+                <h2>Get Your FREE Workbook</h2>
+                <p class="form-description">Enter your email below to download the complete workbook instantly.</p>
+                
+                <div id="successMessage" class="success-message">
+                    <i class="fas fa-check-circle"></i> Success! Check your email for the download link.
+                </div>
+                
+                <div id="errorMessage" class="error-message">
+                    <i class="fas fa-exclamation-circle"></i> Something went wrong. Please try again.
+                </div>
+                
+                <form id="downloadForm">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <button type="submit" class="download-btn" id="downloadBtn">
+                        <i class="fas fa-download"></i> Download Workbook Now
+                    </button>
+                </form>
+                
+                <p style="text-align: center; font-size: 0.9rem; color: #6c757d; margin-top: 1rem;">
+                    By downloading, you agree to receive emails from Mikkel Hansen. Unsubscribe anytime.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2>Why This Workbook Works</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>No Fluff</h3>
+                    <p>This isn't a feel-good workbook. It's designed to challenge you and create real change.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-target"></i>
+                    <h3>Action-Oriented</h3>
+                    <p>Every exercise includes specific actions you can take immediately to start transforming.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-user-check"></i>
+                    <h3>Proven Methods</h3>
+                    <p>Based on real experience helping men break free from patterns that keep them stuck.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Self-Paced</h3>
+                    <p>Work through the exercises at your own pace. No pressure, just progress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <h2>What Men Are Saying</h2>
+            <div class="testimonial">
+                <blockquote>
+                    "This workbook forced me to be honest with myself in ways I never had before. The exercises are challenging but exactly what I needed to break free from the patterns that were keeping me stuck."
+                </blockquote>
+                <p class="author">- Alex, 34</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Stop Performing?</h2>
+            <p>Download your free workbook and start your transformation journey today.</p>
+            <div class="cta-buttons">
+                <a href="#downloadForm" class="btn btn-primary">Get Free Workbook</a>
+                <a href="about.html" class="btn btn-secondary">Learn More About Mikkel</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('downloadForm');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Hide previous messages
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+                
+                // Disable button and show loading
+                downloadBtn.disabled = true;
+                downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                
+                const formData = new FormData(form);
+                const data = {
+                    firstName: formData.get('firstName'),
+                    email: formData.get('email'),
+                    source: 'workbook_download'
+                };
+                
+                try {
+                    // Send to your email service (replace with your actual endpoint)
+                    const response = await fetch('/api/subscribe', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    if (response.ok) {
+                        // Show success message
+                        successMessage.style.display = 'block';
+                        
+                        // Redirect to workbook download
+                        setTimeout(() => {
+                            window.location.href = 'workbook.html';
+                        }, 2000);
+                        
+                        // Track conversion (replace with your analytics)
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'conversion', {
+                                'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+                                'value': 1.0,
+                                'currency': 'USD'
+                            });
+                        }
+                    } else {
+                        throw new Error('Subscription failed');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    errorMessage.style.display = 'block';
+                } finally {
+                    // Re-enable button
+                    downloadBtn.disabled = false;
+                    downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download Workbook Now';
+                }
+            });
+            
+            // Smooth scroll for CTA buttons
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

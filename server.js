@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const url = require('url');
 
 const PORT = 8000;
 
@@ -15,7 +16,28 @@ const mimeTypes = {
     '.ico': 'image/x-icon'
 };
 
+// Simple in-memory storage for subscribers
+let subscribers = [];
+
+// Email validation regex
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const server = http.createServer((req, res) => {
+    const parsedUrl = url.parse(req.url, true);
+    const pathname = parsedUrl.pathname;
+    
+    // Handle API endpoints
+    if (pathname === '/api/subscribe' && req.method === 'POST') {
+        handleSubscribe(req, res);
+        return;
+    }
+    
+    if (pathname === '/api/subscribers' && req.method === 'GET') {
+        handleGetSubscribers(req, res);
+        return;
+    }
+    
+    // Handle static files
     let filePath = '.' + req.url;
     
     if (filePath === './') {
@@ -40,6 +62,81 @@ const server = http.createServer((req, res) => {
         }
     });
 });
+
+// Handle email subscription
+function handleSubscribe(req, res) {
+    let body = '';
+    
+    req.on('data', chunk => {
+        body += chunk.toString();
+    });
+    
+    req.on('end', () => {
+        try {
+            const data = JSON.parse(body);
+            const { firstName, email, source } = data;
+            
+            // Validate required fields
+            if (!firstName || !email) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'First name and email are required' }));
+                return;
+            }
+            
+            // Validate email format
+            if (!emailRegex.test(email)) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Please enter a valid email address' }));
+                return;
+            }
+            
+            // Check if email already exists
+            const existingSubscriber = subscribers.find(sub => sub.email === email);
+            if (existingSubscriber) {
+                // Update existing subscriber
+                existingSubscriber.firstName = firstName;
+                existingSubscriber.source = source || 'workbook_download';
+                existingSubscriber.updatedAt = new Date();
+            } else {
+                // Add new subscriber
+                subscribers.push({
+                    firstName,
+                    email,
+                    source: source || 'workbook_download',
+                    subscribedAt: new Date(),
+                    updatedAt: new Date()
+                });
+            }
+            
+            console.log('New workbook subscriber:', { firstName, email, source });
+            
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ 
+                success: true, 
+                message: 'Successfully subscribed! Check your email for the workbook download link.' 
+            }));
+            
+        } catch (error) {
+            console.error('Subscription error:', error);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Something went wrong. Please try again.' }));
+        }
+    });
+}
+
+// Handle get subscribers (for admin)
+function handleGetSubscribers(req, res) {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({
+        count: subscribers.length,
+        subscribers: subscribers.map(sub => ({
+            firstName: sub.firstName,
+            email: sub.email,
+            source: sub.source,
+            subscribedAt: sub.subscribedAt
+        }))
+    }));
+}
 
 server.listen(PORT, () => {
     console.log('🚀 Server is running!');
