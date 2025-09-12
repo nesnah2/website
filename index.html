@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Men's coaching in Copenhagen, Denmark. Transform your life with proven strategies from addiction recovery and cancer survivor. Authentic guidance for real men seeking mastery.">
-    <meta name="keywords" content="men's coaching Copenhagen, Denmark, addiction recovery, cancer survivor, life mastery, authentic masculinity, personal development, men's coach">
+    <meta name="description" content="Men's mentoring in Copenhagen, Denmark. I help men recreate their default and break patterns. From addiction recovery to cancer survivor - I know what it takes to transform.">
+    <meta name="keywords" content="men's mentoring Copenhagen, Denmark, recreate default, break patterns, addiction recovery, cancer survivor, life transformation, authentic masculinity, men's mentor">
     <meta name="author" content="Mikkel Hansen">
     <link rel="canonical" href="https://mikkelhansen.org/">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="I Help Men Become Unstoppable - Mikkel Hansen">
-    <meta property="og:description" content="Men's coaching in Copenhagen, Denmark. From addiction to cancer survivor to men's coach. Authentic guidance for real men seeking mastery.">
+    <meta property="og:title" content="I Help Men Recreate Their Default - Mikkel Hansen">
+    <meta property="og:description" content="Men's mentoring in Copenhagen, Denmark. I help men recreate their default and break patterns. From addiction to cancer survivor - I know what it takes to transform.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mikkelhansen.org/">
     <meta property="og:image" content="https://mikkelhansen.org/assets/mentor.jpg">
     
-    <title>I Help Men Become Unstoppable - Mikkel Hansen | Men's Coach</title>
+    <title>I Help Men Recreate Their Default - Mikkel Hansen | Men's Mentor</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -226,6 +226,53 @@
             margin-right: 10px;
         }
 
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 3rem;
+            color: #ffd700;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-size: 1rem;
+            color: #ffd700;
+            font-weight: 600;
+            text-align: right;
+        }
+
         /* Contact Section */
         .contact {
             padding: 100px 0;
@@ -288,6 +335,11 @@
                 gap: 30px;
             }
 
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
             .btn {
                 padding: 15px 30px;
                 font-size: 1.1rem;
@@ -314,12 +366,12 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>I HELP MEN BECOME UNSTOPPABLE</h1>
-                <p>From addiction to cancer survivor to men's coach. I know what it takes to win.</p>
+                <h1>I HELP MEN RECREATE THEIR DEFAULT</h1>
+                <p>From addiction to cancer survivor to men's mentor. I know what it takes to break patterns and transform your life.</p>
                 <a href="#services" class="btn btn-primary">Book Free Call</a>
             </div>
             <div class="hero-image">
-                <img src="assets/mentor.jpg" alt="Mikkel Hansen - Men's Coach">
+                <img src="assets/mentor.jpg" alt="Mikkel Hansen - Men's Mentor">
             </div>
         </div>
     </section>
@@ -350,11 +402,11 @@
                     </div>
                     <h3>Single Session</h3>
                     <p class="price">$250</p>
-                    <p>One powerful 50-minute coaching session to address your immediate needs.</p>
+                    <p>One powerful 50-minute mentoring session to break your patterns and recreate your default.</p>
                     <ul>
                         <li>50-minute intensive session</li>
-                        <li>Direct 1-on-1 coaching</li>
-                        <li>Actionable insights & steps</li>
+                        <li>Direct 1-on-1 mentoring</li>
+                        <li>Pattern-breaking strategies</li>
                         <li>No commitment required</li>
                     </ul>
                     <a href="#contact" class="btn btn-primary">Book Free Call</a>
@@ -364,13 +416,13 @@
                     <div class="service-icon">
                         <i class="fas fa-crown"></i>
                     </div>
-                    <h3>3-Month Mastery Program</h3>
+                    <h3>3-Month Default Recreation Program</h3>
                     <p class="price">$2,700</p>
-                    <p>Complete life transformation with weekly sessions and accountability between meetings.</p>
+                    <p>Complete pattern-breaking transformation with weekly sessions to recreate your default way of being.</p>
                     <ul>
                         <li>12 weekly 1-on-1 sessions</li>
-                        <li>Personalized action tasks</li>
-                        <li>Ongoing accountability</li>
+                        <li>Pattern-breaking strategies</li>
+                        <li>Default recreation process</li>
                         <li>Save $300 vs. single sessions</li>
                     </ul>
                     <a href="#contact" class="btn btn-primary">Book Free Call</a>
@@ -379,11 +431,40 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Real Men, Real Results</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "My sessions with Mikkel truly hit SPOT ON! It might sound wild, but when I talk to Mikkel, it feels like coming 'home' to safety. A safe space where I can share directly from the heart without worrying about how it will be received."
+                    </div>
+                    <div class="testimonial-author">- M</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "I was stuck in endless thinking about quick solutions, focused on looks and being liked. Restless, not able to enjoy the present. Through several sessions with Mikkel, I found more inner peace and broke my default patterns."
+                    </div>
+                    <div class="testimonial-author">- Jakob</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "We worked on my addiction, anger issues, and shadow work around my default mode. Mikkel didn't sugarcoat anything. He helped me see the patterns I was running from and the ways I was sabotaging myself."
+                    </div>
+                    <div class="testimonial-author">- A</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact">
         <div class="container">
-            <h2>Ready to Start?</h2>
-            <p>Take the first step toward becoming the man you're meant to be.</p>
+            <h2>Ready to Break Your Patterns?</h2>
+            <p>Take the first step toward recreating your default and transforming your life.</p>
             <a href="mailto:contact@mikkelhansen.org?subject=Interested in Free Discovery Call" class="btn btn-primary">Book Free Call</a>
             
             <div class="contact-info">
