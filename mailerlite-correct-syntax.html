@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correct MailerLite Syntax</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .correct-syntax {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .code-example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #28a745;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 16px;
+        }
+        .wrong {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        .wrong .code-example {
+            border-left-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>✅ Correct MailerLite Syntax</h1>
+    
+    <div class="correct-syntax">
+        <h2>🎯 The RIGHT Syntax for MailerLite:</h2>
+        <div class="code-example">
+            Hey {$name}, thank you for showing up for yourself with bravery.
+        </div>
+        <p><strong>This will show:</strong> "Hey John, thank you for showing up for yourself with bravery."</p>
+    </div>
+    
+    <div class="correct-syntax wrong">
+        <h2>❌ What DOESN'T Work:</h2>
+        <div class="code-example">
+            Hey {{name}}, thank you for showing up for yourself with bravery.
+        </div>
+        <div class="code-example">
+            Hey {{subscriber.first_name}}, thank you for showing up for yourself with bravery.
+        </div>
+        <div class="code-example">
+            Hey [name], thank you for showing up for yourself with bravery.
+        </div>
+    </div>
+    
+    <div class="correct-syntax">
+        <h2>📧 Other MailerLite Variables:</h2>
+        <div class="code-example">
+            {$email} - Subscriber's email address
+        </div>
+        <div class="code-example">
+            {$unsubscribe} - Unsubscribe link
+        </div>
+        <div class="code-example">
+            {$name|default('there')} - Name with fallback to "there"
+        </div>
+    </div>
+    
+    <div class="correct-syntax">
+        <h2>🚀 Next Steps:</h2>
+        <ol>
+            <li><strong>Copy the updated template</strong> from <code>mailerlite-welcome-template.html</code></li>
+            <li><strong>Paste it into MailerLite</strong> automation template</li>
+            <li><strong>Test with fresh email</strong> using your test form</li>
+            <li><strong>Check the welcome email</strong> - should now show actual names!</li>
+        </ol>
+    </div>
+</body>
+</html>
