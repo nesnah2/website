@@ -184,7 +184,8 @@
         
         <div class="test-info">
             <h3>What this tests:</h3>
-            <p>This form adds subscribers to your MailerLite group and triggers the welcome email automation. Use a test email address to verify the flow works correctly.</p>
+            <p>This form adds subscribers to your MailerLite group and triggers the welcome email automation.</p>
+            <p><strong>⚠️ Important:</strong> Use a <em>fresh email address</em> that hasn't been used in your MailerLite system before. If you get a "subscriber is unsubscribed" error, try a different email address.</p>
         </div>
         
         <form id="testSignupForm">
@@ -195,7 +196,10 @@
             
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required placeholder="test@example.com">
+                <input type="email" id="email" name="email" required placeholder="test123@example.com">
+                <small style="color: #888; font-size: 12px; margin-top: 5px; display: block;">
+                    💡 Use a fresh email address (like test123@example.com or yourname+test@gmail.com)
+                </small>
             </div>
             
             <button type="submit" class="submit-btn" id="submitBtn">
@@ -302,6 +306,11 @@
                     debugLog += `❌ API Error: ${response.status}\n`;
                     debugLog += `Error details: ${errorData}\n`;
                     debugText.textContent = debugLog;
+                    
+                    // Check for specific unsubscribed error
+                    if (response.status === 422 && errorData.includes('unsubscribed')) {
+                        throw new Error(`This email address was previously unsubscribed from your list. Please use a different email address for testing.`);
+                    }
                     
                     throw new Error(`MailerLite API Error: ${response.status} - ${errorData}`);
                 }
