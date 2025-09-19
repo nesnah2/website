@@ -495,3 +495,4 @@ The man who finally stops performing and starts living.
 
 *This workbook delivers on every promise made in the welcome email. Each exercise directly addresses what you committed to help men achieve. The question is: will you do the work?*
 
+

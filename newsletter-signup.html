@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Get weekly stories that wake you up. Join men ready to break free from their default mode and become the men they're meant to be.">
+    <meta name="keywords" content="men's newsletter, weekly stories, default mode, men's growth, authentic masculinity">
+    <meta name="author" content="Mikkel Hansen">
+    <link rel="canonical" href="https://mikkelhansen.org/newsletter-signup.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Stories That Wake You Up - Weekly Newsletter">
+    <meta property="og:description" content="Get weekly stories for men ready to break free from their default mode. Real stories. Real growth. Real transformation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mikkelhansen.org/newsletter-signup.html">
+    <meta property="og:image" content="https://mikkelhansen.org/assets/mentor.jpg">
+    
+    <title>Stories That Wake You Up | Weekly Newsletter | Mikkel Hansen</title>
+    <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="public/css/mobile-optimized.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .newsletter-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .newsletter-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .newsletter-hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #b0b0b0;
+            font-weight: 300;
+        }
+        
+        .newsletter-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #e0e0e0;
+        }
+        
+        .signup-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .signup-form {
+            background: white;
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 25px;
+            text-align: center;
+            display: none;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 25px;
+            text-align: center;
+            display: none;
+        }
+        
+        .newsletter-benefits {
+            background: #f8f9fa;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 3.5rem;
+            color: #667eea;
+            margin-bottom: 25px;
+        }
+        
+        .benefit-card h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .benefit-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        
+        .what-you-get {
+            background: #2d2d2d;
+            color: white;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+        
+        .what-you-get h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .features-list {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #3a3a3a;
+            border-radius: 10px;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: #667eea;
+            margin-right: 20px;
+            min-width: 60px;
+        }
+        
+        .feature-content h4 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+        
+        .feature-content p {
+            color: #b0b0b0;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .privacy-note {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        .testimonial-section {
+            background: white;
+            padding: 60px 0;
+        }
+        
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .testimonial blockquote {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .testimonial cite {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .newsletter-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .newsletter-hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .newsletter-hero p {
+                font-size: 1rem;
+            }
+            
+            .signup-form {
+                padding: 30px 20px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .feature-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Mikkel Hansen</h2>
+                <span>Men's Mentor</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="archive.html">Resources</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="linktree.html">Links</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="newsletter-hero">
+        <div class="container">
+            <h1>Stories That Wake You Up</h1>
+            <div class="subtitle">Your weekly dose of truth for men ready to break free</div>
+            <p>Real stories. Real growth. Real transformation. Every Tuesday, you'll get a personal story that challenges your default mode and helps you become the man you're meant to be.</p>
+        </div>
+    </section>
+
+    <!-- Signup Form Section -->
+    <section class="signup-form-container">
+        <div class="signup-form">
+            <h2 style="text-align: center; margin-bottom: 40px; color: #2c3e50;">Join Men Ready to Wake Up</h2>
+            
+            <form id="newsletterSignupForm">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required placeholder="Your first name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <i class="fas fa-envelope"></i> Send Me Weekly Stories
+                </button>
+            </form>
+            
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i>
+                <h3>Welcome to the journey!</h3>
+                <p>You're now part of a community of men ready to wake up. Your first story will arrive next Tuesday.</p>
+                <p><strong>Check your email for a confirmation message.</strong></p>
+            </div>
+            
+            <div class="error-message" id="errorMessage">
+                <i class="fas fa-exclamation-circle"></i>
+                <h3>Something went wrong</h3>
+                <p id="errorText">Please try again or contact us if the problem persists.</p>
+            </div>
+            
+            <div class="privacy-note">
+                <p><i class="fas fa-shield-alt"></i> Your email is safe with us. We'll never spam you or share your information. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="what-you-get">
+        <div class="container">
+            <h2>What You'll Get Every Tuesday</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Personal Stories</h4>
+                        <p>Real experiences from my journey and the men I work with. No fluff, no BS - just honest stories that make you think.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Weekly Reflections</h4>
+                        <p>Powerful questions to sit with and journal about. The real growth happens when you're honest with yourself.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Action Steps</h4>
+                        <p>One simple, specific thing you can do each week to move forward. Small steps lead to big changes.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Community</h4>
+                        <p>Join a community of men who are ready to wake up. Share your own stories and learn from others.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="newsletter-benefits">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 50px; color: #2c3e50;">Why This Newsletter Matters</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>See Yourself Clearly</h3>
+                    <p>These stories will help you recognize your own patterns and behaviors. You can't change what you can't see.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-unlock"></i>
+                    </div>
+                    <h3>Break Free from Default Mode</h3>
+                    <p>Learn to recognize when your default mode is running the show and how to take back control of your life.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>Become the Man You're Meant to Be</h3>
+                    <p>Transform from a boy seeking approval to a man who creates his own reality and lives on his own terms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="testimonial">
+                <blockquote>
+                    "These stories hit different. They're not just motivational content - they're real experiences that make you look at yourself honestly. Every week I find something that makes me think 'That's me.'"
+                </blockquote>
+                <cite>- Newsletter Reader</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Mikkel Hansen</h3>
+                    <p>Men's Mentor</p>
+                    <p>Helping men break free from their shadows and become the men they were meant to be.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: contact@mikkelhansen.org</p>
+                    <p>Phone: +45 20 92 25 90</p>
+                    <p>Location: Copenhagen, Denmark</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow</h3>
+                    <div class="social-links">
+                        <a href="https://youtube.com/@just__mikkel" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/just__mikkel" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mikkel Hansen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // MailerLite API Integration
+        const MAILERLITE_API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiN2NmZWM4NmM5YzMyN2ExNWZhYWJjM2Q4OWRlNGFkYzEzNDEyOGNjYmZiOTcxYTc1ZGQ2NjAzNjY0MjE4YjNlNDY4YzZmOGQ2YzkzNDgyYjAiLCJpYXQiOjE3NTY5MTIxNzMuNDI2MzEzLCJuYmYiOjE3NTY5MTIxNzMuNDI2MzE2LCJleHAiOjQ5MTI1ODU3NzMuNDIxODcsInN1YiI6IjE3OTAzMjAiLCJzY29wZXMiOltdfQ.v0Z7VSyrgB7zTYTkfxZKfJjtep0KBje-wQHOnnpB0c3siyRu9gRUtguXvuV6H-QtQikR-IPSKD20rlGTEGUeQ7U2vV3iVFltrQPzYRhDrbdaqOdMJUFmquSLc2lIYE-wChea9dOIRTehYHs5IOjcMj8j7bbMhzPhSbaAIGQrLvvgHMtHlQpp_Q831uOIRIlIWljUAb6sJ3bduRTj1bmrDXwRUfYIu0PH_JnxU11NuDE1UYgr2JA__nTYy9_AIlGoiEK6MPkF66ukLhF7XpcGUaMuH_w67K5BzpnLJODlRu64JGHEmFremA7AyQlzvX0_DwO0BDBzxR11IXqFItVoLNGaScCEJUkSeVaQgXgrxXElbgUFGchYxUpwYY_1yx63H9NHqagPM2Tuu7UaswwFXhvAHbOH5JVm-8wJGIe_VqMQIw10A_MU1lOiKnSbRqQ1vqCcKqIKoCDsyYsWWRQ3B590kwx3Zx0PoThK_y2u9YAR8zwYG_7eIY7X8m8lRsdpRxlAY0KHu0X9Ok1vqtsHKgB5Vk7fi5UfVXjGMZ-cn9JZOZCUbHEUyw3NITijhrgtqfGpooyjPrfNDR98HmNcHcll76IjMIuthx6SaPVBYOFMd1AE5jLRYm_gJr3lVuTl0_wCIb0C-USP5-StwzY2BtjDfErjOh0vxigvExKe61c';
+        const MAILERLITE_NEWSLETTER_GROUP_ID = '164535238277466018'; // Newsletter group ID
+
+        document.getElementById('newsletterSignupForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Get form data
+            const firstName = document.getElementById('firstName').value;
+            const email = document.getElementById('email').value;
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Joining...';
+            
+            try {
+                // Add subscriber to MailerLite Newsletter group
+                console.log('📧 Adding subscriber to Newsletter group...');
+                const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${MAILERLITE_API_KEY}`
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        fields: {
+                            name: firstName,
+                            first_name: firstName
+                        },
+                        groups: [MAILERLITE_NEWSLETTER_GROUP_ID]
+                    })
+                });
+                
+                console.log('Response status:', response.status);
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log('✅ Success! Newsletter subscriber added:', result);
+                    
+                    // Success - subscriber added to Newsletter group
+                    document.getElementById('newsletterSignupForm').style.display = 'none';
+                    successMessage.style.display = 'block';
+                    
+                    // Track conversion (optional)
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'sign_up', {
+                            'event_category': 'engagement',
+                            'event_label': 'newsletter_signup'
+                        });
+                    }
+                } else {
+                    const errorData = await response.text();
+                    console.error('MailerLite API Error:', response.status, errorData);
+                    throw new Error(`API Error: ${response.status} - ${errorData}`);
+                }
+                
+            } catch (error) {
+                console.error('Error details:', error);
+                errorMessage.style.display = 'block';
+                document.getElementById('errorText').textContent = `Error: ${error.message}`;
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-envelope"></i> Send Me Weekly Stories';
+            }
+        });
+    </script>
+    
+    <script src="public/js/main.js"></script>
+</body>
+</html>
+

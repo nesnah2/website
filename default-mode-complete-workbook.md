@@ -640,3 +640,6 @@ Are you ready to do the work?
 
 *This workbook delivers on every promise made in the welcome email. Each exercise directly addresses what you committed to help men achieve. The question is: will you do the work?*
 
+
+
+

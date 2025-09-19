@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Reflection Guide is Here</title>
+    <style>
+        /* Reset styles */
+        body, table, td, p, a, li, blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        table, td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+        
+        /* Main styles */
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+            min-width: 100%;
+            height: 100%;
+            background-color: #1a1a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #2d2d2d;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 2px solid #444444;
+        }
+        
+        .header h1 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .greeting {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        
+        .intro-text {
+            font-size: 16px;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        
+        .benefits-list {
+            background-color: #3a3a3a;
+            border-left: 4px solid #666666;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .benefits-list h3 {
+            color: #ffffff;
+            font-size: 20px;
+            margin: 0 0 15px 0;
+        }
+        
+        .benefits-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .benefits-list li {
+            color: #b0b0b0;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+            color: #1a1a1a !important;
+            text-decoration: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+        }
+        
+        .important-note {
+            background-color: #4a4a4a;
+            border: 1px solid #666666;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .important-note h4 {
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-size: 16px;
+        }
+        
+        .important-note p {
+            color: #b0b0b0;
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+            border-top: 2px solid #444444;
+        }
+        
+        .footer h3 {
+            color: #ffffff;
+            font-size: 18px;
+            margin: 0 0 15px 0;
+        }
+        
+        .footer p {
+            color: #bdc3c7;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #667eea;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        
+        .unsubscribe {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #95a5a6;
+        }
+        
+        .unsubscribe a {
+            color: #95a5a6;
+            text-decoration: underline;
+        }
+        
+        /* Mobile responsive */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                width: 100% !important;
+            }
+            
+            .header, .content, .footer {
+                padding: 20px !important;
+            }
+            
+            .header h1 {
+                font-size: 24px !important;
+            }
+            
+            .cta-button {
+                padding: 15px 25px !important;
+                font-size: 15px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Your workbook is ready. Are you?</h1>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <div class="greeting">
+                Hey {{ subscriber.first_name }}, thank you for showing up for yourself with bravery.
+            </div>
+            
+            <div class="intro-text">
+                You wake up empty despite your achievements. You're still performing for approval like a scared little boy. Every day you stay stuck is another day you're not the man you could be.
+            </div>
+            
+            <div style="background-color: #3a3a3a; padding: 25px; border-radius: 8px; margin: 30px 0;">
+                <p style="color: #ffffff; margin: 0 0 15px 0; font-size: 16px; font-weight: 600;">
+                    This is not a feel good workbook.
+                </p>
+                <p style="color: #b0b0b0; margin: 0 0 15px 0; font-size: 16px;">
+                    You know exactly what I'm talking about. You're tired of wearing masks and pretending to be someone you're not.
+                </p>
+                <p style="color: #b0b0b0; margin: 0; font-size: 16px;">
+                    The courage you got to start this journey, is required. No more excuses.
+                </p>
+            </div>
+            
+            <div style="background-color: #4a2a2a; padding: 25px; border-radius: 8px; margin: 30px 0; border-left: 4px solid #cc4444;">
+                <p style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0; font-weight: 600;">
+                    Stop lying to yourself:
+                </p>
+                <p style="color: #b0b0b0; margin: 0 0 15px 0; font-size: 16px;">
+                    You're not "just thinking things through" - you're paralyzed by overthinking.
+                </p>
+                <p style="color: #b0b0b0; margin: 0 0 15px 0; font-size: 16px;">
+                    You're not "being nice" - you're people-pleasing because you're afraid of rejection.
+                </p>
+                <p style="color: #b0b0b0; margin: 0; font-size: 16px;">
+                    You're not "staying busy" - you're running from yourself.
+                </p>
+            </div>
+            
+            <div class="benefits-list">
+                <p style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0; font-weight: 600;">
+                    Identify why and erase how:
+                </p>
+                <ul>
+                    <li><strong>Which shortcuts do you fall into</strong> - Identify the patterns that keep you stuck</li>
+                    <li><strong>What default behaviors are actually working against you</strong> - Stop sabotaging yourself unconsciously</li>
+                    <li><strong>Being stuck in endless thinking</strong> - Break free from overthinking and take action</li>
+                    <li><strong>Confront the narratives that are creating your limits</strong> - Challenge the stories you tell yourself</li>
+                </ul>
+            </div>
+            
+            <div style="background-color: #2a4a2a; padding: 25px; border-radius: 8px; margin: 30px 0; border-left: 4px solid #44cc44;">
+                <p style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0; font-weight: 600;">
+                    What you'll gain from doing the work:
+                </p>
+                <ul>
+                    <li><strong>Clear patterns that serve you</strong> - Know exactly what behaviors that keep you small</li>
+                    <li><strong>Real confidence that comes from within</strong> - Stop performing and start being real</li>
+                    <li><strong>Action over endless thinking</strong> - Make decisions and move forward with purpose</li>
+                    <li><strong>Freedom from the stories that limit you</strong> - Rewrite your narrative and create new possibilities</li>
+                </ul>
+            </div>
+            
+            <div class="cta-section">
+                <a href="https://mikkelhansen.org/workbook.pdf" class="cta-button" download="workbook.pdf">
+                    📥 Download Your Workbook PDF
+                </a>
+                <p style="color: #b0b0b0; font-size: 14px; margin-top: 15px;">
+                    Click above to download your workbook directly to your device.
+                </p>
+            </div>
+            
+            <div class="important-note">
+                <h4>⚠️ Important:</h4>
+                <p>This guide is designed for deep reflection. Take your time with each question and be completely honest with yourself. The real transformation happens when you stop lying to yourself about who you are.</p>
+            </div>
+            
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="unsubscribe">
+                <p><a href="{{ unsubscribe }}">Unsubscribe</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
