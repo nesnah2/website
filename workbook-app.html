@@ -953,6 +953,7 @@
             <button class="btn" onclick="saveProgress()">💾 Save Progress</button>
             <button class="btn btn-secondary" onclick="exportToPDF()">📄 Export to PDF</button>
             <button class="btn btn-secondary" onclick="resetExercise()">🔄 Reset Exercise</button>
+            <button class="btn btn-secondary" onclick="logout()" style="background: #ff6b35;">🚪 Logout</button>
         </div>
     </div>
 
@@ -1109,7 +1110,45 @@
             }
         }
 
-        // Save progress to localStorage
+        // Check if user is logged in
+        function checkUserLogin() {
+            const currentUser = sessionStorage.getItem('currentUser');
+            if (currentUser) {
+                const user = JSON.parse(currentUser);
+                // Update header to show user name
+                const header = document.querySelector('.header h1');
+                if (header) {
+                    header.innerHTML = `Breaking Free From Your Default Mode<br><small style="color: #44cc44;">Welcome back, ${user.name}</small>`;
+                }
+                // Load user's saved progress
+                loadUserProgress(user.email);
+            } else {
+                // Show guest mode indicator
+                const header = document.querySelector('.header h1');
+                if (header) {
+                    header.innerHTML = `Breaking Free From Your Default Mode<br><small style="color: #ff6b35;">Guest Mode - Progress saved locally only</small>`;
+                }
+            }
+        }
+
+        // Load user's saved progress
+        function loadUserProgress(email) {
+            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+            if (users[email] && users[email].workbookProgress) {
+                const savedData = users[email].workbookProgress;
+                const inputs = document.querySelectorAll('input, textarea');
+                
+                inputs.forEach(input => {
+                    if (savedData[input.name]) {
+                        input.value = savedData[input.name];
+                    }
+                });
+                
+                updateProgress();
+            }
+        }
+
+        // Save progress to user account or localStorage
         function saveProgress() {
             const inputs = document.querySelectorAll('input, textarea');
             const data = {};
@@ -1118,8 +1157,52 @@
                 data[input.name] = input.value;
             });
 
-            localStorage.setItem('workbookProgress', JSON.stringify(data));
-            alert('Progress saved! Your answers are stored locally.');
+            const currentUser = sessionStorage.getItem('currentUser');
+            if (currentUser) {
+                // Save to user account
+                const user = JSON.parse(currentUser);
+                const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+                
+                if (users[user.email]) {
+                    users[user.email].workbookProgress = data;
+                    localStorage.setItem('workbookUsers', JSON.stringify(users));
+                    alert(`Progress saved to your account, ${user.name}!`);
+                }
+            } else {
+                // Save locally for guest
+                localStorage.setItem('workbookProgress', JSON.stringify(data));
+                alert('Progress saved locally! For permanent saving, please create an account.');
+            }
+        }
+
+        // Auto-save functionality
+        function autoSave() {
+            const currentUser = sessionStorage.getItem('currentUser');
+            if (currentUser) {
+                const inputs = document.querySelectorAll('input, textarea');
+                const data = {};
+                
+                inputs.forEach(input => {
+                    data[input.name] = input.value;
+                });
+
+                const user = JSON.parse(currentUser);
+                const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+                
+                if (users[user.email]) {
+                    users[user.email].workbookProgress = data;
+                    localStorage.setItem('workbookUsers', JSON.stringify(users));
+                }
+            }
+        }
+
+        // Add logout functionality
+        function logout() {
+            sessionStorage.removeItem('currentUser');
+            alert('Logged out successfully. Redirecting to login page...');
+            setTimeout(() => {
+                window.location.href = 'workbook-login.html';
+            }, 1000);
         }
 
         // Load progress from localStorage
@@ -1174,15 +1257,31 @@
             }
         }
 
-        // Auto-save on input change
+        // Initialize app
         document.addEventListener('DOMContentLoaded', function() {
+            checkUserLogin();
             countQuestions();
-            loadProgress();
+            updateProgress();
             
             const inputs = document.querySelectorAll('input, textarea');
             inputs.forEach(input => {
-                input.addEventListener('input', updateProgress);
+                input.addEventListener('input', () => {
+                    updateProgress();
+                    // Auto-save for logged-in users
+                    const currentUser = sessionStorage.getItem('currentUser');
+                    if (currentUser) {
+                        setTimeout(autoSave, 1000); // Debounce auto-save
+                    }
+                });
             });
+            
+            // Auto-save every 30 seconds for logged-in users
+            setInterval(() => {
+                const currentUser = sessionStorage.getItem('currentUser');
+                if (currentUser) {
+                    autoSave();
+                }
+            }, 30000);
         });
     </script>
 </body>
