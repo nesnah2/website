@@ -211,6 +211,16 @@
             </p>
         </div>
 
+        <!-- Always Visible Install Button -->
+        <div style="text-align: center; margin-top: 15px;">
+            <button id="manualInstallBtn" class="btn" style="background: #ff6b35; font-size: 14px; padding: 10px 20px;">
+                📱 Install App
+            </button>
+            <p style="color: #b0b0b0; font-size: 12px; margin-top: 8px;">
+                Install for better experience
+            </p>
+        </div>
+
 
         <!-- PWA Install Prompt -->
         <div id="installPrompt" style="display: none; background: #2a2a2a; border: 2px solid #44cc44; border-radius: 10px; padding: 20px; margin-top: 20px; text-align: center;">
@@ -290,6 +300,7 @@
         const installPrompt = document.getElementById('installPrompt');
         const installBtn = document.getElementById('installBtn');
         const dismissBtn = document.getElementById('dismissInstall');
+        const manualInstallBtn = document.getElementById('manualInstallBtn');
 
         window.addEventListener('beforeinstallprompt', (e) => {
             // Prevent the mini-infobar from appearing on mobile
@@ -318,6 +329,22 @@
             installPrompt.style.display = 'none';
             // Don't show again for this session
             sessionStorage.setItem('installPromptDismissed', 'true');
+        });
+
+        // Manual install button (always visible)
+        manualInstallBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                // Show the install prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User response to the install prompt: ${outcome}`);
+                // Clear the deferredPrompt
+                deferredPrompt = null;
+            } else {
+                // App might already be installed or not installable
+                alert('App is already installed or not available for installation on this device.');
+            }
         });
 
         // Hide install prompt if already dismissed
