@@ -195,39 +195,20 @@
         <!-- Login Form -->
         <form id="loginForm">
             <div class="form-group">
-                <label for="loginEmail">Email</label>
-                <input type="email" id="loginEmail" name="email" required>
+                <label for="loginEmail">Username</label>
+                <input type="text" id="loginEmail" name="username" required placeholder="Enter username">
             </div>
             <div class="form-group">
                 <label for="loginPassword">Password</label>
-                <input type="password" id="loginPassword" name="password" required>
+                <input type="password" id="loginPassword" name="password" required placeholder="Enter password">
             </div>
-            <button type="submit" class="btn">🔐 Login</button>
+            <button type="submit" class="btn">🔐 Access Workbook</button>
         </form>
 
-        <!-- Signup Form (Hidden by default) -->
-        <form id="signupForm" style="display: none;">
-            <div class="form-group">
-                <label for="signupName">Full Name</label>
-                <input type="text" id="signupName" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="signupEmail">Email</label>
-                <input type="email" id="signupEmail" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="signupPassword">Password</label>
-                <input type="password" id="signupPassword" name="password" required minlength="6">
-            </div>
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
-            </div>
-            <button type="submit" class="btn">📝 Create Account</button>
-        </form>
-
-        <div class="toggle-form">
-            <a href="#" id="toggleForm">Don't have an account? Sign up</a>
+        <div style="text-align: center; margin-top: 20px; padding: 15px; background: rgba(68, 204, 68, 0.1); border-radius: 8px; border: 1px solid #44cc44;">
+            <p style="color: #b0b0b0; font-size: 14px; margin: 0;">
+                📧 Check your email for login credentials
+            </p>
         </div>
 
 
@@ -243,96 +224,33 @@
     </div>
 
     <script>
-        // Simple user management (in a real app, this would connect to a backend)
-        const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
-        
-        let isSignupMode = false;
-
-        // Toggle between login and signup forms
-        document.getElementById('toggleForm').addEventListener('click', (e) => {
-            e.preventDefault();
-            isSignupMode = !isSignupMode;
-            
-            const loginForm = document.getElementById('loginForm');
-            const signupForm = document.getElementById('signupForm');
-            const toggleLink = document.getElementById('toggleForm');
-            
-            if (isSignupMode) {
-                loginForm.style.display = 'none';
-                signupForm.style.display = 'block';
-                toggleLink.textContent = 'Already have an account? Login';
-            } else {
-                loginForm.style.display = 'block';
-                signupForm.style.display = 'none';
-                toggleLink.textContent = 'Don\'t have an account? Sign up';
-            }
-            
-            clearMessage();
-        });
+        // Single shared login system
 
         // Handle login
         document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
             
-            const email = document.getElementById('loginEmail').value;
+            const username = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
             
-            if (users[email] && users[email].password === password) {
+            // Single shared login
+            if (username.toLowerCase() === 'freedom' && password === 'Comingup') {
                 // Successful login
                 sessionStorage.setItem('currentUser', JSON.stringify({
-                    email: email,
-                    name: users[email].name
+                    email: 'freedom',
+                    name: 'Freedom',
+                    loginTime: new Date().toISOString()
                 }));
                 
-                showMessage('Login successful! Redirecting to workbook...', 'success');
+                showMessage('Welcome! Redirecting to workbook...', 'success');
                 setTimeout(() => {
                     window.location.href = 'workbook-app.html';
                 }, 1500);
             } else {
-                showMessage('Invalid email or password. Please try again.', 'error');
+                showMessage('Invalid username or password', 'error');
             }
         });
 
-        // Handle signup
-        document.getElementById('signupForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('signupName').value;
-            const email = document.getElementById('signupEmail').value;
-            const password = document.getElementById('signupPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            
-            if (password !== confirmPassword) {
-                showMessage('Passwords do not match. Please try again.', 'error');
-                return;
-            }
-            
-            if (users[email]) {
-                showMessage('An account with this email already exists. Please login instead.', 'error');
-                return;
-            }
-            
-            // Create new user
-            users[email] = {
-                name: name,
-                password: password,
-                createdAt: new Date().toISOString(),
-                workbookProgress: {}
-            };
-            
-            localStorage.setItem('workbookUsers', JSON.stringify(users));
-            
-            // Auto-login after signup
-            sessionStorage.setItem('currentUser', JSON.stringify({
-                email: email,
-                name: name
-            }));
-            
-            showMessage('Account created successfully! Redirecting to workbook...', 'success');
-            setTimeout(() => {
-                window.location.href = 'workbook-app.html';
-            }, 1500);
-        });
 
         function showMessage(text, type) {
             const messageDiv = document.getElementById('message');

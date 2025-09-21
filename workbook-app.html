@@ -1133,10 +1133,10 @@
                 // Update header to show user name
                 const header = document.querySelector('.header h1');
                 if (header) {
-                    header.innerHTML = `Breaking Free From Your Default Mode<br><small style="color: #44cc44;">Welcome back, ${user.name}</small>`;
+                    header.innerHTML = `Breaking Free From Your Default Mode<br><small style="color: #44cc44;">Welcome, ${user.name}</small>`;
                 }
-                // Load user's saved progress
-                loadUserProgress(user.email);
+                // Load shared progress
+                loadUserProgress();
             } else {
                 // Redirect to login if not authenticated
                 alert('Please log in to access the workbook.');
@@ -1144,24 +1144,21 @@
             }
         }
 
-        // Load user's saved progress
-        function loadUserProgress(email) {
-            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
-            if (users[email] && users[email].workbookProgress) {
-                const savedData = users[email].workbookProgress;
-                const inputs = document.querySelectorAll('input, textarea');
-                
-                inputs.forEach(input => {
-                    if (savedData[input.name]) {
-                        input.value = savedData[input.name];
-                    }
-                });
-                
-                updateProgress();
-            }
+        // Load shared progress
+        function loadUserProgress() {
+            const sharedProgress = JSON.parse(localStorage.getItem('workbookSharedProgress') || '{}');
+            const inputs = document.querySelectorAll('input, textarea');
+            
+            inputs.forEach(input => {
+                if (sharedProgress[input.name]) {
+                    input.value = sharedProgress[input.name];
+                }
+            });
+            
+            updateProgress();
         }
 
-        // Save progress to user account
+        // Save shared progress
         function saveProgress() {
             const inputs = document.querySelectorAll('input, textarea');
             const data = {};
@@ -1170,43 +1167,22 @@
                 data[input.name] = input.value;
             });
 
-            const currentUser = sessionStorage.getItem('currentUser');
-            if (currentUser) {
-                // Save to user account
-                const user = JSON.parse(currentUser);
-                const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
-                
-                if (users[user.email]) {
-                    users[user.email].workbookProgress = data;
-                    localStorage.setItem('workbookUsers', JSON.stringify(users));
-                    alert(`Progress saved to your account, ${user.name}!`);
-                }
-            } else {
-                // Should not happen since we redirect to login
-                alert('Please log in to save your progress.');
-                window.location.href = 'workbook-login.html';
-            }
+            // Save to shared storage
+            localStorage.setItem('workbookSharedProgress', JSON.stringify(data));
+            alert('Progress saved successfully!');
         }
 
         // Auto-save functionality
         function autoSave() {
-            const currentUser = sessionStorage.getItem('currentUser');
-            if (currentUser) {
-                const inputs = document.querySelectorAll('input, textarea');
-                const data = {};
-                
-                inputs.forEach(input => {
-                    data[input.name] = input.value;
-                });
+            const inputs = document.querySelectorAll('input, textarea');
+            const data = {};
+            
+            inputs.forEach(input => {
+                data[input.name] = input.value;
+            });
 
-                const user = JSON.parse(currentUser);
-                const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
-                
-                if (users[user.email]) {
-                    users[user.email].workbookProgress = data;
-                    localStorage.setItem('workbookUsers', JSON.stringify(users));
-                }
-            }
+            // Auto-save to shared storage
+            localStorage.setItem('workbookSharedProgress', JSON.stringify(data));
         }
 
         // Add logout functionality
