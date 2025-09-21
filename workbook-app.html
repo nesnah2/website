@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking Free From Your Default Mode - Workbook App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #2d2d2d 0%, #3a3a3a 100%);
+            border-radius: 10px;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #b0b0b0;
+            font-size: 16px;
+        }
+
+        .progress-bar {
+            background-color: #3a3a3a;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .progress-bar h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .progress {
+            background-color: #4a4a4a;
+            border-radius: 5px;
+            height: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .exercise {
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .exercise h2 {
+            color: #ffffff;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .exercise h3 {
+            color: #ff6b35;
+            font-size: 18px;
+            margin: 20px 0 15px 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #4a4a4a;
+            border-radius: 5px;
+            background-color: #3a3a3a;
+            color: #ffffff;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #4a4a4a 0%, #666666 100%);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 6px 20px rgba(74, 74, 74, 0.4);
+        }
+
+        .actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .instructions {
+            background-color: #3a3a3a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 4px solid #44cc44;
+        }
+
+        .instructions h3 {
+            color: #44cc44;
+            margin-bottom: 10px;
+        }
+
+        .instructions p {
+            color: #b0b0b0;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .exercise {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Breaking Free From Your Default Mode</h1>
+            <p>Complete Workbook - The Real Work</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <h3>Your Progress</h3>
+            <div class="progress">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p id="progressText">0% Complete</p>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3>📝 Instructions</h3>
+            <p>• Answer each question honestly and completely</p>
+            <p>• Your answers are saved automatically</p>
+            <p>• Take your time - this is deep work</p>
+            <p>• Be completely honest with yourself</p>
+        </div>
+
+        <!-- Exercise 5: The Lonely Journey -->
+        <div class="exercise" id="exercise5">
+            <h2>EXERCISE 5: THE LONELY JOURNEY</h2>
+            <p style="color: #b0b0b0; margin-bottom: 20px;">Learning to enjoy your own company</p>
+
+            <h3>Part A: Your Side-Feeders</h3>
+            <p style="color: #b0b0b0; margin-bottom: 15px;">What people, places, or things do you use to feed your lies of the default mode?</p>
+
+            <div class="form-group">
+                <label for="people">People:</label>
+                <textarea id="people" name="people" placeholder="Who do you use to avoid being alone with yourself?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="places">Places:</label>
+                <textarea id="places" name="places" placeholder="Where do you go to escape from yourself?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="activities">Activities:</label>
+                <textarea id="activities" name="activities" placeholder="What do you do to avoid facing yourself?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="substances">Substances:</label>
+                <textarea id="substances" name="substances" placeholder="What do you use to numb yourself?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="moment-feeling">How do these make you feel in the moment?</label>
+                <textarea id="moment-feeling" name="moment-feeling" placeholder="What do you feel when you're using these side-feeders?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="after-feeling">How do you feel after?</label>
+                <textarea id="after-feeling" name="after-feeling" placeholder="What do you feel when the distraction ends?"></textarea>
+            </div>
+
+            <h3>Part B: The Silence Challenge</h3>
+            <p style="color: #b0b0b0; margin-bottom: 15px;">Spend 30 minutes alone with no distractions. No phone, no music, no food, no entertainment.</p>
+
+            <div class="form-group">
+                <label for="discovered">What did you discover about yourself?</label>
+                <textarea id="discovered" name="discovered" placeholder="What did you learn during the silence challenge?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="thoughts">What thoughts came up?</label>
+                <textarea id="thoughts" name="thoughts" placeholder="What was going through your mind?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="emotions">What emotions did you feel?</label>
+                <textarea id="emotions" name="emotions" placeholder="What feelings surfaced during the silence?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="hardest">What was the hardest part?</label>
+                <textarea id="hardest" name="hardest" placeholder="What was most difficult about being alone?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="revealing">What was the most revealing?</label>
+                <textarea id="revealing" name="revealing" placeholder="What surprised you most about yourself?"></textarea>
+            </div>
+
+            <h3>Part C: Your Relationship with Yourself</h3>
+
+            <div class="form-group">
+                <label for="comfort-level">Rate your comfort level with being alone (1-10):</label>
+                <input type="number" id="comfort-level" name="comfort-level" min="1" max="10" placeholder="1-10">
+            </div>
+
+            <div class="form-group">
+                <label for="avoid-alone">What do you avoid when you're alone?</label>
+                <textarea id="avoid-alone" name="avoid-alone" placeholder="What do you run from when you're by yourself?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="discover-alone">What do you discover when you're alone?</label>
+                <textarea id="discover-alone" name="discover-alone" placeholder="What truths emerge when you're by yourself?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="change-company">What would change if you learned to enjoy your own company?</label>
+                <textarea id="change-company" name="change-company" placeholder="How would your life be different if you were comfortable alone?"></textarea>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+            <button class="btn" onclick="saveProgress()">💾 Save Progress</button>
+            <button class="btn btn-secondary" onclick="exportToPDF()">📄 Export to PDF</button>
+            <button class="btn btn-secondary" onclick="resetExercise()">🔄 Reset Exercise</button>
+        </div>
+    </div>
+
+    <script>
+        // Progress tracking
+        let totalQuestions = 0;
+        let completedQuestions = 0;
+
+        // Count total questions
+        function countQuestions() {
+            const inputs = document.querySelectorAll('input, textarea');
+            totalQuestions = inputs.length;
+            updateProgress();
+        }
+
+        // Update progress
+        function updateProgress() {
+            const inputs = document.querySelectorAll('input, textarea');
+            completedQuestions = 0;
+            
+            inputs.forEach(input => {
+                if (input.value.trim() !== '') {
+                    completedQuestions++;
+                }
+            });
+
+            const percentage = totalQuestions > 0 ? Math.round((completedQuestions / totalQuestions) * 100) : 0;
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = percentage + '% Complete';
+        }
+
+        // Save progress to localStorage
+        function saveProgress() {
+            const inputs = document.querySelectorAll('input, textarea');
+            const data = {};
+            
+            inputs.forEach(input => {
+                data[input.name] = input.value;
+            });
+
+            localStorage.setItem('workbookProgress', JSON.stringify(data));
+            alert('Progress saved! Your answers are stored locally.');
+        }
+
+        // Load progress from localStorage
+        function loadProgress() {
+            const savedData = localStorage.getItem('workbookProgress');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                const inputs = document.querySelectorAll('input, textarea');
+                
+                inputs.forEach(input => {
+                    if (data[input.name]) {
+                        input.value = data[input.name];
+                    }
+                });
+                
+                updateProgress();
+            }
+        }
+
+        // Export to PDF (simple version)
+        function exportToPDF() {
+            const inputs = document.querySelectorAll('input, textarea');
+            let pdfContent = 'BREAKING FREE FROM YOUR DEFAULT MODE\n';
+            pdfContent += 'Exercise 5: The Lonely Journey\n\n';
+            
+            inputs.forEach(input => {
+                if (input.value.trim() !== '') {
+                    pdfContent += input.previousElementSibling.textContent + '\n';
+                    pdfContent += input.value + '\n\n';
+                }
+            });
+
+            // Create downloadable file
+            const blob = new Blob([pdfContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'workbook-exercise5-answers.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Reset exercise
+        function resetExercise() {
+            if (confirm('Are you sure you want to reset this exercise? This will clear all your answers.')) {
+                const inputs = document.querySelectorAll('input, textarea');
+                inputs.forEach(input => {
+                    input.value = '';
+                });
+                localStorage.removeItem('workbookProgress');
+                updateProgress();
+            }
+        }
+
+        // Auto-save on input change
+        document.addEventListener('DOMContentLoaded', function() {
+            countQuestions();
+            loadProgress();
+            
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('input', updateProgress);
+            });
+        });
+    </script>
+</body>
+</html>
