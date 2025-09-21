@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate App Icons</title>
+</head>
+<body>
+    <h1>App Icon Generator</h1>
+    <canvas id="canvas192" width="192" height="192" style="border: 1px solid #ccc;"></canvas>
+    <canvas id="canvas512" width="512" height="512" style="border: 1px solid #ccc;"></canvas>
+    
+    <script>
+        function createIcon(size, canvasId) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#1a1a1a';
+            ctx.fillRect(0, 0, size, size);
+            
+            // Border
+            ctx.strokeStyle = '#44cc44';
+            ctx.lineWidth = size * 0.05;
+            ctx.strokeRect(size * 0.1, size * 0.1, size * 0.8, size * 0.8);
+            
+            // Main icon - "DM" for Default Mode
+            ctx.fillStyle = '#44cc44';
+            ctx.font = `bold ${size * 0.3}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('DM', size / 2, size / 2 - size * 0.1);
+            
+            // Subtitle
+            ctx.fillStyle = '#ff6b35';
+            ctx.font = `bold ${size * 0.08}px Arial`;
+            ctx.fillText('WORKBOOK', size / 2, size / 2 + size * 0.15);
+            
+            // Download the icon
+            const link = document.createElement('a');
+            link.download = `icon-${size}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        // Create both icons when page loads
+        window.onload = function() {
+            createIcon(192, 'canvas192');
+            setTimeout(() => createIcon(512, 'canvas512'), 1000);
+        };
+    </script>
+</body>
+</html>
