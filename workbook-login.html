@@ -219,6 +219,13 @@
             <p style="color: #b0b0b0; font-size: 12px; margin-top: 8px;">
                 Install for better experience
             </p>
+            
+            <!-- iOS Instructions -->
+            <div id="iosInstructions" style="display: none; margin-top: 10px; padding: 10px; background: rgba(255, 107, 53, 0.1); border-radius: 8px; border: 1px solid #ff6b35;">
+                <p style="color: #ff6b35; font-size: 12px; margin: 0;">
+                    📱 <strong>iPhone/iPad:</strong> Tap Share button → "Add to Home Screen"
+                </p>
+            </div>
         </div>
 
 
@@ -289,6 +296,17 @@
         // PWA Install Button (Always Visible)
         let deferredPrompt;
         const manualInstallBtn = document.getElementById('manualInstallBtn');
+        const iosInstructions = document.getElementById('iosInstructions');
+
+        // Detect iOS
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        }
+
+        // Show iOS instructions if on iOS
+        if (isIOS()) {
+            iosInstructions.style.display = 'block';
+        }
 
         window.addEventListener('beforeinstallprompt', (e) => {
             // Prevent the mini-infobar from appearing on mobile
@@ -299,8 +317,11 @@
 
         // Manual install button (always visible)
         manualInstallBtn.addEventListener('click', async () => {
-            if (deferredPrompt) {
-                // Show the install prompt
+            if (isIOS()) {
+                // iOS users need manual instructions
+                alert('📱 iPhone/iPad: Tap the Share button (square with arrow) at the bottom of Safari, then tap "Add to Home Screen"');
+            } else if (deferredPrompt) {
+                // Show the install prompt for Android/Chrome
                 deferredPrompt.prompt();
                 // Wait for the user to respond to the prompt
                 const { outcome } = await deferredPrompt.userChoice;
