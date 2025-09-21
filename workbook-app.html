@@ -273,6 +273,28 @@
             <h3>Part B: The Silence Challenge</h3>
             <p style="color: #b0b0b0; margin-bottom: 15px;">Spend 30 minutes alone with no distractions. No phone, no music, no food, no entertainment.</p>
 
+            <!-- Timer Section -->
+            <div style="background: #2a2a2a; border: 2px solid #ff6b35; border-radius: 15px; padding: 25px; margin: 20px 0; text-align: center;">
+                <h4 style="color: #ff6b35; margin-bottom: 15px;">⏰ 30-Minute Silence Timer</h4>
+                <div id="timer-display" style="font-size: 48px; font-weight: bold; color: #ffffff; margin: 20px 0; font-family: 'Courier New', monospace;">
+                    30:00
+                </div>
+                <div style="margin: 20px 0;">
+                    <button id="timer-btn" class="btn" onclick="startSilenceTimer()" style="background: #ff6b35; color: white; padding: 15px 30px; font-size: 18px; border-radius: 25px;">
+                        🚀 Start Silence Challenge
+                    </button>
+                    <button id="stop-btn" class="btn" onclick="stopSilenceTimer()" style="background: #666; color: white; padding: 15px 30px; font-size: 18px; border-radius: 25px; margin-left: 10px; display: none;">
+                        ⏹️ Stop Timer
+                    </button>
+                </div>
+                <p id="timer-status" style="color: #b0b0b0; font-style: italic; margin-top: 15px;">
+                    Ready to begin your silence challenge
+                </p>
+                <div id="timer-progress" style="background: #444; height: 8px; border-radius: 4px; margin: 15px 0; overflow: hidden;">
+                    <div id="progress-bar" style="background: linear-gradient(90deg, #ff6b35, #f7931e); height: 100%; width: 0%; transition: width 1s ease;"></div>
+                </div>
+            </div>
+
             <div class="form-group">
                 <label for="discovered">What did you discover about yourself?</label>
                 <textarea id="discovered" name="discovered" placeholder="What did you learn during the silence challenge?"></textarea>
@@ -925,6 +947,131 @@
             const percentage = totalQuestions > 0 ? Math.round((completedQuestions / totalQuestions) * 100) : 0;
             document.getElementById('progressFill').style.width = percentage + '%';
             document.getElementById('progressText').textContent = percentage + '% Complete';
+        }
+
+        // Timer functionality for Silence Challenge
+        let silenceTimer = null;
+        let timeRemaining = 30 * 60; // 30 minutes in seconds
+        let isTimerRunning = false;
+
+        function startSilenceTimer() {
+            if (isTimerRunning) return;
+            
+            isTimerRunning = true;
+            timeRemaining = 30 * 60; // Reset to 30 minutes
+            
+            // Update UI
+            document.getElementById('timer-btn').style.display = 'none';
+            document.getElementById('stop-btn').style.display = 'inline-block';
+            document.getElementById('timer-status').textContent = 'Silence challenge in progress... Find a quiet space and begin.';
+            
+            // Start the timer
+            silenceTimer = setInterval(() => {
+                timeRemaining--;
+                updateTimerDisplay();
+                
+                if (timeRemaining <= 0) {
+                    completeSilenceChallenge();
+                }
+            }, 1000);
+        }
+
+        function stopSilenceTimer() {
+            if (silenceTimer) {
+                clearInterval(silenceTimer);
+                silenceTimer = null;
+            }
+            
+            isTimerRunning = false;
+            
+            // Update UI
+            document.getElementById('timer-btn').style.display = 'inline-block';
+            document.getElementById('stop-btn').style.display = 'none';
+            document.getElementById('timer-status').textContent = 'Timer stopped. Ready to begin your silence challenge.';
+            
+            // Reset display
+            document.getElementById('timer-display').textContent = '30:00';
+            document.getElementById('progress-bar').style.width = '0%';
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            document.getElementById('timer-display').textContent = display;
+            
+            // Update progress bar
+            const progress = ((30 * 60 - timeRemaining) / (30 * 60)) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        }
+
+        function completeSilenceChallenge() {
+            if (silenceTimer) {
+                clearInterval(silenceTimer);
+                silenceTimer = null;
+            }
+            
+            isTimerRunning = false;
+            
+            // Play bell sound (using Web Audio API)
+            playBellSound();
+            
+            // Update UI
+            document.getElementById('timer-display').textContent = '00:00';
+            document.getElementById('timer-btn').style.display = 'inline-block';
+            document.getElementById('stop-btn').style.display = 'none';
+            document.getElementById('timer-status').textContent = '🎉 Silence challenge complete! Well done. Now reflect on your experience.';
+            document.getElementById('progress-bar').style.width = '100%';
+            
+            // Show completion message
+            setTimeout(() => {
+                alert('🔔 Silence Challenge Complete!\n\nCongratulations! You\'ve spent 30 minutes in silence. This is powerful work. Now take a moment to reflect on what you discovered about yourself.');
+            }, 1000);
+        }
+
+        function playBellSound() {
+            try {
+                // Create a simple bell sound using Web Audio API
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                // Bell-like sound (multiple frequencies)
+                oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+                oscillator.frequency.setValueAtTime(1000, audioContext.currentTime + 0.1);
+                oscillator.frequency.setValueAtTime(1200, audioContext.currentTime + 0.2);
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 1);
+                
+                // Play a second bell for emphasis
+                setTimeout(() => {
+                    const oscillator2 = audioContext.createOscillator();
+                    const gainNode2 = audioContext.createGain();
+                    
+                    oscillator2.connect(gainNode2);
+                    gainNode2.connect(audioContext.destination);
+                    
+                    oscillator2.frequency.setValueAtTime(1000, audioContext.currentTime);
+                    oscillator2.frequency.setValueAtTime(1200, audioContext.currentTime + 0.1);
+                    
+                    gainNode2.gain.setValueAtTime(0.2, audioContext.currentTime);
+                    gainNode2.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.8);
+                    
+                    oscillator2.start(audioContext.currentTime);
+                    oscillator2.stop(audioContext.currentTime + 0.8);
+                }, 200);
+                
+            } catch (error) {
+                console.log('Audio not available, using visual notification only');
+            }
         }
 
         // Save progress to localStorage
