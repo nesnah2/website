@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breaking Free From Your Default Mode - Login</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Complete transformation workbook - The real work to break free from your default mode">
+    <meta name="theme-color" content="#44cc44">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Default Mode Workbook">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- App Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
     <style>
         * {
             margin: 0;
@@ -222,6 +237,16 @@
                 Note: Guest progress is saved locally only
             </p>
         </div>
+
+        <!-- PWA Install Prompt -->
+        <div id="installPrompt" style="display: none; background: #2a2a2a; border: 2px solid #44cc44; border-radius: 10px; padding: 20px; margin-top: 20px; text-align: center;">
+            <h4 style="color: #44cc44; margin-bottom: 10px;">📱 Install App</h4>
+            <p style="color: #b0b0b0; margin-bottom: 15px; font-size: 14px;">
+                Install this app on your device for a better experience
+            </p>
+            <button id="installBtn" class="btn" style="background: #44cc44;">📲 Install App</button>
+            <button id="dismissInstall" class="btn btn-secondary" style="margin-left: 10px;">Not Now</button>
+        </div>
     </div>
 
     <script>
@@ -335,6 +360,66 @@
                 window.location.href = 'workbook-app.html';
             }, 1000);
         }
+
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // PWA Install Prompt
+        let deferredPrompt;
+        const installPrompt = document.getElementById('installPrompt');
+        const installBtn = document.getElementById('installBtn');
+        const dismissBtn = document.getElementById('dismissInstall');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            // Show the install prompt
+            installPrompt.style.display = 'block';
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                // Show the install prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User response to the install prompt: ${outcome}`);
+                // Clear the deferredPrompt
+                deferredPrompt = null;
+                // Hide the install prompt
+                installPrompt.style.display = 'none';
+            }
+        });
+
+        dismissBtn.addEventListener('click', () => {
+            installPrompt.style.display = 'none';
+            // Don't show again for this session
+            sessionStorage.setItem('installPromptDismissed', 'true');
+        });
+
+        // Hide install prompt if already dismissed
+        if (sessionStorage.getItem('installPromptDismissed')) {
+            installPrompt.style.display = 'none';
+        }
+
+        // Track app installation
+        window.addEventListener('appinstalled', (evt) => {
+            console.log('App was installed.');
+            installPrompt.style.display = 'none';
+            showMessage('App installed successfully! You can now access it from your home screen.', 'success');
+        });
     </script>
 </body>
 </html>
