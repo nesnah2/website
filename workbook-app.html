@@ -1131,22 +1131,38 @@
             }
         }
 
-        // Load shared progress
+        // Load user's individual progress
         function loadUserProgress() {
-            const sharedProgress = JSON.parse(localStorage.getItem('workbookSharedProgress') || '{}');
-            const inputs = document.querySelectorAll('input, textarea');
+            const currentUser = sessionStorage.getItem('currentUser');
+            if (!currentUser) return;
             
-            inputs.forEach(input => {
-                if (sharedProgress[input.name]) {
-                    input.value = sharedProgress[input.name];
-                }
-            });
+            const user = JSON.parse(currentUser);
+            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+            
+            if (users[user.email] && users[user.email].workbookProgress) {
+                const userProgress = users[user.email].workbookProgress;
+                const inputs = document.querySelectorAll('input, textarea');
+                
+                inputs.forEach(input => {
+                    if (userProgress[input.name]) {
+                        input.value = userProgress[input.name];
+                    }
+                });
+            }
             
             updateProgress();
         }
 
-        // Save shared progress
+        // Save user's individual progress
         function saveProgress() {
+            const currentUser = sessionStorage.getItem('currentUser');
+            if (!currentUser) {
+                alert('Please log in to save your progress.');
+                return;
+            }
+            
+            const user = JSON.parse(currentUser);
+            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
             const inputs = document.querySelectorAll('input, textarea');
             const data = {};
             
@@ -1154,13 +1170,23 @@
                 data[input.name] = input.value;
             });
 
-            // Save to shared storage
-            localStorage.setItem('workbookSharedProgress', JSON.stringify(data));
+            // Save to user's individual storage
+            if (!users[user.email]) {
+                users[user.email] = { workbookProgress: {} };
+            }
+            users[user.email].workbookProgress = data;
+            localStorage.setItem('workbookUsers', JSON.stringify(users));
+            
             alert('Progress saved successfully!');
         }
 
         // Auto-save functionality
         function autoSave() {
+            const currentUser = sessionStorage.getItem('currentUser');
+            if (!currentUser) return;
+            
+            const user = JSON.parse(currentUser);
+            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
             const inputs = document.querySelectorAll('input, textarea');
             const data = {};
             
@@ -1168,8 +1194,12 @@
                 data[input.name] = input.value;
             });
 
-            // Auto-save to shared storage
-            localStorage.setItem('workbookSharedProgress', JSON.stringify(data));
+            // Auto-save to user's individual storage
+            if (!users[user.email]) {
+                users[user.email] = { workbookProgress: {} };
+            }
+            users[user.email].workbookProgress = data;
+            localStorage.setItem('workbookUsers', JSON.stringify(users));
         }
 
         // Add logout functionality
@@ -1184,9 +1214,13 @@
 
         // Export to PDF (simple version)
         function exportToPDF() {
+            const currentUser = sessionStorage.getItem('currentUser');
+            const user = currentUser ? JSON.parse(currentUser) : { name: 'User' };
+            
             const inputs = document.querySelectorAll('input, textarea');
             let pdfContent = 'BREAKING FREE FROM YOUR DEFAULT MODE\n';
-            pdfContent += 'Exercise 5: The Lonely Journey\n\n';
+            pdfContent += `Complete Workbook - ${user.name}\n`;
+            pdfContent += `Exported on: ${new Date().toLocaleDateString()}\n\n`;
             
             inputs.forEach(input => {
                 if (input.value.trim() !== '') {
@@ -1200,7 +1234,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'workbook-exercise5-answers.txt';
+            a.download = `workbook-answers-${user.name.replace(/\s+/g, '-')}.txt`;
             a.click();
             URL.revokeObjectURL(url);
         }

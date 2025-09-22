@@ -182,20 +182,43 @@
         <!-- Login Form -->
         <form id="loginForm">
             <div class="form-group">
-                <label for="loginEmail">Username</label>
-                <input type="text" id="loginEmail" name="username" required placeholder="Enter username">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" name="email" required placeholder="Enter your email">
             </div>
             <div class="form-group">
                 <label for="loginPassword">Password</label>
-                <input type="password" id="loginPassword" name="password" required placeholder="Enter password">
+                <input type="password" id="loginPassword" name="password" required placeholder="Enter your password">
             </div>
             <button type="submit" class="btn">🔐 Access Workbook</button>
         </form>
 
-        <div style="text-align: center; margin-top: 20px; padding: 15px; background: rgba(68, 204, 68, 0.1); border-radius: 8px; border: 1px solid #44cc44;">
-            <p style="color: #b0b0b0; font-size: 14px; margin: 0;">
-                📧 Check your email for login credentials
-            </p>
+        <div class="toggle-form">
+            <p>Don't have an account? <a href="#" onclick="toggleForm()">Create Account</a></p>
+        </div>
+
+        <!-- Signup Form (Hidden by default) -->
+        <form id="signupForm" style="display: none;">
+            <div class="form-group">
+                <label for="signupName">Full Name</label>
+                <input type="text" id="signupName" name="name" required placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" name="password" required placeholder="Create a password" minlength="6">
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+            </div>
+            <button type="submit" class="btn">📝 Create Account</button>
+        </form>
+
+        <div class="toggle-form" id="signupToggle" style="display: none;">
+            <p>Already have an account? <a href="#" onclick="toggleForm()">Sign In</a></p>
         </div>
 
 
@@ -203,33 +226,114 @@
     </div>
 
     <script>
-        // Single shared login system
+        // User account system with localStorage
+
+        // Initialize users storage
+        function initializeUsers() {
+            if (!localStorage.getItem('workbookUsers')) {
+                localStorage.setItem('workbookUsers', JSON.stringify({}));
+            }
+        }
 
         // Handle login
         document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
             
-            const username = document.getElementById('loginEmail').value;
+            const email = document.getElementById('loginEmail').value.toLowerCase();
             const password = document.getElementById('loginPassword').value;
             
-            // Single shared login
-            if (username.toLowerCase() === 'freedom' && password === 'Incoming') {
+            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+            
+            if (users[email] && users[email].password === password) {
                 // Successful login
                 sessionStorage.setItem('currentUser', JSON.stringify({
-                    email: 'freedom',
-                    name: 'Freedom',
+                    email: email,
+                    name: users[email].name,
                     loginTime: new Date().toISOString()
                 }));
                 
-                showMessage('Welcome! Redirecting to workbook...', 'success');
+                showMessage(`Welcome back, ${users[email].name}! Redirecting to workbook...`, 'success');
                 setTimeout(() => {
                     window.location.href = 'workbook-app.html';
                 }, 1500);
             } else {
-                showMessage('Invalid username or password', 'error');
+                showMessage('Invalid email or password', 'error');
             }
         });
 
+        // Handle signup
+        document.getElementById('signupForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('signupName').value.trim();
+            const email = document.getElementById('signupEmail').value.toLowerCase();
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Validation
+            if (password !== confirmPassword) {
+                showMessage('Passwords do not match', 'error');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showMessage('Password must be at least 6 characters', 'error');
+                return;
+            }
+            
+            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+            
+            if (users[email]) {
+                showMessage('An account with this email already exists', 'error');
+                return;
+            }
+            
+            // Create new user
+            users[email] = {
+                name: name,
+                password: password,
+                createdAt: new Date().toISOString(),
+                workbookProgress: {}
+            };
+            
+            localStorage.setItem('workbookUsers', JSON.stringify(users));
+            
+            // Auto-login after signup
+            sessionStorage.setItem('currentUser', JSON.stringify({
+                email: email,
+                name: name,
+                loginTime: new Date().toISOString()
+            }));
+            
+            showMessage(`Welcome, ${name}! Account created successfully. Redirecting to workbook...`, 'success');
+            setTimeout(() => {
+                window.location.href = 'workbook-app.html';
+            }, 2000);
+        });
+
+        // Toggle between login and signup forms
+        function toggleForm() {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const loginToggle = document.querySelector('.toggle-form');
+            const signupToggle = document.getElementById('signupToggle');
+            
+            if (loginForm.style.display === 'none') {
+                // Show login form
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                loginToggle.style.display = 'block';
+                signupToggle.style.display = 'none';
+                clearMessage();
+            } else {
+                // Show signup form
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+                loginToggle.style.display = 'none';
+                signupToggle.style.display = 'block';
+                clearMessage();
+            }
+        }
 
         function showMessage(text, type) {
             const messageDiv = document.getElementById('message');
@@ -243,13 +347,17 @@
             messageDiv.style.display = 'none';
         }
 
-        // Check if user is already logged in
-        if (sessionStorage.getItem('currentUser')) {
-            showMessage('You are already logged in. Redirecting...', 'success');
-            setTimeout(() => {
-                window.location.href = 'workbook-app.html';
-            }, 1000);
-        }
+        // Initialize and check if user is already logged in
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeUsers();
+            
+            if (sessionStorage.getItem('currentUser')) {
+                showMessage('You are already logged in. Redirecting...', 'success');
+                setTimeout(() => {
+                    window.location.href = 'workbook-app.html';
+                }, 1000);
+            }
+        });
 
     </script>
 </body>
