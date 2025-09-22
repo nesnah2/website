@@ -6,6 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <!-- Version: 2024-12-19-15:30 - Cache busting -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -1004,8 +1005,23 @@
             });
         }
 
+        // Force cache refresh
+        function forceRefresh() {
+            const currentVersion = '2024-12-19-15:30';
+            const savedVersion = localStorage.getItem('workbookVersion');
+            
+            if (savedVersion !== currentVersion) {
+                localStorage.setItem('workbookVersion', currentVersion);
+                // Force reload if version changed
+                if (savedVersion && savedVersion !== currentVersion) {
+                    window.location.reload(true);
+                }
+            }
+        }
+
         // Load progress when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            forceRefresh();
             loadProgress();
             
             // Auto-save progress every 30 seconds
