@@ -919,8 +919,99 @@
         }
 
         function saveProgress() {
-            alert('Progress saved! (This is a demo version)');
+            // Get current user from session
+            const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
+            if (!currentUser.email) {
+                alert('Please log in to save your progress');
+                return;
+            }
+
+            // Collect all form data
+            const formData = {};
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                if (input.name) {
+                    formData[input.name] = input.value;
+                }
+            });
+
+            // Get current phase completion status
+            const currentPhase = document.querySelector('.phase-content.active');
+            const phaseId = currentPhase ? currentPhase.id : 'phase3';
+            
+            // Calculate completion percentage for current phase
+            const phaseInputs = currentPhase.querySelectorAll('input, textarea');
+            const filledInputs = Array.from(phaseInputs).filter(input => input.value.trim() !== '');
+            const completionPercentage = phaseInputs.length > 0 ? (filledInputs.length / phaseInputs.length) * 100 : 0;
+
+            // Load existing user data
+            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+            if (users[currentUser.email]) {
+                users[currentUser.email].workbookProgress = {
+                    ...users[currentUser.email].workbookProgress,
+                    ...formData,
+                    lastSaved: new Date().toISOString(),
+                    currentPhase: phaseId,
+                    phaseCompletion: {
+                        ...users[currentUser.email].workbookProgress?.phaseCompletion,
+                        [phaseId]: completionPercentage
+                    }
+                };
+                
+                localStorage.setItem('workbookUsers', JSON.stringify(users));
+                alert(`Progress saved! (${Math.round(completionPercentage)}% complete in ${phaseId})`);
+            }
         }
+
+        function loadProgress() {
+            // Get current user from session
+            const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
+            if (!currentUser.email) {
+                return; // No user logged in
+            }
+
+            // Load user's saved progress
+            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+            if (users[currentUser.email] && users[currentUser.email].workbookProgress) {
+                const progress = users[currentUser.email].workbookProgress;
+                
+                // Restore form data
+                Object.keys(progress).forEach(key => {
+                    const input = document.querySelector(`[name="${key}"]`);
+                    if (input && typeof progress[key] === 'string') {
+                        input.value = progress[key];
+                    }
+                });
+
+                // Restore current phase if saved
+                if (progress.currentPhase) {
+                    showPhase(progress.currentPhase);
+                }
+
+                // Update phase completion status
+                updatePhaseCompletionStatus(progress.phaseCompletion || {});
+            }
+        }
+
+        function updatePhaseCompletionStatus(completionData) {
+            // Update phase buttons to show completion status
+            Object.keys(completionData).forEach(phaseId => {
+                const button = document.querySelector(`[onclick="showPhase('${phaseId}')"]`);
+                if (button && completionData[phaseId] >= 80) {
+                    button.style.background = 'rgba(34, 197, 94, 0.2)';
+                    button.style.borderColor = '#22c55e';
+                    button.innerHTML = button.innerHTML.replace('🔒', '✅');
+                }
+            });
+        }
+
+        // Load progress when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProgress();
+            
+            // Auto-save progress every 30 seconds
+            setInterval(saveProgress, 30000);
+        });
 
         function exportToPDF() {
             alert('PDF export would work here! (This is a demo version)');
