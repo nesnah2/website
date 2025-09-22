@@ -30,7 +30,8 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
+            overflow-y: auto;
+            padding: 20px 0;
         }
 
         body::before {
@@ -56,6 +57,9 @@
             position: relative;
             z-index: 2;
             transition: all 0.3s ease;
+            margin: 20px auto;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .login-container:hover {
@@ -237,7 +241,8 @@
         @media (min-width: 769px) {
             .login-container {
                 max-width: 550px;
-                padding: 60px 50px;
+                padding: 50px 45px;
+                max-height: 85vh;
             }
             
             .logo h1 {
@@ -245,12 +250,17 @@
             }
             
             .form-group {
-                margin-bottom: 30px;
+                margin-bottom: 25px;
             }
             
             .btn {
-                padding: 20px 40px;
+                padding: 18px 35px;
                 font-size: 1.1rem;
+                margin-bottom: 15px;
+            }
+            
+            .toggle-form {
+                margin-top: 20px;
             }
         }
 
