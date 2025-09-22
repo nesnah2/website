@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* Updated design - v3.0 - Mobile & Desktop Sync */
+        /* Exact match to main website design - v4.0 */
         * {
             margin: 0;
             padding: 0;
@@ -22,8 +22,9 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            line-height: 1.6;
             color: #ffffff;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -68,19 +69,20 @@
         }
 
         .logo h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
             background: linear-gradient(45deg, #ffd700, #ffed4e);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            line-height: 1.2;
         }
 
         .logo p {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
             color: #e2e8f0;
-            font-size: 1.1rem;
             font-weight: 400;
         }
 
@@ -231,7 +233,7 @@
             box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
         }
 
-        /* Mobile optimizations */
+        /* Mobile optimizations - matching main website */
         @media (max-width: 768px) {
             .login-container {
                 margin: 20px;
@@ -240,11 +242,15 @@
             }
             
             .logo h1 {
-                font-size: 1.8rem;
+                font-size: 2.5rem;
+                font-weight: 800;
+                line-height: 1.1;
+                margin-bottom: 1rem;
             }
             
             .logo p {
-                font-size: 1rem;
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
             }
             
             .form-group input {
@@ -265,7 +271,15 @@
             }
             
             .logo h1 {
-                font-size: 1.5rem;
+                font-size: 2rem;
+                font-weight: 800;
+                line-height: 1.1;
+                margin-bottom: 0.8rem;
+            }
+            
+            .logo p {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
             }
         }
     </style>
