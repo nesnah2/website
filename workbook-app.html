@@ -922,7 +922,7 @@
             // Get current user from session
             const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
             if (!currentUser.email) {
-                alert('Please log in to save your progress');
+                // User not logged in - silent fail
                 return;
             }
 
@@ -959,7 +959,7 @@
                 };
                 
                 localStorage.setItem('workbookUsers', JSON.stringify(users));
-                alert(`Progress saved! (${Math.round(completionPercentage)}% complete in ${phaseId})`);
+                // Progress saved silently
             }
         }
 
@@ -1029,7 +1029,7 @@
         });
 
         function exportToPDF() {
-            alert('PDF export would work here! (This is a demo version)');
+            // PDF export - silent
         }
     </script>
 </body>
