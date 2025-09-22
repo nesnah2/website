@@ -312,7 +312,7 @@
                 
                 showMessage(`Welcome back, ${users[email].name}! Redirecting to workbook...`, 'success');
                 setTimeout(() => {
-                    window.location.href = 'workbook-app.html';
+                    window.location.href = 'workbook-menu.html';
                 }, 1500);
             } else {
                 showMessage('Invalid email or password', 'error');
@@ -365,7 +365,7 @@
             
             showMessage(`Welcome, ${name}! Account created successfully. Redirecting to workbook...`, 'success');
             setTimeout(() => {
-                window.location.href = 'workbook-app.html';
+                window.location.href = 'workbook-menu.html';
             }, 2000);
         });
 
@@ -412,7 +412,7 @@
             if (sessionStorage.getItem('currentUser')) {
                 showMessage('You are already logged in. Redirecting...', 'success');
                 setTimeout(() => {
-                    window.location.href = 'workbook-app.html';
+                    window.location.href = 'workbook-menu.html';
                 }, 1000);
             }
         });
