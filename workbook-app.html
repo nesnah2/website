@@ -358,9 +358,9 @@
         <!-- Phase Navigation -->
         <div class="phase-nav">
             <button class="phase-nav-btn active" onclick="showPhase('phase3')">Phase 3: Solitude</button>
-            <button class="phase-nav-btn locked" onclick="showPhase('phase4')">Phase 4: Transformation</button>
-            <button class="phase-nav-btn locked" onclick="showPhase('phase5')">Phase 5: Integration</button>
-            <button class="phase-nav-btn locked" onclick="showPhase('phase6')">Phase 6: Breakthrough</button>
+            <button class="phase-nav-btn locked" onclick="showPhase('phase4')" id="phase4-btn">Phase 4: Transformation</button>
+            <button class="phase-nav-btn locked" onclick="showPhase('phase5')" id="phase5-btn">Phase 5: Integration</button>
+            <button class="phase-nav-btn locked" onclick="showPhase('phase6')" id="phase6-btn">Phase 6: Breakthrough</button>
         </div>
 
         <!-- Benefits Section -->
@@ -1126,6 +1126,7 @@
         <!-- Actions -->
         <div class="actions">
             <button class="btn" onclick="saveProgress()">💾 Save Progress</button>
+            <button class="btn btn-secondary" onclick="completeCurrentPhase()">✅ Complete Current Phase</button>
             <button class="btn btn-secondary" onclick="exportToPDF()">📄 Export to PDF</button>
             <button class="btn btn-secondary" onclick="resetExercise()">🔄 Reset Exercise</button>
             <button class="btn btn-secondary" onclick="logout()" style="background: #ff6b35;">🚪 Logout</button>
@@ -1135,6 +1136,13 @@
     <script>
         // Phase Navigation
         function showPhase(phaseId) {
+            // Check if phase is locked
+            const phaseButton = document.getElementById(phaseId + '-btn');
+            if (phaseButton && phaseButton.classList.contains('locked')) {
+                alert('Complete the previous phase to unlock this one!');
+                return;
+            }
+            
             // Hide all phase content
             const allPhases = document.querySelectorAll('.phase-content');
             allPhases.forEach(phase => {
@@ -1161,6 +1169,90 @@
             
             // Update progress for current phase
             updateProgress();
+        }
+
+        // Complete current phase and unlock next
+        function completeCurrentPhase() {
+            const activePhase = document.querySelector('.phase-content.active');
+            if (!activePhase) return;
+            
+            const phaseId = activePhase.id;
+            const inputs = activePhase.querySelectorAll('input, textarea');
+            let completedCount = 0;
+            
+            // Check if phase is at least 80% complete
+            inputs.forEach(input => {
+                if (input.value.trim() !== '') {
+                    completedCount++;
+                }
+            });
+            
+            const completionPercentage = (completedCount / inputs.length) * 100;
+            
+            if (completionPercentage < 80) {
+                alert(`Please complete at least 80% of the current phase before marking it complete. You're currently at ${Math.round(completionPercentage)}%`);
+                return;
+            }
+            
+            // Mark phase as completed
+            const currentUser = sessionStorage.getItem('currentUser');
+            if (currentUser) {
+                const user = JSON.parse(currentUser);
+                const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+                
+                if (!users[user.email]) {
+                    users[user.email] = { workbookProgress: {}, completedPhases: [] };
+                }
+                
+                if (!users[user.email].completedPhases) {
+                    users[user.email].completedPhases = [];
+                }
+                
+                if (!users[user.email].completedPhases.includes(phaseId)) {
+                    users[user.email].completedPhases.push(phaseId);
+                    localStorage.setItem('workbookUsers', JSON.stringify(users));
+                }
+            }
+            
+            // Unlock next phase
+            unlockNextPhase(phaseId);
+            
+            alert(`🎉 Phase completed! Next phase unlocked.`);
+        }
+
+        // Unlock next phase
+        function unlockNextPhase(currentPhaseId) {
+            const phaseOrder = ['phase3', 'phase4', 'phase5', 'phase6'];
+            const currentIndex = phaseOrder.indexOf(currentPhaseId);
+            
+            if (currentIndex < phaseOrder.length - 1) {
+                const nextPhaseId = phaseOrder[currentIndex + 1];
+                const nextButton = document.getElementById(nextPhaseId + '-btn');
+                
+                if (nextButton) {
+                    nextButton.classList.remove('locked');
+                    nextButton.style.opacity = '1';
+                    nextButton.style.cursor = 'pointer';
+                }
+            }
+        }
+
+        // Check unlocked phases on load
+        function checkUnlockedPhases() {
+            const currentUser = sessionStorage.getItem('currentUser');
+            if (!currentUser) return;
+            
+            const user = JSON.parse(currentUser);
+            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+            
+            if (users[user.email] && users[user.email].completedPhases) {
+                const completedPhases = users[user.email].completedPhases;
+                
+                // Unlock phases based on completed ones
+                completedPhases.forEach(phaseId => {
+                    unlockNextPhase(phaseId);
+                });
+            }
         }
 
         // Progress tracking
@@ -1471,6 +1563,7 @@
         // Initialize app
         document.addEventListener('DOMContentLoaded', function() {
             checkUserLogin();
+            checkUnlockedPhases();
             countQuestions();
             updateProgress();
             
