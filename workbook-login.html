@@ -6,6 +6,9 @@
     <title>Breaking Free From Your Default Mode - Login</title>
     
     <meta name="description" content="Complete transformation workbook - The real work to break free from your default mode">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -14,126 +17,181 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
             color: #ffffff;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="%23ffd700" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
         }
 
         .login-container {
-            background: #2a2a2a;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             width: 100%;
-            max-width: 400px;
-            border: 2px solid #44cc44;
+            max-width: 450px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .login-container:hover {
+            border-color: #ffd700;
+            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.1);
         }
 
         .logo {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .logo h1 {
-            color: #ff6b35;
-            font-size: 24px;
-            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
         }
 
         .logo p {
-            color: #b0b0b0;
-            font-size: 14px;
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            font-weight: 400;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            color: #ffffff;
+            margin-bottom: 10px;
+            color: #ffd700;
             font-weight: 600;
+            font-size: 1rem;
         }
 
         .form-group input {
             width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #444;
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 215, 0, 0.2);
             border-radius: 8px;
-            background: #1a1a1a;
+            background: rgba(255, 255, 255, 0.05);
             color: #ffffff;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
         .form-group input:focus {
             outline: none;
-            border-color: #44cc44;
+            border-color: #ffd700;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
 
         .btn {
             width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #44cc44 0%, #2ea043 100%);
-            color: white;
+            padding: 18px 36px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #0f1419;
             border: none;
             border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(68, 204, 68, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
         }
 
         .btn-secondary {
-            background: linear-gradient(135deg, #666 0%, #555 100%);
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffd700;
+            box-shadow: none;
         }
 
         .btn-secondary:hover {
-            box-shadow: 0 5px 15px rgba(102, 102, 102, 0.3);
+            background: #ffd700;
+            color: #0f1419;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
         }
 
         .toggle-form {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 25px;
+        }
+
+        .toggle-form p {
+            color: #e2e8f0;
+            font-size: 1rem;
+            margin-bottom: 0;
         }
 
         .toggle-form a {
-            color: #44cc44;
+            color: #ffd700;
             text-decoration: none;
             font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .toggle-form a:hover {
+            color: #ffed4e;
             text-decoration: underline;
         }
 
         .message {
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-align: center;
             font-weight: 600;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
         }
 
         .message.success {
-            background: rgba(68, 204, 68, 0.2);
-            border: 1px solid #44cc44;
-            color: #44cc44;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #ffd700;
+            color: #ffd700;
         }
 
         .message.error {
-            background: rgba(255, 107, 53, 0.2);
+            background: rgba(255, 107, 53, 0.1);
             border: 1px solid #ff6b35;
             color: #ff6b35;
         }
