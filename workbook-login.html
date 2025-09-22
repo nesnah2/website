@@ -50,7 +50,7 @@
             border-radius: 16px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             width: 100%;
-            max-width: 450px;
+            max-width: 500px;
             border: 1px solid rgba(255, 215, 0, 0.2);
             backdrop-filter: blur(10px);
             position: relative;
@@ -69,7 +69,7 @@
         }
 
         .logo h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
@@ -231,6 +231,27 @@
         .guest-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Desktop optimizations */
+        @media (min-width: 769px) {
+            .login-container {
+                max-width: 550px;
+                padding: 60px 50px;
+            }
+            
+            .logo h1 {
+                font-size: 3.5rem;
+            }
+            
+            .form-group {
+                margin-bottom: 30px;
+            }
+            
+            .btn {
+                padding: 20px 40px;
+                font-size: 1.1rem;
+            }
         }
 
         /* Mobile optimizations - matching main website */
