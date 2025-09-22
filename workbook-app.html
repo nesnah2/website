@@ -80,6 +80,59 @@
             font-weight: 400;
         }
 
+        /* Phase Navigation */
+        .phase-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .phase-nav-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 25px;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .phase-nav-btn:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: #ffd700;
+            transform: translateY(-2px);
+        }
+
+        .phase-nav-btn.active {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #0f1419;
+            border-color: #ffd700;
+        }
+
+        .phase-nav-btn.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .phase-nav-btn.locked:hover {
+            transform: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        /* Phase Content */
+        .phase-content {
+            display: none;
+        }
+
+        .phase-content.active {
+            display: block;
+        }
+
         .progress-bar {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 16px;
@@ -267,6 +320,16 @@
                 font-size: 1.1rem;
             }
             
+            .phase-nav {
+                gap: 10px;
+                margin-bottom: 30px;
+            }
+            
+            .phase-nav-btn {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+            
             .exercise {
                 padding: 25px 20px;
             }
@@ -290,6 +353,14 @@
             <h1>Breaking Free From Your Default Mode</h1>
             <p>Complete Workbook - The Real Work</p>
             <p style="margin-top: 15px; font-size: 14px; color: #ff6b35;">You've done the free guide. You've seen your patterns. You've felt the weight of your default mode. Now you're here because you want more than awareness, you want transformation.</p>
+        </div>
+
+        <!-- Phase Navigation -->
+        <div class="phase-nav">
+            <button class="phase-nav-btn active" onclick="showPhase('phase3')">Phase 3: Solitude</button>
+            <button class="phase-nav-btn locked" onclick="showPhase('phase4')">Phase 4: Transformation</button>
+            <button class="phase-nav-btn locked" onclick="showPhase('phase5')">Phase 5: Integration</button>
+            <button class="phase-nav-btn locked" onclick="showPhase('phase6')">Phase 6: Breakthrough</button>
         </div>
 
         <!-- Benefits Section -->
@@ -329,8 +400,9 @@
         </div>
 
         <!-- PHASE 3: SOLITUDE -->
-        <div class="exercise" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05);">
-            <h2>PHASE 3: SOLITUDE</h2>
+        <div class="phase-content active" id="phase3">
+            <div class="exercise" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05);">
+                <h2>PHASE 3: SOLITUDE</h2>
             <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.2rem; line-height: 1.6;">
                 Most men avoid being alone because that's where the truth lives. No performance, no distractions, no external validation. Just you and your authentic self. This phase is where you learn to be comfortable with who you really are.
             </p>
@@ -515,11 +587,13 @@
                 <label for="create-alone">What would you create if you weren't afraid of being alone?</label>
                 <textarea id="create-alone" name="create-alone" placeholder="What would you build or create?"></textarea>
             </div>
+            </div>
         </div>
 
         <!-- PHASE 4: TRANSFORMATION -->
-        <div class="exercise" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05);">
-            <h2>PHASE 4: TRANSFORMATION</h2>
+        <div class="phase-content" id="phase4">
+            <div class="exercise" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05);">
+                <h2>PHASE 4: TRANSFORMATION</h2>
             <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.2rem; line-height: 1.6;">
                 Awareness without action is just self-awareness theater. This phase is where you stop analyzing and start changing. You'll rewrite your internal script and create new responses that serve the man you're becoming.
             </p>
@@ -690,11 +764,13 @@
                 <label for="prioritize-forward">What will you prioritize going forward?</label>
                 <textarea id="prioritize-forward" name="prioritize-forward" placeholder="What will be most important to you?"></textarea>
             </div>
+            </div>
         </div>
 
         <!-- PHASE 5: INTEGRATION -->
-        <div class="exercise" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05);">
-            <h2>PHASE 5: INTEGRATION</h2>
+        <div class="phase-content" id="phase5">
+            <div class="exercise" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05);">
+                <h2>PHASE 5: INTEGRATION</h2>
             <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.2rem; line-height: 1.6;">
                 Transformation that doesn't last is just another performance. This phase ensures your new patterns become your new default. You'll create systems and practices that keep you awake and conscious every day.
             </p>
@@ -835,11 +911,13 @@
                 <label for="success-year">What will success look like in one year?</label>
                 <textarea id="success-year" name="success-year" placeholder="What will you have achieved in a year?"></textarea>
             </div>
+            </div>
         </div>
 
         <!-- PHASE 6: BREAKTHROUGH -->
-        <div class="exercise" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05);">
-            <h2>PHASE 6: BREAKTHROUGH</h2>
+        <div class="phase-content" id="phase6">
+            <div class="exercise" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05);">
+                <h2>PHASE 6: BREAKTHROUGH</h2>
             <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.2rem; line-height: 1.6;">
                 Sometimes you need to break down to break through. This phase is where you push past your comfort zone and into your authentic power. It's uncomfortable, but it's where real transformation happens.
             </p>
@@ -999,6 +1077,7 @@
                 <label for="commit-being">I commit to being the man I'm meant to be because:</label>
                 <textarea id="commit-being" name="commit-being" placeholder="Why is authentic being essential?"></textarea>
             </div>
+            </div>
         </div>
 
         <!-- Final Section -->
@@ -1054,6 +1133,36 @@
     </div>
 
     <script>
+        // Phase Navigation
+        function showPhase(phaseId) {
+            // Hide all phase content
+            const allPhases = document.querySelectorAll('.phase-content');
+            allPhases.forEach(phase => {
+                phase.classList.remove('active');
+            });
+            
+            // Show selected phase
+            const selectedPhase = document.getElementById(phaseId);
+            if (selectedPhase) {
+                selectedPhase.classList.add('active');
+            }
+            
+            // Update navigation buttons
+            const allButtons = document.querySelectorAll('.phase-nav-btn');
+            allButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Activate current button
+            const currentButton = document.querySelector(`[onclick="showPhase('${phaseId}')"]`);
+            if (currentButton) {
+                currentButton.classList.add('active');
+            }
+            
+            // Update progress for current phase
+            updateProgress();
+        }
+
         // Progress tracking
         let totalQuestions = 0;
         let completedQuestions = 0;
@@ -1067,7 +1176,10 @@
 
         // Update progress
         function updateProgress() {
-            const inputs = document.querySelectorAll('input, textarea');
+            // Get inputs from the currently active phase
+            const activePhase = document.querySelector('.phase-content.active');
+            const inputs = activePhase ? activePhase.querySelectorAll('input, textarea') : document.querySelectorAll('input, textarea');
+            
             completedQuestions = 0;
             
             inputs.forEach(input => {
@@ -1076,7 +1188,7 @@
                 }
             });
 
-            const percentage = totalQuestions > 0 ? Math.round((completedQuestions / totalQuestions) * 100) : 0;
+            const percentage = inputs.length > 0 ? Math.round((completedQuestions / inputs.length) * 100) : 0;
             document.getElementById('progressFill').style.width = percentage + '%';
             document.getElementById('progressText').textContent = percentage + '% Complete';
         }
