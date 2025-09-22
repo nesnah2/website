@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking Free From Your Default Mode - Workbook</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .phase-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .phase-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 25px;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .phase-btn:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: #ffd700;
+        }
+        .phase-btn.active {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #0f1419;
+        }
+        .phase-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        .phase-content.active {
+            display: block;
+        }
+        .exercise {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ffd700;
+            font-weight: 600;
+        }
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            resize: vertical;
+            min-height: 80px;
+        }
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+        }
+        .btn {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #0f1419;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Breaking Free From Your Default Mode</h1>
+        
+        <div class="phase-nav">
+            <button class="phase-btn active" onclick="showPhase('phase3')">Phase 3: Solitude</button>
+            <button class="phase-btn" onclick="showPhase('phase4')">Phase 4: Transformation</button>
+            <button class="phase-btn" onclick="showPhase('phase5')">Phase 5: Integration</button>
+            <button class="phase-btn" onclick="showPhase('phase6')">Phase 6: Breakthrough</button>
+        </div>
+
+        <!-- Phase 3: Solitude -->
+        <div class="phase-content active" id="phase3">
+            <div class="exercise">
+                <h2>PHASE 3: SOLITUDE</h2>
+                <p>Most men avoid being alone because that's where the truth lives. No performance, no distractions, no external validation. Just you and your authentic self.</p>
+                
+                <h3>EXERCISE 5: THE LONELY JOURNEY</h3>
+                <div class="form-group">
+                    <label>What people, places, or things do you use to feed your lies of the default mode?</label>
+                    <textarea placeholder="Who or what do you use to avoid being alone with yourself?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>How do you feel about spending time alone? Rate your comfort level (1-10):</label>
+                    <textarea placeholder="Rate 1-10 and explain why"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 4: Transformation -->
+        <div class="phase-content" id="phase4">
+            <div class="exercise">
+                <h2>PHASE 4: TRANSFORMATION</h2>
+                <p>Awareness without action is just self-awareness theater. This phase is where you stop analyzing and start changing.</p>
+                
+                <h3>EXERCISE 7: REWRITING THE SCRIPT</h3>
+                <div class="form-group">
+                    <label>Replace your old default mode beliefs with new ones:</label>
+                    <textarea placeholder="Old Belief: I'm not good enough... New Belief: I am worthy of love and success..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>How will you respond differently to triggers?</label>
+                    <textarea placeholder="When criticized: Instead of getting defensive, I will..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 5: Integration -->
+        <div class="phase-content" id="phase5">
+            <div class="exercise">
+                <h2>PHASE 5: INTEGRATION</h2>
+                <p>Transformation that doesn't last is just another performance. This phase ensures your new patterns become your new default.</p>
+                
+                <h3>EXERCISE 9: DAILY AWARENESS PRACTICE</h3>
+                <div class="form-group">
+                    <label>Every morning, ask yourself: What does my default mode want me to do today?</label>
+                    <textarea placeholder="What do I actually want to do? What's the difference?"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 6: Breakthrough -->
+        <div class="phase-content" id="phase6">
+            <div class="exercise">
+                <h2>PHASE 6: BREAKTHROUGH</h2>
+                <p>Sometimes you need to break down to break through. This phase is where you push past your comfort zone and into your authentic power.</p>
+                
+                <h3>EXERCISE 11: THE BREAKDOWN BREAKTHROUGH</h3>
+                <div class="form-group">
+                    <label>What would it take for you to have a real breakdown?</label>
+                    <textarea placeholder="What are you avoiding that could trigger it?"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <button class="btn" onclick="saveProgress()">💾 Save Progress</button>
+            <button class="btn" onclick="exportToPDF()">📄 Export to PDF</button>
+        </div>
+    </div>
+
+    <script>
+        function showPhase(phaseId) {
+            console.log('Switching to phase:', phaseId);
+            
+            // Hide all phases
+            const allPhases = document.querySelectorAll('.phase-content');
+            allPhases.forEach(phase => {
+                phase.classList.remove('active');
+            });
+            
+            // Show selected phase
+            const selectedPhase = document.getElementById(phaseId);
+            if (selectedPhase) {
+                selectedPhase.classList.add('active');
+            }
+            
+            // Update buttons
+            const allButtons = document.querySelectorAll('.phase-btn');
+            allButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            const currentButton = document.querySelector(`[onclick="showPhase('${phaseId}')"]`);
+            if (currentButton) {
+                currentButton.classList.add('active');
+            }
+        }
+
+        function saveProgress() {
+            alert('Progress saved! (This is a demo version)');
+        }
+
+        function exportToPDF() {
+            alert('PDF export would work here! (This is a demo version)');
+        }
+    </script>
+</body>
+</html>
