@@ -60,3 +60,6 @@ async function testMailerLiteVariables() {
 
 // Run the test
 testMailerLiteVariables();
+
+
+
