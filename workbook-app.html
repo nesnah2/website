@@ -599,12 +599,12 @@
         <div class="phase-content" id="phase4">
             <div class="exercise" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05);">
                 <h2>PHASE 4: TRANSFORMATION</h2>
-            <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.2rem; line-height: 1.6;">
-                Awareness without action is just self-awareness theater. This phase is where you stop analyzing and start changing. You'll rewrite your internal script and create new responses that serve the man you're becoming.
-            </p>
-        </div>
+                <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.2rem; line-height: 1.6;">
+                    Awareness without action is just self-awareness theater. This phase is where you stop analyzing and start changing. You'll rewrite your internal script and create new responses that serve the man you're becoming.
+                </p>
+            </div>
 
-        <!-- Exercise 7: Rewriting the Script -->
+            <!-- Exercise 7: Rewriting the Script -->
         <div class="exercise" id="exercise7">
             <h2>EXERCISE 7: REWRITING THE SCRIPT</h2>
             <p style="color: #b0b0b0; margin-bottom: 20px;">From default mode to conscious choice</p>
@@ -1150,16 +1150,22 @@
                 return;
             }
             
+            console.log('Switching to phase:', phaseId); // Debug log
+            
             // Hide all phase content
             const allPhases = document.querySelectorAll('.phase-content');
             allPhases.forEach(phase => {
                 phase.classList.remove('active');
+                console.log('Hiding phase:', phase.id); // Debug log
             });
             
             // Show selected phase
             const selectedPhase = document.getElementById(phaseId);
             if (selectedPhase) {
                 selectedPhase.classList.add('active');
+                console.log('Showing phase:', phaseId, 'Element:', selectedPhase); // Debug log
+            } else {
+                console.error('Phase not found:', phaseId); // Debug log
             }
             
             // Update navigation buttons
