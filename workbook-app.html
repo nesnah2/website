@@ -1143,6 +1143,8 @@
     <script>
         // Phase Navigation
         function showPhase(phaseId) {
+            console.log('showPhase called with:', phaseId); // Debug log
+            
             // Check if phase is locked
             const phaseButton = document.getElementById(phaseId + '-btn');
             if (phaseButton && phaseButton.classList.contains('locked')) {
@@ -1154,6 +1156,7 @@
             
             // Hide all phase content
             const allPhases = document.querySelectorAll('.phase-content');
+            console.log('Found phases:', allPhases.length); // Debug log
             allPhases.forEach(phase => {
                 phase.classList.remove('active');
                 console.log('Hiding phase:', phase.id); // Debug log
@@ -1166,6 +1169,8 @@
                 console.log('Showing phase:', phaseId, 'Element:', selectedPhase); // Debug log
             } else {
                 console.error('Phase not found:', phaseId); // Debug log
+                alert('Phase ' + phaseId + ' not found!');
+                return;
             }
             
             // Update navigation buttons
