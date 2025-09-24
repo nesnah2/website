@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Workbook App - Mikkel Hansen</title>
-    <meta http-equiv="refresh" content="0; url=free-workbook-app.html">
-    <link rel="canonical" href="free-workbook-app.html">
+    <meta http-equiv="refresh" content="0; url=free-workbook-app-clean.html">
+    <link rel="canonical" href="free-workbook-app-clean.html">
 </head>
 <body>
-    <p>Redirecting to <a href="free-workbook-app.html">Free Workbook App</a>...</p>
+    <p>Redirecting to <a href="free-workbook-app-clean.html">Free Workbook App</a>...</p>
     <script>
-        window.location.replace('free-workbook-app.html');
+        window.location.replace('free-workbook-app-clean.html');
     </script>
 </body>
 </html>

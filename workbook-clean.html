@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- Version: 2024-12-19-16:00 - Cache busting -->
+    <title>Breaking Free From Your Default Mode - Workbook</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            margin: 0;
+            padding: 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 5px;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        /* Mobile-first responsive design */
+        @media (min-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            .container {
+                padding: 0;
+            }
+            h1 {
+                font-size: 3rem;
+                margin-bottom: 2rem;
+            }
+        }
+        .phase-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            padding: 0 10px;
+        }
+        .phase-btn {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        @media (min-width: 768px) {
+            .phase-nav {
+                gap: 15px;
+                margin-bottom: 40px;
+                padding: 0;
+            }
+            .phase-btn {
+                padding: 12px 24px;
+                border-radius: 25px;
+                font-size: 1rem;
+                min-width: auto;
+            }
+        }
+        .phase-btn:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: #ffd700;
+        }
+        .phase-btn.active {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #0f1419;
+        }
+        .phase-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            margin: 0 5px;
+        }
+        .phase-content.active {
+            display: block;
+        }
+        .exercise {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        @media (min-width: 768px) {
+            .phase-content {
+                border-radius: 16px;
+                padding: 30px;
+                margin: 0;
+            }
+            .exercise {
+                border-radius: 12px;
+                padding: 25px;
+                margin-bottom: 25px;
+            }
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            resize: vertical;
+            min-height: 60px;
+            font-size: 0.9rem;
+            box-sizing: border-box;
+        }
+        
+        @media (min-width: 768px) {
+            .form-group {
+                margin-bottom: 20px;
+            }
+            .form-group label {
+                margin-bottom: 8px;
+                font-size: 1rem;
+            }
+            .form-group textarea {
+                padding: 12px;
+                border-radius: 8px;
+                min-height: 80px;
+                font-size: 1rem;
+            }
+        }
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+        }
+        .btn {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #0f1419;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9rem;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        
+        @media (min-width: 768px) {
+            .btn {
+                padding: 15px 30px;
+                border-radius: 8px;
+                font-size: 1rem;
+                width: auto;
+                margin: 10px 5px;
+            }
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Breaking Free From Your Default Mode</h1>
+        
+        <div class="phase-nav">
+            <button class="phase-btn active" onclick="showPhase('phase3')">Phase 3: Solitude</button>
+            <button class="phase-btn" onclick="showPhase('phase4')">Phase 4: Transformation</button>
+            <button class="phase-btn" onclick="showPhase('phase5')">Phase 5: Integration</button>
+            <button class="phase-btn" onclick="showPhase('phase6')">Phase 6: Breakthrough</button>
+        </div>
+
+        <!-- Phase 3: Solitude -->
+        <div class="phase-content active" id="phase3">
+            <!-- Introduction Section -->
+            <div class="exercise" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05); margin-bottom: 30px;">
+                <h2>Welcome to Your Transformation Journey</h2>
+                <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.2rem; line-height: 1.6;">
+                    You've done the free guide. You've seen your patterns. You've felt the weight of your default mode. Now you're here because you want more than awareness, you want transformation.
+                </p>
+                
+                <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.1rem;">
+                    This workbook is the real work. The uncomfortable work. The work that most men won't do. If you're looking for quick fixes or feel-good exercises, this isn't for you. If you're ready to break free from your default mode and become the man you're meant to be, let's get started.
+                </p>
+                
+                <p style="color: #ffd700; font-weight: 700; margin-bottom: 20px; font-size: 1.2rem;">
+                    The free guide showed you what was wrong. This workbook shows you how to fix it.
+                </p>
+                
+                <div style="background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 25px; margin: 25px 0;">
+                    <h3 style="color: #ffd700; margin-bottom: 15px;">When you complete this workbook, you'll have:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                        <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">✅ Complete freedom from your default mode</p>
+                        <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">✅ Unshakeable self-awareness</p>
+                        <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">✅ New ways of being</p>
+                        <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">✅ Deep comfort with yourself</p>
+                        <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">✅ Authentic identity</p>
+                        <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">✅ Daily practices</p>
+                        <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">✅ Your Declaration of Freedom</p>
+                        <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">✅ Breakthrough moments</p>
+                        <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">✅ A new default</p>
+                        <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">✅ The man you're meant to be</p>
+                    </div>
+                </div>
+                
+                <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.1rem;">
+                    This isn't just more exercises - this is the complete system for transformation. The free guide gave you awareness. This workbook gives you freedom.
+                </p>
+                
+                <p style="color: #ffd700; font-weight: 700; margin-bottom: 20px; font-size: 1.2rem;">
+                    Are you ready to stop living on autopilot and start living consciously?
+                </p>
+                
+                <div style="background: rgba(255, 107, 53, 0.1); border: 1px solid #ff6b35; border-radius: 12px; padding: 20px; margin: 25px 0;">
+                    <p style="color: #ff6b35; font-weight: 600; margin-bottom: 10px; font-size: 1.1rem;">
+                        ⚠️ Important: If you haven't completed the free guide exercises, go back and do them first. This workbook builds on that foundation.
+                    </p>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 20px; margin: 25px 0;">
+                    <h3 style="color: #ffd700; margin-bottom: 15px;">📝 Instructions</h3>
+                    <p style="color: #e2e8f0; margin: 10px 0; font-size: 1rem;">• Answer each question honestly and completely</p>
+                    <p style="color: #e2e8f0; margin: 10px 0; font-size: 1rem;">• Your answers are saved automatically</p>
+                    <p style="color: #e2e8f0; margin: 10px 0; font-size: 1rem;">• Take your time - this is deep work</p>
+                    <p style="color: #e2e8f0; margin: 10px 0; font-size: 1rem;">• Be completely honest with yourself</p>
+                    <p style="color: #e2e8f0; margin: 10px 0; font-size: 1rem;">• Complete each phase before moving to the next</p>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h2>PHASE 3: SOLITUDE</h2>
+                <p>Most men avoid being alone because that's where the truth lives. No performance, no distractions, no external validation. Just you and your authentic self. This phase is where you learn to be comfortable with who you really are.</p>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 5: THE LONELY JOURNEY</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Learning to enjoy your own company</p>
+
+                <h3>Part A: Your Side-Feeders</h3>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">What people, places, or things do you use to feed your lies of the default mode?</p>
+
+                <div class="form-group">
+                    <label>People:</label>
+                    <textarea name="people" placeholder="Who do you use to avoid being alone with yourself?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Places:</label>
+                    <textarea name="places" placeholder="Where do you go to escape from yourself?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Activities:</label>
+                    <textarea name="activities" placeholder="What do you do to avoid facing yourself?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Substances:</label>
+                    <textarea name="substances" placeholder="What do you use to numb yourself?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How do these make you feel in the moment?</label>
+                    <textarea name="moment-feeling" placeholder="What do you feel when you're using these side-feeders?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How do you feel after?</label>
+                    <textarea name="after-feeling" placeholder="What do you feel when the distraction ends?"></textarea>
+                </div>
+
+                <h3>Part B: The Silence Challenge</h3>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">Spend 30 minutes alone with no distractions. No phone, no music, no food, no entertainment.</p>
+
+                <div class="form-group">
+                    <label>What did you discover about yourself?</label>
+                    <textarea name="discover-self" placeholder="What did you learn about yourself in the silence?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What thoughts came up?</label>
+                    <textarea name="thoughts-came-up" placeholder="What was going through your mind?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What emotions did you feel?</label>
+                    <textarea name="emotions-felt" placeholder="What feelings arose during the silence?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What was the hardest part?</label>
+                    <textarea name="hardest-part" placeholder="What was most difficult about being alone?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What was the most revealing?</label>
+                    <textarea name="most-revealing" placeholder="What surprised you most about yourself?"></textarea>
+                </div>
+
+                <h3>Part C: Your Relationship with Yourself</h3>
+                <div class="form-group">
+                    <label>How do you feel about spending time alone? Rate your comfort level (1-10):</label>
+                    <textarea name="comfort-alone" placeholder="Rate 1-10 and explain why"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What do you avoid when you're alone?</label>
+                    <textarea name="avoid-alone" placeholder="What do you try to escape from?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What do you discover when you're alone?</label>
+                    <textarea name="discover-alone" placeholder="What truths emerge when you're by yourself?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What would change if you learned to enjoy your own company?</label>
+                    <textarea name="change-enjoy-alone" placeholder="How would your life transform?"></textarea>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 6: FACING THE VOID</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">What happens when you stop running</p>
+
+                <h3>Part A: The Emptiness</h3>
+                <div class="form-group">
+                    <label>What do you feel when you're not doing anything?</label>
+                    <textarea name="feel-nothing" placeholder="What emotions arise when you're idle?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What thoughts come up when you're not distracted?</label>
+                    <textarea name="thoughts-undistracted" placeholder="What goes through your mind in quiet moments?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What emotions do you avoid by staying busy?</label>
+                    <textarea name="avoid-busy" placeholder="What feelings are you running from?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What's the scariest part about being alone with your thoughts?</label>
+                    <textarea name="scariest-thoughts" placeholder="What frightens you most about introspection?"></textarea>
+                </div>
+
+                <h3>Part B: The Real You Underneath</h3>
+                <div class="form-group">
+                    <label>Who are you when you're not performing for anyone?</label>
+                    <textarea name="real-you" placeholder="Who is the authentic you beneath the performance?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What do you really want when no one's watching?</label>
+                    <textarea name="really-want" placeholder="What are your true desires?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What would you do if you weren't trying to prove anything?</label>
+                    <textarea name="not-proving" placeholder="How would you spend your time?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What's your truth when you're not trying to be someone else?</label>
+                    <textarea name="your-truth" placeholder="What is your authentic truth?"></textarea>
+                </div>
+
+                <h3>Part C: Embracing Solitude</h3>
+                <div class="form-group">
+                    <label>What would change if you learned to be comfortable alone?</label>
+                    <textarea name="solitude-change" placeholder="How would your life transform?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How would your relationships improve if you didn't need them to fill a void?</label>
+                    <textarea name="relationships-improve" placeholder="What would change in your connections?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What would you create if you weren't afraid of being alone?</label>
+                    <textarea name="create-alone" placeholder="What would you build or create?"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 4: Transformation -->
+        <div class="phase-content" id="phase4">
+            <div class="exercise">
+                <h2>PHASE 4: TRANSFORMATION</h2>
+                <p>Awareness without action is just self-awareness theater. This phase is where you stop analyzing and start changing. You'll rewrite your internal script and create new responses that serve the man you're becoming.</p>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 7: REWRITING THE SCRIPT</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">From default mode to conscious choice</p>
+
+                <h3>Part A: Your New Beliefs</h3>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">Replace your old default mode beliefs with new ones:</p>
+
+                <div class="form-group">
+                    <label>Old Belief:</label>
+                    <textarea name="old-belief-1" placeholder="What limiting belief do you want to replace?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>New Belief:</label>
+                    <textarea name="new-belief-1" placeholder="What empowering belief will replace it?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Old Belief:</label>
+                    <textarea name="old-belief-2" placeholder="What limiting belief do you want to replace?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>New Belief:</label>
+                    <textarea name="new-belief-2" placeholder="What empowering belief will replace it?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Old Belief:</label>
+                    <textarea name="old-belief-3" placeholder="What limiting belief do you want to replace?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>New Belief:</label>
+                    <textarea name="new-belief-3" placeholder="What empowering belief will replace it?"></textarea>
+                </div>
+
+                <h3>Part B: New Responses</h3>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">How will you respond differently to triggers?</p>
+
+                <div class="form-group">
+                    <label>When criticized:</label>
+                    <textarea name="response-criticized" placeholder="Instead of getting defensive, I will..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>When rejected:</label>
+                    <textarea name="response-rejected" placeholder="Instead of shutting down, I will..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>When facing failure:</label>
+                    <textarea name="response-failure" placeholder="Instead of giving up, I will..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>When feeling inadequate:</label>
+                    <textarea name="response-inadequate" placeholder="Instead of comparing myself, I will..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>When someone disagrees:</label>
+                    <textarea name="response-disagrees" placeholder="Instead of arguing, I will..."></textarea>
+                </div>
+
+                <h3>Part C: Your Commitment</h3>
+                <div class="form-group">
+                    <label>What's one default mode pattern you're committing to change?</label>
+                    <textarea name="pattern-change" placeholder="The specific pattern you want to transform"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>The New Response:</label>
+                    <textarea name="new-response" placeholder="How you'll respond instead"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How you'll practice:</label>
+                    <textarea name="how-practice" placeholder="Your daily practice for this change"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How you'll know it's working:</label>
+                    <textarea name="know-working" placeholder="Signs that the transformation is happening"></textarea>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 8: THE NEW YOU</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Creating your authentic identity</p>
+
+                <h3>Part A: Your Core Values</h3>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">What are your real values when the default mode isn't running the show?</p>
+
+                <div class="form-group">
+                    <label>Value 1:</label>
+                    <textarea name="value-1" placeholder="What do you truly value?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Value 2:</label>
+                    <textarea name="value-2" placeholder="What matters most to you?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Value 3:</label>
+                    <textarea name="value-3" placeholder="What principles guide you?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Value 4:</label>
+                    <textarea name="value-4" placeholder="What do you stand for?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Value 5:</label>
+                    <textarea name="value-5" placeholder="What defines your character?"></textarea>
+                </div>
+
+                <h3>Part B: Your Authentic Self</h3>
+                <div class="form-group">
+                    <label>How would you act if you weren't trying to be someone else?</label>
+                    <textarea name="authentic-act" placeholder="How would you behave authentically?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What would you say if you weren't trying to please anyone?</label>
+                    <textarea name="authentic-say" placeholder="What would you express honestly?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How would you spend your time if you weren't trying to prove anything?</label>
+                    <textarea name="authentic-time" placeholder="How would you use your time authentically?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What would you create if you weren't afraid of judgment?</label>
+                    <textarea name="authentic-create" placeholder="What would you build or create?"></textarea>
+                </div>
+
+                <h3>Part C: Your New Standards</h3>
+                <div class="form-group">
+                    <label>What will you no longer accept in your life?</label>
+                    <textarea name="no-longer-accept" placeholder="What boundaries will you set?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What will you start doing differently?</label>
+                    <textarea name="start-differently" placeholder="What new behaviors will you adopt?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What boundaries will you set?</label>
+                    <textarea name="boundaries-set" placeholder="What limits will you establish?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What will you prioritize going forward?</label>
+                    <textarea name="prioritize-forward" placeholder="What will be most important to you?"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 5: Integration -->
+        <div class="phase-content" id="phase5">
+            <div class="exercise">
+                <h2>PHASE 5: INTEGRATION</h2>
+                <p>Transformation that doesn't last is just another performance. This phase ensures your new patterns become your new default. You'll create systems and practices that keep you awake and conscious every day.</p>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 9: DAILY AWARENESS PRACTICE</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Staying awake to your default mode</p>
+
+                <h3>Part A: Morning Check-In</h3>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">Every morning, ask yourself:</p>
+
+                <div class="form-group">
+                    <label>What does my default mode want me to do today?</label>
+                    <textarea name="default-mode-want" placeholder="What would your old patterns have you do?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What do I actually want to do?</label>
+                    <textarea name="actually-want" placeholder="What does your authentic self want?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What's the difference?</label>
+                    <textarea name="difference" placeholder="How are these different?"></textarea>
+                </div>
+
+                <h3>Part B: Moment-by-Moment Awareness</h3>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">Throughout the day, pause and ask:</p>
+
+                <div class="form-group">
+                    <label>Am I acting from my default mode or from conscious choice?</label>
+                    <textarea name="moment-awareness" placeholder="What's driving your actions right now?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What am I trying to escape from right now?</label>
+                    <textarea name="moment-escape" placeholder="What are you avoiding?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What would it look like to stay present with this feeling?</label>
+                    <textarea name="stay-present" placeholder="How would you face this feeling directly?"></textarea>
+                </div>
+
+                <h3>Part C: Evening Reflection</h3>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">At the end of each day, reflect:</p>
+
+                <div class="form-group">
+                    <label>When did my default mode take over today?</label>
+                    <textarea name="default-takeover" placeholder="What moments did you fall back into old patterns?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What did I learn about myself?</label>
+                    <textarea name="learned-today" placeholder="What insights did you gain?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What will I do differently tomorrow?</label>
+                    <textarea name="different-tomorrow" placeholder="How will you improve tomorrow?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What am I grateful for about today?</label>
+                    <textarea name="grateful-today" placeholder="What went well today?"></textarea>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 10: THE DAILY WORK</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Making transformation your new default</p>
+
+                <h3>Part A: Your Daily Practices</h3>
+                <div class="form-group">
+                    <label>What will you do every day to stay aware of your default mode?</label>
+                    <textarea name="daily-awareness" placeholder="Your daily awareness practice"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What will you do when you catch yourself in old patterns?</label>
+                    <textarea name="catch-old-patterns" placeholder="Your response when you notice old patterns"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How will you celebrate your wins?</label>
+                    <textarea name="celebrate-wins" placeholder="How will you acknowledge your progress?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How will you handle setbacks?</label>
+                    <textarea name="handle-setbacks" placeholder="How will you respond to challenges?"></textarea>
+                </div>
+
+                <h3>Part B: Your Support System</h3>
+                <div class="form-group">
+                    <label>Who will you tell about this work?</label>
+                    <textarea name="tell-about-work" placeholder="Who will you share this journey with?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Who will hold you accountable?</label>
+                    <textarea name="hold-accountable" placeholder="Who will help keep you on track?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What will you do when you want to give up?</label>
+                    <textarea name="want-give-up" placeholder="Your strategy for staying committed"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How will you stay committed to the process?</label>
+                    <textarea name="stay-committed" placeholder="What will keep you going?"></textarea>
+                </div>
+
+                <h3>Part C: Your Progress Tracking</h3>
+                <div class="form-group">
+                    <label>How will you measure your progress?</label>
+                    <textarea name="measure-progress" placeholder="What metrics will you use?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What will success look like in 30 days?</label>
+                    <textarea name="success-30" placeholder="What will you have achieved in a month?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What will success look like in 90 days?</label>
+                    <textarea name="success-90" placeholder="What will you have achieved in 3 months?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What will success look like in one year?</label>
+                    <textarea name="success-year" placeholder="What will you have achieved in a year?"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 6: Breakthrough -->
+        <div class="phase-content" id="phase6">
+            <div class="exercise">
+                <h2>PHASE 6: BREAKTHROUGH</h2>
+                <p>Sometimes you need to break down to break through. This phase is where you push past your comfort zone and into your authentic power. It's uncomfortable, but it's where real transformation happens.</p>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 11: THE BREAKDOWN BREAKTHROUGH</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Sometimes you need to break down to break through</p>
+
+                <h3>Part A: Your Breaking Point</h3>
+                <div class="form-group">
+                    <label>What would it take for you to have a real breakdown?</label>
+                    <textarea name="breaking-point" placeholder="What would trigger a complete breakdown?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What are you avoiding that could trigger it?</label>
+                    <textarea name="avoiding-trigger" placeholder="What are you running from?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What would happen if you let yourself feel everything you've been numbing?</label>
+                    <textarea name="feel-everything" placeholder="What emotions have you been avoiding?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What's the worst that could happen?</label>
+                    <textarea name="worst-happen" placeholder="What's your biggest fear?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What's the best that could happen?</label>
+                    <textarea name="best-happen" placeholder="What's the potential breakthrough?"></textarea>
+                </div>
+
+                <h3>Part B: The Rebuild</h3>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">If you had a complete breakdown and had to rebuild from scratch, what would you create?</p>
+
+                <div class="form-group">
+                    <label>Your new identity:</label>
+                    <textarea name="new-identity" placeholder="Who would you become?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Your new values:</label>
+                    <textarea name="new-values" placeholder="What would you stand for?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Your new relationships:</label>
+                    <textarea name="new-relationships" placeholder="How would you connect with others?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Your new purpose:</label>
+                    <textarea name="new-purpose" placeholder="What would drive you?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Your new way of being:</label>
+                    <textarea name="new-way-being" placeholder="How would you show up in the world?"></textarea>
+                </div>
+
+                <h3>Part C: Your Declaration</h3>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">Write your declaration of freedom from your default mode:</p>
+
+                <div class="form-group">
+                    <label>"I am no longer..."</label>
+                    <textarea name="no-longer" placeholder="What are you leaving behind?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>"I am now..."</label>
+                    <textarea name="am-now" placeholder="Who are you becoming?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>"I choose to..."</label>
+                    <textarea name="choose-to" placeholder="What are you choosing?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>"I commit to..."</label>
+                    <textarea name="commit-to" placeholder="What are you committing to?"></textarea>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 12: YOUR DECLARATION OF FREEDOM</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">The final exercise</p>
+
+                <h3>Part A: What You're Leaving Behind</h3>
+                <div class="form-group">
+                    <label>I am no longer controlled by:</label>
+                    <textarea name="no-longer-controlled" placeholder="What patterns are you breaking free from?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I am no longer afraid of:</label>
+                    <textarea name="no-longer-afraid" placeholder="What fears are you releasing?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I am no longer trying to:</label>
+                    <textarea name="no-longer-trying" placeholder="What are you stopping the effort to do?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I am no longer settling for:</label>
+                    <textarea name="no-longer-settling" placeholder="What are you no longer accepting?"></textarea>
+                </div>
+
+                <h3>Part B: What You're Stepping Into</h3>
+                <div class="form-group">
+                    <label>I am now the man who:</label>
+                    <textarea name="now-man-who" placeholder="Who are you becoming?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I am now committed to:</label>
+                    <textarea name="now-committed" placeholder="What are you committing to?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I am now choosing to:</label>
+                    <textarea name="now-choosing" placeholder="What are you choosing?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I am now creating:</label>
+                    <textarea name="now-creating" placeholder="What are you creating?"></textarea>
+                </div>
+
+                <h3>Part C: Your Commitment</h3>
+                <div class="form-group">
+                    <label>I commit to doing this work every day because:</label>
+                    <textarea name="commit-work" placeholder="Why is this work important to you?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I commit to staying aware because:</label>
+                    <textarea name="commit-aware" placeholder="Why is awareness crucial?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I commit to choosing consciously because:</label>
+                    <textarea name="commit-choosing" placeholder="Why is conscious choice important?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I commit to being the man I'm meant to be because:</label>
+                    <textarea name="commit-being" placeholder="Why is authentic being essential?"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusion Section - Only in Phase 6 -->
+        <div class="exercise" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05); margin-top: 50px;">
+            <h2 style="color: #ffd700; text-align: center; margin-bottom: 30px;">Your Journey Continues</h2>
+            
+            <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.6;">
+                Your default mode won't disappear overnight. It's been running your life for years. But every moment you choose awareness over autopilot; you're taking back control.
+            </p>
+            
+            <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.1rem;">
+                The work is simple but not easy:
+            </p>
+            
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 25px; margin: 25px 0;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">1. <strong>Notice</strong> - when your default mode takes over</p>
+                    <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">2. <strong>Pause</strong> - before reacting automatically</p>
+                    <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">3. <strong>Observe</strong> - what's really happening inside you</p>
+                    <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">4. <strong>Choose</strong> - your response consciously</p>
+                    <p style="color: #e2e8f0; margin: 8px 0; font-size: 1rem;">5. <strong>Repeat</strong> - until it becomes natural</p>
+                </div>
+            </div>
+            
+            <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.6;">
+                There will be days when you fail. Days when you fall back into old patterns. Days when you want to give up.
+            </p>
+            
+            <p style="color: #ffd700; font-weight: 700; margin-bottom: 20px; font-size: 1.2rem;">
+                That's not failure. That's the work.
+            </p>
+            
+            <p style="color: #e2e8f0; margin-bottom: 15px; font-size: 1.1rem;">Every breakdown is a breakthrough waiting to happen.</p>
+            <p style="color: #e2e8f0; margin-bottom: 15px; font-size: 1.1rem;">Every moment of awareness is a step toward freedom.</p>
+            <p style="color: #e2e8f0; margin-bottom: 30px; font-size: 1.1rem;">Every choice to stay present is a victory over your default mode.</p>
+            
+            <h3 style="color: #ffd700; text-align: center; margin: 40px 0 20px 0; font-size: 1.5rem;">THE COURAGE TO BE REAL</h3>
+            
+            <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.6;">
+                You've done the work. You've faced your patterns. You've seen your default mode for what it really is. Now comes the hardest part: staying awake.
+            </p>
+            
+            <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.6;">
+                Most men will go back to their comfortable lies. They'll download this workbook, do a few exercises, and return to their default mode. But you're here because you're different. You're the man who's ready to do the real work. The uncomfortable work. The work that actually transforms lives.
+            </p>
+            
+            <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.6;">
+                This workbook gave you the roadmap. But transformation doesn't happen in isolation. You need someone who's been there. Someone who's done the work. Someone who won't let you off the hook.
+            </p>
+            
+            <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.6;">
+                You need a mentor. Someone who will hold you accountable when you want to quit. Someone who will call out your bullshit when you're performing. Someone who will push you when you're stuck.
+            </p>
+            
+            <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.6;">
+                Because the default mode doesn't change overnight. It fights back. It tries to pull you back into old patterns. You need someone in your corner who understands the fight.
+            </p>
+            
+            <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.6;">
+                That's where I come in. I've been where you are. I've done the work. I've broken free from my default mode. And I can help you do the same.
+            </p>
+            
+            <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.6;">
+                If you're ready to stop doing this alone, if you're ready to have someone who's been there guide you through the transformation, then let's talk.
+            </p>
+            
+            <p style="color: #e2e8f0; margin-bottom: 30px; font-size: 1.1rem; line-height: 1.6;">
+                This isn't for everyone. This is for men who are serious about change. Men who are ready to do the real work. Are you one of them?
+            </p>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <button class="btn" style="background: linear-gradient(135deg, #ff6b35, #f7931e); font-size: 1.2rem; padding: 15px 30px;">
+                    Book 30 minutes free discovery call
+                </button>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <button class="btn" onclick="saveProgress()">💾 Save Progress</button>
+            <button class="btn" onclick="exportToPDF()">📄 Export to PDF</button>
+        </div>
+    </div>
+
+    <script>
+        function showPhase(phaseId) {
+            console.log('Switching to phase:', phaseId);
+            
+            // Hide all phases
+            const allPhases = document.querySelectorAll('.phase-content');
+            allPhases.forEach(phase => {
+                phase.classList.remove('active');
+            });
+            
+            // Show selected phase
+            const selectedPhase = document.getElementById(phaseId);
+            if (selectedPhase) {
+                selectedPhase.classList.add('active');
+            }
+            
+            // Update buttons
+            const allButtons = document.querySelectorAll('.phase-btn');
+            allButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            const currentButton = document.querySelector(`[onclick="showPhase('${phaseId}')"]`);
+            if (currentButton) {
+                currentButton.classList.add('active');
+            }
+        }
+
+        function saveProgress() {
+            // Get current user from session
+            const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
+            if (!currentUser.email) {
+                // User not logged in - silent fail
+                return;
+            }
+
+            // Collect all form data
+            const formData = {};
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                if (input.name) {
+                    formData[input.name] = input.value;
+                }
+            });
+
+            // Get current phase completion status
+            const currentPhase = document.querySelector('.phase-content.active');
+            const phaseId = currentPhase ? currentPhase.id : 'phase3';
+            
+            // Calculate completion percentage for current phase
+            const phaseInputs = currentPhase.querySelectorAll('input, textarea');
+            const filledInputs = Array.from(phaseInputs).filter(input => input.value.trim() !== '');
+            const completionPercentage = phaseInputs.length > 0 ? (filledInputs.length / phaseInputs.length) * 100 : 0;
+
+            // Load existing user data
+            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+            if (users[currentUser.email]) {
+                users[currentUser.email].workbookProgress = {
+                    ...users[currentUser.email].workbookProgress,
+                    ...formData,
+                    lastSaved: new Date().toISOString(),
+                    currentPhase: phaseId,
+                    phaseCompletion: {
+                        ...users[currentUser.email].workbookProgress?.phaseCompletion,
+                        [phaseId]: completionPercentage
+                    }
+                };
+                
+                localStorage.setItem('workbookUsers', JSON.stringify(users));
+                // Progress saved silently
+            }
+        }
+
+        function loadProgress() {
+            // Get current user from session
+            const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
+            if (!currentUser.email) {
+                return; // No user logged in
+            }
+
+            // Load user's saved progress
+            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+            if (users[currentUser.email] && users[currentUser.email].workbookProgress) {
+                const progress = users[currentUser.email].workbookProgress;
+                
+                // Restore form data
+                Object.keys(progress).forEach(key => {
+                    const input = document.querySelector(`[name="${key}"]`);
+                    if (input && typeof progress[key] === 'string') {
+                        input.value = progress[key];
+                    }
+                });
+
+                // Restore current phase if saved
+                if (progress.currentPhase) {
+                    showPhase(progress.currentPhase);
+                }
+
+                // Update phase completion status
+                updatePhaseCompletionStatus(progress.phaseCompletion || {});
+            }
+        }
+
+        function updatePhaseCompletionStatus(completionData) {
+            // Update phase buttons to show completion status
+            Object.keys(completionData).forEach(phaseId => {
+                const button = document.querySelector(`[onclick="showPhase('${phaseId}')"]`);
+                if (button && completionData[phaseId] >= 80) {
+                    button.style.background = 'rgba(34, 197, 94, 0.2)';
+                    button.style.borderColor = '#22c55e';
+                    button.innerHTML = button.innerHTML.replace('🔒', '✅');
+                }
+            });
+        }
+
+        // Force cache refresh
+        function forceRefresh() {
+            const currentVersion = '2024-12-19-16:00';
+            const savedVersion = localStorage.getItem('workbookVersion');
+            
+            if (savedVersion !== currentVersion) {
+                localStorage.setItem('workbookVersion', currentVersion);
+                // Force reload if version changed
+                if (savedVersion && savedVersion !== currentVersion) {
+                    window.location.reload(true);
+                }
+            }
+        }
+
+        // Load progress when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            forceRefresh();
+            loadProgress();
+            
+            // Auto-save progress every 30 seconds
+            setInterval(saveProgress, 30000);
+        });
+
+        function exportToPDF() {
+            // PDF export - silent
+        }
+    </script>
+</body>
+</html>

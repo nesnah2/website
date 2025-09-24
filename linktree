@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linktree - Mikkel Hansen</title>
-    <meta http-equiv="refresh" content="0; url=linktree.html">
-    <link rel="canonical" href="linktree.html">
+    <meta http-equiv="refresh" content="0; url=linktree-clean.html">
+    <link rel="canonical" href="linktree-clean.html">
 </head>
 <body>
-    <p>Redirecting to <a href="linktree.html">Linktree</a>...</p>
+    <p>Redirecting to <a href="linktree-clean.html">Linktree</a>...</p>
     <script>
-        window.location.replace('linktree.html');
+        window.location.replace('linktree-clean.html');
     </script>
 </body>
 </html>

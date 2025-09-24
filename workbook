@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workbook - Mikkel Hansen</title>
-    <meta http-equiv="refresh" content="0; url=workbook.html">
-    <link rel="canonical" href="workbook.html">
+    <meta http-equiv="refresh" content="0; url=workbook-clean.html">
+    <link rel="canonical" href="workbook-clean.html">
 </head>
 <body>
-    <p>Redirecting to <a href="workbook.html">Workbook</a>...</p>
+    <p>Redirecting to <a href="workbook-clean.html">Workbook</a>...</p>
     <script>
-        window.location.replace('workbook.html');
+        window.location.replace('workbook-clean.html');
     </script>
 </body>
 </html>
