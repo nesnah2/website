@@ -1,0 +1,36 @@
+# GitHub Pages Configuration
+# This file configures GitHub Pages to serve clean URLs without .html extensions
+
+# Site settings
+title: "Mikkel Hansen - Men's Development Coach"
+description: "Breaking free from default mode patterns. Transform from boy to man through authentic self-discovery."
+url: "https://mikkelhansen.org"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Permalinks - this removes .html from URLs
+permalink: /:title/
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - _redirects
+
+# Include
+include:
+  - _redirects
+
+# Plugins
+plugins:
+  - jekyll-redirect-from
