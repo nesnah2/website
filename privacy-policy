@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=./privacy-policy.html">
-    <link rel="canonical" href="./privacy-policy.html">
+    <title>Privacy Policy - Mikkel Hansen</title>
+    <script>
+        window.location.href = './privacy-policy.html';
+    </script>
 </head>
 <body>
-    <p>Redirecting to <a href="./privacy-policy.html">Privacy Policy</a>...</p>
+    <p>Redirecting to Privacy Policy...</p>
 </body>
 </html>

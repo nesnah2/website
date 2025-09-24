@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=./faq.html">
-    <link rel="canonical" href="./faq.html">
+    <title>FAQ - Mikkel Hansen</title>
+    <script>
+        window.location.href = './faq.html';
+    </script>
 </head>
 <body>
-    <p>Redirecting to <a href="./faq.html">FAQ page</a>...</p>
+    <p>Redirecting to FAQ page...</p>
 </body>
 </html>

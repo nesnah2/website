@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=./archive.html">
-    <link rel="canonical" href="./archive.html">
+    <title>Archive - Mikkel Hansen</title>
+    <script>
+        window.location.href = './archive.html';
+    </script>
 </head>
 <body>
-    <p>Redirecting to <a href="./archive.html">Archive page</a>...</p>
+    <p>Redirecting to Archive page...</p>
 </body>
 </html>

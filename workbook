@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=./workbook.html">
-    <link rel="canonical" href="./workbook.html">
+    <title>Workbook - Mikkel Hansen</title>
+    <script>
+        window.location.href = './workbook.html';
+    </script>
 </head>
 <body>
-    <p>Redirecting to <a href="./workbook.html">Workbook</a>...</p>
+    <p>Redirecting to Workbook...</p>
 </body>
 </html>

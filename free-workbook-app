@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=./free-workbook-app.html">
-    <link rel="canonical" href="./free-workbook-app.html">
+    <title>Free Workbook App - Mikkel Hansen</title>
+    <script>
+        window.location.href = './free-workbook-app.html';
+    </script>
 </head>
 <body>
-    <p>Redirecting to <a href="./free-workbook-app.html">Free Workbook App</a>...</p>
+    <p>Redirecting to Free Workbook App...</p>
 </body>
 </html>

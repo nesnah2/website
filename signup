@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=./signup.html">
-    <link rel="canonical" href="./signup.html">
+    <title>Signup - Mikkel Hansen</title>
+    <script>
+        window.location.href = './signup.html';
+    </script>
 </head>
 <body>
-    <p>Redirecting to <a href="./signup.html">Signup page</a>...</p>
+    <p>Redirecting to Signup page...</p>
 </body>
 </html>

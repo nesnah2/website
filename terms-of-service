@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=./terms-of-service.html">
-    <link rel="canonical" href="./terms-of-service.html">
+    <title>Terms of Service - Mikkel Hansen</title>
+    <script>
+        window.location.href = './terms-of-service.html';
+    </script>
 </head>
 <body>
-    <p>Redirecting to <a href="./terms-of-service.html">Terms of Service</a>...</p>
+    <p>Redirecting to Terms of Service...</p>
 </body>
 </html>
