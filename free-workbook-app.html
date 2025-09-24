@@ -180,32 +180,8 @@
 </head>
 <body>
     <div class="container">
-        <!-- Login Section -->
-        <div id="loginSection" class="exercise" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto;">
-            <h2 style="text-align: center; margin-bottom: 30px;">Access Your Free Workbook</h2>
-            <p style="text-align: center; color: #e2e8f0; margin-bottom: 30px;">Enter your details to save your progress and continue where you left off.</p>
-            
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="loginName">Your Name</label>
-                    <input type="text" id="loginName" name="name" required placeholder="Enter your name" style="width: 100%; padding: 12px; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 8px; background: rgba(255, 255, 255, 0.05); color: #ffffff; font-family: 'Inter', sans-serif;">
-                </div>
-                
-                <div class="form-group">
-                    <label for="loginEmail">Email Address</label>
-                    <input type="email" id="loginEmail" name="email" required placeholder="your.email@example.com" style="width: 100%; padding: 12px; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 8px; background: rgba(255, 255, 255, 0.05); color: #ffffff; font-family: 'Inter', sans-serif;">
-                </div>
-                
-                <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">
-                    Start Your Free Workbook
-                </button>
-            </form>
-        </div>
-
-        <!-- Main Content (hidden until login) -->
-        <div id="mainContent" style="display: none;">
-            <h1>Breaking Free From Your Default Mode</h1>
-            <p style="text-align: center; color: #ffd700; font-size: 1.2rem; margin-bottom: 2rem;">Free Guide: The First Two Phases</p>
+        <h1>Breaking Free From Your Default Mode</h1>
+        <p style="text-align: center; color: #ffd700; font-size: 1.2rem; margin-bottom: 2rem;">Free Guide: The First Two Phases</p>
         
         <div class="phase-nav">
             <button class="phase-btn active" onclick="showPhase('phase1')">Phase 1: Awareness</button>
@@ -738,48 +714,12 @@
             </div>
         </div>
 
-            <div style="text-align: center; margin-top: 40px;">
-                <button class="btn" onclick="saveProgress()">💾 Save Progress</button>
-                <button class="btn" onclick="exportToPDF()">📄 Export to PDF</button>
-            </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <button class="btn" onclick="exportToPDF()">📄 Export to PDF</button>
         </div>
     </div>
 
     <script>
-        // Check if user is already logged in
-        function checkLogin() {
-            const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
-            if (currentUser.email) {
-                // User is logged in, show main content
-                document.getElementById('loginSection').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
-                loadProgress();
-            } else {
-                // User not logged in, show login form
-                document.getElementById('loginSection').style.display = 'block';
-                document.getElementById('mainContent').style.display = 'none';
-            }
-        }
-
-        // Handle login form submission
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('loginName').value;
-            const email = document.getElementById('loginEmail').value;
-            
-            // Save user info to session
-            const currentUser = { name: name, email: email };
-            sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
-            
-            // Show main content
-            document.getElementById('loginSection').style.display = 'none';
-            document.getElementById('mainContent').style.display = 'block';
-            
-            // Load any existing progress
-            loadProgress();
-        });
-
         function showPhase(phaseId) {
             console.log('Switching to phase:', phaseId);
             
@@ -807,118 +747,9 @@
             }
         }
 
-        function saveProgress() {
-            // Get current user
-            const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
-            if (!currentUser.email) {
-                alert('Please log in first to save your progress.');
-                return;
-            }
-
-            // Collect all form data
-            const formData = {};
-            const inputs = document.querySelectorAll('input, textarea, select');
-            inputs.forEach(input => {
-                if (input.name) {
-                    if (input.type === 'checkbox') {
-                        if (!formData[input.name]) {
-                            formData[input.name] = [];
-                        }
-                        if (input.checked) {
-                            formData[input.name].push(input.value);
-                        }
-                    } else {
-                        formData[input.name] = input.value;
-                    }
-                }
-            });
-
-            // Get current phase completion status
-            const currentPhase = document.querySelector('.phase-content.active');
-            const phaseId = currentPhase ? currentPhase.id : 'phase1';
-            
-            // Calculate completion percentage for current phase
-            const phaseInputs = currentPhase.querySelectorAll('input, textarea');
-            const filledInputs = Array.from(phaseInputs).filter(input => {
-                if (input.type === 'checkbox') {
-                    return input.checked;
-                }
-                return input.value.trim() !== '';
-            });
-            const completionPercentage = phaseInputs.length > 0 ? (filledInputs.length / phaseInputs.length) * 100 : 0;
-
-            // Save to localStorage with user-specific key
-            const userKey = `freeWorkbookProgress_${currentUser.email}`;
-            const freeWorkbookProgress = {
-                ...formData,
-                lastSaved: new Date().toISOString(),
-                currentPhase: phaseId,
-                phaseCompletion: {
-                    phase1: document.getElementById('phase1') ? 
-                        (Array.from(document.getElementById('phase1').querySelectorAll('input, textarea')).filter(input => {
-                            if (input.type === 'checkbox') return input.checked;
-                            return input.value.trim() !== '';
-                        }).length / document.getElementById('phase1').querySelectorAll('input, textarea').length) * 100 : 0,
-                    phase2: document.getElementById('phase2') ? 
-                        (Array.from(document.getElementById('phase2').querySelectorAll('input, textarea')).filter(input => {
-                            if (input.type === 'checkbox') return input.checked;
-                            return input.value.trim() !== '';
-                        }).length / document.getElementById('phase2').querySelectorAll('input, textarea').length) * 100 : 0
-                }
-            };
-            
-            localStorage.setItem(userKey, JSON.stringify(freeWorkbookProgress));
-            alert('Progress saved!');
-        }
-
-        function loadProgress() {
-            const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
-            if (!currentUser.email) return;
-
-            const userKey = `freeWorkbookProgress_${currentUser.email}`;
-            const savedProgress = localStorage.getItem(userKey);
-            if (savedProgress) {
-                const progress = JSON.parse(savedProgress);
-                
-                // Restore form data
-                Object.keys(progress).forEach(key => {
-                    if (key === 'lastSaved' || key === 'currentPhase' || key === 'phaseCompletion') return;
-                    
-                    const inputs = document.querySelectorAll(`[name="${key}"]`);
-                    inputs.forEach(input => {
-                        if (input.type === 'checkbox') {
-                            if (Array.isArray(progress[key]) && progress[key].includes(input.value)) {
-                                input.checked = true;
-                            }
-                        } else if (typeof progress[key] === 'string') {
-                            input.value = progress[key];
-                        }
-                    });
-                });
-
-                // Restore current phase if saved
-                if (progress.currentPhase) {
-                    showPhase(progress.currentPhase);
-                }
-            }
-        }
-
         function exportToPDF() {
             alert('PDF export feature coming soon!');
         }
-
-        // Load progress when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            checkLogin();
-            
-            // Auto-save progress every 30 seconds (only if logged in)
-            setInterval(function() {
-                const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
-                if (currentUser.email) {
-                    saveProgress();
-                }
-            }, 30000);
-        });
     </script>
 </body>
 </html>
