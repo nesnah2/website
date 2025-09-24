@@ -4,13 +4,436 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Workbook App - Mikkel Hansen</title>
-    <meta http-equiv="refresh" content="0; url=free-workbook-app-clean.html">
-    <link rel="canonical" href="free-workbook-app-clean.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            margin: 0;
+            padding: 10px; /* Mobile-first padding */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 5px; /* Mobile-first padding */
+        }
+
+        h1 {
+            font-size: 2rem; /* Mobile-first font size */
+            font-weight: 800;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 1.5rem; /* Mobile-first margin */
+            line-height: 1.2;
+        }
+
+        .phase-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px; /* Mobile-first gap */
+            margin-bottom: 1.5rem; /* Mobile-first margin */
+            padding: 0 5px; /* Mobile-first padding */
+            flex-wrap: wrap; /* Mobile-first wrap */
+        }
+
+        .phase-btn {
+            padding: 8px 12px; /* Mobile-first padding */
+            border: 2px solid #ffd700;
+            background: transparent;
+            color: #ffd700;
+            border-radius: 8px; /* Mobile-first border radius */
+            cursor: pointer;
+            font-size: 0.9rem; /* Mobile-first font size */
+            font-weight: 600;
+            text-align: center;
+            min-width: 80px; /* Mobile-first min width */
+            transition: all 0.3s ease;
+        }
+
+        .phase-btn:hover {
+            background: #ffd700;
+            color: #0f1419;
+        }
+
+        .phase-btn.active {
+            background: #ffd700;
+            color: #0f1419;
+        }
+
+        .phase-content {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px; /* Mobile-first border radius */
+            padding: 20px; /* Mobile-first padding */
+            margin-bottom: 20px; /* Mobile-first margin */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+        }
+
+        .phase-content.active {
+            display: block;
+        }
+
+        .exercise {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px; /* Mobile-first border radius */
+            padding: 15px; /* Mobile-first padding */
+            margin-bottom: 15px; /* Mobile-first margin */
+            border-left: 4px solid #ffd700;
+        }
+
+        .exercise h3 {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Mobile-first margin */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px; /* Mobile-first margin */
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 0.9rem; /* Mobile-first font size */
+        }
+
+        .form-group textarea {
+            width: 100%;
+            padding: 10px; /* Mobile-first padding */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px; /* Mobile-first border radius */
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            min-height: 80px; /* Mobile-first min height */
+            font-size: 0.9rem; /* Mobile-first font size */
+            box-sizing: border-box; /* Mobile-first box sizing */
+        }
+
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #0f1419;
+            padding: 12px 24px; /* Mobile-first padding */
+            border: none;
+            border-radius: 8px; /* Mobile-first border radius */
+            font-weight: 700;
+            cursor: pointer;
+            margin: 10px 0; /* Mobile-first margin */
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem; /* Mobile-first font size */
+            width: 100%; /* Mobile-first width */
+            text-align: center; /* Mobile-first text align */
+            box-sizing: border-box; /* Mobile-first box sizing */
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .completion-message {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #ffd700;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .completion-message h3 {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        /* Mobile-first responsive design */
+        @media (min-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            .container {
+                padding: 0;
+            }
+            
+            h1 {
+                font-size: 3rem;
+                margin-bottom: 2rem;
+            }
+            
+            .phase-nav {
+                gap: 15px;
+                margin-bottom: 2rem;
+                padding: 0;
+                flex-wrap: nowrap;
+            }
+            
+            .phase-btn {
+                padding: 12px 20px;
+                border-radius: 12px;
+                font-size: 1rem;
+                min-width: 120px;
+            }
+            
+            .phase-content {
+                border-radius: 16px;
+                padding: 30px;
+                margin-bottom: 30px;
+            }
+            
+            .exercise {
+                border-radius: 12px;
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .form-group {
+                margin-bottom: 20px;
+            }
+            
+            .form-group label {
+                margin-bottom: 8px;
+                font-size: 1rem;
+            }
+            
+            .form-group textarea {
+                padding: 15px;
+                border-radius: 8px;
+                min-height: 100px;
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 15px 30px;
+                border-radius: 12px;
+                margin: 15px 0;
+                font-size: 1.1rem;
+                width: auto;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to <a href="free-workbook-app-clean.html">Free Workbook App</a>...</p>
+    <div class="container">
+        <h1>Free Workbook App</h1>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        
+        <div class="phase-nav">
+            <button class="phase-btn active" onclick="showPhase('phase1')">Phase 1</button>
+            <button class="phase-btn" onclick="showPhase('phase2')">Phase 2</button>
+        </div>
+        
+        <div class="phase-content active" id="phase1">
+            <h2>Phase 1: Awareness</h2>
+            <p>You've been living on autopilot for years. Your default mode has been running the show while you thought you were in control. This phase is about waking up to the truth of who you've become.</p>
+            
+            <div class="exercise">
+                <h3>Exercise 1: Identify Your Default Mode</h3>
+                <div class="form-group">
+                    <label>Part A: Your Automatic Responses</label>
+                    <textarea placeholder="When you feel threatened or vulnerable, how does your default mode tell you to feel & respond?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>At work when criticized:</label>
+                    <textarea placeholder="Describe your automatic response..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>In relationships when rejected:</label>
+                    <textarea placeholder="Describe your automatic response..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>When facing failure:</label>
+                    <textarea placeholder="Describe your automatic response..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>When feeling inadequate:</label>
+                    <textarea placeholder="Describe your automatic response..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>When someone disagrees with you:</label>
+                    <textarea placeholder="Describe your automatic response..."></textarea>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <h3>Exercise 2: Spot Your Escape Routes</h3>
+                <div class="form-group">
+                    <label>Part A: Internal Escapes</label>
+                    <textarea placeholder="When you feel uncomfortable or vulnerable, what do you do internally, by default?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Part B: External Escapes</label>
+                    <textarea placeholder="What do you use to numb or avoid facing your default mode?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Part C: The Cost of Escaping</label>
+                    <textarea placeholder="What is escaping costing you?"></textarea>
+                </div>
+            </div>
+        </div>
+        
+        <div class="phase-content" id="phase2">
+            <h2>Phase 2: Observation</h2>
+            <p>Awareness is just the beginning. Now you need to see the specific patterns that keep you stuck. These aren't random behaviors, they're systematic responses to triggers you've been blind to.</p>
+            
+            <div class="exercise">
+                <h3>Exercise 3: The Moment of Truth</h3>
+                <div class="form-group">
+                    <label>Part A: Recent Examples</label>
+                    <textarea placeholder="Think of a recent situation where you unconsciously reacted by default. What happened?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>The Situation:</label>
+                    <textarea placeholder="Describe the situation..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Your Automatic Reaction:</label>
+                    <textarea placeholder="What was your automatic reaction?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>What Your Default Mode Told You:</label>
+                    <textarea placeholder="What did your default mode tell you?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>How You Felt After:</label>
+                    <textarea placeholder="How did you feel after the reaction?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>What You Really Wanted to Do:</label>
+                    <textarea placeholder="What did you really want to do instead?"></textarea>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <h3>Exercise 4: Confronting the Puppet Master</h3>
+                <div class="form-group">
+                    <label>Part A: Let It Run Wild</label>
+                    <textarea placeholder="For one day, let your default mode do whatever it wants. Don't try to control it. Just observe."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>What did it make you do?</label>
+                    <textarea placeholder="Describe what happened..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>What stories did it tell you?</label>
+                    <textarea placeholder="What stories did your default mode tell you?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>What emotions did it trigger?</label>
+                    <textarea placeholder="What emotions were triggered?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>What did you learn about yourself?</label>
+                    <textarea placeholder="What insights did you gain?"></textarea>
+                </div>
+            </div>
+        </div>
+        
+        <div class="completion-message">
+            <h3>🎉 Congratulations!</h3>
+            <p>You've completed the free workbook. You now have clear awareness of your default mode patterns and understanding of how you're sabotaging yourself.</p>
+            <a href="workbook" class="btn">Get the Complete Workbook</a>
+        </div>
+    </div>
+
     <script>
-        window.location.replace('free-workbook-app-clean.html');
+        function showPhase(phaseId) {
+            console.log('Switching to phase:', phaseId);
+            
+            // Hide all phases
+            const allPhases = document.querySelectorAll('.phase-content');
+            allPhases.forEach(phase => {
+                phase.classList.remove('active');
+            });
+            
+            // Show selected phase
+            const selectedPhase = document.getElementById(phaseId);
+            if (selectedPhase) {
+                selectedPhase.classList.add('active');
+            }
+            
+            // Update buttons
+            const allButtons = document.querySelectorAll('.phase-btn');
+            allButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            const currentButton = document.querySelector(`[onclick="showPhase('${phaseId}')"]`);
+            if (currentButton) {
+                currentButton.classList.add('active');
+            }
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const totalExercises = 4; // Total number of exercises
+            let completedExercises = 0;
+            
+            // Check if exercises have content
+            const textareas = document.querySelectorAll('textarea');
+            textareas.forEach(textarea => {
+                if (textarea.value.trim() !== '') {
+                    completedExercises++;
+                }
+            });
+            
+            const progress = (completedExercises / (totalExercises * 2)) * 100; // 2 phases
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        // Add event listeners to textareas
+        document.addEventListener('DOMContentLoaded', function() {
+            const textareas = document.querySelectorAll('textarea');
+            textareas.forEach(textarea => {
+                textarea.addEventListener('input', updateProgress);
+            });
+            
+            // Initial progress update
+            updateProgress();
+        });
     </script>
 </body>
 </html>
