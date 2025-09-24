@@ -2,23 +2,10 @@
 # This file handles redirects from clean URLs to actual .html files
 
 # Main pages
-/about    /about.html    200
-/faq      /faq.html      200
-/testimonials    /testimonials.html    200
-/privacy-policy  /privacy-policy.html  200
-/terms-of-service    /terms-of-service.html    200
-
-# Workbook pages
-/workbook     /workbook.html   200
-/freeworkbook /freeworkbook.html   200
+/freeworkbook    /freeworkbook.html    200
 /free-workbook-app  /free-workbook-app.html    200
-
-# Other pages
-/archive  /archive.html  200
-/linktree /linktree.html 200
-/signup   /signup.html   200
-/newsletter-signup    /newsletter-signup.html   200
-/email-signup /email-signup.html    200
+/workbook     /workbook.html   200
+/linktree /linktree.html   200
 
 # Catch-all for any other clean URLs
 /*    /index.html   200

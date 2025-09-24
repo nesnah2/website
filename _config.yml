@@ -1,5 +1,5 @@
 # GitHub Pages Configuration
-# This file configures GitHub Pages to serve clean URLs without .html extensions
+# This file configures GitHub Pages to serve clean URLs
 
 # Site settings
 title: "Mikkel Hansen - Men's Development Coach"
@@ -15,6 +15,20 @@ theme: minima
 # Permalinks - this removes .html from URLs
 permalink: /:title/
 
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
 # Exclude from processing
 exclude:
   - README.md
@@ -25,7 +39,6 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - _redirects
 
 # Include
 include:
