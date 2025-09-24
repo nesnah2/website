@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linktree - Mikkel Hansen</title>
-    <script>
-        window.location.href = './linktree.html';
-    </script>
+    <meta http-equiv="refresh" content="0; url=linktree.html">
+    <link rel="canonical" href="linktree.html">
 </head>
 <body>
-    <p>Redirecting to Linktree page...</p>
+    <p>Redirecting to <a href="linktree.html">Linktree</a>...</p>
+    <script>
+        window.location.replace('linktree.html');
+    </script>
 </body>
 </html>

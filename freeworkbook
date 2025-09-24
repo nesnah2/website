@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Workbook - Mikkel Hansen</title>
-    <script>
-        window.location.href = './freeworkbook.html';
-    </script>
+    <meta http-equiv="refresh" content="0; url=freeworkbook.html">
+    <link rel="canonical" href="freeworkbook.html">
 </head>
 <body>
-    <p>Redirecting to Free Workbook...</p>
+    <p>Redirecting to <a href="freeworkbook.html">Free Workbook</a>...</p>
+    <script>
+        window.location.replace('freeworkbook.html');
+    </script>
 </body>
 </html>
