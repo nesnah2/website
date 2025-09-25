@@ -205,10 +205,206 @@
         <h1>Breaking Free From Your Default Mode</h1>
         
         <div class="phase-nav">
+            <button class="phase-btn" onclick="showPhase('phase2')">Phase 2: Father Wounds</button>
             <button class="phase-btn active" onclick="showPhase('phase3')">Phase 3: Solitude</button>
+            <button class="phase-btn" onclick="showPhase('phase3-5')">Phase 3.5: Purpose</button>
             <button class="phase-btn" onclick="showPhase('phase4')">Phase 4: Transformation</button>
+            <button class="phase-btn" onclick="showPhase('phase4-5')">Phase 4.5: Relationships</button>
             <button class="phase-btn" onclick="showPhase('phase5')">Phase 5: Integration</button>
+            <button class="phase-btn" onclick="showPhase('phase5-5')">Phase 5.5: Power</button>
             <button class="phase-btn" onclick="showPhase('phase6')">Phase 6: Breakthrough</button>
+        </div>
+
+        <!-- Phase 2: Father Wounds -->
+        <div class="phase-content" id="phase2">
+            <div class="exercise">
+                <h2>PHASE 2: FATHER WOUNDS</h2>
+                <p>Every man carries his father's legacy - the good, the bad, and the missing. This phase is where you face the masculine wounds that shaped your default mode. You'll heal what needs healing and claim what's yours to claim.</p>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 1: THE FATHER AUDIT</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Understanding your masculine inheritance</p>
+
+                <h3>Part A: What You Received</h3>
+                <div class="form-group">
+                    <label>What did your father teach you about being a man?</label>
+                    <textarea name="father-teachings" placeholder="What lessons about masculinity did you learn?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What did your father model about emotions?</label>
+                    <textarea name="father-emotions" placeholder="How did he handle feelings? What did you learn?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What did your father model about relationships?</label>
+                    <textarea name="father-relationships" placeholder="How did he relate to others? What patterns did you inherit?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What did your father model about work and success?</label>
+                    <textarea name="father-work" placeholder="What did you learn about achievement and failure?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What did your father model about conflict?</label>
+                    <textarea name="father-conflict" placeholder="How did he handle disagreements and confrontation?"></textarea>
+                </div>
+
+                <h3>Part B: What Was Missing</h3>
+                <div class="form-group">
+                    <label>What did you need from your father that you didn't get?</label>
+                    <textarea name="father-missing" placeholder="What emotional or practical support was missing?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What masculine qualities did you have to figure out on your own?</label>
+                    <textarea name="masculine-qualities" placeholder="What did you have to learn without guidance?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What did you learn about masculinity from other sources?</label>
+                    <textarea name="other-masculinity" placeholder="Movies, friends, mentors, culture - what shaped your view?"></textarea>
+                </div>
+
+                <h3>Part C: The Wounds</h3>
+                <div class="form-group">
+                    <label>What wounds did your father's absence create?</label>
+                    <textarea name="father-absence-wounds" placeholder="How did his physical or emotional absence affect you?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What wounds did your father's presence create?</label>
+                    <textarea name="father-presence-wounds" placeholder="How did his behavior or criticism affect you?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What wounds did your father's example create?</label>
+                    <textarea name="father-example-wounds" placeholder="What patterns did you inherit that hurt you?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How do these wounds show up in your default mode?</label>
+                    <textarea name="wounds-default-mode" placeholder="How do these wounds drive your current patterns?"></textarea>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 2: THE FATHER FORGIVENESS</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Releasing what's not yours to carry</p>
+
+                <h3>Part A: Understanding His Story</h3>
+                <div class="form-group">
+                    <label>What was your father's relationship with his father like?</label>
+                    <textarea name="fathers-father" placeholder="What patterns did he inherit?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What wounds was your father carrying?</label>
+                    <textarea name="fathers-wounds" placeholder="What pain was he dealing with?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What was your father trying to protect you from?</label>
+                    <textarea name="father-protection" placeholder="What was he trying to shield you from?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What was your father trying to prepare you for?</label>
+                    <textarea name="father-preparation" placeholder="What was he trying to teach you?"></textarea>
+                </div>
+
+                <h3>Part B: The Forgiveness</h3>
+                <div class="form-group">
+                    <label>What can you forgive your father for?</label>
+                    <textarea name="forgive-father" placeholder="What can you release and let go of?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What can you forgive yourself for?</label>
+                    <textarea name="forgive-self" placeholder="What self-blame can you release?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What can you forgive the situation for?</label>
+                    <textarea name="forgive-situation" placeholder="What circumstances can you accept?"></textarea>
+                </div>
+
+                <h3>Part C: What You Keep</h3>
+                <div class="form-group">
+                    <label>What positive qualities did your father give you?</label>
+                    <textarea name="father-positive" placeholder="What strengths did you inherit?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What lessons can you keep and build upon?</label>
+                    <textarea name="father-lessons" placeholder="What wisdom can you carry forward?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What do you want to do differently as a man?</label>
+                    <textarea name="different-man" placeholder="How will you break the cycle?"></textarea>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 3: YOUR MASCULINE LINEAGE</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Claiming your authentic masculine inheritance</p>
+
+                <h3>Part A: The Men Who Shaped You</h3>
+                <div class="form-group">
+                    <label>Who were the positive masculine role models in your life?</label>
+                    <textarea name="positive-models" placeholder="Teachers, coaches, mentors, friends, family members"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What did you learn from them about being a man?</label>
+                    <textarea name="learned-masculinity" placeholder="What positive masculine qualities did they model?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What masculine qualities do you admire in other men?</label>
+                    <textarea name="admire-masculinity" placeholder="What traits do you respect in men?"></textarea>
+                </div>
+
+                <h3>Part B: Your Masculine Values</h3>
+                <div class="form-group">
+                    <label>What does healthy masculinity mean to you?</label>
+                    <textarea name="healthy-masculinity" placeholder="What does being a good man look like?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What masculine qualities do you want to develop?</label>
+                    <textarea name="develop-masculinity" placeholder="What traits do you want to strengthen?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What masculine qualities do you want to let go of?</label>
+                    <textarea name="let-go-masculinity" placeholder="What toxic patterns do you want to release?"></textarea>
+                </div>
+
+                <h3>Part C: Your Masculine Declaration</h3>
+                <div class="form-group">
+                    <label>I am a man who...</label>
+                    <textarea name="man-who" placeholder="Complete this statement with your authentic masculine identity"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I stand for...</label>
+                    <textarea name="stand-for" placeholder="What values do you stand for as a man?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I will not...</label>
+                    <textarea name="will-not" placeholder="What will you refuse to do or be?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I will...</label>
+                    <textarea name="will-do" placeholder="What will you commit to doing as a man?"></textarea>
+                </div>
+            </div>
         </div>
 
         <!-- Phase 3: Solitude -->
@@ -420,6 +616,203 @@
                 <div class="form-group">
                     <label>What would you create if you weren't afraid of being alone?</label>
                     <textarea name="create-alone" placeholder="What would you build or create?"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 3.5: Masculine Purpose -->
+        <div class="phase-content" id="phase3-5">
+            <div class="exercise">
+                <h2>PHASE 3.5: MASCULINE PURPOSE</h2>
+                <p>Every man needs a mission. Without purpose, you're just surviving, not living. This phase is where you discover your masculine calling - the work that gives your life meaning and direction. You'll find your mission and learn to lead from your authentic power.</p>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 4: THE MISSION DISCOVERY</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Finding your masculine calling</p>
+
+                <h3>Part A: What Calls to You</h3>
+                <div class="form-group">
+                    <label>What problems in the world make you angry?</label>
+                    <textarea name="problems-angry" placeholder="What injustices or issues stir something in you?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What causes do you naturally want to defend?</label>
+                    <textarea name="causes-defend" placeholder="What do you feel protective about?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What do you wish someone had done for you?</label>
+                    <textarea name="wish-someone-done" placeholder="What support or guidance did you need?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What do you want to be remembered for?</label>
+                    <textarea name="remembered-for" placeholder="What legacy do you want to leave?"></textarea>
+                </div>
+
+                <h3>Part B: Your Natural Gifts</h3>
+                <div class="form-group">
+                    <label>What do people naturally come to you for help with?</label>
+                    <textarea name="people-come-help" placeholder="What do others seek your guidance on?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What do you do that feels effortless?</label>
+                    <textarea name="effortless-do" placeholder="What comes naturally to you?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What do you do that energizes you?</label>
+                    <textarea name="energizes-you" placeholder="What activities give you energy?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What do you do that others find difficult?</label>
+                    <textarea name="others-difficult" placeholder="What's easy for you but hard for others?"></textarea>
+                </div>
+
+                <h3>Part C: Your Mission Statement</h3>
+                <div class="form-group">
+                    <label>My mission is to...</label>
+                    <textarea name="mission-statement" placeholder="Complete this statement with your calling"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I will serve by...</label>
+                    <textarea name="serve-by" placeholder="How will you fulfill your mission?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I will lead by...</label>
+                    <textarea name="lead-by" placeholder="How will you lead others?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I will impact by...</label>
+                    <textarea name="impact-by" placeholder="What change will you create?"></textarea>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 5: THE LEADERSHIP DEVELOPMENT</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Developing your masculine leadership</p>
+
+                <h3>Part A: Your Leadership Style</h3>
+                <div class="form-group">
+                    <label>How do you naturally lead others?</label>
+                    <textarea name="naturally-lead" placeholder="What's your natural leadership approach?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What kind of leader do you want to be?</label>
+                    <textarea name="want-leader" placeholder="What leadership qualities do you want to develop?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What kind of leader do you NOT want to be?</label>
+                    <textarea name="not-leader" placeholder="What leadership patterns do you want to avoid?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Who do you want to lead?</label>
+                    <textarea name="who-lead" placeholder="Who are you called to serve and guide?"></textarea>
+                </div>
+
+                <h3>Part B: Your Leadership Challenges</h3>
+                <div class="form-group">
+                    <label>What leadership challenges do you face?</label>
+                    <textarea name="leadership-challenges" placeholder="What makes leading difficult for you?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What do you avoid when it comes to leadership?</label>
+                    <textarea name="avoid-leadership" placeholder="What leadership responsibilities do you shy away from?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What leadership skills do you need to develop?</label>
+                    <textarea name="develop-skills" placeholder="What abilities do you need to strengthen?"></textarea>
+                </div>
+
+                <h3>Part C: Your Leadership Commitment</h3>
+                <div class="form-group">
+                    <label>I will lead by example by...</label>
+                    <textarea name="lead-example" placeholder="How will you model the behavior you want to see?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I will take responsibility for...</label>
+                    <textarea name="take-responsibility" placeholder="What will you be accountable for?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I will empower others by...</label>
+                    <textarea name="empower-others" placeholder="How will you help others grow?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I will make decisions based on...</label>
+                    <textarea name="decisions-based" placeholder="What principles will guide your decisions?"></textarea>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 6: THE PURPOSE INTEGRATION</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Making your mission part of your daily life</p>
+
+                <h3>Part A: Your Daily Purpose Practice</h3>
+                <div class="form-group">
+                    <label>How will you connect to your mission every day?</label>
+                    <textarea name="daily-mission" placeholder="What daily practice will keep you connected to your purpose?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How will you measure your impact?</label>
+                    <textarea name="measure-impact" placeholder="How will you know you're fulfilling your mission?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How will you stay motivated when it gets hard?</label>
+                    <textarea name="stay-motivated" placeholder="What will keep you going during difficult times?"></textarea>
+                </div>
+
+                <h3>Part B: Your Purpose-Driven Goals</h3>
+                <div class="form-group">
+                    <label>What's your 1-year goal related to your mission?</label>
+                    <textarea name="one-year-goal" placeholder="What will you accomplish in the next year?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What's your 5-year vision?</label>
+                    <textarea name="five-year-vision" placeholder="Where do you see yourself in 5 years?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What's your legacy goal?</label>
+                    <textarea name="legacy-goal" placeholder="What do you want to be remembered for?"></textarea>
+                </div>
+
+                <h3>Part C: Your Purpose Declaration</h3>
+                <div class="form-group">
+                    <label>I am called to...</label>
+                    <textarea name="called-to" placeholder="Complete this statement with your mission"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I will serve my mission by...</label>
+                    <textarea name="serve-mission" placeholder="How will you fulfill your calling?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I will lead others to...</label>
+                    <textarea name="lead-others" placeholder="What will you guide others toward?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I will create change by...</label>
+                    <textarea name="create-change" placeholder="How will you make a difference?"></textarea>
                 </div>
             </div>
         </div>
