@@ -47,3 +47,4 @@ include:
 # Plugins
 plugins:
   - jekyll-redirect-from
+

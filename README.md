@@ -1,128 +1,82 @@
-# Men's Mentoring Website
+# Cryptocurrency Trading Bot
 
-A professional, modern website for Mikkel Hansen's men's mentoring services.
+An automated trading bot for buying and selling Bitcoin and other cryptocurrencies.
 
 ## Features
 
-- **Professional Design**: Modern, responsive layout with beautiful gradients and typography
-- **Mobile-First**: Fully responsive design that works on all devices
-- **Interactive Elements**: Smooth animations, hover effects, and form validation
-- **Professional Content**: Structured sections for services, about, and contact
-- **Font Awesome Icons**: Professional iconography throughout the site
-- **Google Fonts**: Inter font family for modern, readable typography
+- Connects to popular cryptocurrency exchanges using CCXT
+- Configurable trading strategy
+- Automatic buy and sell based on price movements
+- Stop loss and take profit functionality
+- Logging and monitoring
 
-## Website Sections
+## Prerequisites
 
-1. **Hero Section**: Compelling headline with call-to-action buttons
-2. **About Section**: Personal introduction with key features
-3. **Services Section**: Three-tier pricing structure
-   - Transformation Package ($800)
-   - Mastery Program ($500)
-   - Discovery Session ($150)
-4. **Contact Section**: Contact form and information
-5. **Footer**: Links and company information
+- Python 3.8+
+- API keys from your preferred cryptocurrency exchange
 
-## Technical Details
+## Installation
 
-- **HTML5**: Semantic markup structure
-- **CSS3**: Modern styling with CSS Grid, Flexbox, and animations
-- **JavaScript**: Interactive functionality and mobile navigation
-- **Responsive Design**: Mobile-first approach with breakpoints
-- **Performance**: Optimized images and smooth animations
-
-## Getting Started
-
-1. **Start the server**:
-   ```bash
-   start-server.bat
-   ```
-
-2. **View the website**:
-   Open your browser and go to `http://localhost:8000`
-
-## File Structure
-
+1. Clone this repository
 ```
-website/
-├── index.html                 # Main website file
-├── public/
-│   ├── css/
-│   │   └── styles.css        # Main stylesheet
-│   └── js/
-│       └── main.js           # JavaScript functionality
-├── assets/
-│   ├── mentor.jpg            # Mentor profile image
-│   └── video-thumbnail.jpg   # Custom video thumbnail (add this!)
-├── start-server.bat          # Server startup script
-└── README.md                 # This file
+git clone https://github.com/yourusername/crypto-trading-bot.git
+cd crypto-trading-bot
 ```
 
-## 🎥 **Video Thumbnail Setup**
+2. Install dependencies
+```
+pip install -r requirements.txt
+```
 
-To complete the video section setup, you need to add your custom video thumbnail image:
+3. Set up your environment variables by copying the example file
+```
+cp .env.example .env
+```
 
-1. **Save your new video picture** as `video-thumbnail.jpg`
-2. **Place it in the `assets/` folder** alongside your existing `mentor.jpg`
-3. **The image should be** at least 800x450 pixels for best quality
+4. Edit the `.env` file with your exchange API keys and trading preferences
 
-### **How the Video Section Works:**
+## Configuration
 
-1. **Visitors see your custom thumbnail** with a red play button overlay
-2. **Click the thumbnail** to reveal the video player
-3. **Video starts playing** from YouTube at [https://youtu.be/Ht3vwpCsYzo](https://youtu.be/Ht3vwpCsYzo)
-4. **Mobile responsive** - works perfectly on all devices
+Edit the `.env` file to configure your bot:
 
-### **Features Added:**
+```
+# Exchange API credentials
+EXCHANGE=binance
+API_KEY=your_api_key_here
+API_SECRET=your_api_secret_here
 
-- ✅ **Custom Video Thumbnail** - Shows your new picture before video plays
-- ✅ **Interactive Play Button** - Red YouTube-style play button overlay
-- ✅ **Click to Play** - Click thumbnail to reveal the video
-- ✅ **Professional Look** - Enhanced video section with your branding
+# Trading parameters
+SYMBOL=BTC/USDT
+TRADE_AMOUNT=0.001  # Amount of BTC to trade
+PROFIT_THRESHOLD=1.5  # Percentage profit target
+STOP_LOSS=1.0  # Percentage stop loss
+CHECK_INTERVAL=60  # Time in seconds between checks
+```
 
-## Customization
+## Usage
 
-### Colors
-The website uses a modern color scheme:
-- Primary: `#667eea` (Blue)
-- Secondary: `#764ba2` (Purple)
-- Text: `#333` (Dark Gray)
-- Background: `#f8fafc` (Light Gray)
+Run the bot:
 
-### Content
-Update the following in `index.html`:
-- Personal information and bio
-- Service descriptions and pricing
-- Contact details
-- Profile image
+```
+python crypto_bot.py
+```
 
-### Styling
-Modify `public/css/styles.css` to:
-- Change colors and fonts
-- Adjust spacing and layout
-- Modify animations and effects
+To use a custom strategy:
 
-## Browser Support
+```
+python crypto_bot.py --strategy moving_average
+```
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers
+## Available Strategies
 
-## Future Enhancements
+- Default: Simple profit threshold and stop loss
+- Moving Average: Buy when short-term MA crosses above long-term MA, sell when it crosses below
+- RSI: Buy when RSI is below 30 (oversold), sell when RSI is above 70 (overbought)
 
-- Blog section for mentoring content
-- Client testimonials
-- Online booking system
-- Payment integration
-- Newsletter signup
-- Social media integration
+## Disclaimer
 
-## Support
+This bot is for educational purposes only. Use it at your own risk. Cryptocurrency trading involves substantial risk of loss and is not suitable for everyone.
 
-For questions or customization requests, contact Mikkel Hansen at mikkel@mikkelhansen.org
+## License
 
----
-
-*Built with modern web technologies for a professional online presence.*
-
+MIT

@@ -252,3 +252,4 @@
 - [ ] Send launch email to list
 - [ ] Go live to answer questions
 - [ ] Celebrate first sales in stories
+
