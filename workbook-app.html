@@ -1843,8 +1843,10 @@
             
             phases.forEach(phaseId => {
                 const phaseElement = document.getElementById(phaseId);
+                console.log('Looking for phase:', phaseId, 'Found:', phaseElement);
                 if (phaseElement) {
                     const phaseClone = phaseElement.cloneNode(true);
+                    console.log('Cloned phase content length:', phaseClone.innerHTML.length);
                     
                     // Clean up the cloned content for PDF
                     phaseClone.style.cssText = `
@@ -1947,6 +1949,10 @@
             
             // Add to DOM temporarily for PDF generation
             document.body.appendChild(workbookContent);
+            
+            // Debug: Check if content was added
+            console.log('Total workbook content length:', workbookContent.innerHTML.length);
+            console.log('Workbook content preview:', workbookContent.innerHTML.substring(0, 500));
             
             // Generate PDF directly from content without adding to DOM
             const options = {
