@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Version: 2024-12-19-18:15 - Fixed exercise numbering sequence and cross-references -->
+    <!-- Version: 2024-12-19-18:30 - Fixed critical bugs: version mismatch, duplicate listeners, export function, error handling -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -1583,37 +1583,17 @@
             }
         }
 
-        // Initialize page - show only Introduction
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hide all phases first
-            const allPhases = document.querySelectorAll('.phase-content');
-            allPhases.forEach(phase => {
-                phase.classList.remove('active');
-                phase.style.display = 'none';
-            });
-            
-            // Show only Introduction
-            const introPhase = document.getElementById('introduction');
-            if (introPhase) {
-                introPhase.classList.add('active');
-                introPhase.style.display = 'block';
-            }
-            
-            // Set Introduction button as active
-            const allButtons = document.querySelectorAll('.phase-btn');
-            allButtons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            const introButton = document.querySelector('[onclick="showPhase(\'introduction\')"]');
-            if (introButton) {
-                introButton.classList.add('active');
-            }
-        });
 
         function saveProgress() {
             // Get current user from session
-            const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
+            let currentUser;
+            try {
+                currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
+            } catch (e) {
+                console.error('Error parsing currentUser from sessionStorage:', e);
+                return;
+            }
+            
             if (!currentUser.email) {
                 // User not logged in - silent fail
                 return;
@@ -1638,7 +1618,13 @@
             const completionPercentage = phaseInputs.length > 0 ? (filledInputs.length / phaseInputs.length) * 100 : 0;
 
             // Load existing user data
-            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+            let users;
+            try {
+                users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+            } catch (e) {
+                console.error('Error parsing workbookUsers from localStorage:', e);
+                users = {};
+            }
             if (users[currentUser.email]) {
                 users[currentUser.email].workbookProgress = {
                     ...users[currentUser.email].workbookProgress,
@@ -1658,13 +1644,26 @@
 
         function loadProgress() {
             // Get current user from session
-            const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
+            let currentUser;
+            try {
+                currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
+            } catch (e) {
+                console.error('Error parsing currentUser from sessionStorage:', e);
+                return;
+            }
+            
             if (!currentUser.email) {
                 return; // No user logged in
             }
 
             // Load user's saved progress
-            const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+            let users;
+            try {
+                users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+            } catch (e) {
+                console.error('Error parsing workbookUsers from localStorage:', e);
+                return;
+            }
             if (users[currentUser.email] && users[currentUser.email].workbookProgress) {
                 const progress = users[currentUser.email].workbookProgress;
                 
@@ -1700,8 +1699,14 @@
 
         // Force cache refresh
         function forceRefresh() {
-            const currentVersion = '2024-12-19-16:15';
-            const savedVersion = localStorage.getItem('workbookVersion');
+            const currentVersion = '2024-12-19-18:30';
+            let savedVersion;
+            try {
+                savedVersion = localStorage.getItem('workbookVersion');
+            } catch (e) {
+                console.error('Error getting workbookVersion from localStorage:', e);
+                savedVersion = null;
+            }
             
             if (savedVersion !== currentVersion) {
                 localStorage.setItem('workbookVersion', currentVersion);
@@ -1712,8 +1717,34 @@
             }
         }
 
-        // Load progress when page loads
+        // Initialize page and load progress when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            // Hide all phases first
+            const allPhases = document.querySelectorAll('.phase-content');
+            allPhases.forEach(phase => {
+                phase.classList.remove('active');
+                phase.style.display = 'none';
+            });
+            
+            // Show only Introduction
+            const introPhase = document.getElementById('introduction');
+            if (introPhase) {
+                introPhase.classList.add('active');
+                introPhase.style.display = 'block';
+            }
+            
+            // Set Introduction button as active
+            const allButtons = document.querySelectorAll('.phase-btn');
+            allButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            const introButton = document.querySelector('[onclick="showPhase(\'introduction\')"]');
+            if (introButton) {
+                introButton.classList.add('active');
+            }
+            
+            // Load user progress and setup auto-save
             forceRefresh();
             loadProgress();
             
@@ -1722,7 +1753,47 @@
         });
 
         function exportToPDF() {
-            // PDF export - silent
+            // Simple text export functionality
+            let currentUser;
+            try {
+                currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
+            } catch (e) {
+                console.error('Error parsing currentUser from sessionStorage:', e);
+                alert('Error accessing user data. Please log in again.');
+                return;
+            }
+            
+            if (!currentUser.email) {
+                alert('Please log in to export your progress');
+                return;
+            }
+            
+            // Collect all form data
+            const formData = {};
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                if (input.name && input.value.trim()) {
+                    formData[input.name] = input.value;
+                }
+            });
+            
+            // Create downloadable text file
+            const content = `Breaking Free From Your Default Mode - Workbook Progress\n\n` +
+                `User: ${currentUser.email}\n` +
+                `Export Date: ${new Date().toLocaleDateString()}\n\n` +
+                Object.entries(formData).map(([key, value]) => 
+                    `${key.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:\n${value}\n`
+                ).join('\n\n');
+            
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `workbook-progress-${new Date().toISOString().split('T')[0]}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
     </script>
 </body>
