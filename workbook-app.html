@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Version: 2024-12-19-18:40 - Implemented real PDF export with questions for offline work -->
+    <!-- Version: 2024-12-19-18:45 - Fixed visible code issue in PDF export -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -1699,7 +1699,7 @@
 
         // Force cache refresh
         function forceRefresh() {
-            const currentVersion = '2024-12-19-18:40';
+            const currentVersion = '2024-12-19-18:45';
             let savedVersion;
             try {
                 savedVersion = localStorage.getItem('workbookVersion');
@@ -1899,9 +1899,17 @@
             workbookContent.appendChild(footer);
             
             // Temporarily add to DOM for PDF generation
-            workbookContent.style.position = 'absolute';
-            workbookContent.style.left = '-9999px';
-            workbookContent.style.top = '0';
+            workbookContent.style.cssText = `
+                position: fixed !important;
+                left: -9999px !important;
+                top: -9999px !important;
+                width: 1px !important;
+                height: 1px !important;
+                overflow: hidden !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                z-index: -9999 !important;
+            `;
             document.body.appendChild(workbookContent);
             
             // Generate PDF
@@ -1924,13 +1932,26 @@
             
             html2pdf().set(options).from(workbookContent).save().then(() => {
                 // Clean up
-                document.body.removeChild(workbookContent);
+                if (document.body.contains(workbookContent)) {
+                    document.body.removeChild(workbookContent);
+                }
                 console.log('PDF exported successfully');
             }).catch((error) => {
                 console.error('PDF export failed:', error);
-                document.body.removeChild(workbookContent);
+                // Clean up even on error
+                if (document.body.contains(workbookContent)) {
+                    document.body.removeChild(workbookContent);
+                }
                 alert('PDF export failed. Please try again.');
             });
+            
+            // Safety cleanup after 30 seconds
+            setTimeout(() => {
+                if (document.body.contains(workbookContent)) {
+                    document.body.removeChild(workbookContent);
+                    console.log('PDF cleanup: Removed temporary element');
+                }
+            }, 30000);
         }
     </script>
 </body>
