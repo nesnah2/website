@@ -645,7 +645,15 @@
                 </div>
 
                 <h3>Part B: The Silence Challenge</h3>
-                <p style="color: #b0b0b0; margin-bottom: 15px;">Spend 10 minutes alone with no distractions. No phone, no music, no food, no entertainment. Put on a watch or timer to track the time.</p>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">Spend 10 minutes alone with no distractions. No phone, no music, no food, no entertainment.</p>
+                
+                <div style="text-align: center; margin: 20px 0; padding: 20px; background: #1a1a1a; border-radius: 10px; border: 1px solid #333;">
+                    <h4 style="color: #fff; margin-bottom: 15px;">⏰ 10-Minute Silence Timer</h4>
+                    <div id="timer-display" style="font-size: 48px; font-weight: bold; color: #4CAF50; margin: 15px 0;">10:00</div>
+                    <button id="start-timer" onclick="startSilenceTimer()" style="background: #4CAF50; color: white; border: none; padding: 12px 24px; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 5px;">Start Timer</button>
+                    <button id="stop-timer" onclick="stopSilenceTimer()" style="background: #f44336; color: white; border: none; padding: 12px 24px; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 5px; display: none;">Stop Timer</button>
+                    <p id="timer-status" style="color: #b0b0b0; margin-top: 10px; font-size: 14px;">Click "Start Timer" to begin your 10-minute silence challenge</p>
+                </div>
 
                 <div class="form-group">
                     <label>What did you discover about yourself?</label>
@@ -1754,6 +1762,80 @@
                 // Redirect to login page
                 window.location.href = '../workbook-login.html';
             }
+        }
+
+        // Silence Timer Variables
+        let silenceTimer = null;
+        let silenceTimeLeft = 600; // 10 minutes in seconds
+
+        // Silence Timer Functions
+        function startSilenceTimer() {
+            const startBtn = document.getElementById('start-timer');
+            const stopBtn = document.getElementById('stop-timer');
+            const status = document.getElementById('timer-status');
+            
+            startBtn.style.display = 'none';
+            stopBtn.style.display = 'inline-block';
+            status.textContent = 'Timer running... Find a quiet space and begin your silence challenge.';
+            status.style.color = '#4CAF50';
+            
+            silenceTimer = setInterval(() => {
+                silenceTimeLeft--;
+                updateTimerDisplay();
+                
+                if (silenceTimeLeft <= 0) {
+                    stopSilenceTimer();
+                    status.textContent = '🎉 Time\'s up! Your 10-minute silence challenge is complete.';
+                    status.style.color = '#4CAF50';
+                    
+                    // Show completion message
+                    alert('Congratulations! You completed the 10-minute silence challenge. Take a moment to reflect on your experience.');
+                }
+            }, 1000);
+        }
+
+        function stopSilenceTimer() {
+            const startBtn = document.getElementById('start-timer');
+            const stopBtn = document.getElementById('stop-timer');
+            const status = document.getElementById('timer-status');
+            
+            if (silenceTimer) {
+                clearInterval(silenceTimer);
+                silenceTimer = null;
+            }
+            
+            startBtn.style.display = 'inline-block';
+            stopBtn.style.display = 'none';
+            
+            if (silenceTimeLeft > 0) {
+                status.textContent = 'Timer stopped. You can restart anytime.';
+                status.style.color = '#f44336';
+            }
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(silenceTimeLeft / 60);
+            const seconds = silenceTimeLeft % 60;
+            const display = document.getElementById('timer-display');
+            
+            display.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            // Change color as time runs out
+            if (silenceTimeLeft <= 60) {
+                display.style.color = '#f44336'; // Red for last minute
+            } else if (silenceTimeLeft <= 300) {
+                display.style.color = '#ff9800'; // Orange for last 5 minutes
+            } else {
+                display.style.color = '#4CAF50'; // Green for first 5 minutes
+            }
+        }
+
+        function resetSilenceTimer() {
+            stopSilenceTimer();
+            silenceTimeLeft = 600; // Reset to 10 minutes
+            updateTimerDisplay();
+            document.getElementById('timer-status').textContent = 'Click "Start Timer" to begin your 10-minute silence challenge';
+            document.getElementById('timer-status').style.color = '#b0b0b0';
         }
 
         // Initialize page and load progress when page loads
