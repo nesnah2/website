@@ -1550,12 +1550,10 @@
 
         <div style="text-align: center; margin-top: 40px;">
             <button class="btn" onclick="saveProgress()">💾 Save Progress</button>
-            <button class="btn" onclick="exportToPDF()">📄 Export to PDF</button>
             <button class="btn" onclick="logout()" style="background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #ef4444;">🚪 Logout</button>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
         function showPhase(phaseId) {
             // console.log('Switching to phase:', phaseId);
@@ -1754,7 +1752,7 @@
                 localStorage.removeItem('rememberedUser');
                 
                 // Redirect to login page
-                window.location.href = 'workbook-login.html';
+                window.location.href = '/workbook-login.html';
             }
         }
 
@@ -1763,7 +1761,7 @@
             // Check if user is logged in
             if (!checkLogin()) {
                 // Redirect to login page if not logged in
-                window.location.href = 'workbook-login.html';
+                window.location.href = '/workbook-login.html';
                 return;
             }
 
@@ -1800,213 +1798,6 @@
             setInterval(saveProgress, 30000);
         });
 
-        function exportToPDF() {
-            // Real PDF export with all questions for offline work
-            let currentUser;
-            try {
-                currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
-            } catch (e) {
-                console.error('Error parsing currentUser from sessionStorage:', e);
-                alert('Error accessing user data. Please log in again.');
-                return;
-            }
-            
-            if (!currentUser.email) {
-                alert('Please log in to export your workbook');
-                return;
-            }
-            
-            // Create PDF content and add to DOM temporarily (visible for PDF generation)
-            const workbookContent = document.createElement('div');
-            workbookContent.style.cssText = `
-                font-family: Arial, sans-serif;
-                color: #000;
-                background: #fff;
-                padding: 20px;
-                line-height: 1.6;
-                position: fixed !important;
-                left: -99999px !important;
-                top: -99999px !important;
-                width: 800px !important;
-                height: auto !important;
-                overflow: visible !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-                z-index: 99999 !important;
-                pointer-events: none !important;
-                display: block !important;
-                transform: scale(1) !important;
-            `;
-            
-            // Add header
-            const header = document.createElement('div');
-            header.innerHTML = `
-                <h1 style="color: #000; text-align: center; margin-bottom: 30px; font-size: 24px;">
-                    Breaking Free From Your Default Mode - Workbook
-                </h1>
-                <p style="text-align: center; margin-bottom: 20px; font-size: 14px;">
-                    User: ${currentUser.email} | Export Date: ${new Date().toLocaleDateString()}
-                </p>
-                <hr style="margin: 30px 0; border: 1px solid #ccc;">
-            `;
-            workbookContent.appendChild(header);
-            
-            // Add all phases content
-            const phases = ['introduction', 'phase3', 'phase4', 'phase5', 'phase6', 'phase7', 'phase8', 'journey-continues'];
-            
-            phases.forEach(phaseId => {
-                const phaseElement = document.getElementById(phaseId);
-                console.log('Looking for phase:', phaseId, 'Found:', phaseElement);
-                if (phaseElement) {
-                    const phaseClone = phaseElement.cloneNode(true);
-                    console.log('Cloned phase content length:', phaseClone.innerHTML.length);
-                    
-                    // Clean up the cloned content for PDF
-                    phaseClone.style.cssText = `
-                        margin-bottom: 40px;
-                        page-break-inside: avoid;
-                    `;
-                    
-                    // Remove navigation elements and buttons
-                    const navElements = phaseClone.querySelectorAll('.phase-nav, .nav-arrow, .nav-separator');
-                    navElements.forEach(el => el.remove());
-                    
-                    // Style exercises for PDF
-                    const exercises = phaseClone.querySelectorAll('.exercise');
-                    exercises.forEach(exercise => {
-                        exercise.style.cssText = `
-                            border: 1px solid #ccc;
-                            border-radius: 8px;
-                            padding: 20px;
-                            margin-bottom: 20px;
-                            background: #f9f9f9;
-                            page-break-inside: avoid;
-                        `;
-                        
-                        // Style headings
-                        const headings = exercise.querySelectorAll('h2, h3');
-                        headings.forEach(heading => {
-                            heading.style.cssText = `
-                                color: #000;
-                                margin-bottom: 15px;
-                                font-size: ${heading.tagName === 'H2' ? '18px' : '16px'};
-                                font-weight: bold;
-                            `;
-                        });
-                        
-                        // Style form groups for PDF
-                        const formGroups = exercise.querySelectorAll('.form-group');
-                        formGroups.forEach(group => {
-                            group.style.cssText = `
-                                margin-bottom: 20px;
-                                page-break-inside: avoid;
-                            `;
-                            
-                            const labels = group.querySelectorAll('label');
-                            labels.forEach(label => {
-                                label.style.cssText = `
-                                    display: block;
-                                    font-weight: bold;
-                                    margin-bottom: 8px;
-                                    color: #000;
-                                    font-size: 14px;
-                                `;
-                            });
-                            
-                            // Replace textareas with spaces for writing
-                            const textareas = group.querySelectorAll('textarea');
-                            textareas.forEach(textarea => {
-                                const placeholder = textarea.getAttribute('placeholder') || '';
-                                const name = textarea.getAttribute('name') || '';
-                                
-                                // Create writing space
-                                const writingSpace = document.createElement('div');
-                                writingSpace.style.cssText = `
-                                    border: 1px solid #ccc;
-                                    border-radius: 4px;
-                                    padding: 15px;
-                                    min-height: 60px;
-                                    background: #fff;
-                                    margin-bottom: 10px;
-                                `;
-                                
-                                // Add lines for writing
-                                for (let i = 0; i < 4; i++) {
-                                    const line = document.createElement('div');
-                                    line.style.cssText = `
-                                        border-bottom: 1px solid #eee;
-                                        height: 20px;
-                                        margin-bottom: 5px;
-                                    `;
-                                    writingSpace.appendChild(line);
-                                }
-                                
-                                textarea.parentNode.replaceChild(writingSpace, textarea);
-                            });
-                        });
-                    });
-                    
-                    workbookContent.appendChild(phaseClone);
-                }
-            });
-            
-            // Add footer
-            const footer = document.createElement('div');
-            footer.innerHTML = `
-                <hr style="margin: 30px 0; border: 1px solid #ccc;">
-                <p style="text-align: center; font-size: 12px; color: #666;">
-                    This workbook is designed for personal transformation. Complete each exercise thoughtfully.
-                </p>
-            `;
-            workbookContent.appendChild(footer);
-            
-            // Add to DOM temporarily for PDF generation
-            document.body.appendChild(workbookContent);
-            
-            // Debug: Check if content was added
-            console.log('Total workbook content length:', workbookContent.innerHTML.length);
-            console.log('Workbook content preview:', workbookContent.innerHTML.substring(0, 500));
-            
-            // Generate PDF directly from content without adding to DOM
-            const options = {
-                margin: 10,
-                filename: `workbook-${currentUser.email.split('@')[0]}-${new Date().toISOString().split('T')[0]}.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { 
-                    scale: 2,
-                    useCORS: true,
-                    letterRendering: true
-                },
-                jsPDF: { 
-                    unit: 'mm',
-                    format: 'a4',
-                    orientation: 'portrait' 
-                },
-                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-            };
-            
-            // Generate PDF and immediately remove element
-            html2pdf().set(options).from(workbookContent).save().then(() => {
-                // Remove element immediately after PDF generation
-                if (document.body.contains(workbookContent)) {
-                    document.body.removeChild(workbookContent);
-                }
-            }).catch((error) => {
-                console.error('PDF export failed:', error);
-                // Remove element even on error
-                if (document.body.contains(workbookContent)) {
-                    document.body.removeChild(workbookContent);
-                }
-                alert('PDF export failed. Please try again.');
-            });
-            
-            // Safety cleanup - remove element after 1 second regardless
-            setTimeout(() => {
-                if (document.body.contains(workbookContent)) {
-                    document.body.removeChild(workbookContent);
-                }
-            }, 1000);
-        }
     </script>
 </body>
 </html>

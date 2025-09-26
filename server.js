@@ -38,11 +38,16 @@ const server = http.createServer((req, res) => {
         return;
     }
     
-    // Handle static files
-    let filePath = '.' + req.url;
-    
-    if (filePath === './') {
-        filePath = './index.html';
+    // Handle special routes
+    if (pathname === '/workbook') {
+        filePath = './workbook-app.html';
+    } else {
+        // Handle static files
+        filePath = '.' + req.url;
+        
+        if (filePath === './') {
+            filePath = './index.html';
+        }
     }
     
     const extname = path.extname(filePath);

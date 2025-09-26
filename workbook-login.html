@@ -332,7 +332,7 @@
                 localStorage.setItem('rememberedUser', JSON.stringify(userData));
                 
                 // Redirect to workbook
-                window.location.href = 'workbook-app.html';
+                window.location.href = '/workbook';
             } else {
                 showMessage('Invalid email or password. Please try again.', 'error');
             }
@@ -392,7 +392,7 @@
             
             // Redirect to workbook after a short delay
             setTimeout(() => {
-                window.location.href = 'workbook-app.html';
+                window.location.href = '/workbook';
             }, 1500);
         });
 
@@ -412,7 +412,7 @@
             
             if (currentUser) {
                 // User is already logged in, redirect to workbook
-                window.location.href = 'workbook-app.html';
+                window.location.href = '/workbook';
             }
         });
     </script>
