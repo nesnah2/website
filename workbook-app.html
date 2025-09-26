@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Version: 2024-12-19-18:45 - Fixed visible code issue in PDF export -->
+    <!-- Version: 2024-12-19-18:50 - Completely hidden PDF export element -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -1555,7 +1555,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
         function showPhase(phaseId) {
-            console.log('Switching to phase:', phaseId);
+            // console.log('Switching to phase:', phaseId);
             
             // Hide all phases
             const allPhases = document.querySelectorAll('.phase-content');
@@ -1699,7 +1699,7 @@
 
         // Force cache refresh
         function forceRefresh() {
-            const currentVersion = '2024-12-19-18:45';
+            const currentVersion = '2024-12-19-18:50';
             let savedVersion;
             try {
                 savedVersion = localStorage.getItem('workbookVersion');
@@ -1898,17 +1898,19 @@
             `;
             workbookContent.appendChild(footer);
             
-            // Temporarily add to DOM for PDF generation
+            // Temporarily add to DOM for PDF generation - COMPLETELY HIDDEN
             workbookContent.style.cssText = `
                 position: fixed !important;
-                left: -9999px !important;
-                top: -9999px !important;
-                width: 1px !important;
-                height: 1px !important;
+                left: -99999px !important;
+                top: -99999px !important;
+                width: 0px !important;
+                height: 0px !important;
                 overflow: hidden !important;
                 visibility: hidden !important;
                 opacity: 0 !important;
-                z-index: -9999 !important;
+                z-index: -99999 !important;
+                pointer-events: none !important;
+                display: none !important;
             `;
             document.body.appendChild(workbookContent);
             
@@ -1923,35 +1925,29 @@
                     letterRendering: true
                 },
                 jsPDF: { 
-                    unit: 'mm', 
-                    format: 'a4', 
+                    unit: 'mm',
+                    format: 'a4',
                     orientation: 'portrait' 
                 },
                 pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
             };
             
-            html2pdf().set(options).from(workbookContent).save().then(() => {
-                // Clean up
-                if (document.body.contains(workbookContent)) {
-                    document.body.removeChild(workbookContent);
-                }
-                console.log('PDF exported successfully');
-            }).catch((error) => {
-                console.error('PDF export failed:', error);
-                // Clean up even on error
-                if (document.body.contains(workbookContent)) {
-                    document.body.removeChild(workbookContent);
-                }
-                alert('PDF export failed. Please try again.');
-            });
+            // Start PDF generation and immediately clean up
+            const pdfPromise = html2pdf().set(options).from(workbookContent).save();
             
-            // Safety cleanup after 30 seconds
+            // Immediate cleanup - remove element right away
             setTimeout(() => {
                 if (document.body.contains(workbookContent)) {
                     document.body.removeChild(workbookContent);
-                    console.log('PDF cleanup: Removed temporary element');
                 }
-            }, 30000);
+            }, 100); // Remove after 100ms
+            
+            pdfPromise.then(() => {
+                // PDF generation completed
+            }).catch((error) => {
+                console.error('PDF export failed:', error);
+                alert('PDF export failed. Please try again.');
+            });
         }
     </script>
 </body>
