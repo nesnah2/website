@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Version: 2024-12-19-19:05 - Added login check and logout functionality -->
+    <meta name="cache-buster" content="2024-12-26-21:45">
+    <!-- Version: 2024-12-26-21:45 - Fixed PDF export and added debug logging -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -1701,7 +1702,7 @@
 
         // Force cache refresh
         function forceRefresh() {
-            const currentVersion = '2024-12-19-19:05';
+            const currentVersion = '2024-12-26-21:45';
             let savedVersion;
             try {
                 savedVersion = localStorage.getItem('workbookVersion');
