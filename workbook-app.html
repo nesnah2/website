@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Version: 2024-12-19-18:30 - Fixed critical bugs: version mismatch, duplicate listeners, export function, error handling -->
+    <!-- Version: 2024-12-19-18:35 - Updated silence challenge to 10 minutes with watch instruction -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -644,7 +644,7 @@
                 </div>
 
                 <h3>Part B: The Silence Challenge</h3>
-                <p style="color: #b0b0b0; margin-bottom: 15px;">Spend 30 minutes alone with no distractions. No phone, no music, no food, no entertainment.</p>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">Spend 10 minutes alone with no distractions. No phone, no music, no food, no entertainment. Put on a watch or timer to track the time.</p>
 
                 <div class="form-group">
                     <label>What did you discover about yourself?</label>
@@ -1699,7 +1699,7 @@
 
         // Force cache refresh
         function forceRefresh() {
-            const currentVersion = '2024-12-19-18:30';
+            const currentVersion = '2024-12-19-18:35';
             let savedVersion;
             try {
                 savedVersion = localStorage.getItem('workbookVersion');
