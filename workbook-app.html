@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Version: 2024-12-19-18:35 - Updated silence challenge to 10 minutes with watch instruction -->
+    <!-- Version: 2024-12-19-18:40 - Implemented real PDF export with questions for offline work -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -1553,7 +1553,7 @@
         </div>
     </div>
 
-    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
         function showPhase(phaseId) {
             console.log('Switching to phase:', phaseId);
             
@@ -1699,7 +1699,7 @@
 
         // Force cache refresh
         function forceRefresh() {
-            const currentVersion = '2024-12-19-18:35';
+            const currentVersion = '2024-12-19-18:40';
             let savedVersion;
             try {
                 savedVersion = localStorage.getItem('workbookVersion');
@@ -1753,7 +1753,7 @@
         });
 
         function exportToPDF() {
-            // Simple text export functionality
+            // Real PDF export with all questions for offline work
             let currentUser;
             try {
                 currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
@@ -1764,36 +1764,173 @@
             }
             
             if (!currentUser.email) {
-                alert('Please log in to export your progress');
+                alert('Please log in to export your workbook');
                 return;
             }
             
-            // Collect all form data
-            const formData = {};
-            const inputs = document.querySelectorAll('input, textarea, select');
-            inputs.forEach(input => {
-                if (input.name && input.value.trim()) {
-                    formData[input.name] = input.value;
+            // Create a clean version of the workbook for PDF export
+            const workbookContent = document.createElement('div');
+            workbookContent.style.cssText = `
+                font-family: Arial, sans-serif;
+                color: #000;
+                background: #fff;
+                padding: 20px;
+                line-height: 1.6;
+            `;
+            
+            // Add header
+            const header = document.createElement('div');
+            header.innerHTML = `
+                <h1 style="color: #000; text-align: center; margin-bottom: 30px; font-size: 24px;">
+                    Breaking Free From Your Default Mode - Workbook
+                </h1>
+                <p style="text-align: center; margin-bottom: 20px; font-size: 14px;">
+                    User: ${currentUser.email} | Export Date: ${new Date().toLocaleDateString()}
+                </p>
+                <hr style="margin: 30px 0; border: 1px solid #ccc;">
+            `;
+            workbookContent.appendChild(header);
+            
+            // Add all phases content
+            const phases = ['introduction', 'phase3', 'phase4', 'phase5', 'phase6', 'phase7', 'phase8', 'journey-continues'];
+            
+            phases.forEach(phaseId => {
+                const phaseElement = document.getElementById(phaseId);
+                if (phaseElement) {
+                    const phaseClone = phaseElement.cloneNode(true);
+                    
+                    // Clean up the cloned content for PDF
+                    phaseClone.style.cssText = `
+                        margin-bottom: 40px;
+                        page-break-inside: avoid;
+                    `;
+                    
+                    // Remove navigation elements and buttons
+                    const navElements = phaseClone.querySelectorAll('.phase-nav, .nav-arrow, .nav-separator');
+                    navElements.forEach(el => el.remove());
+                    
+                    // Style exercises for PDF
+                    const exercises = phaseClone.querySelectorAll('.exercise');
+                    exercises.forEach(exercise => {
+                        exercise.style.cssText = `
+                            border: 1px solid #ccc;
+                            border-radius: 8px;
+                            padding: 20px;
+                            margin-bottom: 20px;
+                            background: #f9f9f9;
+                            page-break-inside: avoid;
+                        `;
+                        
+                        // Style headings
+                        const headings = exercise.querySelectorAll('h2, h3');
+                        headings.forEach(heading => {
+                            heading.style.cssText = `
+                                color: #000;
+                                margin-bottom: 15px;
+                                font-size: ${heading.tagName === 'H2' ? '18px' : '16px'};
+                                font-weight: bold;
+                            `;
+                        });
+                        
+                        // Style form groups for PDF
+                        const formGroups = exercise.querySelectorAll('.form-group');
+                        formGroups.forEach(group => {
+                            group.style.cssText = `
+                                margin-bottom: 20px;
+                                page-break-inside: avoid;
+                            `;
+                            
+                            const labels = group.querySelectorAll('label');
+                            labels.forEach(label => {
+                                label.style.cssText = `
+                                    display: block;
+                                    font-weight: bold;
+                                    margin-bottom: 8px;
+                                    color: #000;
+                                    font-size: 14px;
+                                `;
+                            });
+                            
+                            // Replace textareas with spaces for writing
+                            const textareas = group.querySelectorAll('textarea');
+                            textareas.forEach(textarea => {
+                                const placeholder = textarea.getAttribute('placeholder') || '';
+                                const name = textarea.getAttribute('name') || '';
+                                
+                                // Create writing space
+                                const writingSpace = document.createElement('div');
+                                writingSpace.style.cssText = `
+                                    border: 1px solid #ccc;
+                                    border-radius: 4px;
+                                    padding: 15px;
+                                    min-height: 60px;
+                                    background: #fff;
+                                    margin-bottom: 10px;
+                                `;
+                                
+                                // Add lines for writing
+                                for (let i = 0; i < 4; i++) {
+                                    const line = document.createElement('div');
+                                    line.style.cssText = `
+                                        border-bottom: 1px solid #eee;
+                                        height: 20px;
+                                        margin-bottom: 5px;
+                                    `;
+                                    writingSpace.appendChild(line);
+                                }
+                                
+                                textarea.parentNode.replaceChild(writingSpace, textarea);
+                            });
+                        });
+                    });
+                    
+                    workbookContent.appendChild(phaseClone);
                 }
             });
             
-            // Create downloadable text file
-            const content = `Breaking Free From Your Default Mode - Workbook Progress\n\n` +
-                `User: ${currentUser.email}\n` +
-                `Export Date: ${new Date().toLocaleDateString()}\n\n` +
-                Object.entries(formData).map(([key, value]) => 
-                    `${key.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:\n${value}\n`
-                ).join('\n\n');
+            // Add footer
+            const footer = document.createElement('div');
+            footer.innerHTML = `
+                <hr style="margin: 30px 0; border: 1px solid #ccc;">
+                <p style="text-align: center; font-size: 12px; color: #666;">
+                    This workbook is designed for personal transformation. Complete each exercise thoughtfully.
+                </p>
+            `;
+            workbookContent.appendChild(footer);
             
-            const blob = new Blob([content], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `workbook-progress-${new Date().toISOString().split('T')[0]}.txt`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            // Temporarily add to DOM for PDF generation
+            workbookContent.style.position = 'absolute';
+            workbookContent.style.left = '-9999px';
+            workbookContent.style.top = '0';
+            document.body.appendChild(workbookContent);
+            
+            // Generate PDF
+            const options = {
+                margin: 10,
+                filename: `workbook-${currentUser.email.split('@')[0]}-${new Date().toISOString().split('T')[0]}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { 
+                    scale: 2,
+                    useCORS: true,
+                    letterRendering: true
+                },
+                jsPDF: { 
+                    unit: 'mm', 
+                    format: 'a4', 
+                    orientation: 'portrait' 
+                },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+            
+            html2pdf().set(options).from(workbookContent).save().then(() => {
+                // Clean up
+                document.body.removeChild(workbookContent);
+                console.log('PDF exported successfully');
+            }).catch((error) => {
+                console.error('PDF export failed:', error);
+                document.body.removeChild(workbookContent);
+                alert('PDF export failed. Please try again.');
+            });
         }
     </script>
 </body>
