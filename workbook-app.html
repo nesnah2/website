@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Version: 2024-12-19-18:55 - Maximum hiding for PDF export element -->
+    <!-- Version: 2024-12-19-19:00 - Fixed missing script tag causing JavaScript to display as text -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -1554,6 +1554,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
         function showPhase(phaseId) {
             // console.log('Switching to phase:', phaseId);
             
@@ -1699,7 +1700,7 @@
 
         // Force cache refresh
         function forceRefresh() {
-            const currentVersion = '2024-12-19-18:55';
+            const currentVersion = '2024-12-19-19:00';
             let savedVersion;
             try {
                 savedVersion = localStorage.getItem('workbookVersion');
