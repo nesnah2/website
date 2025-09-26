@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
-const { addWorkbookSubscriber } = require('./workbook-automation.js');
+// const { addWorkbookSubscriber } = require('./workbook-automation.js');
 
 const PORT = 8000;
 
@@ -111,21 +111,15 @@ function handleSubscribe(req, res) {
             
             console.log('New workbook subscriber:', { firstName, email, source });
             
-            // Add to MailerLite and send welcome email
-            const automationResult = await addWorkbookSubscriber(firstName, email, source);
+            // Add to MailerLite and send welcome email (disabled for now)
+            // const automationResult = await addWorkbookSubscriber(firstName, email, source);
             
-            if (automationResult.success) {
-                res.writeHead(200, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify({ 
-                    success: true, 
-                    message: automationResult.message 
-                }));
-            } else {
-                res.writeHead(500, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify({ 
-                    error: automationResult.error || 'Failed to process subscription' 
-                }));
-            }
+            // For now, just return success
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ 
+                success: true, 
+                message: 'Subscription successful' 
+            }));
             
         } catch (error) {
             console.error('Subscription error:', error);
