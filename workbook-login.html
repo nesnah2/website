@@ -311,6 +311,14 @@
             // Get users from localStorage
             const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
             
+            // Debug logging
+            console.log('Login attempt:', { email, password: '***' });
+            console.log('Stored users:', users);
+            console.log('User exists:', !!users[email]);
+            if (users[email]) {
+                console.log('Stored password matches:', users[email].password === password);
+            }
+            
             if (users[email] && users[email].password === password) {
                 const userData = {
                     email: email,
