@@ -1803,7 +1803,7 @@
                 return;
             }
             
-            // Create PDF content and add to DOM temporarily with maximum hiding
+            // Create PDF content and add to DOM temporarily (visible for PDF generation)
             const workbookContent = document.createElement('div');
             workbookContent.style.cssText = `
                 font-family: Arial, sans-serif;
@@ -1814,15 +1814,15 @@
                 position: fixed !important;
                 left: -99999px !important;
                 top: -99999px !important;
-                width: 0px !important;
-                height: 0px !important;
-                overflow: hidden !important;
-                visibility: hidden !important;
-                opacity: 0 !important;
-                z-index: -99999 !important;
+                width: 800px !important;
+                height: auto !important;
+                overflow: visible !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                z-index: 99999 !important;
                 pointer-events: none !important;
-                display: none !important;
-                transform: scale(0) !important;
+                display: block !important;
+                transform: scale(1) !important;
             `;
             
             // Add header
