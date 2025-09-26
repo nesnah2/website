@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Version: 2024-12-19-17:20 - Fixed page initialization to show only Introduction on load -->
+    <!-- Version: 2024-12-19-17:30 - Restructured to complete 8-phase system: Free guide (Phases 1-2) + Paid workbook (Phases 3-8) -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -258,17 +258,21 @@
         <div class="phase-nav">
             <button class="phase-btn intro-btn active" onclick="showPhase('introduction')">📖 Introduction</button>
             <div class="nav-separator">|</div>
-            <button class="phase-btn" onclick="showPhase('phase2')">Phase 2: Father Wounds</button>
+            <button class="phase-btn" onclick="showPhase('phase1')">Phase 1: Awareness</button>
             <div class="nav-arrow">→</div>
-            <button class="phase-btn" onclick="showPhase('phase3')">Phase 3: Solitude</button>
+            <button class="phase-btn" onclick="showPhase('phase2')">Phase 2: Observation</button>
             <div class="nav-arrow">→</div>
-            <button class="phase-btn" onclick="showPhase('phase4')">Phase 4: Transformation</button>
+            <button class="phase-btn" onclick="showPhase('phase3')">Phase 3: Father Wounds</button>
             <div class="nav-arrow">→</div>
-            <button class="phase-btn" onclick="showPhase('phase4-5')">Phase 4.5: Relationships</button>
+            <button class="phase-btn" onclick="showPhase('phase4')">Phase 4: Solitude</button>
             <div class="nav-arrow">→</div>
-            <button class="phase-btn" onclick="showPhase('phase5')">Phase 5: Integration</button>
+            <button class="phase-btn" onclick="showPhase('phase5')">Phase 5: Transformation</button>
             <div class="nav-arrow">→</div>
-            <button class="phase-btn" onclick="showPhase('phase6')">Phase 6: Breakthrough</button>
+            <button class="phase-btn" onclick="showPhase('phase6')">Phase 6: Relationships</button>
+            <div class="nav-arrow">→</div>
+            <button class="phase-btn" onclick="showPhase('phase7')">Phase 7: Integration</button>
+            <div class="nav-arrow">→</div>
+            <button class="phase-btn" onclick="showPhase('phase8')">Phase 8: Breakthrough</button>
             <div class="nav-separator">|</div>
             <button class="phase-btn journey-btn" onclick="showPhase('journey-continues')">🎯 Your Journey Continues</button>
         </div>
@@ -291,46 +295,58 @@
             </div>
 
             <div class="exercise">
-                <h2>Your 6-Phase Transformation Journey</h2>
+                <h2>Your 8-Phase Transformation Journey</h2>
                 <p style="color: #b0b0b0; margin-bottom: 30px; text-align: center; font-size: 1.1rem;">
                     This is a complete transformation system designed specifically for men who are ready to break free from their default mode patterns and step into their authentic power.
                 </p>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
-                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 25px; text-align: center;">
-                        <div style="color: #ffd700; font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;">Phase 2</div>
-                        <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Father Wounds</div>
-                        <div style="font-size: 0.9rem; color: #b0b0b0;">Heal the masculine wounds that shaped your default mode</div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 30px 0;">
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 20px; text-align: center;">
+                        <div style="color: #ffd700; font-size: 1.3rem; font-weight: bold; margin-bottom: 8px;">Phase 1</div>
+                        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 6px;">Awareness</div>
+                        <div style="font-size: 0.8rem; color: #b0b0b0;">Recognize your default mode</div>
                     </div>
                     
-                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 25px; text-align: center;">
-                        <div style="color: #ffd700; font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;">Phase 3</div>
-                        <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Solitude</div>
-                        <div style="font-size: 0.9rem; color: #b0b0b0;">Develop deep self-awareness and inner strength</div>
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 20px; text-align: center;">
+                        <div style="color: #ffd700; font-size: 1.3rem; font-weight: bold; margin-bottom: 8px;">Phase 2</div>
+                        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 6px;">Observation</div>
+                        <div style="font-size: 0.8rem; color: #b0b0b0;">Watch your patterns in action</div>
                     </div>
                     
-                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 25px; text-align: center;">
-                        <div style="color: #ffd700; font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;">Phase 4</div>
-                        <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Transformation</div>
-                        <div style="font-size: 0.9rem; color: #b0b0b0;">Rewrite your beliefs and create new responses</div>
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 20px; text-align: center;">
+                        <div style="color: #ffd700; font-size: 1.3rem; font-weight: bold; margin-bottom: 8px;">Phase 3</div>
+                        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 6px;">Father Wounds</div>
+                        <div style="font-size: 0.8rem; color: #b0b0b0;">Heal masculine wounds</div>
                     </div>
                     
-                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 25px; text-align: center;">
-                        <div style="color: #ffd700; font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;">Phase 4.5</div>
-                        <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Relationships</div>
-                        <div style="font-size: 0.9rem; color: #b0b0b0;">Build healthy masculine connections</div>
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 20px; text-align: center;">
+                        <div style="color: #ffd700; font-size: 1.3rem; font-weight: bold; margin-bottom: 8px;">Phase 4</div>
+                        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 6px;">Solitude</div>
+                        <div style="font-size: 0.8rem; color: #b0b0b0;">Develop self-awareness</div>
                     </div>
                     
-                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 25px; text-align: center;">
-                        <div style="color: #ffd700; font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;">Phase 5</div>
-                        <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Integration</div>
-                        <div style="font-size: 0.9rem; color: #b0b0b0;">Make your transformation stick with daily practice</div>
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 20px; text-align: center;">
+                        <div style="color: #ffd700; font-size: 1.3rem; font-weight: bold; margin-bottom: 8px;">Phase 5</div>
+                        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 6px;">Transformation</div>
+                        <div style="font-size: 0.8rem; color: #b0b0b0;">Rewrite your beliefs</div>
                     </div>
                     
-                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 25px; text-align: center;">
-                        <div style="color: #ffd700; font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;">Phase 6</div>
-                        <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Breakthrough</div>
-                        <div style="font-size: 0.9rem; color: #b0b0b0;">Complete freedom and authentic power</div>
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 20px; text-align: center;">
+                        <div style="color: #ffd700; font-size: 1.3rem; font-weight: bold; margin-bottom: 8px;">Phase 6</div>
+                        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 6px;">Relationships</div>
+                        <div style="font-size: 0.8rem; color: #b0b0b0;">Build healthy connections</div>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 20px; text-align: center;">
+                        <div style="color: #ffd700; font-size: 1.3rem; font-weight: bold; margin-bottom: 8px;">Phase 7</div>
+                        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 6px;">Integration</div>
+                        <div style="font-size: 0.8rem; color: #b0b0b0;">Make it stick</div>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 20px; text-align: center;">
+                        <div style="color: #ffd700; font-size: 1.3rem; font-weight: bold; margin-bottom: 8px;">Phase 8</div>
+                        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 6px;">Breakthrough</div>
+                        <div style="font-size: 0.8rem; color: #b0b0b0;">Complete freedom</div>
                     </div>
                 </div>
             </div>
@@ -378,10 +394,138 @@
             </div>
         </div>
 
-        <!-- Phase 2: Father Wounds -->
+        <!-- Phase 1: Awareness -->
+        <div class="phase-content" id="phase1">
+            <div class="exercise">
+                <h2>PHASE 1: AWARENESS</h2>
+                <p>Recognizing Your Default Mode - The first step to freedom is seeing what's been controlling you.</p>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 1: IDENTIFY YOUR DEFAULT MODE</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Understanding your automatic responses</p>
+
+                <h3>Part A: Your Automatic Responses</h3>
+                <div class="form-group">
+                    <label>When you feel criticized, what do you automatically do?</label>
+                    <textarea name="criticism-response" placeholder="Do you defend, attack, withdraw, or something else?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>When you feel overwhelmed, what's your go-to escape?</label>
+                    <textarea name="overwhelm-escape" placeholder="What do you automatically reach for?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>When you feel insecure, how do you try to prove yourself?</label>
+                    <textarea name="insecurity-prove" placeholder="What performance do you put on?"></textarea>
+                </div>
+
+                <h3>Part B: The Stories You Tell Yourself</h3>
+                <div class="form-group">
+                    <label>What's the story you tell yourself about why you can't change?</label>
+                    <textarea name="cant-change-story" placeholder="What excuses do you make?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What's the story you tell yourself about why you're stuck?</label>
+                    <textarea name="stuck-story" placeholder="What narrative keeps you trapped?"></textarea>
+                </div>
+
+                <h3>Part C: Your Default Mode's Core Beliefs</h3>
+                <div class="form-group">
+                    <label>What does your default mode believe about you?</label>
+                    <textarea name="default-beliefs" placeholder="What negative beliefs drive your behavior?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What does your default mode believe about the world?</label>
+                    <textarea name="world-beliefs" placeholder="What assumptions shape your reality?"></textarea>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 2: SPOT YOUR ESCAPE ROUTES</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Identifying your avoidance patterns</p>
+
+                <h3>Part A: Internal Escapes</h3>
+                <div class="form-group">
+                    <label>What thoughts do you escape into when things get real?</label>
+                    <textarea name="internal-escapes" placeholder="What mental patterns do you use to avoid?"></textarea>
+                </div>
+
+                <h3>Part B: External Escapes</h3>
+                <div class="form-group">
+                    <label>What activities do you use to avoid facing yourself?</label>
+                    <textarea name="external-escapes" placeholder="What do you do to numb or distract?"></textarea>
+                </div>
+
+                <h3>Part C: The Cost of Escaping</h3>
+                <div class="form-group">
+                    <label>What has your default mode cost you?</label>
+                    <textarea name="escape-cost" placeholder="What opportunities, relationships, or growth have you missed?"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 2: Observation -->
         <div class="phase-content" id="phase2">
             <div class="exercise">
-                <h2>PHASE 2: FATHER WOUNDS</h2>
+                <h2>PHASE 2: OBSERVATION</h2>
+                <p>Watching Your Default Mode in Action - Learning to see your patterns without judgment.</p>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 3: THE MOMENT OF TRUTH</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Catching your default mode in real-time</p>
+
+                <h3>Part A: Recent Examples</h3>
+                <div class="form-group">
+                    <label>Describe a recent time when your default mode took over:</label>
+                    <textarea name="recent-default-mode" placeholder="What happened? How did you react?"></textarea>
+                </div>
+
+                <h3>Part B: The Pattern</h3>
+                <div class="form-group">
+                    <label>What pattern do you see in your default mode responses?</label>
+                    <textarea name="default-pattern" placeholder="What's the common thread?"></textarea>
+                </div>
+
+                <h3>Part C: Breaking the Cycle</h3>
+                <div class="form-group">
+                    <label>What would it look like to respond differently next time?</label>
+                    <textarea name="different-response" placeholder="How could you choose a new response?"></textarea>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 4: CONFRONTING THE PUPPET MASTER</h2>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">Facing the truth about what's been controlling you</p>
+
+                <h3>Part A: Let It Run Wild</h3>
+                <div class="form-group">
+                    <label>If your default mode had complete control, what would your life look like?</label>
+                    <textarea name="default-control-life" placeholder="Be brutally honest about the consequences"></textarea>
+                </div>
+
+                <h3>Part B: The New Default</h3>
+                <div class="form-group">
+                    <label>What would you choose as your new default response?</label>
+                    <textarea name="new-default" placeholder="What would authentic you do?"></textarea>
+                </div>
+
+                <h3>Part C: The Path Forward</h3>
+                <div class="form-group">
+                    <label>What's the first step toward breaking free from your default mode?</label>
+                    <textarea name="first-step" placeholder="What action will you take?"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 3: Father Wounds -->
+        <div class="phase-content" id="phase3">
+            <div class="exercise">
+                <h2>PHASE 3: FATHER WOUNDS</h2>
                 <p>Every man carries his father's legacy - the good, the bad, and the missing. This phase is where you face the masculine wounds that shaped your default mode. You'll heal what needs healing and claim what's yours to claim.</p>
             </div>
 
@@ -585,11 +729,11 @@
             </div>
         </div>
 
-        <!-- Phase 3: Solitude -->
-        <div class="phase-content active" id="phase3">
+        <!-- Phase 4: Solitude -->
+        <div class="phase-content" id="phase4">
 
             <div class="exercise">
-                <h2>PHASE 3: SOLITUDE</h2>
+                <h2>PHASE 4: SOLITUDE</h2>
                 <p>Most men avoid being alone because that's where the truth lives. No performance, no distractions, no external validation. Just you and your authentic self. This phase is where you learn to be comfortable with who you really are.</p>
             </div>
 
@@ -745,10 +889,10 @@
         </div>
 
 
-        <!-- Phase 4: Transformation -->
-        <div class="phase-content" id="phase4">
+        <!-- Phase 5: Transformation -->
+        <div class="phase-content" id="phase5">
             <div class="exercise">
-                <h2>PHASE 4: TRANSFORMATION</h2>
+                <h2>PHASE 5: TRANSFORMATION</h2>
                 <p>Awareness without action is just self-awareness theater. This phase is where you stop analyzing and start changing. You'll rewrite your internal script and create new responses that serve the man you're becoming.</p>
             </div>
 
@@ -940,10 +1084,10 @@
             </div>
         </div>
 
-        <!-- Phase 4.5: Masculine Relationships -->
-        <div class="phase-content" id="phase4-5">
+        <!-- Phase 6: Relationships -->
+        <div class="phase-content" id="phase6">
             <div class="exercise">
-                <h2>PHASE 4.5: MASCULINE RELATIONSHIPS</h2>
+                <h2>PHASE 6: RELATIONSHIPS</h2>
                 <p>Real men don't do relationships alone. This phase is where you apply the father wound insights from Phase 2 and the new beliefs from Phase 4 to build authentic masculine connections. You'll develop healthy boundaries, learn to compete healthily, and create relationships that make you stronger.</p>
             </div>
 
@@ -1157,10 +1301,10 @@
             </div>
         </div>
 
-        <!-- Phase 5: Integration -->
-        <div class="phase-content" id="phase5">
+        <!-- Phase 7: Integration -->
+        <div class="phase-content" id="phase7">
             <div class="exercise">
-                <h2>PHASE 5: INTEGRATION</h2>
+                <h2>PHASE 7: INTEGRATION</h2>
                 <p>Transformation that doesn't last is just another performance. This phase ensures your new patterns become your new default. You'll create systems and practices that keep you awake and conscious every day.</p>
             </div>
 
@@ -1298,10 +1442,10 @@
         </div>
 
 
-        <!-- Phase 6: Breakthrough -->
-        <div class="phase-content" id="phase6">
+        <!-- Phase 8: Breakthrough -->
+        <div class="phase-content" id="phase8">
             <div class="exercise">
-                <h2>PHASE 6: BREAKTHROUGH</h2>
+                <h2>PHASE 8: BREAKTHROUGH</h2>
                 <p>Sometimes you need to break down to break through. This phase is where you push past your comfort zone and into your authentic power. It's uncomfortable, but it's where real transformation happens.</p>
             </div>
 
