@@ -318,7 +318,7 @@
                 }));
                 
                 // Redirect to workbook
-                window.location.href = 'workbook-intro.html';
+                window.location.href = 'workbook-app.html';
             } else {
                 showMessage('Invalid email or password. Please try again.', 'error');
             }
@@ -372,7 +372,7 @@
             
             // Redirect to workbook after a short delay
             setTimeout(() => {
-                window.location.href = 'workbook-intro.html';
+                window.location.href = 'workbook-app.html';
             }, 1500);
         });
 
@@ -381,7 +381,7 @@
             const currentUser = sessionStorage.getItem('currentUser');
             if (currentUser) {
                 // User is already logged in, redirect to workbook
-                window.location.href = 'workbook-intro.html';
+                window.location.href = 'workbook-app.html';
             }
         });
     </script>
