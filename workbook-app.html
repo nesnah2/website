@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Version: 2024-12-19-17:00 - Professional introduction moved to top of page with stats and hero section -->
+    <!-- Version: 2024-12-19-17:15 - Introduction moved back to separate section like phases -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -100,109 +100,6 @@
             background: linear-gradient(135deg, #f7931e, #e8851a) !important;
         }
 
-        .professional-intro {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 53, 0.1));
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 30px 0;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .intro-hero h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .intro-subtitle {
-            font-size: 1.3rem;
-            color: #e2e8f0;
-            margin-bottom: 30px;
-            line-height: 1.6;
-            font-weight: 500;
-        }
-
-        .intro-highlight {
-            background: rgba(255, 215, 0, 0.15);
-            border: 2px solid #ffd700;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
-        }
-
-        .highlight-text {
-            font-size: 1.4rem;
-            color: #ffd700;
-            font-weight: 700;
-            margin: 0;
-            line-height: 1.4;
-        }
-
-        .intro-description {
-            font-size: 1.1rem;
-            color: #b0b0b0;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .intro-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #ffd700;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: #e2e8f0;
-            font-weight: 600;
-        }
-
-        @media (min-width: 768px) {
-            .professional-intro {
-                padding: 60px;
-                margin: 40px 0;
-            }
-            
-            .intro-hero h2 {
-                font-size: 3.5rem;
-            }
-            
-            .intro-subtitle {
-                font-size: 1.5rem;
-            }
-            
-            .highlight-text {
-                font-size: 1.6rem;
-            }
-            
-            .intro-stats {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 40px;
-            }
-        }
         .phase-btn {
             padding: 8px 16px;
             background: rgba(255, 255, 255, 0.05);
@@ -357,37 +254,11 @@
     <div class="container">
         <h1>Breaking Free From Your Default Mode</h1>
         
-        <!-- Professional Introduction Section -->
-        <div class="professional-intro">
-            <div class="intro-hero">
-                <h2>Welcome to Your Transformation Journey</h2>
-                <p class="intro-subtitle">You've done the free guide. You've seen your patterns. You've felt the weight of your default mode. Now you're here because you want more than awareness, you want transformation.</p>
-                
-                <div class="intro-highlight">
-                    <p class="highlight-text">The free guide showed you what was wrong. This workbook shows you how to fix it.</p>
-                </div>
-                
-                <p class="intro-description">This workbook is the real work. The uncomfortable work. The work that most men won't do. If you're looking for quick fixes or feel-good exercises, this isn't for you. If you're ready to break free from your default mode and become the man you're meant to be, let's get started.</p>
-            </div>
-            
-            <div class="intro-stats">
-                <div class="stat-item">
-                    <div class="stat-number">6</div>
-                    <div class="stat-label">Phases</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">12+</div>
-                    <div class="stat-label">Exercises</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Transformation</div>
-                </div>
-            </div>
-        </div>
         
         <div class="phase-nav">
-            <button class="phase-btn active" onclick="showPhase('phase2')">Phase 2: Father Wounds</button>
+            <button class="phase-btn intro-btn active" onclick="showPhase('introduction')">📖 Introduction</button>
+            <div class="nav-separator">|</div>
+            <button class="phase-btn" onclick="showPhase('phase2')">Phase 2: Father Wounds</button>
             <div class="nav-arrow">→</div>
             <button class="phase-btn" onclick="showPhase('phase3')">Phase 3: Solitude</button>
             <div class="nav-arrow">→</div>
@@ -402,8 +273,8 @@
             <button class="phase-btn journey-btn" onclick="showPhase('journey-continues')">🎯 Your Journey Continues</button>
         </div>
 
-        <!-- Introduction Section (Hidden - moved to top) -->
-        <div class="phase-content" id="introduction" style="display: none;">
+        <!-- Introduction Section -->
+        <div class="phase-content active" id="introduction">
             <div class="exercise" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05); margin-bottom: 30px;">
                 <h2>Welcome to Your Transformation Journey</h2>
                 <p style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.2rem; line-height: 1.6;">
@@ -508,7 +379,7 @@
         </div>
 
         <!-- Phase 2: Father Wounds -->
-        <div class="phase-content active" id="phase2">
+        <div class="phase-content" id="phase2">
             <div class="exercise">
                 <h2>PHASE 2: FATHER WOUNDS</h2>
                 <p>Every man carries his father's legacy - the good, the bad, and the missing. This phase is where you face the masculine wounds that shaped your default mode. You'll heal what needs healing and claim what's yours to claim.</p>
