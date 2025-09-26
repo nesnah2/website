@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Version: 2024-12-19-19:00 - Fixed missing script tag causing JavaScript to display as text -->
+    <!-- Version: 2024-12-19-19:05 - Added login check and logout functionality -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -1550,6 +1550,7 @@
         <div style="text-align: center; margin-top: 40px;">
             <button class="btn" onclick="saveProgress()">💾 Save Progress</button>
             <button class="btn" onclick="exportToPDF()">📄 Export to PDF</button>
+            <button class="btn" onclick="logout()" style="background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #ef4444;">🚪 Logout</button>
         </div>
     </div>
 
@@ -1700,7 +1701,7 @@
 
         // Force cache refresh
         function forceRefresh() {
-            const currentVersion = '2024-12-19-19:00';
+            const currentVersion = '2024-12-19-19:05';
             let savedVersion;
             try {
                 savedVersion = localStorage.getItem('workbookVersion');
@@ -1718,37 +1719,70 @@
             }
         }
 
+        // Check if user is logged in
+        function checkLogin() {
+            let currentUser;
+            try {
+                currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
+            } catch (e) {
+                console.error('Error parsing currentUser from sessionStorage:', e);
+                return false;
+            }
+            return currentUser.email && currentUser.email.trim() !== '';
+        }
+
+        // Logout function
+        function logout() {
+            if (confirm('Are you sure you want to logout? Your progress will be saved.')) {
+                // Save progress before logout
+                saveProgress();
+                
+                // Clear session
+                sessionStorage.removeItem('currentUser');
+                
+                // Redirect to login page
+                window.location.href = 'workbook-login.html';
+            }
+        }
+
         // Initialize page and load progress when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in
+            if (!checkLogin()) {
+                // Redirect to login page if not logged in
+                window.location.href = 'workbook-login.html';
+                return;
+            }
+
             // Hide all phases first
             const allPhases = document.querySelectorAll('.phase-content');
             allPhases.forEach(phase => {
                 phase.classList.remove('active');
                 phase.style.display = 'none';
             });
-            
+
             // Show only Introduction
             const introPhase = document.getElementById('introduction');
             if (introPhase) {
                 introPhase.classList.add('active');
                 introPhase.style.display = 'block';
             }
-            
+
             // Set Introduction button as active
             const allButtons = document.querySelectorAll('.phase-btn');
             allButtons.forEach(btn => {
                 btn.classList.remove('active');
             });
-            
+
             const introButton = document.querySelector('[onclick="showPhase(\'introduction\')"]');
             if (introButton) {
                 introButton.classList.add('active');
             }
-            
+
             // Load user progress and setup auto-save
             forceRefresh();
             loadProgress();
-            
+
             // Auto-save progress every 30 seconds
             setInterval(saveProgress, 30000);
         });
