@@ -229,6 +229,11 @@
                 <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
             </div>
             
+            <div class="form-group" style="display: flex; align-items: center; gap: 8px; margin-bottom: 20px;">
+                <input type="checkbox" id="rememberMe" style="margin: 0;">
+                <label for="rememberMe" style="margin: 0; font-size: 14px; color: #ccc;">Remember me</label>
+            </div>
+            
             <button type="submit" class="btn">🔐 Access Workbook</button>
         </form>
 
@@ -311,11 +316,21 @@
             const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
             
             if (users[email] && users[email].password === password) {
-                // Store current user in sessionStorage
-                sessionStorage.setItem('currentUser', JSON.stringify({
+                const rememberMe = document.getElementById('rememberMe').checked;
+                const userData = {
                     email: email,
                     name: users[email].name
-                }));
+                };
+                
+                // Store current user in sessionStorage (always)
+                sessionStorage.setItem('currentUser', JSON.stringify(userData));
+                
+                // Also store in localStorage if "Remember Me" is checked
+                if (rememberMe) {
+                    localStorage.setItem('rememberedUser', JSON.stringify(userData));
+                } else {
+                    localStorage.removeItem('rememberedUser');
+                }
                 
                 // Redirect to workbook
                 window.location.href = 'workbook-app.html';
@@ -378,7 +393,18 @@
 
         // Check if user is already logged in
         window.addEventListener('load', function() {
-            const currentUser = sessionStorage.getItem('currentUser');
+            let currentUser = sessionStorage.getItem('currentUser');
+            
+            // If no session, check for remembered user
+            if (!currentUser) {
+                const rememberedUser = localStorage.getItem('rememberedUser');
+                if (rememberedUser) {
+                    // Restore session from remembered user
+                    sessionStorage.setItem('currentUser', rememberedUser);
+                    currentUser = rememberedUser;
+                }
+            }
+            
             if (currentUser) {
                 // User is already logged in, redirect to workbook
                 window.location.href = 'workbook-app.html';
