@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Version: 2024-12-19-18:50 - Completely hidden PDF export element -->
+    <!-- Version: 2024-12-19-18:55 - Maximum hiding for PDF export element -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -1699,7 +1699,7 @@
 
         // Force cache refresh
         function forceRefresh() {
-            const currentVersion = '2024-12-19-18:50';
+            const currentVersion = '2024-12-19-18:55';
             let savedVersion;
             try {
                 savedVersion = localStorage.getItem('workbookVersion');
@@ -1768,7 +1768,7 @@
                 return;
             }
             
-            // Create a clean version of the workbook for PDF export
+            // Create PDF content and add to DOM temporarily with maximum hiding
             const workbookContent = document.createElement('div');
             workbookContent.style.cssText = `
                 font-family: Arial, sans-serif;
@@ -1776,6 +1776,18 @@
                 background: #fff;
                 padding: 20px;
                 line-height: 1.6;
+                position: fixed !important;
+                left: -99999px !important;
+                top: -99999px !important;
+                width: 0px !important;
+                height: 0px !important;
+                overflow: hidden !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                z-index: -99999 !important;
+                pointer-events: none !important;
+                display: none !important;
+                transform: scale(0) !important;
             `;
             
             // Add header
@@ -1898,23 +1910,10 @@
             `;
             workbookContent.appendChild(footer);
             
-            // Temporarily add to DOM for PDF generation - COMPLETELY HIDDEN
-            workbookContent.style.cssText = `
-                position: fixed !important;
-                left: -99999px !important;
-                top: -99999px !important;
-                width: 0px !important;
-                height: 0px !important;
-                overflow: hidden !important;
-                visibility: hidden !important;
-                opacity: 0 !important;
-                z-index: -99999 !important;
-                pointer-events: none !important;
-                display: none !important;
-            `;
+            // Add to DOM temporarily for PDF generation
             document.body.appendChild(workbookContent);
             
-            // Generate PDF
+            // Generate PDF directly from content without adding to DOM
             const options = {
                 margin: 10,
                 filename: `workbook-${currentUser.email.split('@')[0]}-${new Date().toISOString().split('T')[0]}.pdf`,
@@ -1932,22 +1931,27 @@
                 pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
             };
             
-            // Start PDF generation and immediately clean up
-            const pdfPromise = html2pdf().set(options).from(workbookContent).save();
+            // Generate PDF and immediately remove element
+            html2pdf().set(options).from(workbookContent).save().then(() => {
+                // Remove element immediately after PDF generation
+                if (document.body.contains(workbookContent)) {
+                    document.body.removeChild(workbookContent);
+                }
+            }).catch((error) => {
+                console.error('PDF export failed:', error);
+                // Remove element even on error
+                if (document.body.contains(workbookContent)) {
+                    document.body.removeChild(workbookContent);
+                }
+                alert('PDF export failed. Please try again.');
+            });
             
-            // Immediate cleanup - remove element right away
+            // Safety cleanup - remove element after 1 second regardless
             setTimeout(() => {
                 if (document.body.contains(workbookContent)) {
                     document.body.removeChild(workbookContent);
                 }
-            }, 100); // Remove after 100ms
-            
-            pdfPromise.then(() => {
-                // PDF generation completed
-            }).catch((error) => {
-                console.error('PDF export failed:', error);
-                alert('PDF export failed. Please try again.');
-            });
+            }, 1000);
         }
     </script>
 </body>
