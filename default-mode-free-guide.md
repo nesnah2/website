@@ -305,7 +305,7 @@ _________________________________________________
 - **Phase 5: Integration** - Making it stick
 - **Phase 6: Breakthrough** - The final push
 
-**Plus 4 additional exercises with 75+ more questions designed to take you deeper.**
+**Plus 4 additional exercises with 180+ more questions designed to take you deeper.**
 
 ---
 
@@ -313,10 +313,13 @@ _________________________________________________
 
 **Most men need both. The workbook gives you the framework. Coaching gives you the breakthrough.**
 
-### **OPTION 1: Complete Workbook ($67)**
-✅ 4 Additional Phases (Solitude, Transformation, Integration, Breakthrough)
-✅ 75+ More Questions
-✅ Self-paced transformation
+### **OPTION 1: Complete Interactive Workbook ($147)**
+✅ 8 Complete Transformation Phases
+✅ 180+ Deep Reflection Questions (3.5x the free guide)
+✅ 14 Comprehensive Exercises
+✅ Interactive Progress Tracking
+✅ 10-Minute Silence Timer
+✅ Login System & Progress Saving
 ✅ Your Declaration of Freedom
 
 **[GET THE COMPLETE WORKBOOK]**
