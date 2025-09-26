@@ -314,12 +314,8 @@ _________________________________________________
 **Most men need both. The workbook gives you the framework. Coaching gives you the breakthrough.**
 
 ### **OPTION 1: Complete Interactive Workbook ($147)**
-✅ 8 Complete Transformation Phases
-✅ 180+ Deep Reflection Questions (3.5x the free guide)
+✅ 180+ Deep Reflection Questions
 ✅ 14 Comprehensive Exercises
-✅ Interactive Progress Tracking
-✅ 10-Minute Silence Timer
-✅ Login System & Progress Saving
 ✅ Your Declaration of Freedom
 
 **[GET THE COMPLETE WORKBOOK]**
