@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Version: 2024-12-19-17:15 - Introduction moved back to separate section like phases -->
+    <!-- Version: 2024-12-19-17:20 - Fixed page initialization to show only Introduction on load -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -1569,6 +1569,34 @@
                 currentButton.classList.add('active');
             }
         }
+
+        // Initialize page - show only Introduction
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide all phases first
+            const allPhases = document.querySelectorAll('.phase-content');
+            allPhases.forEach(phase => {
+                phase.classList.remove('active');
+                phase.style.display = 'none';
+            });
+            
+            // Show only Introduction
+            const introPhase = document.getElementById('introduction');
+            if (introPhase) {
+                introPhase.classList.add('active');
+                introPhase.style.display = 'block';
+            }
+            
+            // Set Introduction button as active
+            const allButtons = document.querySelectorAll('.phase-btn');
+            allButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            const introButton = document.querySelector('[onclick="showPhase(\'introduction\')"]');
+            if (introButton) {
+                introButton.classList.add('active');
+            }
+        });
 
         function saveProgress() {
             // Get current user from session
