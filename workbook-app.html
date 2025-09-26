@@ -51,10 +51,23 @@
         .phase-nav {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 8px;
             margin-bottom: 20px;
             flex-wrap: wrap;
             padding: 0 10px;
+        }
+
+        .nav-arrow {
+            color: #ffd700;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 25px;
+            height: 25px;
         }
         .phase-btn {
             padding: 8px 16px;
@@ -76,6 +89,12 @@
                 gap: 15px;
                 margin-bottom: 40px;
                 padding: 0;
+            }
+            .nav-arrow {
+                font-size: 1.5rem;
+                margin: 0 5px;
+                min-width: 30px;
+                height: 30px;
             }
             .phase-btn {
                 padding: 12px 24px;
@@ -206,11 +225,17 @@
         
         <div class="phase-nav">
             <button class="phase-btn active" onclick="showPhase('introduction')">Introduction</button>
+            <div class="nav-arrow">→</div>
             <button class="phase-btn" onclick="showPhase('phase2')">Phase 2: Father Wounds</button>
+            <div class="nav-arrow">→</div>
             <button class="phase-btn" onclick="showPhase('phase3')">Phase 3: Solitude</button>
+            <div class="nav-arrow">→</div>
             <button class="phase-btn" onclick="showPhase('phase4')">Phase 4: Transformation</button>
+            <div class="nav-arrow">→</div>
             <button class="phase-btn" onclick="showPhase('phase4-5')">Phase 4.5: Relationships</button>
+            <div class="nav-arrow">→</div>
             <button class="phase-btn" onclick="showPhase('phase5')">Phase 5: Integration</button>
+            <div class="nav-arrow">→</div>
             <button class="phase-btn" onclick="showPhase('phase6')">Phase 6: Breakthrough</button>
         </div>
 
