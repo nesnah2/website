@@ -1724,9 +1724,20 @@
         function checkLogin() {
             let currentUser;
             try {
+                // First check sessionStorage
                 currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
+                
+                // If no session, check localStorage for remembered user
+                if (!currentUser.email) {
+                    const rememberedUser = localStorage.getItem('rememberedUser');
+                    if (rememberedUser) {
+                        currentUser = JSON.parse(rememberedUser);
+                        // Restore session from remembered user
+                        sessionStorage.setItem('currentUser', rememberedUser);
+                    }
+                }
             } catch (e) {
-                console.error('Error parsing currentUser from sessionStorage:', e);
+                console.error('Error parsing currentUser:', e);
                 return false;
             }
             return currentUser.email && currentUser.email.trim() !== '';
@@ -1738,8 +1749,9 @@
                 // Save progress before logout
                 saveProgress();
                 
-                // Clear session
+                // Clear both session and persistent login
                 sessionStorage.removeItem('currentUser');
+                localStorage.removeItem('rememberedUser');
                 
                 // Redirect to login page
                 window.location.href = 'workbook-login.html';
