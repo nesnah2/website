@@ -2016,11 +2016,59 @@
     </div>
 
     <script>
-        // TEMPORARILY DISABLED - Allow access to workbook
-        console.log('Workbook loaded - authentication temporarily disabled');
-        document.body.style.display = 'block';
+        // Authentication with proper Firebase initialization
+        let authInitialized = false;
         
-        // TODO: Re-enable authentication once Firebase issues are resolved
+        // Wait for DOM and Firebase to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for Firebase to initialize
+            waitForFirebase().then(() => {
+                checkAuthentication();
+            }).catch(() => {
+                console.log('Firebase failed to initialize - allowing access');
+                document.body.style.display = 'block';
+            });
+        });
+        
+        function waitForFirebase() {
+            return new Promise((resolve, reject) => {
+                let attempts = 0;
+                const maxAttempts = 40; // 20 seconds max wait
+                
+                const checkFirebase = setInterval(() => {
+                    attempts++;
+                    
+                    if (typeof firebase !== 'undefined' && firebase.auth) {
+                        clearInterval(checkFirebase);
+                        console.log('Firebase ready after', attempts * 500, 'ms');
+                        resolve();
+                    } else if (attempts >= maxAttempts) {
+                        clearInterval(checkFirebase);
+                        console.log('Firebase initialization timeout');
+                        reject();
+                    }
+                }, 500);
+            });
+        }
+        
+        function checkAuthentication() {
+            if (authInitialized) return;
+            authInitialized = true;
+            
+            firebase.auth().onAuthStateChanged(function(user) {
+                console.log('Auth state:', user ? `Logged in as ${user.email}` : 'Not logged in');
+                
+                if (user) {
+                    // User is authenticated
+                    document.body.style.display = 'block';
+                    console.log('Workbook access granted');
+                } else {
+                    // User not authenticated
+                    console.log('Redirecting to login');
+                    window.location.href = '../workbook-login.html';
+                }
+            });
+        }
         
         function showPhase(phaseId) {
             // console.log('Switching to phase:', phaseId);
@@ -2218,8 +2266,8 @@
                 sessionStorage.removeItem('currentUser');
                 localStorage.removeItem('rememberedUser');
                 
-                // Logout redirect disabled
-                // window.location.href = '../workbook-login.html';
+                // Redirect to login page
+                window.location.href = '../workbook-login.html';
             }
         }
 
@@ -2299,7 +2347,7 @@
 
         // Initialize page and load progress when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            // Authentication temporarily disabled
+            // Authentication is handled above in the main script
 
             // Hide all phases first
             const allPhases = document.querySelectorAll('.phase-content');
