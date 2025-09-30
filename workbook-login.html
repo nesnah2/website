@@ -413,11 +413,18 @@
         });
 
         // Check if user is already logged in
+        let loginAuthCheckComplete = false;
+        
         firebase.auth().onAuthStateChanged(function(user) {
+            if (loginAuthCheckComplete) return; // Prevent multiple redirects
+            loginAuthCheckComplete = true;
+            
             if (user) {
                 // User is signed in, redirect to workbook
                 console.log('User already logged in:', user.email);
                 window.location.href = 'workbook/';
+            } else {
+                console.log('No user logged in, showing login form');
             }
         });
     </script>

@@ -10,6 +10,12 @@
     <!-- Version: 2024-12-26-21:45 - Fixed PDF export and added debug logging -->
     <title>Breaking Free From Your Default Mode - Workbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="../firebase-config.js?v=2"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -1961,6 +1967,24 @@
     </div>
 
     <script>
+        // Check authentication on page load
+        let authCheckComplete = false;
+        
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (authCheckComplete) return; // Prevent multiple checks
+            authCheckComplete = true;
+            
+            if (!user) {
+                // No user logged in, redirect to login
+                console.log('No user logged in, redirecting...');
+                window.location.href = '../workbook-login.html';
+            } else {
+                // User is logged in
+                console.log('User logged in:', user.email);
+                // Continue loading workbook
+            }
+        });
+        
         function showPhase(phaseId) {
             // console.log('Switching to phase:', phaseId);
             
