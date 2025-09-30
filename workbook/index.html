@@ -1967,20 +1967,29 @@
     </div>
 
     <script>
-        // Check authentication on page load
+        // Check authentication on page load - with delay to prevent loop
         let authCheckComplete = false;
+        let redirectTimeout = null;
         
         firebase.auth().onAuthStateChanged(function(user) {
             if (authCheckComplete) return; // Prevent multiple checks
-            authCheckComplete = true;
+            
+            // Clear any pending redirect
+            if (redirectTimeout) {
+                clearTimeout(redirectTimeout);
+            }
             
             if (!user) {
-                // No user logged in, redirect to login
-                console.log('No user logged in, redirecting...');
-                window.location.href = '../workbook-login.html';
+                // No user logged in, redirect to login after short delay
+                console.log('No user logged in, will redirect in 500ms...');
+                redirectTimeout = setTimeout(() => {
+                    authCheckComplete = true;
+                    window.location.href = '../workbook-login.html';
+                }, 500);
             } else {
                 // User is logged in
-                console.log('User logged in:', user.email);
+                authCheckComplete = true;
+                console.log('User authenticated:', user.email);
                 // Continue loading workbook
             }
         });
