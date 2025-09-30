@@ -1,0 +1,27 @@
+{
+  "name": "default-mode-workbook",
+  "version": "1.0.0",
+  "description": "Default Mode Workbook - Complete funnel with Stripe integration",
+  "main": "server-stripe.js",
+  "scripts": {
+    "start": "node server-stripe.js",
+    "dev": "nodemon server-stripe.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "stripe": "^14.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "workbook",
+    "men",
+    "transformation",
+    "default-mode",
+    "stripe",
+    "payment"
+  ],
+  "author": "Mikkel Hansen",
+  "license": "MIT"
+}
