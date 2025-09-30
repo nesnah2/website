@@ -1,13 +1,11 @@
 // Firebase Configuration
-// Replace these with your actual Firebase project credentials
-
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY_HERE",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyBghna59kOD9GjqnoMcr-MuI5D8XAueDM8",
+    authDomain: "default-workbook.firebaseapp.com",
+    projectId: "default-workbook",
+    storageBucket: "default-workbook.firebasestorage.app",
+    messagingSenderId: "33766583433",
+    appId: "1:33766583433:web:c23725c965d24916d86a58"
 };
 
 // Initialize Firebase
@@ -20,3 +18,5 @@ const db = firebase.firestore();
 // Export for use in other files
 window.firebaseAuth = auth;
 window.firebaseDb = db;
+
+console.log('Firebase initialized successfully');
