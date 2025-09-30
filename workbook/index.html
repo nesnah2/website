@@ -15,7 +15,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script src="../firebase-config.js?v=4"></script>
+    <script src="../firebase-config.js?v=5"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -2015,33 +2015,36 @@
     </div>
 
     <script>
-        // Check authentication on page load - with delay to prevent loop
+        // Check authentication on page load - show message instead of auto-redirect
         let authCheckComplete = false;
-        let redirectTimeout = null;
-        let hasRedirected = false;
         
         firebase.auth().onAuthStateChanged(function(user) {
-            if (authCheckComplete || hasRedirected) return; // Prevent multiple checks and redirects
-            
-            // Clear any pending redirect
-            if (redirectTimeout) {
-                clearTimeout(redirectTimeout);
-            }
+            if (authCheckComplete) return; // Prevent multiple checks
             
             if (!user) {
-                // No user logged in, redirect to login after delay
-                console.log('No user logged in, will redirect in 1000ms...');
-                hasRedirected = true; // Set flag immediately to prevent multiple redirects
-                redirectTimeout = setTimeout(() => {
-                    authCheckComplete = true;
-                    if (!hasRedirected) return; // Double check
-                    window.location.href = '../workbook-login.html';
-                }, 1000); // Increased delay
+                // No user logged in - show message instead of redirecting
+                console.log('No user logged in');
+                authCheckComplete = true;
+                
+                // Show login message overlay
+                document.body.innerHTML = `
+                    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%); font-family: 'Inter', sans-serif;">
+                        <div style="background: rgba(255, 255, 255, 0.1); padding: 40px; border-radius: 12px; text-align: center; max-width: 500px; margin: 20px;">
+                            <h1 style="color: #ffd700; margin-bottom: 20px; font-size: 1.8rem;">🔐 Login Required</h1>
+                            <p style="color: #e2e8f0; margin-bottom: 30px; font-size: 1.1rem; line-height: 1.6;">
+                                You need to be logged in to access the complete workbook.
+                            </p>
+                            <a href="../workbook-login.html" style="display: inline-block; background: #ffd700; color: #0f1419; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem;">
+                                Go to Login Page
+                            </a>
+                        </div>
+                    </div>
+                `;
             } else {
                 // User is logged in
                 authCheckComplete = true;
                 console.log('User authenticated:', user.email);
-                // Continue loading workbook
+                // Continue loading workbook normally
             }
         });
         
