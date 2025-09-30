@@ -21,6 +21,7 @@
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
             color: #ffffff;
+            display: none; /* Hidden until auth check completes */
             min-height: 100vh;
             margin: 0;
             padding: 10px;
@@ -2015,24 +2016,48 @@
     </div>
 
     <script>
-        // Wait for Firebase to initialize, then check authentication
-        document.addEventListener('DOMContentLoaded', function() {
-            // Wait a bit for Firebase to initialize
-            setTimeout(function() {
-                firebase.auth().onAuthStateChanged(function(user) {
-                    console.log('Auth state changed:', user ? 'User logged in' : 'No user');
-                    
-                    if (!user) {
-                        console.log('Redirecting to login page');
-                        window.location.href = '../workbook-login.html';
-                    } else {
-                        console.log('User authenticated, loading workbook');
-                        // User is logged in, show the workbook content
-                        document.body.style.display = 'block';
-                    }
-                });
-            }, 1000); // Wait 1 second for Firebase to initialize
-        });
+        // Wait for Firebase to be ready, then check authentication
+        let authChecked = false;
+        
+        // Check if Firebase is already initialized
+        if (typeof firebase !== 'undefined' && firebase.auth) {
+            checkAuth();
+        } else {
+            // Wait for Firebase to load
+            let attempts = 0;
+            const checkFirebase = setInterval(() => {
+                attempts++;
+                console.log('Waiting for Firebase... attempt', attempts);
+                
+                if (typeof firebase !== 'undefined' && firebase.auth) {
+                    clearInterval(checkFirebase);
+                    checkAuth();
+                } else if (attempts > 20) {
+                    clearInterval(checkFirebase);
+                    console.log('Firebase failed to load after 10 seconds');
+                    // Allow access anyway after timeout
+                    document.body.style.display = 'block';
+                }
+            }, 500);
+        }
+        
+        function checkAuth() {
+            if (authChecked) return;
+            authChecked = true;
+            
+            console.log('Checking authentication...');
+            firebase.auth().onAuthStateChanged(function(user) {
+                console.log('Auth state changed:', user ? `User: ${user.email}` : 'No user');
+                
+                if (user) {
+                    console.log('User authenticated, showing workbook');
+                    document.body.style.display = 'block';
+                } else {
+                    console.log('No user, redirecting to login');
+                    window.location.href = '../workbook-login.html';
+                }
+            });
+        }
         
         function showPhase(phaseId) {
             // console.log('Switching to phase:', phaseId);
