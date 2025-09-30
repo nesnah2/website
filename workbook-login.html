@@ -324,12 +324,14 @@
                 // Firebase authentication
                 await firebase.auth().signInWithEmailAndPassword(email, password);
                 
-                showMessage('Login successful! Redirecting...', 'success');
+                showMessage('Login successful! You can now access the workbook.', 'success');
                 
-                // Redirect to workbook
-                setTimeout(() => {
-                    window.location.href = 'workbook/index.html';
-                }, 1000);
+                // Show workbook access button instead of auto-redirect
+                const redirectBtn = document.createElement('button');
+                redirectBtn.innerHTML = '📖 Access Workbook';
+                redirectBtn.style.cssText = 'margin-top: 20px; padding: 15px 30px; background: #ffd700; color: #0f1419; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;';
+                redirectBtn.onclick = () => window.location.href = 'workbook/index.html';
+                document.querySelector('.login-container').appendChild(redirectBtn);
                 
             } catch (error) {
                 console.error('Login error:', error);
@@ -387,12 +389,14 @@
                     hasPurchased: false // Will be updated after Stripe payment
                 });
                 
-                showMessage('Account created successfully! Redirecting to workbook...', 'success');
+                showMessage('Account created successfully! You can now access the workbook.', 'success');
                 
-                // Redirect to workbook
-                setTimeout(() => {
-                    window.location.href = 'workbook/index.html';
-                }, 1500);
+                // Show workbook access button instead of auto-redirect
+                const redirectBtn = document.createElement('button');
+                redirectBtn.innerHTML = '📖 Access Workbook';
+                redirectBtn.style.cssText = 'margin-top: 20px; padding: 15px 30px; background: #ffd700; color: #0f1419; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;';
+                redirectBtn.onclick = () => window.location.href = 'workbook/index.html';
+                document.querySelector('.login-container').appendChild(redirectBtn);
                 
             } catch (error) {
                 console.error('Signup error:', error);
