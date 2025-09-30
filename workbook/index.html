@@ -15,7 +15,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script src="../firebase-config.js?v=3"></script>
+    <script src="../firebase-config.js?v=4"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -2018,9 +2018,10 @@
         // Check authentication on page load - with delay to prevent loop
         let authCheckComplete = false;
         let redirectTimeout = null;
+        let hasRedirected = false;
         
         firebase.auth().onAuthStateChanged(function(user) {
-            if (authCheckComplete) return; // Prevent multiple checks
+            if (authCheckComplete || hasRedirected) return; // Prevent multiple checks and redirects
             
             // Clear any pending redirect
             if (redirectTimeout) {
@@ -2028,12 +2029,14 @@
             }
             
             if (!user) {
-                // No user logged in, redirect to login after short delay
-                console.log('No user logged in, will redirect in 500ms...');
+                // No user logged in, redirect to login after delay
+                console.log('No user logged in, will redirect in 1000ms...');
+                hasRedirected = true; // Set flag immediately to prevent multiple redirects
                 redirectTimeout = setTimeout(() => {
                     authCheckComplete = true;
+                    if (!hasRedirected) return; // Double check
                     window.location.href = '../workbook-login.html';
-                }, 500);
+                }, 1000); // Increased delay
             } else {
                 // User is logged in
                 authCheckComplete = true;
