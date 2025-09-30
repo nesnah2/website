@@ -2218,8 +2218,8 @@
                 sessionStorage.removeItem('currentUser');
                 localStorage.removeItem('rememberedUser');
                 
-                // Redirect to login page
-                window.location.href = '../workbook-login.html';
+                // Logout redirect disabled
+                // window.location.href = '../workbook-login.html';
             }
         }
 
@@ -2299,12 +2299,7 @@
 
         // Initialize page and load progress when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if user is logged in
-            if (!checkLogin()) {
-                // Redirect to login page if not logged in
-                window.location.href = '../workbook-login.html';
-                return;
-            }
+            // Authentication temporarily disabled
 
             // Hide all phases first
             const allPhases = document.querySelectorAll('.phase-content');
