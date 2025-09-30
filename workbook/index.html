@@ -2016,48 +2016,11 @@
     </div>
 
     <script>
-        // Wait for Firebase to be ready, then check authentication
-        let authChecked = false;
+        // TEMPORARILY DISABLED - Allow access to workbook
+        console.log('Workbook loaded - authentication temporarily disabled');
+        document.body.style.display = 'block';
         
-        // Check if Firebase is already initialized
-        if (typeof firebase !== 'undefined' && firebase.auth) {
-            checkAuth();
-        } else {
-            // Wait for Firebase to load
-            let attempts = 0;
-            const checkFirebase = setInterval(() => {
-                attempts++;
-                console.log('Waiting for Firebase... attempt', attempts);
-                
-                if (typeof firebase !== 'undefined' && firebase.auth) {
-                    clearInterval(checkFirebase);
-                    checkAuth();
-                } else if (attempts > 20) {
-                    clearInterval(checkFirebase);
-                    console.log('Firebase failed to load after 10 seconds');
-                    // Allow access anyway after timeout
-                    document.body.style.display = 'block';
-                }
-            }, 500);
-        }
-        
-        function checkAuth() {
-            if (authChecked) return;
-            authChecked = true;
-            
-            console.log('Checking authentication...');
-            firebase.auth().onAuthStateChanged(function(user) {
-                console.log('Auth state changed:', user ? `User: ${user.email}` : 'No user');
-                
-                if (user) {
-                    console.log('User authenticated, showing workbook');
-                    document.body.style.display = 'block';
-                } else {
-                    console.log('No user, redirecting to login');
-                    window.location.href = '../workbook-login.html';
-                }
-            });
-        }
+        // TODO: Re-enable authentication once Firebase issues are resolved
         
         function showPhase(phaseId) {
             // console.log('Switching to phase:', phaseId);
