@@ -412,19 +412,12 @@
             }
         });
 
-        // Check if user is already logged in
-        let loginAuthCheckComplete = false;
-        
+        // Don't auto-redirect on login page - let user choose to access workbook
         firebase.auth().onAuthStateChanged(function(user) {
-            if (loginAuthCheckComplete) return; // Prevent multiple redirects
-            loginAuthCheckComplete = true;
-            
             if (user) {
-                // User is signed in, redirect to workbook
-                console.log('User already logged in:', user.email);
-                window.location.href = 'workbook/';
-            } else {
-                console.log('No user logged in, showing login form');
+                console.log('User is logged in:', user.email);
+                // Show a message instead of auto-redirecting
+                showMessage('You are already logged in. Click the button to access your workbook.', 'success');
             }
         });
     </script>
