@@ -2015,12 +2015,17 @@
     </div>
 
     <script>
-        // TEMPORARILY DISABLED: Authentication check to fix redirect loop
-        // firebase.auth().onAuthStateChanged(function(user) {
-        //     // Authentication temporarily disabled
-        // });
-        
-        console.log('Workbook loaded - authentication temporarily disabled for testing');
+        // Check authentication on page load
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                console.log('User authenticated:', user.email);
+                // User is logged in, continue loading workbook
+            } else {
+                console.log('No user logged in');
+                // User not logged in, redirect to login
+                window.location.href = '../workbook-login.html';
+            }
+        });
         
         function showPhase(phaseId) {
             // console.log('Switching to phase:', phaseId);
