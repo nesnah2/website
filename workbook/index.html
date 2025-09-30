@@ -2015,38 +2015,12 @@
     </div>
 
     <script>
-        // Check authentication on page load - show message instead of auto-redirect
-        let authCheckComplete = false;
+        // TEMPORARILY DISABLED: Authentication check to fix redirect loop
+        // firebase.auth().onAuthStateChanged(function(user) {
+        //     // Authentication temporarily disabled
+        // });
         
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (authCheckComplete) return; // Prevent multiple checks
-            
-            if (!user) {
-                // No user logged in - show message instead of redirecting
-                console.log('No user logged in');
-                authCheckComplete = true;
-                
-                // Show login message overlay
-                document.body.innerHTML = `
-                    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%); font-family: 'Inter', sans-serif;">
-                        <div style="background: rgba(255, 255, 255, 0.1); padding: 40px; border-radius: 12px; text-align: center; max-width: 500px; margin: 20px;">
-                            <h1 style="color: #ffd700; margin-bottom: 20px; font-size: 1.8rem;">🔐 Login Required</h1>
-                            <p style="color: #e2e8f0; margin-bottom: 30px; font-size: 1.1rem; line-height: 1.6;">
-                                You need to be logged in to access the complete workbook.
-                            </p>
-                            <a href="../workbook-login.html" style="display: inline-block; background: #ffd700; color: #0f1419; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem;">
-                                Go to Login Page
-                            </a>
-                        </div>
-                    </div>
-                `;
-            } else {
-                // User is logged in
-                authCheckComplete = true;
-                console.log('User authenticated:', user.email);
-                // Continue loading workbook normally
-            }
-        });
+        console.log('Workbook loaded - authentication temporarily disabled for testing');
         
         function showPhase(phaseId) {
             // console.log('Switching to phase:', phaseId);
