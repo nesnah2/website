@@ -609,26 +609,11 @@
     </div>
 
     <script>
-        // Auto-save functionality
-        let autoSaveInterval;
-        const SAVE_INTERVAL = 10000; // 10 seconds
-
-        // Initialize auto-save when page loads
+        // Manual save functionality only
         document.addEventListener('DOMContentLoaded', function() {
-            startAutoSave();
+            // Load any saved data
+            loadSavedData();
         });
-
-        function startAutoSave() {
-            // Clear any existing interval
-            if (autoSaveInterval) {
-                clearInterval(autoSaveInterval);
-            }
-
-            // Start new auto-save interval
-            autoSaveInterval = setInterval(saveAllData, SAVE_INTERVAL);
-            
-            console.log('Auto-save started - saving every 10 seconds');
-        }
 
         function saveAllData() {
             const allInputs = document.querySelectorAll('input[type="text"], textarea');
@@ -724,16 +709,7 @@
             loadSavedData();
         });
 
-        // Save when user types (debounced)
-        let saveTimeout;
-        document.addEventListener('input', function(e) {
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
-                clearTimeout(saveTimeout);
-                saveTimeout = setTimeout(() => {
-                    saveAllData();
-                }, 2000); // Save 2 seconds after user stops typing
-            }
-        });
+        // Manual save only - no auto-save on input
     </script>
 </body>
 </html>

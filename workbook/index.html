@@ -2156,7 +2156,7 @@
 
         // Auto-save functionality
         let autoSaveInterval;
-        const AUTO_SAVE_INTERVAL = 10000; // 10 seconds
+        const AUTO_SAVE_INTERVAL = 30000; // 30 seconds
 
         function startAutoSave() {
             // Clear any existing interval
@@ -2167,7 +2167,7 @@
             // Start new auto-save interval
             autoSaveInterval = setInterval(saveProgress, AUTO_SAVE_INTERVAL);
             
-            console.log('Auto-save started - saving every 10 seconds');
+            console.log('Auto-save started - saving every 30 seconds');
         }
 
         function stopAutoSave() {
@@ -2441,7 +2441,7 @@
             forceRefresh();
             loadProgress();
 
-            // Start auto-save progress every 10 seconds
+            // Start auto-save progress every 30 seconds
             startAutoSave();
         });
 
