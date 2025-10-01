@@ -189,7 +189,7 @@
             margin-bottom: 6px;
             color: #ffd700;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 1.3rem; /* Increased for better readability */
         }
         .form-group textarea {
             width: 100%;
@@ -201,7 +201,7 @@
             font-family: 'Inter', sans-serif;
             resize: vertical;
             min-height: 60px;
-            font-size: 16px; /* Prevents iOS zoom on focus */
+            font-size: 18px; /* Increased for better readability */
             box-sizing: border-box;
         }
         
@@ -882,7 +882,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Phase 4 Completion -->
             <div style="background: rgba(0, 200, 0, 0.08); border: 2px solid rgba(0, 200, 0, 0.4); padding: 25px; border-radius: 12px; margin: 40px 0; text-align: center;">
                 <h3 style="color: #00c800; margin-bottom: 15px; font-size: 1.4rem;">✅ PHASE 4 COMPLETE</h3>
@@ -1661,14 +1661,14 @@
 
         <!-- Your Journey Continues Section -->
 
-        </div>
+                </div>
 
         <!-- Phase 8: Integration -->
         <div class="phase-content" id="phase8">
             <div class="exercise">
                 <h2>PHASE 8: INTEGRATION</h2>
                 <p>This is where everything changes. Where awareness becomes action. Where the man you've been pretending to be dies, and the man you're meant to be is born. This is your moment of transformation.</p>
-            </div>
+                </div>
 
             <!-- Personal Story Section -->
             <div class="exercise" style="background: rgba(255, 215, 0, 0.05); border-left: 4px solid #ffd700; padding: 25px; margin: 30px 0;">
@@ -1681,8 +1681,8 @@
                         Then I called a guy I trusted and told him everything. The default mode. The father wounds. The chameleon act. All of it. And you know what happened? He didn't judge me. He didn't think less of me. He said 'I've been there too.' That conversation changed my life more than years of working on myself alone. That's when I learned real transformation happens between men, not inside your own head.
                     </p>
                 </div>
-            </div>
-            
+                </div>
+
             <div class="exercise">
                 <h2>EXERCISE 12: THE DEATH AND REBIRTH</h2>
                 <p style="color: #b0b0b0; margin-bottom: 20px;">Where the old man dies and the new man is born</p>
@@ -1708,7 +1708,7 @@
                 <div class="form-group">
                     <label>He never became the man he could have been because:</label>
                     <textarea name="eulogy-never" placeholder="What held your default mode back?"></textarea>
-                </div>
+            </div>
 
                 <div class="form-group">
                     <label>We are gathered here today to bury him because:</label>
@@ -1788,33 +1788,33 @@
                     2. Tell them who you're becoming (your authentic self)<br>
                     3. Speak your vow out loud to them<br>
                     4. Ask them to hold you accountable</p>
-                    
-                    <div class="form-group">
+
+                <div class="form-group">
                         <label>My 3 witnesses are:</label>
                         <textarea name="witnesses-names" placeholder="Name the 3 men who will witness your transformation"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
+                </div>
+
+                <div class="form-group">
                         <label>I will meet with them on (date):</label>
                         <textarea name="witness-date" placeholder="Set a specific date - this makes it real"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
+                </div>
+
+                <div class="form-group">
                         <label>I will tell them this about who I was:</label>
                         <textarea name="witness-who-was" placeholder="What will you tell them about your default mode self?"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
+                </div>
+
+                <div class="form-group">
                         <label>I will tell them this about who I'm becoming:</label>
                         <textarea name="witness-who-becoming" placeholder="What will you tell them about your authentic self?"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
+                </div>
+
+                <div class="form-group">
                         <label>The vow I will speak to them:</label>
                         <textarea name="witness-vow" placeholder="What sacred vow will you make in front of witnesses?"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
+                </div>
+
+                <div class="form-group">
                         <label>I will ask them to hold me accountable by:</label>
                         <textarea name="witness-accountability" placeholder="How will they hold you to this transformation?"></textarea>
                     </div>
@@ -1847,7 +1847,7 @@
                 <div class="form-group">
                     <label>Who will witness my transformation?</label>
                     <textarea name="witnesses" placeholder="Who will hold you accountable?"></textarea>
-                </div>
+            </div>
 
                 <div class="form-group">
                     <label>Who will I call when I'm struggling?</label>
@@ -1884,7 +1884,7 @@
                     <label>When that test comes, I will:</label>
                     <textarea name="test-response" placeholder="How will you handle your first test?"></textarea>
                 </div>
-            </div>
+                </div>
 
             <div class="exercise">
                 <h2>EXERCISE 14: THE NEW MAN'S MANIFESTO</h2>
@@ -2148,9 +2148,78 @@
                 };
                 
                 localStorage.setItem('workbookUsers', JSON.stringify(users));
-                // Progress saved silently
+                
+                // Show auto-save indicator
+                showAutoSaveIndicator();
             }
         }
+
+        // Auto-save functionality
+        let autoSaveInterval;
+        const AUTO_SAVE_INTERVAL = 10000; // 10 seconds
+
+        function startAutoSave() {
+            // Clear any existing interval
+            if (autoSaveInterval) {
+                clearInterval(autoSaveInterval);
+            }
+
+            // Start new auto-save interval
+            autoSaveInterval = setInterval(saveProgress, AUTO_SAVE_INTERVAL);
+            
+            console.log('Auto-save started - saving every 10 seconds');
+        }
+
+        function stopAutoSave() {
+            if (autoSaveInterval) {
+                clearInterval(autoSaveInterval);
+                autoSaveInterval = null;
+                console.log('Auto-save stopped');
+            }
+        }
+
+        function showAutoSaveIndicator() {
+            // Create or update save indicator
+            let indicator = document.getElementById('auto-save-indicator');
+            if (!indicator) {
+                indicator = document.createElement('div');
+                indicator.id = 'auto-save-indicator';
+                indicator.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: rgba(0, 200, 0, 0.9);
+                    color: white;
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    z-index: 1000;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                `;
+                document.body.appendChild(indicator);
+            }
+
+            indicator.textContent = '✓ Auto-saved';
+            indicator.style.opacity = '1';
+
+            // Hide after 2 seconds
+            setTimeout(() => {
+                indicator.style.opacity = '0';
+            }, 2000);
+        }
+
+        // Debounced save when user types
+        let saveTimeout;
+        document.addEventListener('input', function(e) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                clearTimeout(saveTimeout);
+                saveTimeout = setTimeout(() => {
+                    saveProgress();
+                }, 2000); // Save 2 seconds after user stops typing
+            }
+        });
 
         function loadProgress() {
             // Get current user from session
@@ -2372,8 +2441,8 @@
             forceRefresh();
             loadProgress();
 
-            // Auto-save progress every 30 seconds
-            setInterval(saveProgress, 30000);
+            // Start auto-save progress every 10 seconds
+            startAutoSave();
         });
 
     </script>
