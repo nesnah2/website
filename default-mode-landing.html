@@ -214,6 +214,8 @@
             e.preventDefault();
             const email = document.getElementById('email').value;
             const submitBtn = this.querySelector('.btn');
+            const formGroup = this.querySelector('.form-group');
+            const guarantee = this.querySelector('.guarantee');
             
             // Show loading state
             submitBtn.textContent = 'Adding you...';
@@ -239,19 +241,29 @@
                 
                 if (response.ok) {
                     console.log('✅ Successfully added to MailerLite');
-                    // Redirect to free guide
-                    window.location.href = `free-guide.html?email=${encodeURIComponent(email)}`;
                 } else {
                     const errorData = await response.text();
                     console.error('MailerLite API Error:', response.status, errorData);
-                    
-                    // Still redirect to free guide even if API fails
-                    window.location.href = `free-guide.html?email=${encodeURIComponent(email)}`;
                 }
+                
+                // Show thank you message
+                formGroup.style.display = 'none';
+                submitBtn.textContent = '✓ Thank you!';
+                submitBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                guarantee.textContent = 'Thank you. The book is coming to your email!';
+                guarantee.style.color = '#28a745';
+                guarantee.style.fontWeight = '600';
+                
             } catch (error) {
                 console.error('Error adding to MailerLite:', error);
-                // Still redirect to free guide even if API fails
-                window.location.href = `free-guide.html?email=${encodeURIComponent(email)}`;
+                
+                // Still show thank you message even if API fails
+                formGroup.style.display = 'none';
+                submitBtn.textContent = '✓ Thank you!';
+                submitBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                guarantee.textContent = 'Thank you. The book is coming to your email!';
+                guarantee.style.color = '#28a745';
+                guarantee.style.fontWeight = '600';
             }
         });
     </script>
