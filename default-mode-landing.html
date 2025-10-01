@@ -248,15 +248,18 @@
                 } else {
                     const errorData = await response.text();
                     console.error('MailerLite API Error:', response.status, errorData);
+                    console.log('⚠️ MailerLite API failed, but continuing with thank you message');
                 }
                 
                 // Show thank you message
                 formGroups.forEach(group => group.style.display = 'none');
                 submitBtn.textContent = '✓ Thank you!';
                 submitBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
-                guarantee.textContent = 'Thank you. The book is coming to your email!';
-                guarantee.style.color = '#28a745';
-                guarantee.style.fontWeight = '600';
+                if (guarantee) {
+                    guarantee.textContent = 'Thank you. The book is coming to your email!';
+                    guarantee.style.color = '#28a745';
+                    guarantee.style.fontWeight = '600';
+                }
                 
             } catch (error) {
                 console.error('Error adding to MailerLite:', error);
@@ -265,9 +268,11 @@
                 formGroups.forEach(group => group.style.display = 'none');
                 submitBtn.textContent = '✓ Thank you!';
                 submitBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
-                guarantee.textContent = 'Thank you. The book is coming to your email!';
-                guarantee.style.color = '#28a745';
-                guarantee.style.fontWeight = '600';
+                if (guarantee) {
+                    guarantee.textContent = 'Thank you. The book is coming to your email!';
+                    guarantee.style.color = '#28a745';
+                    guarantee.style.fontWeight = '600';
+                }
             }
         });
     </script>
