@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Break Free From Your Default Mode - Free Guide</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
     <meta name="description" content="Discover the patterns that keep you stuck and learn how to break free. Get your free guide to understanding your default mode.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* Prevent flash of unstyled content */
+        body { visibility: hidden; }
+        
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
@@ -208,6 +212,11 @@
     </div>
     
     <script>
+        // Show page once fully loaded to prevent flash of unstyled content
+        window.addEventListener('load', function() {
+            document.body.style.visibility = 'visible';
+        });
+        
         // MailerLite API Integration
         const MAILERLITE_API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMDYzZjY1Y2M2ODgzYTZmMGI2YmM2MmI4NWVkZWVhNjBlMzk1ODIwODcyYmFjYmQ0ZjUxNTBkY2EwOTkxYzU3OTQ3YmM1OWQxNmQxODk3NTkiLCJpYXQiOjE3NTkzMzE3NTkuNjA0NjE1LCJuYmYiOjE3NTkzMzE3NTkuNjA0NjE4LCJleHAiOjQ5MTUwMDUzNTkuNTk3NDM4LCJzdWIiOiIxNzkwMzIwIiwic2NvcGVzIjpbXX0.al3Kk0Btg61e_f7UG4Jp1-csOVEvjaSRIAU069Mfh5BTzLLP5ZAAYX-VLH6gW6Ys9OhK7Kp2ad14sYDPi1pBAd1tZ4RAGMwl58YyRJw7bSXVPDjHpEj3_u55BPTF7Pg2gq0hnsYlFz-XR7v55V9-LaL7MwBsUFDg6AkXJYegz7CEeQWO0zOFCan70QAgja6UamJZ0GEzoW2cnEvV5gwPp413RLkN-1HtnjeRNTelc3lvHbvZ3Jz7Oeps72l0q4m75do-2Sf9jAk2_UOBNvP3P4nkSkg8iSTvbfxklwEyzFQGZHHoi0VxbxQllowJgFigxhpmk771U7YesVXOK7ezqUEQEsifHbmUdYA7gbOU52U9AQcbfEuXgI6tWBiqLDJWH3kFlX7O_CjanTV4wVVLBh7N5G3j2ep6I3S1nn4GG78QtkYdLbCnGd_sRpdHgzUMi40CK7UdBnvqSXD_EYGun466wKzSyHGBHa6Cnt5tppTBcfC_hoTfJH_NnP1uVE7cMi_5OyLKS_19ZljKUF-063ETy5Ks7PoJgpUBPyn-eLKwc6lYQqgnM99nDJH42k7fse8JND8AYZ7u61Jkvn10oq1AUbSpdJT800HQKcR2h0K56W786kWTgnxB66Kbhb1xna41Nb01cCkyG5-YXLTlklULiEnS0nOUzHSHAARKIKw';
         const MAILERLITE_GROUP_ID = '164535238277466018'; // Default Mode Workbook group
