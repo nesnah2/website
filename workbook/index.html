@@ -2004,7 +2004,7 @@
         </div>
 
         <div style="text-align: center; margin-top: 40px;">
-            <button class="btn" onclick="saveProgress()">💾 Save Progress</button>
+            <button class="btn" onclick="manualSaveProgress()">💾 Save Progress</button>
             <button class="btn" onclick="logout()" style="background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #ef4444;">🚪 Logout</button>
         </div>
     </div>
@@ -2105,8 +2105,20 @@
             }
             
             if (!currentUser.email) {
-                // User not logged in - silent fail
-                return;
+                // User not logged in - try to get from localStorage as backup
+                try {
+                    const rememberedUser = localStorage.getItem('rememberedUser');
+                    if (rememberedUser) {
+                        currentUser = JSON.parse(rememberedUser);
+                    }
+                } catch (e) {
+                    console.error('Error parsing rememberedUser from localStorage:', e);
+                }
+                
+                if (!currentUser.email) {
+                    console.log('No user logged in - cannot save progress');
+                    return;
+                }
             }
 
             // Collect all form data
@@ -2152,6 +2164,36 @@
                 // Show auto-save indicator
                 showAutoSaveIndicator();
             }
+        }
+
+        // Manual save with user feedback
+        function manualSaveProgress() {
+            const saveButton = event.target;
+            const originalText = saveButton.textContent;
+            
+            // Disable button and show saving state
+            saveButton.disabled = true;
+            saveButton.textContent = '💾 Saving...';
+            
+            // Call the save function
+            saveProgress();
+            
+            // Show success state
+            setTimeout(() => {
+                saveButton.textContent = '✅ Saved!';
+                saveButton.style.background = 'rgba(34, 197, 94, 0.2)';
+                saveButton.style.borderColor = '#22c55e';
+                saveButton.style.color = '#22c55e';
+                
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    saveButton.disabled = false;
+                    saveButton.textContent = originalText;
+                    saveButton.style.background = '';
+                    saveButton.style.borderColor = '';
+                    saveButton.style.color = '';
+                }, 2000);
+            }, 500);
         }
 
         // Auto-save functionality
@@ -2322,15 +2364,21 @@
         // Logout function
         function logout() {
             if (confirm('Are you sure you want to logout? Your progress will be saved.')) {
-                // Save progress before logout
+                // Save progress before logout with a small delay to ensure it completes
                 saveProgress();
                 
-                // Clear both session and persistent login
-                sessionStorage.removeItem('currentUser');
-                localStorage.removeItem('rememberedUser');
-                
-                // Redirect to login page
-                window.location.href = '../workbook-login.html';
+                // Wait a moment for save to complete, then logout
+                setTimeout(() => {
+                    // Clear both session and persistent login
+                    sessionStorage.removeItem('currentUser');
+                    localStorage.removeItem('rememberedUser');
+                    
+                    // Show confirmation that progress was saved
+                    alert('Your progress has been saved. You can log back in anytime to continue where you left off.');
+                    
+                    // Redirect to login page
+                    window.location.href = '../workbook-login.html';
+                }, 500); // Wait 500ms for save to complete
             }
         }
 
