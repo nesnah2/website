@@ -2094,32 +2094,15 @@
         }
 
 
-        function saveProgress() {
-            // Get current user from session
-            let currentUser;
-            try {
-                currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
-            } catch (e) {
-                console.error('Error parsing currentUser from sessionStorage:', e);
+        async function saveProgress() {
+            // Get current user from Firebase auth
+            const user = firebase.auth().currentUser;
+            if (!user) {
+                console.log('No user logged in - cannot save progress');
                 return;
             }
-            
-            if (!currentUser.email) {
-                // User not logged in - try to get from localStorage as backup
-                try {
-                    const rememberedUser = localStorage.getItem('rememberedUser');
-                    if (rememberedUser) {
-                        currentUser = JSON.parse(rememberedUser);
-                    }
-                } catch (e) {
-                    console.error('Error parsing rememberedUser from localStorage:', e);
-                }
-                
-                if (!currentUser.email) {
-                    console.log('No user logged in - cannot save progress');
-                    return;
-                }
-            }
+
+            console.log('Saving progress for user:', user.email);
 
             // Collect all form data
             const formData = {};
@@ -2139,29 +2122,79 @@
             const filledInputs = Array.from(phaseInputs).filter(input => input.value.trim() !== '');
             const completionPercentage = phaseInputs.length > 0 ? (filledInputs.length / phaseInputs.length) * 100 : 0;
 
-            // Load existing user data
-            let users;
             try {
-                users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
-            } catch (e) {
-                console.error('Error parsing workbookUsers from localStorage:', e);
-                users = {};
-            }
-            if (users[currentUser.email]) {
-                users[currentUser.email].workbookProgress = {
-                    ...users[currentUser.email].workbookProgress,
+                // Prepare data for Firebase
+                const progressData = {
+                    ...formData,
+                    lastSaved: firebase.firestore.FieldValue.serverTimestamp(),
+                    currentPhase: phaseId,
+                    phaseCompletion: {
+                        [phaseId]: completionPercentage
+                    },
+                    userId: user.uid,
+                    userEmail: user.email
+                };
+
+                // Save to Firebase Firestore
+                const db = firebase.firestore();
+                const userDocRef = db.collection('workbookUsers').doc(user.uid);
+                
+                // Get existing data first to merge with new data
+                const existingDoc = await userDocRef.get();
+                if (existingDoc.exists) {
+                    const existingData = existingDoc.data();
+                    progressData.phaseCompletion = {
+                        ...existingData.phaseCompletion,
+                        ...progressData.phaseCompletion
+                    };
+                }
+
+                // Save to Firebase
+                await userDocRef.set(progressData, { merge: true });
+                
+                console.log('Progress saved to Firebase successfully');
+                
+                // Also save to localStorage as backup
+                const localData = {
+                    [user.email]: {
+                        workbookProgress: progressData
+                    }
+                };
+                localStorage.setItem('workbookUsers', JSON.stringify(localData));
+                
+                // Show auto-save indicator
+                showAutoSaveIndicator();
+                
+            } catch (error) {
+                console.error('Error saving progress to Firebase:', error);
+                // Fallback to localStorage if Firebase fails
+                console.log('Falling back to localStorage...');
+                
+                // Keep localStorage as fallback
+                let users;
+                try {
+                    users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+                } catch (e) {
+                    console.error('Error parsing workbookUsers from localStorage:', e);
+                    users = {};
+                }
+                
+                if (!users[user.email]) {
+                    users[user.email] = {};
+                }
+                
+                users[user.email].workbookProgress = {
+                    ...users[user.email].workbookProgress,
                     ...formData,
                     lastSaved: new Date().toISOString(),
                     currentPhase: phaseId,
                     phaseCompletion: {
-                        ...users[currentUser.email].workbookProgress?.phaseCompletion,
+                        ...users[user.email].workbookProgress?.phaseCompletion,
                         [phaseId]: completionPercentage
                     }
                 };
                 
                 localStorage.setItem('workbookUsers', JSON.stringify(users));
-                
-                // Show auto-save indicator
                 showAutoSaveIndicator();
             }
         }
@@ -2263,46 +2296,84 @@
             }
         });
 
-        function loadProgress() {
-            // Get current user from session
-            let currentUser;
-            try {
-                currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '{}');
-            } catch (e) {
-                console.error('Error parsing currentUser from sessionStorage:', e);
+        async function loadProgress() {
+            // Get current user from Firebase auth
+            const user = firebase.auth().currentUser;
+            if (!user) {
+                console.log('No user logged in - cannot load progress');
                 return;
-            }
-            
-            if (!currentUser.email) {
-                return; // No user logged in
             }
 
-            // Load user's saved progress
-            let users;
+            console.log('Loading progress for user:', user.email);
+
             try {
-                users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
-            } catch (e) {
-                console.error('Error parsing workbookUsers from localStorage:', e);
-                return;
-            }
-            if (users[currentUser.email] && users[currentUser.email].workbookProgress) {
-                const progress = users[currentUser.email].workbookProgress;
+                // Load from Firebase Firestore
+                const db = firebase.firestore();
+                const userDocRef = db.collection('workbookUsers').doc(user.uid);
+                const doc = await userDocRef.get();
                 
-                // Restore form data
-                Object.keys(progress).forEach(key => {
-                    const input = document.querySelector(`[name="${key}"]`);
-                    if (input && typeof progress[key] === 'string') {
-                        input.value = progress[key];
+                if (doc.exists) {
+                    const progress = doc.data();
+                    console.log('Progress loaded from Firebase:', progress);
+                    
+                    // Restore form data
+                    Object.keys(progress).forEach(key => {
+                        if (key !== 'lastSaved' && key !== 'userId' && key !== 'userEmail' && key !== 'currentPhase' && key !== 'phaseCompletion') {
+                            const input = document.querySelector(`[name="${key}"]`);
+                            if (input && typeof progress[key] === 'string') {
+                                input.value = progress[key];
+                            }
+                        }
+                    });
+
+                    // Restore current phase if saved
+                    if (progress.currentPhase) {
+                        showPhase(progress.currentPhase);
                     }
-                });
 
-                // Restore current phase if saved
-                if (progress.currentPhase) {
-                    showPhase(progress.currentPhase);
+                    // Update phase completion status
+                    updatePhaseCompletionStatus(progress.phaseCompletion || {});
+                    
+                } else {
+                    console.log('No saved progress found in Firebase');
+                    // Try to load from localStorage as fallback
+                    loadFromLocalStorage(user.email);
                 }
+                
+            } catch (error) {
+                console.error('Error loading progress from Firebase:', error);
+                // Fallback to localStorage
+                console.log('Falling back to localStorage...');
+                loadFromLocalStorage(user.email);
+            }
+        }
 
-                // Update phase completion status
-                updatePhaseCompletionStatus(progress.phaseCompletion || {});
+        function loadFromLocalStorage(userEmail) {
+            try {
+                const users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
+                if (users[userEmail] && users[userEmail].workbookProgress) {
+                    const progress = users[userEmail].workbookProgress;
+                    
+                    // Restore form data
+                    Object.keys(progress).forEach(key => {
+                        if (key !== 'lastSaved' && key !== 'userId' && key !== 'userEmail' && key !== 'currentPhase' && key !== 'phaseCompletion') {
+                            const input = document.querySelector(`[name="${key}"]`);
+                            if (input && typeof progress[key] === 'string') {
+                                input.value = progress[key];
+                            }
+                        }
+                    });
+
+                    // Restore current phase if saved
+                    if (progress.currentPhase) {
+                        showPhase(progress.currentPhase);
+                    }
+
+                    // Update phase completion status
+                    updatePhaseCompletionStatus(progress.phaseCompletion || {});
+                }
+            } catch (e) {
+                console.error('Error loading from localStorage:', e);
             }
         }
 
