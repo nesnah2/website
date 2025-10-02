@@ -2056,6 +2056,9 @@
                     // User is authenticated
                     document.body.style.display = 'block';
                     console.log('Workbook access granted');
+                    
+                    // Initialize workbook after authentication
+                    initializeWorkbook();
                 } else {
                     // User not authenticated
                     console.log('Redirecting to login');
@@ -2098,11 +2101,11 @@
             // Get current user from Firebase auth
             const user = firebase.auth().currentUser;
             if (!user) {
-                console.log('No user logged in - cannot save progress');
+                console.log('❌ No user logged in - cannot save progress');
                 return;
             }
 
-            console.log('Saving progress for user:', user.email);
+            console.log('💾 Saving progress for user:', user.email, 'UID:', user.uid);
 
             // Collect all form data
             const formData = {};
@@ -2300,11 +2303,11 @@
             // Get current user from Firebase auth
             const user = firebase.auth().currentUser;
             if (!user) {
-                console.log('No user logged in - cannot load progress');
+                console.log('❌ No user logged in - cannot load progress');
                 return;
             }
 
-            console.log('Loading progress for user:', user.email);
+            console.log('✅ Loading progress for user:', user.email, 'UID:', user.uid);
 
             try {
                 // Load from Firebase Firestore
@@ -2527,10 +2530,10 @@
             document.getElementById('timer-status').style.color = '#b0b0b0';
         }
 
-        // Initialize page and load progress when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Authentication is handled above in the main script
-
+        // Initialize workbook after authentication
+        function initializeWorkbook() {
+            console.log('Initializing workbook...');
+            
             // Hide all phases first
             const allPhases = document.querySelectorAll('.phase-content');
             allPhases.forEach(phase => {
@@ -2562,7 +2565,7 @@
 
             // Start auto-save progress every 30 seconds
             startAutoSave();
-        });
+        }
 
     </script>
 </body>
