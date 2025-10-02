@@ -2019,7 +2019,7 @@
             waitForFirebase().then(() => {
                 checkAuthentication();
             }).catch(() => {
-                console.log('Firebase failed to initialize - allowing access');
+                // Firebase failed to initialize - allowing access
                 document.body.style.display = 'block';
             });
         });
@@ -2034,11 +2034,11 @@
                     
                     if (typeof firebase !== 'undefined' && firebase.auth) {
                         clearInterval(checkFirebase);
-                        console.log('Firebase ready after', attempts * 500, 'ms');
+                        // Firebase ready
                         resolve();
                     } else if (attempts >= maxAttempts) {
                         clearInterval(checkFirebase);
-                        console.log('Firebase initialization timeout');
+                        // Firebase initialization timeout
                         reject();
                     }
                 }, 500);
@@ -2050,18 +2050,18 @@
             authInitialized = true;
             
             firebase.auth().onAuthStateChanged(function(user) {
-                console.log('Auth state:', user ? `Logged in as ${user.email}` : 'Not logged in');
+                // Auth state changed
                 
                 if (user) {
                     // User is authenticated
                     document.body.style.display = 'block';
-                    console.log('Workbook access granted');
+                    // Workbook access granted
                     
                     // Initialize workbook after authentication
                     initializeWorkbook();
                 } else {
                     // User not authenticated
-                    console.log('Redirecting to login');
+                    // Redirecting to login
                     window.location.href = '../workbook-login.html';
                 }
             });
@@ -2101,11 +2101,11 @@
             // Get current user from Firebase auth
             const user = firebase.auth().currentUser;
             if (!user) {
-                console.log('❌ No user logged in - cannot save progress');
+                // No user logged in - cannot save progress
                 return;
             }
 
-            console.log('💾 Saving progress for user:', user.email, 'UID:', user.uid);
+            // Saving progress for user
 
             // Collect all form data
             const formData = {};
@@ -2155,7 +2155,7 @@
                 // Save to Firebase
                 await userDocRef.set(progressData, { merge: true });
                 
-                console.log('Progress saved to Firebase successfully');
+                // Progress saved to Firebase successfully
                 
                 // Also save to localStorage as backup
                 const localData = {
@@ -2169,16 +2169,14 @@
                 showAutoSaveIndicator();
                 
             } catch (error) {
-                console.error('Error saving progress to Firebase:', error);
-                // Fallback to localStorage if Firebase fails
-                console.log('Falling back to localStorage...');
+                // Error saving progress to Firebase - falling back to localStorage
                 
                 // Keep localStorage as fallback
                 let users;
                 try {
                     users = JSON.parse(localStorage.getItem('workbookUsers') || '{}');
                 } catch (e) {
-                    console.error('Error parsing workbookUsers from localStorage:', e);
+                    // Error parsing workbookUsers from localStorage
                     users = {};
                 }
                 
@@ -2245,14 +2243,14 @@
             // Start new auto-save interval
             autoSaveInterval = setInterval(saveProgress, AUTO_SAVE_INTERVAL);
             
-            console.log('Auto-save started - saving every 30 seconds');
+            // Auto-save started
         }
 
         function stopAutoSave() {
             if (autoSaveInterval) {
                 clearInterval(autoSaveInterval);
                 autoSaveInterval = null;
-                console.log('Auto-save stopped');
+                // Auto-save stopped
             }
         }
 
