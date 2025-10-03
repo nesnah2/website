@@ -22,7 +22,7 @@ app.post('/create-checkout-session', async (req, res) => {
             ],
             mode: 'payment',
             success_url: `${req.headers.origin}/workbook-access.html?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${req.headers.origin}/workbook-purchase.html`,
+            cancel_url: `${req.headers.origin}/workbook-buy.html`,
             metadata: {
                 product: 'workbook',
                 productName: productName
