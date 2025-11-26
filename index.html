@@ -197,69 +197,61 @@
             margin-bottom: 15px;
         }
 
-        /* Services Section */
-        .services {
+        /* Services Teaser Section */
+        .services-teaser {
             padding: 100px 0;
             background: rgba(255, 255, 255, 0.02);
         }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+        
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.4rem;
         }
-
-        .service-card {
+        
+        .teaser-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .teaser-item {
             background: rgba(255, 255, 255, 0.05);
             padding: 40px 30px;
             border-radius: 16px;
             text-align: center;
             border: 1px solid rgba(255, 215, 0, 0.2);
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
         }
-
-        .service-card:hover {
+        
+        .teaser-item:hover {
             transform: translateY(-10px);
             border-color: #ffd700;
             box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
         }
-
-        .service-card.featured {
+        
+        .teaser-item.featured {
             border: 2px solid #ffd700;
             background: rgba(255, 215, 0, 0.05);
         }
-
-        .service-icon {
+        
+        .teaser-icon {
             font-size: 3rem;
             color: #ffd700;
             margin-bottom: 20px;
         }
-
-        .price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #ffd700;
-            margin: 20px 0;
+        
+        .teaser-item h3 {
+            margin-bottom: 15px;
         }
-
-        .service-card ul {
-            list-style: none;
-            margin: 30px 0;
-        }
-
-        .service-card li {
-            padding: 8px 0;
-            color: #e2e8f0;
-            font-size: 1.1rem;
-        }
-
-        .service-card li:before {
-            content: '✓';
-            color: #ffd700;
-            font-weight: bold;
-            margin-right: 10px;
+        
+        .teaser-item p {
+            margin-bottom: 30px;
         }
 
         /* Testimonials Section */
@@ -387,7 +379,7 @@
                 max-width: 800px;
             }
 
-            .services-grid {
+            .teaser-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
@@ -437,61 +429,29 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services">
+    <!-- Services Teaser Section -->
+    <section class="services-teaser">
         <div class="container">
-            <h2>Choose Your Path</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-lightbulb"></i>
+            <h2>How I Can Help</h2>
+            <p class="section-intro">I offer several ways to work together, from free resources to comprehensive 3-month transformation programs.</p>
+            
+            <div class="teaser-grid">
+                <div class="teaser-item">
+                    <div class="teaser-icon">
+                        <i class="fas fa-book-open"></i>
                     </div>
-                    <h3>Free Discovery Call</h3>
-                    <p class="price">$0</p>
-                    <p>30-minute call to see if this is for you. No pressure, no sales pitch.</p>
-                    <ul>
-                        <li>See if we're a good fit</li>
-                        <li>Ask me anything</li>
-                        <li>Completely free</li>
-                    </ul>
-                    <a href="https://calendly.com/contact-mikkelhansen/30min" class="btn btn-primary">Book Free Call</a>
+                    <h3>Free Workbook</h3>
+                    <p>Get my complete guide to stop running and start living. Practical exercises and insights to begin your journey.</p>
+                    <a href="default-mode-landing.html" class="btn btn-secondary">Get Free Guide</a>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-fire"></i>
+                
+                <div class="teaser-item featured">
+                    <div class="teaser-icon">
+                        <i class="fas fa-comments"></i>
                     </div>
-                    <h3>Single Session</h3>
-                    <p class="price">$250</p>
-                    <p>One powerful 50-minute mentoring session to help you stop running and start living.</p>
-                    <ul>
-                        <li>50-minute intensive session</li>
-                        <li>Direct 1-on-1 mentoring</li>
-                        <li>Pattern-breaking strategies</li>
-                        <li>No commitment required</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/bJe14oa71b9J6bm1YG7bW02" class="btn btn-primary">Pay Now - $250</a>
-                </div>
-
-                <div class="service-card featured">
-                    <div class="service-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <h3>3-Month Transformation Program</h3>
-                    <p class="price">$2,700</p>
-                    <p style="font-size: 1rem; color: #ffd700; font-weight: 600; margin-bottom: 1rem;">or $900/month x 3</p>
-                    <p>Complete transformation with weekly 1:1 sessions. Stop running from yourself. Start living fully.</p>
-                    <ul>
-                        <li>12 weekly 1-on-1 sessions (50 min each)</li>
-                        <li>FREE Complete Workbook ($67 value)</li>
-                        <li>Email support 24/7</li>
-                        <li>Exclusive men's group membership</li>
-                        <li>Pattern-breaking strategies</li>
-                        <li>Learn to be present and connected</li>
-                        <li>Save $300 vs. single sessions</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/6oU6oIa71dhR0R25aS7bW01" class="btn btn-primary">Pay Full - $2,700</a>
-                    <a href="mailto:contact@mikkelhansen.org?subject=Payment Plan - $900/month" class="btn btn-secondary" style="margin-top: 10px;">Payment Plan - $900/mo</a>
+                    <h3>1:1 Mentoring</h3>
+                    <p>Work with me directly through single sessions or a comprehensive 3-month transformation program.</p>
+                    <a href="pricing.html" class="btn btn-primary">View Services & Pricing</a>
                 </div>
             </div>
         </div>
@@ -502,6 +462,27 @@
         <div class="container">
             <h2>Real Men, Real Results</h2>
             <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "I was just with my daughter in Tivoli. For the first time in 7 years I did not think I needed to be someone else. I could just be in the moment."
+                    </div>
+                    <div class="testimonial-author">- Father of 2</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "My sessions with Mikkel truly hit SPOT ON! It might sound wild, but when I talk to Mikkel, it feels like coming 'home' to safety. A safe space where I can share directly from the heart without worrying about how it will be received."
+                    </div>
+                    <div class="testimonial-author">- M</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "I was stuck in endless thinking about quick solutions, focused on looks and being liked. Restless, not able to enjoy the present. Through several sessions with Mikkel, I found more inner peace and broke my default patterns."
+                    </div>
+                    <div class="testimonial-author">- Jakob</div>
+                </div>
+
                 <div class="testimonial">
                     <div class="testimonial-text">
                         "We worked on my addiction, anger issues, and shadow work around my default mode. Mikkel didn't sugarcoat anything. He helped me see the patterns I was running from and the ways I was sabotaging myself."
