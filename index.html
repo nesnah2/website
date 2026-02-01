@@ -26,6 +26,57 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
+        /* Sticky Navigation */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 20, 25, 0.95);
+            z-index: 1000;
+            padding: 15px 0;
+            display: none;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .sticky-nav.visible {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .sticky-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .sticky-logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #ffd700;
+        }
+        
+        .sticky-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .sticky-btn {
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -202,7 +253,7 @@
             padding: 100px 0;
             background: rgba(255, 255, 255, 0.02);
         }
-        
+
         .section-intro {
             text-align: center;
             max-width: 800px;
@@ -219,7 +270,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         .teaser-item {
             background: rgba(255, 255, 255, 0.05);
             padding: 40px 30px;
@@ -228,30 +279,100 @@
             border: 1px solid rgba(255, 215, 0, 0.2);
             transition: all 0.3s ease;
         }
-        
+
         .teaser-item:hover {
             transform: translateY(-10px);
             border-color: #ffd700;
             box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
         }
-        
+
         .teaser-item.featured {
             border: 2px solid #ffd700;
             background: rgba(255, 215, 0, 0.05);
         }
-        
+
         .teaser-icon {
             font-size: 3rem;
             color: #ffd700;
             margin-bottom: 20px;
         }
-        
+
         .teaser-item h3 {
             margin-bottom: 15px;
         }
         
         .teaser-item p {
             margin-bottom: 30px;
+        }
+
+        /* Case Study Section */
+        .case-study {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .story-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .story-image {
+            position: sticky;
+            top: 40px;
+        }
+        
+        .rounded-image {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            border: 4px solid #ffd700;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .story-content {
+            text-align: left;
+        }
+        
+        .story-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .story-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .story-list {
+            margin: 20px 0 30px 20px;
+        }
+
+        .story-list li {
+            margin-bottom: 10px;
+            color: #e2e8f0;
+            font-size: 1.1rem;
+        }
+
+        .transformation-box {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid #ffd700;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .transformation-box h4 {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .transformation-box p {
+            font-style: italic;
+            margin-bottom: 0;
         }
 
         /* Testimonials Section */
@@ -383,6 +504,22 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+            
+            .story-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-image {
+                position: relative;
+                top: 0;
+                margin-bottom: 30px;
+            }
+            
+            .rounded-image {
+                max-width: 300px;
+                margin: 0 auto;
+                display: block;
+            }
 
             .testimonials-grid {
                 grid-template-columns: 1fr;
@@ -411,6 +548,18 @@
     </style>
 </head>
 <body>
+    <!-- Sticky Navigation -->
+    <div class="sticky-nav" id="stickyNav">
+        <div class="sticky-container">
+            <div class="sticky-logo">Mikkel Hansen</div>
+            <div class="sticky-buttons">
+                <a href="default-mode-landing.html" class="btn btn-primary sticky-btn">Get Free Workbook</a>
+                <a href="https://calendly.com/contact-mikkelhansen/30min" class="btn btn-secondary sticky-btn">Book Free Call</a>
+                <a href="pricing.html" class="btn btn-secondary sticky-btn">View Services & Pricing</a>
+            </div>
+        </div>
+    </div>
+    
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -445,7 +594,7 @@
                     <p>Get my complete guide to stop running and start living. Practical exercises and insights to begin your journey.</p>
                     <a href="default-mode-landing.html" class="btn btn-secondary">Get Free Guide</a>
                 </div>
-                
+
                 <div class="teaser-item featured">
                     <div class="teaser-icon">
                         <i class="fas fa-comments"></i>
@@ -453,6 +602,51 @@
                     <h3>1:1 Mentoring</h3>
                     <p>Work with me directly through single sessions or a comprehensive 3-month transformation program.</p>
                     <a href="pricing.html" class="btn btn-primary">View Services & Pricing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="case-study">
+        <div class="container">
+            <h2>From Running to Present</h2>
+            <div class="story-container">
+                <div class="story-image">
+                    <img src="assets/mentor.jpg" alt="Transformation Journey" class="rounded-image">
+                </div>
+                <div class="story-content">
+                    <h3>Mark's Journey: Breaking Free From Autopilot</h3>
+                    
+                    <p>When Mark first reached out to me, he was successful by all external measures. Good job, nice house, two kids. But inside, he was drowning.</p>
+                    
+                    <p>"I feel like I'm watching my life through a window," he told me during our first call. "I'm physically there with my kids, but mentally I'm a million miles away. I can't remember the last time I was truly present."</p>
+                    
+                    <p>Mark's default patterns were costing him everything that mattered:</p>
+                    
+                    <ul class="story-list">
+                        <li>His 7-year-old daughter had stopped asking him to play</li>
+                        <li>His wife felt like she was living with a stranger</li>
+                        <li>Despite career success, he felt empty and exhausted</li>
+                        <li>He couldn't sit in silence for even 5 minutes without reaching for his phone</li>
+                    </ul>
+                    
+                    <p>Like many men, Mark had been running for so long he didn't even realize he was running. His autopilot patterns were invisible to him.</p>
+                    
+                    <p>Over three months of working together, we identified the exact moments these patterns were programmed—from his father's emotional absence to the subtle ways he learned to perform rather than be authentic.</p>
+                    
+                    <p>The transformation wasn't overnight, but it was profound.</p>
+
+                    <div class="transformation-box">
+                        <h4>The Breakthrough Moment</h4>
+                        <p>"Last weekend, I spent three hours building Legos with my daughter. No phone. No distractions. Just fully there. She looked at me at one point and said, 'Dad, I like when you're really here.' I almost broke down crying."</p>
+                    </div>
+                    
+                    <p>This is what happens when men stop running and start living. This is what's possible when you break free from default mode.</p>
+                    
+                    <p>Mark isn't perfect now. He still slips into old patterns. The difference is he can recognize when it's happening and has the tools to come back to presence.</p>
+                    
+                    <p>This is the work I do with men. This is the transformation that's possible for you too.</p>
                 </div>
             </div>
         </div>
@@ -532,12 +726,22 @@
             });
         });
 
-        // Add scroll effect to hero
+        // Add scroll effect to hero and control sticky nav
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('.hero');
+            const stickyNav = document.getElementById('stickyNav');
+            
+            // Parallax effect for hero
             if (hero) {
                 hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+            
+            // Show/hide sticky navigation
+            if (scrolled > 300) { // Show after 300px of scrolling
+                stickyNav.classList.add('visible');
+            } else {
+                stickyNav.classList.remove('visible');
             }
         });
     </script>
