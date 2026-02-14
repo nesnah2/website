@@ -3,189 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Mikkel Hansen - I help men & fathers build a solid default, stop repeating their past & show up in their present.">
-    <meta name="keywords" content="Mikkel Hansen, men's mentor, free workbook, life transformation, authentic guidance, break patterns">
-    <meta name="author" content="Mikkel Hansen">
+    <meta name="description" content="Join Mikkel Hansen's newsletter. No spam. Just honest stuff about breaking free from the patterns that hold you back.">
     
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Mikkel Hansen - Men's Mentor">
-    <meta property="og:description" content="I help men & fathers build a solid default, stop repeating their past & show up in their present.">
+    <meta property="og:title" content="Join the List | Mikkel Hansen">
+    <meta property="og:description" content="No spam. Just honest stuff about breaking free.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mikkelhansen.org/linktree.html">
     <meta property="og:image" content="https://mikkelhansen.org/assets/mentor.jpg">
     
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mikkel Hansen - Men's Mentor">
-    <meta name="twitter:description" content="I help men & fathers build a solid default, stop repeating their past & show up in their present.">
-    
-    <title>Mikkel Hansen - Men's Mentor | Links</title>
-    <link rel="stylesheet" href="public/css/linktree.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Structured Data JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Mikkel Hansen",
-      "jobTitle": "Men's Mentor",
-      "description": "Authentic guidance for real men seeking transformation and mastery.",
-      "url": "https://mikkelhansen.org",
-      "sameAs": [
-        "https://youtube.com/@just__mikkel",
-        "https://instagram.com/just__mikkel"
-      ],
-      "image": "https://mikkelhansen.org/assets/mentor.jpg"
-    }
-    </script>
+    <title>Join the List | Mikkel Hansen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            background: #0a0a0b;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 107, 53, 0.15), transparent),
+                radial-gradient(ellipse 60% 40% at 100% 100%, rgba(255, 215, 0, 0.08), transparent),
+                radial-gradient(ellipse 60% 40% at 0% 100%, rgba(255, 107, 53, 0.08), transparent);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: 440px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 215, 0, 0.5);
+            margin-bottom: 28px;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
+        }
+        
+        .name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 6px;
+            letter-spacing: 0.02em;
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            color: #ff6b35;
+            font-weight: 500;
+            margin-bottom: 40px;
+            letter-spacing: 0.05em;
+        }
+        
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.85) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subhead {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        
+        .form-box {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 16px;
+            padding: 32px 28px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-box input {
+            width: 100%;
+            padding: 16px 20px;
+            margin-bottom: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        
+        .form-box input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .form-box input:focus {
+            outline: none;
+            border-color: #ffd700;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .form-box button {
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, #ffd700 0%, #ff6b35 100%);
+            color: #0a0a0b;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 4px;
+        }
+        
+        .form-box button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(255, 107, 53, 0.35);
+        }
+        
+        .privacy {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 20px;
+        }
+        
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 32px;
+        }
+        
+        .socials a {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.4rem;
+            transition: color 0.2s, transform 0.2s;
+        }
+        
+        .socials a:hover {
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .form-box { padding: 24px 20px; }
+        }
+    </style>
 </head>
-<body class="linktree-body">
-    <!-- Linktree Container -->
-    <div class="linktree-container">
-        <!-- Profile Section -->
-        <div class="profile-section">
-            <div class="profile-image">
-                <img src="assets/mentor.jpg" alt="Mikkel Hansen - Men's Mentor">
-            </div>
-            <h1 class="profile-name">Mikkel Hansen</h1>
-            <p class="profile-title">Men's Mentor</p>
-            <p class="profile-bio">I help men & fathers build a solid default, stop repeating their past & show up in their present.</p>
+<body>
+    <div class="page">
+        <img src="assets/mentor.jpg" alt="Mikkel Hansen" class="photo">
+        <p class="name">Mikkel Hansen</p>
+        <p class="tagline">Men's Mentor</p>
+        
+        <h1>No spam.<br>Just the real shit.</h1>
+        <p class="subhead">Honest emails about breaking free from the patterns that hold you back. Self-sabotage, avoidance, and what actually works.</p>
+        
+        <div class="form-box">
+            <!-- Replace YOUR_FORM_ID with your Kit form ID (app.kit.com → Forms → edit → check URL) -->
+            <form action="https://app.convertkit.com/forms/YOUR_FORM_ID/subscriptions" method="post">
+                <input type="text" name="fields[first_name]" placeholder="Name" required>
+                <input type="email" name="email_address" placeholder="Email" required>
+                <button type="submit">Join the list</button>
+            </form>
+            <p class="privacy">Unsubscribe anytime. Your email stays with me.</p>
         </div>
-
-        <!-- Links Section -->
-        <div class="links-section">
-            <!-- Newsletter Signup Form - Inline -->
-            <div class="newsletter-form-card featured">
-                <h3 class="newsletter-form-title">Join the list</h3>
-                <p class="newsletter-form-subtitle">No spam. Just honest stuff about breaking free.</p>
-                <!-- Replace YOUR_FORM_ID with your Kit form ID (app.kit.com → Forms → edit → check URL) -->
-                <form action="https://app.convertkit.com/forms/YOUR_FORM_ID/subscriptions" method="post" class="newsletter-form">
-                    <input type="text" name="fields[first_name]" placeholder="Name" required>
-                    <input type="email" name="email_address" placeholder="Email" required>
-                    <button type="submit">Join</button>
-                </form>
-            </div>
-
-            <!-- YouTube Channel Link -->
-            <a href="https://youtube.com/@just__mikkel" target="_blank" rel="noopener noreferrer" class="link-card youtube">
-                <div class="link-icon">
-                    <i class="fab fa-youtube"></i>
-                </div>
-                <div class="link-content">
-                    <h3>YouTube Channel</h3>
-                    <p>Watch my transformation journey and insights</p>
-                </div>
-                <div class="link-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
+        
+        <div class="socials">
+            <a href="https://instagram.com/just__mikkel" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
-
-            <!-- Instagram Link -->
-            <a href="https://instagram.com/just__mikkel" target="_blank" rel="noopener noreferrer" class="link-card instagram">
-                <div class="link-icon">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <div class="link-content">
-                    <h3>Instagram</h3>
-                    <p>Follow my daily journey and insights</p>
-                </div>
-                <div class="link-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
+            <a href="https://youtube.com/@just__mikkel" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
         </div>
-
-        <!-- Footer -->
-        <div class="linktree-footer">
-            <p>&copy; 2024 Mikkel Hansen. All rights reserved.</p>
-        </div>
     </div>
-
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="modal-header">
-                <h2>Book Your Session</h2>
-                <p>Choose a time that works for you</p>
-            </div>
-            <div class="modal-body">
-                <div class="service-selection">
-                    <h3>Select Your Service:</h3>
-                    <div class="service-options">
-                        <button class="service-option active" data-service="discovery" data-price="Free">
-                            <span class="service-name">Discovery Call</span>
-                            <span class="service-price">Free</span>
-                            <span class="service-duration">30 min</span>
-                        </button>
-                        <button class="service-option" data-service="single" data-price="$250">
-                            <span class="service-name">Single Session</span>
-                            <span class="service-price">$250</span>
-                            <span class="service-duration">50 min</span>
-                        </button>
-                        <button class="service-option" data-service="package" data-price="$2,700">
-                            <span class="service-name">3-Month Package</span>
-                            <span class="service-price">$2,700</span>
-                            <span class="service-duration">12 sessions</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="calendly-container">
-                    <div id="calendly-loading" class="calendly-loading">
-                        <div class="spinner"></div>
-                        <p>Loading calendar...</p>
-                    </div>
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/contact-mikkelhansen/30min" style="min-width:320px;height:600px;display:none;"></div>
-                    
-                    <!-- Contact Options for Paid Services -->
-                    <div id="contact-options" class="contact-options" style="display:none;">
-                        <div class="contact-header">
-                            <h3>Let's Discuss Your Needs</h3>
-                            <p>For personalized mentoring, let's have a conversation first to ensure we're the right fit.</p>
-                        </div>
-                        <div class="contact-methods">
-                            <div class="contact-method">
-                                <div class="contact-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <h4>Email Me</h4>
-                                    <p>Send me a detailed message about your situation and goals.</p>
-                                    <a href="mailto:contact@mikkelhansen.org?subject=Interested in Mentoring Session" class="btn btn-primary">
-                                        <i class="fas fa-envelope"></i>
-                                        Send Email
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="contact-method">
-                                <div class="contact-icon">
-                                    <i class="fab fa-whatsapp"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <h4>WhatsApp Chat</h4>
-                                    <p>Quick chat to discuss your needs and answer questions.</p>
-                                    <a href="https://wa.me/4520922590?text=Hi Mikkel, I'm interested in your mentoring services. Can we chat about my situation?" class="btn btn-primary whatsapp-btn">
-                                        <i class="fab fa-whatsapp"></i>
-                                        Start Chat
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-note">
-                            <p><i class="fas fa-info-circle"></i> I'll respond within 24 hours to discuss your specific needs and how we can work together.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Calendly Script -->
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    
-    <!-- JavaScript -->
-    <script src="public/js/linktree.js" defer></script>
 </body>
 </html>
