@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="From Boy to Man: A Reflection Workbook - Stop performing. Start living. Download this free workbook to begin your transformation journey.">
+    <meta name="keywords" content="men's workbook, transformation, personal growth, masculinity, self-reflection, men's coaching">
+    <meta name="author" content="Mikkel Hansen">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="From Boy to Man: A Reflection Workbook">
+    <meta property="og:description" content="Stop performing. Start living. Download this free workbook to begin your transformation journey.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mikkelhansen.org/workbook.html">
+    <meta property="og:image" content="https://mikkelhansen.org/assets/mentor.jpg">
+    
+    <title>From Boy to Man: A Reflection Workbook</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .workbook-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+        }
+
+        .workbook-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .workbook-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .workbook-header .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .workbook-header .tagline {
+            font-size: 1rem;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .workbook-content {
+            padding: 3rem 2rem;
+        }
+
+        .intro-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .intro-section h2 {
+            color: #1a1a1a;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-section .highlight {
+            background: #fff3cd;
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+            margin: 1rem 0;
+        }
+
+        .exercise {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .exercise h2 {
+            color: #1a1a1a;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 0.5rem;
+        }
+
+        .exercise h3 {
+            color: #495057;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .exercise h4 {
+            color: #6c757d;
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .exercise p {
+            margin-bottom: 1rem;
+        }
+
+        .exercise ul {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        .exercise li {
+            margin-bottom: 0.5rem;
+        }
+
+        .input-field {
+            width: 100%;
+            min-height: 40px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            padding: 0.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #1a1a1a;
+            background: white;
+        }
+
+        .checkbox-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checkbox-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .checkbox-list li:hover {
+            background-color: #f8f9fa;
+        }
+
+        .checkbox-list input[type="checkbox"] {
+            margin-right: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+        .rating-scale {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .rating-scale input[type="number"] {
+            width: 60px;
+            text-align: center;
+        }
+
+        .conclusion-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .conclusion-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .conclusion-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffc107;
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #e0a800;
+            transform: translateY(-2px);
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #333;
+            transform: scale(1.1);
+        }
+
+        @media print {
+            .print-button {
+                display: none;
+            }
+            
+            .workbook-container {
+                box-shadow: none;
+            }
+            
+            .exercise {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .workbook-header {
+                padding: 2rem 1rem;
+            }
+            
+            .workbook-header h1 {
+                font-size: 2rem;
+            }
+            
+            .workbook-content {
+                padding: 2rem 1rem;
+            }
+            
+            .exercise {
+                padding: 1.5rem;
+            }
+            
+            .print-button {
+                top: 10px;
+                right: 10px;
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()" title="Print Workbook">
+        <i class="fas fa-print"></i>
+    </button>
+
+    <div class="workbook-container">
+        <div class="workbook-header">
+            <h1>FROM BOY TO MAN: A REFLECTION WORKBOOK</h1>
+            <p class="subtitle">Stop performing. Start living.</p>
+            <p class="tagline">A guide to authentic masculinity and real transformation</p>
+        </div>
+
+        <div class="workbook-content">
+            <div class="intro-section">
+                <h2>THE TRUTH YOU NEED TO HEAR</h2>
+                <p>You wake up empty despite your achievements. You're still performing for approval like a scared little boy. Every day you stay stuck is another day you're not the man you could be.</p>
+                
+                <div class="highlight">
+                    <strong>This is not a feel good workbook.</strong>
+                </div>
+                
+                <p>You know exactly what I'm talking about. You're tired of wearing masks and pretending to be someone you're not.</p>
+                
+                <p>The courage you got to start this journey, is required. No more excuses.</p>
+                
+                <h3>Stop lying to yourself:</h3>
+                <ul>
+                    <li>You're not "just thinking things through" - you're paralyzed by overthinking.</li>
+                    <li>You're not "being nice" - you're people-pleasing because you're afraid of rejection.</li>
+                    <li>You're not "staying busy" - you're running from yourself.</li>
+                </ul>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 1: IDENTIFY THE PATTERNS THAT KEEP YOU STUCK</h2>
+                <p><em>Which shortcuts do you fall into?</em></p>
+                
+                <h3>Part A: Your Default Shortcuts</h3>
+                <h4>When stressed, you:</h4>
+                <ul class="checkbox-list">
+                    <li><input type="checkbox"> Scroll social media</li>
+                    <li><input type="checkbox"> Work longer hours</li>
+                    <li><input type="checkbox"> Drink alcohol</li>
+                    <li><input type="checkbox"> Eat junk food</li>
+                    <li><input type="checkbox"> Watch Netflix</li>
+                    <li><input type="checkbox"> Play video games</li>
+                    <li><input type="checkbox"> Call/text friends</li>
+                    <li><input type="checkbox"> Exercise obsessively</li>
+                    <li><input type="checkbox"> Shop online</li>
+                    <li><input type="checkbox"> Sleep more</li>
+                </ul>
+
+                <h4>When criticized, you:</h4>
+                <ul class="checkbox-list">
+                    <li><input type="checkbox"> Defend yourself immediately</li>
+                    <li><input type="checkbox"> Blame others</li>
+                    <li><input type="checkbox"> Make excuses</li>
+                    <li><input type="checkbox"> Shut down emotionally</li>
+                    <li><input type="checkbox"> Get angry</li>
+                    <li><input type="checkbox"> Avoid the person</li>
+                    <li><input type="checkbox"> Overthink what you did wrong</li>
+                    <li><input type="checkbox"> Seek validation from others</li>
+                    <li><input type="checkbox"> Work harder to prove yourself</li>
+                    <li><input type="checkbox"> Pretend it doesn't bother you</li>
+                </ul>
+
+                <h4>When overwhelmed, you:</h4>
+                <ul class="checkbox-list">
+                    <li><input type="checkbox"> Make lists you never follow</li>
+                    <li><input type="checkbox"> Research solutions endlessly</li>
+                    <li><input type="checkbox"> Ask others what to do</li>
+                    <li><input type="checkbox"> Procrastinate</li>
+                    <li><input type="checkbox"> Focus on small tasks</li>
+                    <li><input type="checkbox"> Avoid the big problem</li>
+                    <li><input type="checkbox"> Seek reassurance</li>
+                    <li><input type="checkbox"> Look for quick fixes</li>
+                    <li><input type="checkbox"> Blame circumstances</li>
+                    <li><input type="checkbox"> Give up</li>
+                </ul>
+
+                <h3>Part B: The Cost of These Shortcuts</h3>
+                <h4>What are these shortcuts really costing you?</h4>
+                <p><strong>Time:</strong> <input type="text" class="input-field" placeholder="What time are you wasting?"></p>
+                <p><strong>Energy:</strong> <input type="text" class="input-field" placeholder="What energy are you draining?"></p>
+                <p><strong>Progress:</strong> <input type="text" class="input-field" placeholder="What progress are you blocking?"></p>
+                <p><strong>Self-respect:</strong> <input type="text" class="input-field" placeholder="How is this affecting your self-respect?"></p>
+                <p><strong>Relationships:</strong> <input type="text" class="input-field" placeholder="How is this impacting your relationships?"></p>
+
+                <h3>Part C: What You're Really Avoiding</h3>
+                <p><strong>What are you afraid will happen if you stop using these shortcuts?</strong></p>
+                <input type="text" class="input-field" placeholder="Be honest about your fears...">
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 2: STOP SABOTAGING YOURSELF UNCONSCIOUSLY</h2>
+                <p><em>What default behaviors are actually working against you?</em></p>
+                
+                <h3>Part A: Your Self-Sabotage Patterns</h3>
+                <p><strong>Complete these sentences honestly:</strong></p>
+                
+                <p><strong>When I'm about to succeed, I:</strong></p>
+                <input type="text" class="input-field" placeholder="What do you do when success is near?">
+                
+                <p><strong>When I'm getting close to my goals, I:</strong></p>
+                <input type="text" class="input-field" placeholder="How do you react to progress?">
+                
+                <p><strong>When things are going well, I:</strong></p>
+                <input type="text" class="input-field" placeholder="What happens when life is good?">
+                
+                <p><strong>When I'm making progress, I:</strong></p>
+                <input type="text" class="input-field" placeholder="How do you handle momentum?">
+                
+                <p><strong>When I'm feeling confident, I:</strong></p>
+                <input type="text" class="input-field" placeholder="What do you do with confidence?">
+
+                <h3>Part B: The Self-Sabotage Checklist</h3>
+                <h4>Perfectionism:</h4>
+                <ul class="checkbox-list">
+                    <li><input type="checkbox"> I don't start projects because they won't be perfect</li>
+                    <li><input type="checkbox"> I spend too much time on details that don't matter</li>
+                    <li><input type="checkbox"> I criticize my own work harshly</li>
+                    <li><input type="checkbox"> I compare myself to others constantly</li>
+                </ul>
+
+                <h4>Procrastination:</h4>
+                <ul class="checkbox-list">
+                    <li><input type="checkbox"> I wait until the last minute to do important things</li>
+                    <li><input type="checkbox"> I do easy tasks instead of hard ones</li>
+                    <li><input type="checkbox"> I make excuses for why I can't start</li>
+                    <li><input type="checkbox"> I research instead of taking action</li>
+                </ul>
+
+                <h4>Self-Doubt:</h4>
+                <ul class="checkbox-list">
+                    <li><input type="checkbox"> I question my abilities constantly</li>
+                    <li><input type="checkbox"> I seek reassurance from others repeatedly</li>
+                    <li><input type="checkbox"> I focus on my weaknesses instead of strengths</li>
+                    <li><input type="checkbox"> I assume others are better than me</li>
+                </ul>
+
+                <h4>Fear of Success:</h4>
+                <ul class="checkbox-list">
+                    <li><input type="checkbox"> I'm afraid of what success will require of me</li>
+                    <li><input type="checkbox"> I'm scared of the responsibility that comes with achievement</li>
+                    <li><input type="checkbox"> I worry about how success will change my relationships</li>
+                    <li><input type="checkbox"> I'm afraid I won't be able to maintain success</li>
+                </ul>
+
+                <h3>Part C: The Real Cost</h3>
+                <p><strong>What opportunities have you missed because of self-sabotage?</strong></p>
+                <input type="text" class="input-field" placeholder="Be specific about missed opportunities...">
+                
+                <p><strong>What would you attempt if you knew you couldn't fail?</strong></p>
+                <input type="text" class="input-field" placeholder="Dream big - what would you do?">
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 3: BREAK FREE FROM OVERTHINKING</h2>
+                <p><em>Being stuck in endless thinking - Break free and take action</em></p>
+                
+                <h3>Part A: Your Overthinking Patterns</h3>
+                <p><strong>What do you overthink most?</strong></p>
+                
+                <p><strong>Work decisions:</strong> <input type="text" class="input-field" placeholder="What work decisions paralyze you?"></p>
+                <p><strong>Relationship issues:</strong> <input type="text" class="input-field" placeholder="What relationship thoughts consume you?"></p>
+                <p><strong>Future plans:</strong> <input type="text" class="input-field" placeholder="What future scenarios do you obsess over?"></p>
+                <p><strong>Past mistakes:</strong> <input type="text" class="input-field" placeholder="What past events haunt you?"></p>
+                <p><strong>Other people's opinions:</strong> <input type="text" class="input-field" placeholder="Whose opinions do you worry about?"></p>
+
+                <h3>Part B: The Overthinking Cycle</h3>
+                <p><strong>Complete this cycle for a recent decision you've been stuck on:</strong></p>
+                
+                <p><strong>The Decision:</strong> <input type="text" class="input-field" placeholder="What decision are you avoiding?"></p>
+                <p><strong>What you've been thinking about:</strong> <input type="text" class="input-field" placeholder="What thoughts keep circling?"></p>
+                <p><strong>How long you've been thinking:</strong> <input type="text" class="input-field" placeholder="Days? Weeks? Months?"></p>
+                <p><strong>What information you're still seeking:</strong> <input type="text" class="input-field" placeholder="What do you think you need to know?"></p>
+                <p><strong>What you're really afraid of:</strong> <input type="text" class="input-field" placeholder="What's the real fear?"></p>
+                <p><strong>What you would do if you had to decide right now:</strong> <input type="text" class="input-field" placeholder="Your gut instinct..."></p>
+
+                <h3>Part C: The Action Break</h3>
+                <p><strong>For the decision above, what's the smallest action you could take today?</strong></p>
+                <p><strong>Action:</strong> <input type="text" class="input-field" placeholder="One small step..."></p>
+                <p><strong>When will you do it?</strong> <input type="text" class="input-field" placeholder="Specific time and date..."></p>
+                <p><strong>What's the worst that could happen?</strong> <input type="text" class="input-field" placeholder="Be realistic about the risks..."></p>
+                <p><strong>What's the best that could happen?</strong> <input type="text" class="input-field" placeholder="Dream about the possibilities..."></p>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 4: CHALLENGE THE STORIES THAT LIMIT YOU</h2>
+                <p><em>Confront the narratives that are creating your limits</em></p>
+                
+                <h3>Part A: The Stories You Tell Yourself</h3>
+                <p><strong>Complete these sentences:</strong></p>
+                
+                <p><strong>I can't be successful because:</strong> <input type="text" class="input-field" placeholder="What's your success story?"></p>
+                <p><strong>I can't be happy because:</strong> <input type="text" class="input-field" placeholder="What's your happiness story?"></p>
+                <p><strong>I can't change because:</strong> <input type="text" class="input-field" placeholder="What's your change story?"></p>
+                <p><strong>I can't be myself because:</strong> <input type="text" class="input-field" placeholder="What's your authenticity story?"></p>
+                <p><strong>I can't have what I want because:</strong> <input type="text" class="input-field" placeholder="What's your limitation story?"></p>
+
+                <h3>Part B: Challenge Each Story</h3>
+                <p><strong>For each story above, ask:</strong></p>
+                
+                <p><strong>Is this story actually true?</strong> <input type="text" class="input-field" placeholder="Really? Is it absolutely true?"></p>
+                <p><strong>What evidence do I have for this story?</strong> <input type="text" class="input-field" placeholder="What proof do you have?"></p>
+                <p><strong>What evidence do I have against this story?</strong> <input type="text" class="input-field" placeholder="What contradicts this story?"></p>
+                <p><strong>What would I tell a friend who said this about themselves?</strong> <input type="text" class="input-field" placeholder="Be kind to yourself..."></p>
+                <p><strong>What's a more empowering story I could tell instead?</strong> <input type="text" class="input-field" placeholder="Rewrite your narrative..."></p>
+
+                <h3>Part C: Rewrite Your Narrative</h3>
+                <p><strong>Old Story:</strong> <input type="text" class="input-field" placeholder="Write your limiting story..."></p>
+                <p><strong>New Story:</strong> <input type="text" class="input-field" placeholder="Write your empowering story..."></p>
+                
+                <p><strong>Old Story:</strong> <input type="text" class="input-field" placeholder="Another limiting story..."></p>
+                <p><strong>New Story:</strong> <input type="text" class="input-field" placeholder="Another empowering story..."></p>
+                
+                <p><strong>Old Story:</strong> <input type="text" class="input-field" placeholder="One more limiting story..."></p>
+                <p><strong>New Story:</strong> <input type="text" class="input-field" placeholder="One more empowering story..."></p>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 5: KNOW EXACTLY WHAT BEHAVIORS MOVE YOU FORWARD</h2>
+                <p><em>Clear patterns that serve you</em></p>
+                
+                <h3>Part A: Your Success Patterns</h3>
+                <p><strong>Think of a time when you felt most confident and capable. What were you doing?</strong></p>
+                
+                <p><strong>Your actions:</strong> <input type="text" class="input-field" placeholder="What were you doing?"></p>
+                <p><strong>Your mindset:</strong> <input type="text" class="input-field" placeholder="How were you thinking?"></p>
+                <p><strong>Your environment:</strong> <input type="text" class="input-field" placeholder="Where were you?"></p>
+                <p><strong>Your relationships:</strong> <input type="text" class="input-field" placeholder="Who was around you?"></p>
+                <p><strong>Your habits:</strong> <input type="text" class="input-field" placeholder="What routines were you following?"></p>
+
+                <h3>Part B: What Serves You</h3>
+                <p><strong>What behaviors consistently move you forward?</strong></p>
+                
+                <p><strong>Daily habits:</strong> <input type="text" class="input-field" placeholder="What daily practices help you?"></p>
+                <p><strong>Decision-making process:</strong> <input type="text" class="input-field" placeholder="How do you make good decisions?"></p>
+                <p><strong>How you handle challenges:</strong> <input type="text" class="input-field" placeholder="What's your approach to problems?"></p>
+                <p><strong>How you interact with others:</strong> <input type="text" class="input-field" placeholder="How do you connect with people?"></p>
+                <p><strong>How you manage your time:</strong> <input type="text" class="input-field" placeholder="What time management works for you?"></p>
+
+                <h3>Part C: Your Success Formula</h3>
+                <p><strong>Based on the above, what's your personal success formula?</strong></p>
+                
+                <p><strong>When I do these things:</strong> <input type="text" class="input-field" placeholder="Your success behaviors..."></p>
+                <p><strong>I feel:</strong> <input type="text" class="input-field" placeholder="How you feel when successful..."></p>
+                <p><strong>And I get these results:</strong> <input type="text" class="input-field" placeholder="What outcomes you achieve..."></p>
+                <p><strong>So I should do more of:</strong> <input type="text" class="input-field" placeholder="What to amplify..."></p>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 6: STOP PERFORMING AND START BEING REAL</h2>
+                <p><em>Real confidence that comes from within</em></p>
+                
+                <h3>Part A: Where You're Performing</h3>
+                <p><strong>Rate your authenticity level (1-10) in these areas:</strong></p>
+                
+                <div class="rating-scale">
+                    <span><strong>At work:</strong></span>
+                    <input type="number" min="1" max="10" value="5">/10
+                </div>
+                
+                <div class="rating-scale">
+                    <span><strong>With friends:</strong></span>
+                    <input type="number" min="1" max="10" value="5">/10
+                </div>
+                
+                <div class="rating-scale">
+                    <span><strong>With family:</strong></span>
+                    <input type="number" min="1" max="10" value="5">/10
+                </div>
+                
+                <div class="rating-scale">
+                    <span><strong>With romantic partner:</strong></span>
+                    <input type="number" min="1" max="10" value="5">/10
+                </div>
+                
+                <div class="rating-scale">
+                    <span><strong>On social media:</strong></span>
+                    <input type="number" min="1" max="10" value="5">/10
+                </div>
+                
+                <div class="rating-scale">
+                    <span><strong>In public:</strong></span>
+                    <input type="number" min="1" max="10" value="5">/10
+                </div>
+
+                <h3>Part B: The Performance Cost</h3>
+                <p><strong>What's it costing you to perform?</strong></p>
+                
+                <p><strong>Energy:</strong> <input type="text" class="input-field" placeholder="How much energy does performing drain?"></p>
+                <p><strong>Time:</strong> <input type="text" class="input-field" placeholder="How much time does performing waste?"></p>
+                <p><strong>Relationships:</strong> <input type="text" class="input-field" placeholder="How does performing affect your relationships?"></p>
+                <p><strong>Self-respect:</strong> <input type="text" class="input-field" placeholder="How does performing impact your self-respect?"></p>
+                <p><strong>Peace:</strong> <input type="text" class="input-field" placeholder="How does performing affect your inner peace?"></p>
+
+                <h3>Part C: Your Authentic Self</h3>
+                <p><strong>If you could be completely authentic, who would you be?</strong></p>
+                
+                <p><strong>How would you act at work?</strong> <input type="text" class="input-field" placeholder="Your authentic work self..."></p>
+                <p><strong>How would you be in relationships?</strong> <input type="text" class="input-field" placeholder="Your authentic relationship self..."></p>
+                <p><strong>How would you handle conflict?</strong> <input type="text" class="input-field" placeholder="Your authentic conflict style..."></p>
+                <p><strong>How would you express emotions?</strong> <input type="text" class="input-field" placeholder="Your authentic emotional expression..."></p>
+                <p><strong>How would you spend your time?</strong> <input type="text" class="input-field" placeholder="Your authentic time priorities..."></p>
+
+                <h3>Part D: The First Step</h3>
+                <p><strong>What's one small way you can be more authentic today?</strong></p>
+                
+                <p><strong>I will:</strong> <input type="text" class="input-field" placeholder="One authentic action..."></p>
+                <p><strong>Even if it means:</strong> <input type="text" class="input-field" placeholder="What you're willing to risk..."></p>
+                <p><strong>Because I want to:</strong> <input type="text" class="input-field" placeholder="Your deeper motivation..."></p>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 7: MAKE DECISIONS AND MOVE FORWARD WITH PURPOSE</h2>
+                <p><em>Action over endless thinking</em></p>
+                
+                <h3>Part A: Decisions You've Been Avoiding</h3>
+                <p><strong>List decisions you've been putting off:</strong></p>
+                
+                <p>1. <input type="text" class="input-field" placeholder="First decision you're avoiding..."></p>
+                <p>2. <input type="text" class="input-field" placeholder="Second decision you're avoiding..."></p>
+                <p>3. <input type="text" class="input-field" placeholder="Third decision you're avoiding..."></p>
+                <p>4. <input type="text" class="input-field" placeholder="Fourth decision you're avoiding..."></p>
+                <p>5. <input type="text" class="input-field" placeholder="Fifth decision you're avoiding..."></p>
+
+                <h3>Part B: The Decision Framework</h3>
+                <p><strong>For your most important pending decision:</strong></p>
+                
+                <p><strong>The Decision:</strong> <input type="text" class="input-field" placeholder="What decision are you facing?"></p>
+                <p><strong>What's the worst that could happen?</strong> <input type="text" class="input-field" placeholder="Be realistic about the risks..."></p>
+                <p><strong>What's the best that could happen?</strong> <input type="text" class="input-field" placeholder="Dream about the possibilities..."></p>
+                <p><strong>What's most likely to happen?</strong> <input type="text" class="input-field" placeholder="What's the realistic outcome?"></p>
+                <p><strong>What would you tell a friend to do?</strong> <input type="text" class="input-field" placeholder="Advice you'd give someone else..."></p>
+                <p><strong>What's your gut telling you?</strong> <input type="text" class="input-field" placeholder="Your intuition..."></p>
+                <p><strong>Your decision:</strong> <input type="text" class="input-field" placeholder="What you've decided..."></p>
+                <p><strong>Action to take today:</strong> <input type="text" class="input-field" placeholder="First step to take..."></p>
+
+                <h3>Part C: Moving Forward</h3>
+                <p><strong>What's one decision you can make right now?</strong></p>
+                
+                <p><strong>Decision:</strong> <input type="text" class="input-field" placeholder="One decision you can make today..."></p>
+                <p><strong>Action:</strong> <input type="text" class="input-field" placeholder="Specific action to take..."></p>
+                <p><strong>Timeline:</strong> <input type="text" class="input-field" placeholder="When will you do this?"></p>
+                <p><strong>Accountability:</strong> <input type="text" class="input-field" placeholder="Who will hold you accountable?"></p>
+            </div>
+
+            <div class="exercise">
+                <h2>EXERCISE 8: REWRITE YOUR NARRATIVE AND CREATE NEW POSSIBILITIES</h2>
+                <p><em>Freedom from the stories that limit you</em></p>
+                
+                <h3>Part A: Your Current Narrative</h3>
+                <p><strong>Complete this story about your life:</strong></p>
+                
+                <p><strong>"I am the kind of person who..."</strong> <input type="text" class="input-field" placeholder="How do you see yourself?"></p>
+                <p><strong>"I can't..."</strong> <input type="text" class="input-field" placeholder="What do you think you can't do?"></p>
+                <p><strong>"I'm not good at..."</strong> <input type="text" class="input-field" placeholder="What do you think you're bad at?"></p>
+                <p><strong>"People like me because..."</strong> <input type="text" class="input-field" placeholder="Why do you think people like you?"></p>
+                <p><strong>"I'll never be able to..."</strong> <input type="text" class="input-field" placeholder="What do you think is impossible?"></p>
+
+                <h3>Part B: The New Narrative</h3>
+                <p><strong>Rewrite each statement above:</strong></p>
+                
+                <p><strong>"I am the kind of person who..."</strong> <input type="text" class="input-field" placeholder="New empowering self-view..."></p>
+                <p><strong>"I can..."</strong> <input type="text" class="input-field" placeholder="What you can do..."></p>
+                <p><strong>"I'm getting better at..."</strong> <input type="text" class="input-field" placeholder="What you're improving..."></p>
+                <p><strong>"People like me because..."</strong> <input type="text" class="input-field" placeholder="Your positive qualities..."></p>
+                <p><strong>"I'm working toward..."</strong> <input type="text" class="input-field" placeholder="Your goals and aspirations..."></p>
+
+                <h3>Part C: New Possibilities</h3>
+                <p><strong>If this new narrative were true, what would be possible?</strong></p>
+                
+                <p><strong>In my career:</strong> <input type="text" class="input-field" placeholder="Career possibilities..."></p>
+                <p><strong>In my relationships:</strong> <input type="text" class="input-field" placeholder="Relationship possibilities..."></p>
+                <p><strong>In my health:</strong> <input type="text" class="input-field" placeholder="Health possibilities..."></p>
+                <p><strong>In my personal growth:</strong> <input type="text" class="input-field" placeholder="Growth possibilities..."></p>
+                <p><strong>In my impact on others:</strong> <input type="text" class="input-field" placeholder="Impact possibilities..."></p>
+
+                <h3>Part D: Your Commitment</h3>
+                <p><strong>What's one story you're committing to change?</strong></p>
+                
+                <p><strong>Old story:</strong> <input type="text" class="input-field" placeholder="The limiting story you're letting go..."></p>
+                <p><strong>New story:</strong> <input type="text" class="input-field" placeholder="The empowering story you're adopting..."></p>
+                <p><strong>Action to support this new story:</strong> <input type="text" class="input-field" placeholder="What will you do to make this real?"></p>
+            </div>
+
+            <div class="conclusion-section">
+                <h2>THE HARD TRUTH</h2>
+                <p>You're not broken. You're not defective. You're not beyond hope.</p>
+                
+                <p>You're just stuck in patterns that were taught to you. Patterns that made sense when you were a kid trying to survive, but patterns that are now keeping you from thriving.</p>
+                
+                <h3>The good news?</h3>
+                
+                <p>Patterns can be broken. Habits can be changed. You can learn to be the man you're meant to be.</p>
+                
+                <p>It won't be easy. It will require courage, honesty, and a willingness to face uncomfortable truths about yourself.</p>
+                
+                <p>But it will be worth it.</p>
+                
+                <p>Because on the other side of this work is the man you've always wanted to be.</p>
+                
+                <p>The man who doesn't need permission to exist.</p>
+                
+                <p>The man who creates his own reality.</p>
+                
+                <p>The man who finally stops performing and starts living.</p>
+                
+                <h3>Are you ready to do the work?</h3>
+                
+                <a href="index.html#contact" class="cta-button">Start Your Transformation Journey</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Save progress to localStorage
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                // Load saved data
+                const savedValue = localStorage.getItem(input.placeholder || input.name);
+                if (savedValue) {
+                    input.value = savedValue;
+                }
+                
+                // Save on change
+                input.addEventListener('input', function() {
+                    localStorage.setItem(this.placeholder || this.name, this.value);
+                });
+            });
+            
+            // Print functionality
+            const printButton = document.querySelector('.print-button');
+            printButton.addEventListener('click', function() {
+                window.print();
+            });
+        });
+    </script>
+</body>
+</html>
+
+

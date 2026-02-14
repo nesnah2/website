@@ -316,3 +316,8 @@ Mikkel
 P.S. If you haven't started the workbook yet, that resistance is your default mode protecting itself. Push through.
 ```
 
+
+
+
+
+

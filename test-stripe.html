@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Stripe</title>
+</head>
+<body>
+    <h1>Test Stripe Connection</h1>
+    <button id="testBtn">Test Button</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('testBtn').addEventListener('click', async () => {
+            console.log('Button clicked!');
+            document.getElementById('result').innerHTML = 'Button clicked!';
+            
+            try {
+                const response = await fetch('/create-checkout-session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        productName: 'Default Mode Workbook'
+                    })
+                });
+                
+                const result = await response.json();
+                console.log('Response:', result);
+                document.getElementById('result').innerHTML = 'Response: ' + JSON.stringify(result);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = 'Error: ' + error.message;
+            }
+        });
+    </script>
+</body>
+</html>

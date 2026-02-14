@@ -1,0 +1,47 @@
+# Optimized Trading Bot Configuration
+
+# Exchange settings
+exchange: 
+  name: binance  # Options: binance, coinbase, kraken, etc.
+  api_key: YOUR_API_KEY
+  api_secret: YOUR_API_SECRET
+
+# Trading parameters
+trading:
+  symbols: ["BTC/USDT", "ETH/USDT"]  # Trading pairs
+  position_size_pct: 10  # Percentage of available balance to use per trade
+  check_interval: 60  # Time in seconds between checks
+
+# Timeframes for multi-timeframe analysis
+timeframes:
+  trend: 4h  # Higher timeframe for trend direction
+  signal: 1h  # Mid timeframe for signal generation
+  entry: 15m  # Lower timeframe for precise entries
+
+# Strategy parameters  
+strategy:
+  profit_target: 2.5  # Take profit percentage
+  stop_loss: 2.0  # Stop loss percentage  
+  trailing_stop: 1.0  # Trailing stop percentage below highest price
+
+# Risk management
+risk_management:
+  max_trades_per_day: 5
+  max_open_trades: 2
+  max_daily_loss: 5.0  # Stop trading if daily loss exceeds this percentage
+  
+# Advanced settings
+advanced:
+  use_limit_orders: true  # Use limit orders instead of market orders
+  price_buffer: 0.2  # Buffer percentage above/below price for limit orders
+  retry_attempts: 3  # Number of retry attempts for failed API calls
+
+
+
+
+
+
+
+
+
+

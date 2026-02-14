@@ -107,3 +107,11 @@ const firebaseConfig = {
 ✅ Users can login from anywhere
 ✅ Professional authentication system
 ✅ Free tier supports up to 50,000 users/month
+
+
+
+
+
+
+
+

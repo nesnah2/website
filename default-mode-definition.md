@@ -28,3 +28,11 @@ The workbook bridges from awareness to freedom by:
 ## Key Insight
 
 The default mode isn't just habits - it's an entire operating system built on unconscious beliefs that were formed to protect us but now limit us.
+
+
+
+
+
+
+
+

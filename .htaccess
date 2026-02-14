@@ -1,0 +1,39 @@
+# Configure GitHub Pages to serve files without extensions as HTML
+# This tells the server to treat files without extensions as HTML files
+
+<Files "*">
+    ForceType text/html
+    Header set Content-Type "text/html; charset=utf-8"
+</Files>
+
+# Specific files without extensions
+<Files "freeworkbook">
+    ForceType text/html
+    Header set Content-Type "text/html; charset=utf-8"
+</Files>
+
+<Files "free-workbook-app">
+    ForceType text/html
+    Header set Content-Type "text/html; charset=utf-8"
+</Files>
+
+<Files "workbook">
+    ForceType text/html
+    Header set Content-Type "text/html; charset=utf-8"
+</Files>
+
+<Files "linktree">
+    ForceType text/html
+    Header set Content-Type "text/html; charset=utf-8"
+</Files>
+
+
+
+
+
+
+
+
+
+
+

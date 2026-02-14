@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter | Mikkel Hansen</title>
+    <meta name="description" content="No spam. Just honest stuff about breaking free from the patterns that hold you back. Join the list.">
+    
+    <meta property="og:title" content="Join the Newsletter | Mikkel Hansen">
+    <meta property="og:description" content="No spam. Just honest stuff about breaking free from the patterns that hold you back.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mikkelhansen.org/newsletter-landing.html">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .page {
+            max-width: 520px;
+            width: 100%;
+            padding: 48px 24px;
+        }
+        
+        .logo {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffd700;
+            margin-bottom: 48px;
+            letter-spacing: 0.05em;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        
+        .subhead {
+            font-size: 1.15rem;
+            color: #b0b0b0;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+        
+        .benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 40px 0;
+        }
+        
+        .benefits li {
+            padding: 12px 0;
+            padding-left: 28px;
+            position: relative;
+            color: #e2e8f0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .benefits li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+            font-weight: 700;
+        }
+        
+        .form-box {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 36px;
+            border: 1px solid rgba(255, 215, 0, 0.25);
+        }
+        
+        .form-group {
+            margin-bottom: 18px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #ffd700;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 16px 18px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #ffd700;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ffd700, #ff6b35);
+            color: #0f1419;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 8px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+        }
+        
+        .privacy {
+            font-size: 0.85rem;
+            color: #808080;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .back-link {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .back-link a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        
+        .back-link a:hover {
+            color: #ffd700;
+        }
+        
+        @media (max-width: 600px) {
+            .page { padding: 32px 20px; }
+            h1 { font-size: 1.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="logo">MIKKEL HANSEN</div>
+        
+        <h1>No spam.<br>Just the real shit.</h1>
+        <p class="subhead">Honest emails about breaking free from the patterns that hold you back. Self-sabotage, avoidance, and what actually works when you're done pretending.</p>
+        
+        <ul class="benefits">
+            <li>Stories from the journey — addiction, avoidance, and coming out the other side</li>
+            <li>Simple practices you can use right away</li>
+            <li>No fluff. No guru vibes. Just what I wish someone had told me.</li>
+        </ul>
+        
+        <div class="form-box">
+            <!-- Replace YOUR_FORM_ID with your Kit form ID (app.kit.com → Forms → edit → check URL) -->
+            <form action="https://app.convertkit.com/forms/YOUR_FORM_ID/subscriptions" method="post">
+                <div class="form-group">
+                    <label for="first_name">Name</label>
+                    <input type="text" id="first_name" name="fields[first_name]" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email_address">Email</label>
+                    <input type="email" id="email_address" name="email_address" placeholder="your@email.com" required>
+                </div>
+                <button type="submit" class="submit-btn">Join the list</button>
+            </form>
+            <p class="privacy">Unsubscribe anytime. Your email stays with me.</p>
+        </div>
+        
+        <div class="back-link">
+            <a href="index.html">← Back to home</a>
+        </div>
+    </div>
+</body>
+</html>

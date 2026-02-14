@@ -19,4 +19,4 @@ const db = firebase.firestore();
 window.firebaseAuth = auth;
 window.firebaseDb = db;
 
-console.log('Firebase initialized successfully');
+// Firebase initialized successfully

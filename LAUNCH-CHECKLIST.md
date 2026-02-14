@@ -178,3 +178,11 @@
 - Firebase authentication active
 - Ready for launch after Stripe + Email setup
 
+
+
+
+
+
+
+
+
