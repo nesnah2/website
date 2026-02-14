@@ -56,19 +56,17 @@
 
         <!-- Links Section -->
         <div class="links-section">
-            <!-- Newsletter - Featured -->
-            <a href="newsletter-landing.html" class="link-card featured">
-                <div class="link-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <div class="link-content">
-                    <h3>Join the Newsletter</h3>
-                    <p>No spam. Just honest stuff about breaking free</p>
-                </div>
-                <div class="link-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
+            <!-- Newsletter Signup Form - Inline -->
+            <div class="newsletter-form-card featured">
+                <h3 class="newsletter-form-title">Join the list</h3>
+                <p class="newsletter-form-subtitle">No spam. Just honest stuff about breaking free.</p>
+                <!-- Replace YOUR_FORM_ID with your Kit form ID (app.kit.com → Forms → edit → check URL) -->
+                <form action="https://app.convertkit.com/forms/YOUR_FORM_ID/subscriptions" method="post" class="newsletter-form">
+                    <input type="text" name="fields[first_name]" placeholder="Name" required>
+                    <input type="email" name="email_address" placeholder="Email" required>
+                    <button type="submit">Join</button>
+                </form>
+            </div>
 
             <!-- Book Discovery Call -->
             <button class="link-card book-call book-now-btn" data-service="discovery" data-price="Free">
