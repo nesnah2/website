@@ -10,38 +10,59 @@
     <style>
         * { box-sizing: border-box; }
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: #f5f5f5;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #fff;
+            color: #1b2a34;
             margin: 0;
             padding: 0;
             min-height: 100vh;
         }
         
         .page {
-            max-width: 560px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 32px 20px 60px;
+            padding: 0 24px 60px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 16px 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1b2a34;
+            text-decoration: none;
+        }
+        .back-link:hover { color: #e3000b; }
+        .back-link::before {
+            content: "←";
+            font-size: 1.1rem;
+        }
+        
+        .search-section {
+            padding: 24px 0 40px;
         }
         
         .logo {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             color: #e3000b;
-            margin-bottom: 24px;
-            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            letter-spacing: 0.08em;
         }
         
         h1 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 6px;
-            color: #111;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1b2a34;
+            line-height: 1.2;
         }
         
         .subhead {
-            font-size: 0.9rem;
-            color: #666;
+            font-size: 0.95rem;
+            color: #5c6b73;
             margin-bottom: 24px;
             line-height: 1.5;
         }
@@ -54,13 +75,13 @@
         
         .input-row input {
             flex: 1;
-            padding: 12px 16px;
+            padding: 14px 18px;
             font-size: 1rem;
             font-family: inherit;
-            border: 2px solid #ddd;
-            border-radius: 4px;
+            border: 2px solid #e0e0e0;
+            border-radius: 0;
             background: #fff;
-            color: #333;
+            color: #1b2a34;
             outline: none;
         }
         
@@ -69,12 +90,12 @@
         }
         
         .btn {
-            padding: 12px 20px;
+            padding: 14px 24px;
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: 600;
             font-family: inherit;
             border: none;
-            border-radius: 4px;
+            border-radius: 0;
             cursor: pointer;
             background: #e3000b;
             color: #fff;
@@ -85,19 +106,19 @@
         .suggestions {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 32px;
+            gap: 8px;
+            margin-bottom: 0;
         }
         
-        .suggestions span { font-size: 0.8rem; color: #888; margin-right: 4px; }
+        .suggestions span { font-size: 0.85rem; color: #5c6b73; margin-right: 4px; }
         .suggestions button {
-            padding: 6px 12px;
-            font-size: 0.8rem;
+            padding: 8px 14px;
+            font-size: 0.85rem;
             font-family: inherit;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            border: 2px solid #e0e0e0;
+            border-radius: 0;
             background: #fff;
-            color: #666;
+            color: #1b2a34;
             cursor: pointer;
         }
         .suggestions button:hover {
@@ -107,31 +128,66 @@
         
         .recipe {
             display: none;
-            background: #fff;
-            border-radius: 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            overflow: hidden;
             margin-top: 0;
         }
         .recipe.visible { display: block; }
         
-        .recipe-header {
-            background: #e3000b;
-            padding: 20px;
-            text-align: center;
+        .recipe-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-top: 24px;
         }
-        .recipe-header h2 {
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin: 0 0 4px 0;
-            color: #fff;
-        }
-        .recipe-header .set-num {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.95);
+        @media (max-width: 768px) {
+            .recipe-layout { grid-template-columns: 1fr; }
         }
         
-        .recipe-body { padding: 24px; }
+        .set-image-area {
+            background: #f5f5f5;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 24px;
+        }
+        
+        .set-info {
+            padding: 0 0 24px 0;
+        }
+        .set-info .theme {
+            font-size: 0.9rem;
+            color: #5c6b73;
+            margin-bottom: 4px;
+        }
+        .set-info h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            color: #1b2a34;
+        }
+        .set-info .meta {
+            font-size: 0.95rem;
+            color: #5c6b73;
+        }
+        .set-info .meta span { color: #1b2a34; font-weight: 600; }
+        
+        .recipe-divider {
+            border: none;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 24px 0;
+        }
+        
+        .instructions-heading {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1b2a34;
+            margin-bottom: 20px;
+        }
+        
+        .recipe-body { padding: 0; }
         
         .parts-section { margin-bottom: 24px; }
         .section-title {
@@ -147,15 +203,14 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 6px 10px;
+            padding: 8px 12px;
             background: #f9f9f9;
-            border-radius: 2px;
             font-size: 0.9rem;
         }
         .part-id { font-weight: 700; color: #e3000b; min-width: 44px; }
-        .part-name { flex: 1; color: #333; }
-        .part-qty { font-weight: 600; color: #111; }
-        .part-color { font-size: 0.8rem; color: #888; }
+        .part-name { flex: 1; color: #1b2a34; }
+        .part-qty { font-weight: 600; color: #1b2a34; }
+        .part-color { font-size: 0.8rem; color: #5c6b73; }
         
         .step-view { margin-bottom: 24px; }
         .step-nav {
@@ -164,57 +219,59 @@
             justify-content: space-between;
             gap: 12px;
             padding: 12px 0;
-            border-bottom: 2px solid #e3000b;
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
         .step-nav-left { display: flex; align-items: center; gap: 10px; }
         
         .step-nav-btn {
-            padding: 8px 16px;
-            font-size: 0.85rem;
+            padding: 10px 18px;
+            font-size: 0.9rem;
             font-weight: 600;
             font-family: inherit;
-            border: 2px solid #e3000b;
-            border-radius: 2px;
-            background: #fff;
-            color: #e3000b;
+            border: 2px solid #ffd500;
+            border-radius: 0;
+            background: #ffd500;
+            color: #1b2a34;
             cursor: pointer;
         }
         .step-nav-btn:hover:not(:disabled) {
-            background: #e3000b;
-            color: #fff;
+            background: #e6c200;
+            border-color: #e6c200;
         }
         .step-nav-btn:disabled {
-            opacity: 0.35;
+            opacity: 0.4;
             cursor: not-allowed;
+            background: #f5f5f5;
+            border-color: #e0e0e0;
+            color: #5c6b73;
         }
         .step-indicator {
             font-size: 0.9rem;
-            font-weight: 700;
-            color: #e3000b;
+            font-weight: 600;
+            color: #1b2a34;
         }
         
         .play-build-btn {
-            padding: 8px 14px;
-            font-size: 0.85rem;
+            padding: 10px 18px;
+            font-size: 0.9rem;
             font-weight: 600;
             font-family: inherit;
             border: 2px solid #e3000b;
-            border-radius: 2px;
-            background: #fff;
-            color: #e3000b;
+            border-radius: 0;
+            background: #e3000b;
+            color: #fff;
             cursor: pointer;
         }
         .play-build-btn:hover:not(:disabled) {
-            background: #e3000b;
-            color: #fff;
+            background: #c40009;
+            border-color: #c40009;
         }
         .play-build-btn:disabled { opacity: 0.5; cursor: not-allowed; }
         
         .build-preview {
-            background: #f0f0f0;
-            padding: 32px 24px;
+            background: #f5f5f5;
+            padding: 24px;
             min-height: 200px;
             display: flex;
             align-items: center;
@@ -322,20 +379,24 @@
 </head>
 <body>
     <div class="page">
-        <div class="logo">LEGO® Recipe Generator</div>
-        <h1>Build anything</h1>
-        <p class="subhead">Get authentic LEGO-style instructions with parts list and step-by-step assembly. Type what you want to build below.</p>
+        <a href="index.html" class="back-link">Back</a>
         
-        <div class="input-row">
-            <input type="text" id="buildInput" placeholder="e.g. candy machine, house, car" autofocus>
-            <button class="btn" id="buildBtn">Build</button>
-        </div>
-        
-        <div class="suggestions">
-            <span>Try:</span>
-            <button data-build="candy machine">Candy Machine</button>
-            <button data-build="house">House</button>
-            <button data-build="car">Car</button>
+        <div class="search-section">
+            <div class="logo">LEGO® Recipe Generator</div>
+            <h1>Build anything</h1>
+            <p class="subhead">Get authentic LEGO-style instructions with parts list and step-by-step assembly. Type what you want to build below.</p>
+            
+            <div class="input-row">
+                <input type="text" id="buildInput" placeholder="e.g. candy machine, house, car" autofocus>
+                <button class="btn" id="buildBtn">Build</button>
+            </div>
+            
+            <div class="suggestions">
+                <span>Try:</span>
+                <button data-build="candy machine">Candy Machine</button>
+                <button data-build="house">House</button>
+                <button data-build="car">Car</button>
+            </div>
         </div>
         
         <div id="recipe" class="recipe"></div>
@@ -448,15 +509,25 @@
             const partsAgg = getAggregatedParts(recipe);
             const partsSorted = Object.entries(partsAgg).sort((a, b) => b[1] - a[1]);
 
+            const totalPieces = partsSorted.reduce((s, [,q]) => s + q, 0);
             let html = `
-                <div class="recipe-header">
-                    <h2>${recipe.title}</h2>
-                    <div class="set-num">Set ${recipe.set_number} · ${buildName}</div>
-                </div>
-                <div class="recipe-body">
-                    <div class="parts-section">
-                        <div class="section-title">Parts List</div>
-                        <div class="parts-list">
+                <div class="recipe-layout">
+                    <div class="set-image-area">
+                        <div class="build-preview">
+                            <div class="bricks-container" id="bricksContainer"></div>
+                        </div>
+                    </div>
+                    <div class="recipe-body">
+                        <div class="set-info">
+                            <p class="theme">LEGO® Build</p>
+                            <h2>${recipe.title}</h2>
+                            <p class="meta">All ages | <span>#${recipe.set_number}</span> | <span>${totalPieces} pieces</span></p>
+                        </div>
+                        <hr class="recipe-divider" aria-hidden="true">
+                        <h2 class="instructions-heading">Select the instructions you want</h2>
+                        <div class="parts-section">
+                            <div class="section-title">Parts List</div>
+                            <div class="parts-list">
             `;
 
             partsSorted.forEach(([partKey, qty]) => {
@@ -483,9 +554,6 @@
                             <button class="play-build-btn" id="playBuildBtn" title="Watch step animate">
                                 <span class="play-icon">▶</span> Play
                             </button>
-                        </div>
-                        <div class="build-preview">
-                            <div class="bricks-container" id="bricksContainer"></div>
                         </div>
                         <div id="stepContent"></div>
                     </div>
