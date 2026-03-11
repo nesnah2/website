@@ -387,7 +387,7 @@
             <p class="subhead">Get authentic LEGO-style instructions with parts list and step-by-step assembly. Type what you want to build below.</p>
             
             <div class="input-row">
-                <input type="text" id="buildInput" placeholder="e.g. candy machine, house, car" autofocus>
+                <input type="text" id="buildInput" placeholder="e.g. candy machine, house, car, castle, spaceship, tree" autofocus>
                 <button class="btn" id="buildBtn">Build</button>
             </div>
             
@@ -396,6 +396,9 @@
                 <button data-build="candy machine">Candy Machine</button>
                 <button data-build="house">House</button>
                 <button data-build="car">Car</button>
+                <button data-build="castle">Castle</button>
+                <button data-build="spaceship">Spaceship</button>
+                <button data-build="tree">Tree</button>
             </div>
         </div>
         
@@ -486,8 +489,62 @@
                     "Attach axles and 1x1 round bricks as wheels. Four wheels total.",
                     "Add 2x2 slopes at the front for the hood. Your car is ready to roll!"
                 ]
+            },
+            "castle": {
+                title: "Mini Castle Tower",
+                set_number: "10645-1",
+                parts: [
+                    { part: "2x4_brick", qty: 12, step: 1 }, { part: "2x2_brick", qty: 4, step: 1 },
+                    { part: "2x4_plate", qty: 4, step: 2 }, { part: "1x4_brick", qty: 8, step: 3 },
+                    { part: "2x4_slope", qty: 4, step: 4 }, { part: "2x2_slope", qty: 2, step: 4 },
+                    { part: "1x1_brick", qty: 4, step: 5 }, { part: "window_1x2", qty: 2, step: 3 }
+                ],
+                steps: [
+                    "Build the base with 2x4 gray bricks forming a 6x6 stud footprint. Add 2x2 corners.",
+                    "Add a gray plate layer for the floor. This creates the castle ground level.",
+                    "Build walls with 1x4 white bricks. Add two windows on opposite sides.",
+                    "Create the roof using red slopes. Use 2x4 slopes for the main roof and 2x2 for the peak.",
+                    "Add 1x1 bricks as crenellations along the top for the classic castle look."
+                ]
+            },
+            "spaceship": {
+                title: "Classic LEGO Spaceship",
+                set_number: "10646-1",
+                parts: [
+                    { part: "2x4_brick", qty: 4, step: 1 }, { part: "2x3_brick", qty: 2, step: 1 },
+                    { part: "2x4_plate", qty: 2, step: 2 }, { part: "2x2_slope", qty: 4, step: 3 },
+                    { part: "1x1_round", qty: 2, step: 4 }, { part: "1x2_brick", qty: 4, step: 4 },
+                    { part: "trans_clear", qty: 1, step: 5 },
+                    { part: "1x4_brick", qty: 2, step: 2 }
+                ],
+                steps: [
+                    "Build the fuselage with 2x4 bricks (red) and 2x3 bricks (blue). Stack them for the cockpit area.",
+                    "Add gray plates for the wings. Use 1x4 plates on each side for a sleek look.",
+                    "Attach 2x2 slopes at the front for the nose cone. Angle them outward.",
+                    "Add two 1x1 round bricks as engine exhausts. Add 1x2 black bricks as wing tips.",
+                    "Place a trans-clear 1x1 for the cockpit window. Your spaceship is ready for launch!"
+                ]
+            },
+            "tree": {
+                title: "LEGO Tree",
+                set_number: "10647-1",
+                parts: [
+                    { part: "2x4_brick", qty: 2, step: 1 }, { part: "2x2_brick", qty: 1, step: 1 },
+                    { part: "2x4_plate", qty: 1, step: 2 }, { part: "2x2_plate", qty: 2, step: 2 },
+                    { part: "1x4_brick", qty: 4, step: 3 }, { part: "2x2_slope", qty: 4, step: 4 },
+                    { part: "1x1_round", qty: 2, step: 5 }
+                ],
+                steps: [
+                    "Build the trunk with 2x4 brown bricks (use gray as substitute). Add a 2x2 for the base.",
+                    "Add gray plates for the root base. Two 2x2 plates for stability.",
+                    "Build the lower foliage with 1x4 green bricks (use green or yellow). Stack 2–3 layers.",
+                    "Add 2x2 slopes for the canopy. Angle them outward like branches.",
+                    "Top with 1x1 round bricks as the crown. Your tree is complete!"
+                ]
             }
         };
+
+        const RECIPE_ALIASES = { "tower": "castle", "fort": "castle", "rocket": "spaceship", "space": "spaceship", "plant": "tree" };
 
         function getAggregatedParts(recipe) {
             const count = {};
@@ -499,6 +556,9 @@
 
         function findRecipe(buildIdea) {
             const idea = buildIdea.toLowerCase().trim();
+            for (const [alias, key] of Object.entries(RECIPE_ALIASES)) {
+                if (idea.includes(alias) && RECIPES[key]) return { key, recipe: RECIPES[key] };
+            }
             for (const [key, recipe] of Object.entries(RECIPES)) {
                 if (idea.includes(key) || key.includes(idea)) return { key, recipe };
             }
@@ -687,7 +747,7 @@
             }
 
             const { html } = renderRecipe(recipe, buildIdea);
-            recipeEl.innerHTML = html + (!key ? '<p class="no-match">No exact match found. Showing Candy Machine template. Try "candy machine", "house", or "car" for full recipes.</p>' : "");
+            recipeEl.innerHTML = html + (!key ? '<p class="no-match">No exact match found. Showing Candy Machine template. Try candy machine, house, car, castle, spaceship, or tree for full recipes.</p>' : "");
 
             initStepView(recipe);
             recipeEl.classList.add("visible");
