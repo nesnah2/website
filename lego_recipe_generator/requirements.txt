@@ -1,0 +1,8 @@
+# LEGO Recipe Generator - Optional dependencies
+# Install with: pip install -r requirements.txt
+
+# For AI-powered custom recipes (any build idea)
+openai>=1.0.0
+
+# For loading OPENAI_API_KEY from .env
+python-dotenv>=1.0.0

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO Recipe Generator | Mikkel Hansen</title>
+    <meta name="description" content="Generate authentic LEGO-style building instructions for any build idea. Candy machine, house, car, and more.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .page {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+        
+        .logo {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffd700;
+            margin-bottom: 32px;
+            letter-spacing: 0.05em;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        
+        .subhead {
+            font-size: 1rem;
+            color: #b0b0b0;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        
+        .input-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .input-row input {
+            flex: 1;
+            padding: 14px 18px;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 2px solid #2a3544;
+            border-radius: 8px;
+            background: #1a2332;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .input-row input:focus {
+            border-color: #e3000b;
+        }
+        
+        .input-row input::placeholder {
+            color: #6b7280;
+        }
+        
+        .btn {
+            padding: 14px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #e3000b;
+            color: #fff;
+            transition: background 0.2s, transform 0.1s;
+        }
+        
+        .btn:hover {
+            background: #ff1a1a;
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .suggestions span {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-right: 4px;
+        }
+        
+        .suggestions button {
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            font-family: inherit;
+            border: 1px solid #2a3544;
+            border-radius: 6px;
+            background: transparent;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .suggestions button:hover {
+            border-color: #e3000b;
+            color: #fff;
+            background: rgba(227, 0, 11, 0.1);
+        }
+        
+        .recipe {
+            display: none;
+            background: #1a2332;
+            border-radius: 12px;
+            border: 2px solid #2a3544;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        
+        .recipe.visible {
+            display: block;
+        }
+        
+        .recipe-header {
+            background: linear-gradient(135deg, #e3000b 0%, #b80009 100%);
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .recipe-header h2 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin: 0 0 4px 0;
+            color: #fff;
+        }
+        
+        .recipe-header .set-num {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .recipe-body {
+            padding: 24px;
+        }
+        
+        .parts-section {
+            margin-bottom: 28px;
+        }
+        
+        .section-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #ffd700;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #2a3544;
+        }
+        
+        .parts-list {
+            display: grid;
+            gap: 8px;
+        }
+        
+        .part-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            background: #0f1419;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+        
+        .part-id {
+            font-weight: 700;
+            color: #ffd700;
+            min-width: 48px;
+        }
+        
+        .part-name {
+            flex: 1;
+            color: #e2e8f0;
+        }
+        
+        .part-qty {
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .part-color {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+        
+        .steps-section .step {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #2a3544;
+        }
+        
+        .steps-section .step:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .step-num {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #e3000b;
+            margin-bottom: 8px;
+        }
+        
+        .step-parts {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-bottom: 8px;
+        }
+        
+        .step-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+        
+        .build-complete {
+            text-align: center;
+            padding: 24px;
+            font-weight: 700;
+            color: #ffd700;
+            font-size: 1.1rem;
+        }
+        
+        .no-match {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="logo">LEGO® Recipe Generator</div>
+        <h1>Build anything</h1>
+        <p class="subhead">Get authentic LEGO-style instructions with parts list and step-by-step assembly. Type what you want to build below.</p>
+        
+        <div class="input-row">
+            <input type="text" id="buildInput" placeholder="e.g. candy machine, house, car" autofocus>
+            <button class="btn" id="buildBtn">Build</button>
+        </div>
+        
+        <div class="suggestions">
+            <span>Try:</span>
+            <button data-build="candy machine">Candy Machine</button>
+            <button data-build="house">House</button>
+            <button data-build="car">Car</button>
+        </div>
+        
+        <div id="recipe" class="recipe"></div>
+    </div>
+
+    <script>
+        const LEGO_PARTS = {
+            "2x4_brick": { id: "3001", name: "Brick 2x4", color: "Red" },
+            "2x3_brick": { id: "3002", name: "Brick 2x3", color: "Blue" },
+            "2x2_brick": { id: "3003", name: "Brick 2x2", color: "Yellow" },
+            "1x4_brick": { id: "3010", name: "Brick 1x4", color: "White" },
+            "1x2_brick": { id: "3004", name: "Brick 1x2", color: "Black" },
+            "1x1_brick": { id: "3005", name: "Brick 1x1", color: "Various" },
+            "2x4_plate": { id: "3020", name: "Plate 2x4", color: "Gray" },
+            "2x2_plate": { id: "3022", name: "Plate 2x2", color: "Gray" },
+            "1x4_plate": { id: "3710", name: "Plate 1x4", color: "Gray" },
+            "1x2_plate": { id: "3023", name: "Plate 1x2", color: "Gray" },
+            "1x1_plate": { id: "3024", name: "Plate 1x1", color: "Gray" },
+            "2x4_slope": { id: "3040", name: "Slope 45° 2x4", color: "Red" },
+            "2x2_slope": { id: "3039", name: "Slope 45° 2x2", color: "Red" },
+            "1x1_round": { id: "4073", name: "Round Brick 1x1", color: "White" },
+            "2x2_round": { id: "4032", name: "Round Plate 2x2", color: "Yellow" },
+            "axle_4": { id: "3708", name: "Axle 4L", color: "Black" },
+            "trans_clear": { id: "3024", name: "Plate 1x1 Trans-Clear", color: "Trans-Clear" },
+            "door_1x3": { id: "4865", name: "Door 1x3x4", color: "White" },
+            "window_1x2": { id: "60592", name: "Window 1x2x3", color: "Trans-Clear" },
+            "lever": { id: "4595", name: "Lever", color: "Red" },
+            "knob": { id: "3941", name: "Cone 1x1", color: "Red" },
+            "cylinder_2x2": { id: "3942", name: "Cylinder 2x2", color: "Various" }
+        };
+
+        const RECIPES = {
+            "candy machine": {
+                title: "Candy Vending Machine",
+                set_number: "10642-1",
+                parts: [
+                    { part: "2x4_brick", qty: 12, step: 1 }, { part: "2x2_brick", qty: 8, step: 1 },
+                    { part: "2x4_plate", qty: 6, step: 2 }, { part: "2x2_plate", qty: 4, step: 2 },
+                    { part: "1x4_brick", qty: 6, step: 3 }, { part: "1x2_brick", qty: 8, step: 3 },
+                    { part: "1x1_brick", qty: 4, step: 4 }, { part: "2x4_slope", qty: 2, step: 5 },
+                    { part: "1x1_round", qty: 6, step: 6 }, { part: "lever", qty: 1, step: 7 },
+                    { part: "knob", qty: 4, step: 7 }, { part: "trans_clear", qty: 2, step: 8 },
+                    { part: "cylinder_2x2", qty: 3, step: 9 }
+                ],
+                steps: [
+                    "Build the base structure using 2x4 bricks in red. Create a 6-stud wide by 4-stud deep foundation.",
+                    "Add the first plate layer in gray. This forms the dispensing chamber floor.",
+                    "Construct the front panel with 1x4 white bricks. Leave a 2-stud gap in the center for the dispenser.",
+                    "Place 1x1 bricks at each corner for structural support. These will hold the transparent front.",
+                    "Add the roof slopes in red, angled toward the front. This creates the classic vending machine top.",
+                    "Insert 1x1 round bricks (white) as candy pieces inside the machine. Arrange in 3 columns.",
+                    "Attach the lever mechanism on the right side. Use one red lever and 4 red knobs for the coin slot.",
+                    "Install the transparent 1x1 plates as the viewing window to see the candy selection.",
+                    "Add 3 cylinder 2x2 pieces as the dispensing chutes. Test the lever to ensure candy drops!"
+                ]
+            },
+            "house": {
+                title: "Classic LEGO House",
+                set_number: "10643-1",
+                parts: [
+                    { part: "2x4_brick", qty: 16, step: 1 }, { part: "2x2_brick", qty: 4, step: 1 },
+                    { part: "2x4_plate", qty: 8, step: 2 }, { part: "1x4_brick", qty: 4, step: 3 },
+                    { part: "door_1x3", qty: 1, step: 4 }, { part: "window_1x2", qty: 2, step: 5 },
+                    { part: "2x4_slope", qty: 4, step: 6 }, { part: "2x2_slope", qty: 2, step: 6 }
+                ],
+                steps: [
+                    "Build the foundation with 2x4 red bricks. Create a 8x6 stud base.",
+                    "Add gray plates for the floor. Two layers for stability.",
+                    "Build the walls using 1x4 white bricks. Stack 4 bricks high.",
+                    "Install the white door in the center front. Ensure it opens outward.",
+                    "Add two windows on either side of the door. Use trans-clear pieces.",
+                    "Place red slopes for the roof. Angle them to meet at the peak."
+                ]
+            },
+            "car": {
+                title: "Simple LEGO Car",
+                set_number: "10644-1",
+                parts: [
+                    { part: "2x4_plate", qty: 1, step: 1 }, { part: "2x2_plate", qty: 2, step: 1 },
+                    { part: "2x4_brick", qty: 2, step: 2 }, { part: "2x2_brick", qty: 1, step: 2 },
+                    { part: "1x1_round", qty: 4, step: 3 }, { part: "axle_4", qty: 2, step: 3 },
+                    { part: "2x2_slope", qty: 2, step: 4 }
+                ],
+                steps: [
+                    "Start with the chassis: one 2x4 gray plate with two 2x2 plates for wheel wells.",
+                    "Build the body using 2x4 bricks (red) and a 2x2 brick (blue) for the cabin.",
+                    "Attach axles and 1x1 round bricks as wheels. Four wheels total.",
+                    "Add 2x2 slopes at the front for the hood. Your car is ready to roll!"
+                ]
+            }
+        };
+
+        function getAggregatedParts(recipe) {
+            const count = {};
+            recipe.parts.forEach(p => {
+                count[p.part] = (count[p.part] || 0) + p.qty;
+            });
+            return count;
+        }
+
+        function findRecipe(buildIdea) {
+            const idea = buildIdea.toLowerCase().trim();
+            for (const [key, recipe] of Object.entries(RECIPES)) {
+                if (idea.includes(key) || key.includes(idea)) return { key, recipe };
+            }
+            return { key: null, recipe: null };
+        }
+
+        function renderRecipe(recipe, buildName) {
+            const partsAgg = getAggregatedParts(recipe);
+            const partsSorted = Object.entries(partsAgg).sort((a, b) => b[1] - a[1]);
+
+            let html = `
+                <div class="recipe-header">
+                    <h2>${recipe.title}</h2>
+                    <div class="set-num">Set ${recipe.set_number} · ${buildName}</div>
+                </div>
+                <div class="recipe-body">
+                    <div class="parts-section">
+                        <div class="section-title">Parts List</div>
+                        <div class="parts-list">
+            `;
+
+            partsSorted.forEach(([partKey, qty]) => {
+                const p = LEGO_PARTS[partKey] || { id: "????", name: partKey.replace(/_/g, " "), color: "—" };
+                html += `<div class="part-row">
+                    <span class="part-id">${p.id}</span>
+                    <span class="part-name">${p.name}</span>
+                    <span class="part-qty">×${qty}</span>
+                    <span class="part-color">(${p.color})</span>
+                </div>`;
+            });
+
+            html += `
+                        </div>
+                    </div>
+                    <div class="section-title">Assembly Instructions</div>
+                    <div class="steps-section">
+            `;
+
+            recipe.steps.forEach((stepText, i) => {
+                const stepNum = i + 1;
+                const stepParts = recipe.parts.filter(p => p.step === stepNum);
+                const partsStr = stepParts.map(p => p.qty + "× " + (LEGO_PARTS[p.part]?.name || p.part)).join(", ");
+                html += `
+                    <div class="step">
+                        <div class="step-num">STEP ${stepNum}</div>
+                        ${partsStr ? `<div class="step-parts">Parts needed: ${partsStr}</div>` : ""}
+                        <div class="step-text">${stepText}</div>
+                    </div>
+                `;
+            });
+
+            html += `
+                    </div>
+                    <div class="build-complete">✓ BUILD COMPLETE! Enjoy your creation.</div>
+                </div>
+            `;
+
+            return html;
+        }
+
+        function generate() {
+            const input = document.getElementById("buildInput");
+            const buildIdea = input.value.trim();
+            const recipeEl = document.getElementById("recipe");
+
+            if (!buildIdea) {
+                recipeEl.classList.remove("visible");
+                return;
+            }
+
+            let { key, recipe } = findRecipe(buildIdea);
+
+            if (!recipe) {
+                recipe = { ...RECIPES["candy machine"] };
+                recipe.title = "Custom: " + buildIdea.charAt(0).toUpperCase() + buildIdea.slice(1);
+                recipe.set_number = "CUSTOM-1";
+                recipeEl.innerHTML = renderRecipe(recipe, buildIdea) + '<p class="no-match">No exact match found. Showing Candy Machine template. Try "candy machine", "house", or "car" for full recipes.</p>';
+            } else {
+                recipeEl.innerHTML = renderRecipe(recipe, buildIdea);
+            }
+
+            recipeEl.classList.add("visible");
+            recipeEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+
+        document.getElementById("buildBtn").addEventListener("click", generate);
+        document.getElementById("buildInput").addEventListener("keydown", e => { if (e.key === "Enter") generate(); });
+        document.querySelectorAll(".suggestions button").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.getElementById("buildInput").value = btn.dataset.build;
+                generate();
+            });
+        });
+    </script>
+</body>
+</html>
