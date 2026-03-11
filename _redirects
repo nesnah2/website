@@ -6,6 +6,7 @@
 /free-workbook-app  /free-workbook-app.html    200
 /workbook     /workbook.html   200
 /linktree /linktree.html   200
+/lego-recipe  /lego-recipe.html    200
 
 # Catch-all for any other clean URLs
 /*    /index.html   200
